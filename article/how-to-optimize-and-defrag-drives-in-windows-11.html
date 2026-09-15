@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Optimize and Defrag Drives in Windows 11 - windows-11</title>
+    <meta name="description" content="Maintaining storage drives in Windows 11 improves system performance, speeds up file access, and extends hardware lifespan. While mechanical hard disk drives (HDDs) require traditional defragmentation to consolidate split files, solid-state drives (SSDs)">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/how-to-optimize-and-defrag-drives-in-windows-11">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="How to Optimize and Defrag Drives in Windows 11 - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/how-to-optimize-and-defrag-drives-in-windows-11" />
+    <meta property="og:image:url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Maintaining storage drives in Windows 11 improves system performance, speeds up file access, and extends hardware lifespan. While mechanical hard disk drives (HDDs) require traditional defragmentation to consolidate split files, solid-state drives (SSDs)" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="how-to-optimize-and-defrag-drives-in-windows-11">How to Optimize
+and Defrag Drives in Windows 11</h1>
+<p>Maintaining storage drives in Windows 11 improves system performance,
+speeds up file access, and extends hardware lifespan. While mechanical
+hard disk drives (HDDs) require traditional defragmentation to
+consolidate split files, solid-state drives (SSDs) use the TRIM command
+to clear unused data blocks safely. This guide explains how Windows 11
+manages both drive types and provides direct steps to optimize them
+manually or set up automatic schedules using built-in operating system
+tools.</p>
+<h2 id="the-difference-between-optimizing-hdds-and-ssds">The Difference
+Between Optimizing HDDs and SSDs</h2>
+<p>Before running maintenance tools, it is important to understand how
+Windows 11 handles different storage media:</p>
+<ul>
+<li><strong>Hard Disk Drives (HDDs):</strong> Mechanical drives
+physically scatter data across rotating platters over time.
+Defragmenting reorganizes this fragmented data into contiguous sectors,
+reducing physical read-head movement and speeding up file access.</li>
+<li><strong>Solid-State Drives (SSDs):</strong> SSDs have no moving
+parts, so fragmentation does not slow down read speeds. Traditional
+defragmentation causes unnecessary write cycles, which wears down flash
+memory. Instead, Windows 11 optimizes SSDs by sending a
+<strong>TRIM</strong> command. TRIM notifies the drive which data blocks
+are no longer in use, allowing the SSD to erase them in advance for
+faster write operations.</li>
+</ul>
+<h2 id="how-to-optimize-drives-using-the-windows-11-settings-app">How to
+Optimize Drives Using the Windows 11 Settings App</h2>
+<ol type="1">
+<li>Open <strong>Settings</strong> by pressing
+<code>Windows Key + I</code>.</li>
+<li>Navigate to <strong>System</strong> &gt;
+<strong>Storage</strong>.</li>
+<li>Scroll down and click on <strong>Advanced storage
+settings</strong>.</li>
+<li>Select <strong>Drive optimization</strong>.</li>
+<li>In the <em>Optimize Drives</em> window, review the <strong>Media
+type</strong> column to ensure Windows correctly identifies your drives
+as <em>Solid state drive</em> or <em>Hard disk drive</em>.</li>
+<li>Select the drive you want to maintain:
+<ul>
+<li>For an <strong>HDD</strong>, click <strong>Analyze</strong> to check
+the fragmentation percentage, then click <strong>Optimize</strong> to
+begin defragmentation.</li>
+<li>For an <strong>SSD</strong>, click <strong>Optimize</strong> to send
+the TRIM command.</li>
+</ul></li>
+</ol>
+<h2 id="how-to-optimize-drives-via-the-start-menu-search">How to
+Optimize Drives via the Start Menu Search</h2>
+<ol type="1">
+<li>Press the <code>Windows Key</code> or click the search bar on the
+taskbar.</li>
+<li>Type <strong>Defragment and Optimize Drives</strong> and press
+<code>Enter</code>.</li>
+<li>Highlight the target drive from the list.</li>
+<li>Click <strong>Optimize</strong>. Windows 11 will automatically apply
+defragmentation to HDDs or TRIM optimization to SSDs.</li>
+</ol>
+<h2 id="how-to-optimize-drives-using-command-prompt">How to Optimize
+Drives Using Command Prompt</h2>
+<p>You can also run optimizations using the Windows Command Prompt with
+administrative privileges:</p>
+<ol type="1">
+<li><p>Press <code>Windows Key + S</code>, type <strong>cmd</strong>,
+right-click <strong>Command Prompt</strong>, and select <strong>Run as
+administrator</strong>.</p></li>
+<li><p>To defragment a traditional <strong>HDD</strong> (e.g., drive
+<code>D:</code>), run:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>defrag D: <span class="at">/U</span> <span class="at">/V</span></span></code></pre></div>
+<p><em>(The <code>/U</code> flag displays progress, and <code>/V</code>
+provides verbose output.)</em></p></li>
+<li><p>To execute the TRIM command on an <strong>SSD</strong> (e.g.,
+drive <code>C:</code>), run:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>defrag C: <span class="at">/L</span></span></code></pre></div>
+<p><em>(The <code>/L</code> flag tells the defrag utility to perform a
+re-trim.)</em></p></li>
+<li><p>To optimize all drives simultaneously based on their respective
+media types, run:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>defrag <span class="at">/C</span> <span class="at">/O</span></span></code></pre></div></li>
+</ol>
+<h2 id="configuring-automatic-drive-optimization">Configuring Automatic
+Drive Optimization</h2>
+<p>Windows 11 includes an automatic scheduling feature that keeps drives
+optimized in the background:</p>
+<ol type="1">
+<li>Open the <strong>Defragment and Optimize Drives</strong>
+utility.</li>
+<li>Under the <strong>Scheduled optimization</strong> section, check if
+scheduling is turned on.</li>
+<li>If it is disabled, click <strong>Turn on</strong> (or click
+<strong>Change settings</strong> to modify an existing schedule).</li>
+<li>Check the box labeled <strong>Run on a schedule
+(recommended)</strong>.</li>
+<li>Set the frequency to <strong>Weekly</strong> or
+<strong>Monthly</strong>.</li>
+<li>Click <strong>Choose</strong> to select which drives are included in
+the automatic routine, then click <strong>OK</strong> to save your
+preferences.</li>
+</ol></article>
+        <div id="comments-container"></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Enable VRR, G-Sync, and FreeSync in Windows 11 - windows-11</title>
+    <meta name="description" content="Variable Refresh Rate (VRR) synchronizes your monitor's refresh rate with your graphics card's frame output to eliminate screen tearing and minimize stuttering. This guide explains how to enable and configure VRR, NVIDIA G-Sync, and AMD FreeSync in Windo">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/how-to-enable-vrr-g-sync-and-freesync-in-windows-11">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="How to Enable VRR, G-Sync, and FreeSync in Windows 11 - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/how-to-enable-vrr-g-sync-and-freesync-in-windows-11" />
+    <meta property="og:image:url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Variable Refresh Rate (VRR) synchronizes your monitor's refresh rate with your graphics card's frame output to eliminate screen tearing and minimize stuttering. This guide explains how to enable and configure VRR, NVIDIA G-Sync, and AMD FreeSync in Windo" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="how-to-enable-vrr-g-sync-and-freesync-in-windows-11">How to
+Enable VRR, G-Sync, and FreeSync in Windows 11</h1>
+<p>Variable Refresh Rate (VRR) synchronizes your monitor's refresh rate
+with your graphics card's frame output to eliminate screen tearing and
+minimize stuttering. This guide explains how to enable and configure
+VRR, NVIDIA G-Sync, and AMD FreeSync in Windows 11 using both the
+operating system settings and dedicated GPU control panels.</p>
+<h2 id="1-prepare-your-hardware-and-monitor">1. Prepare Your Hardware
+and Monitor</h2>
+<p>Before configuring software settings, ensure your setup supports
+VRR:</p>
+<ul>
+<li><strong>Cable Connection:</strong> Connect your monitor to your
+graphics card using a DisplayPort 1.4 (or newer) or HDMI 2.1 cable.
+DisplayPort is recommended for G-Sync and FreeSync compatibility.</li>
+<li><strong>Monitor OSD Settings:</strong> Open your monitor's On-Screen
+Display (OSD) menu using the physical buttons on the display. Locate the
+gaming or display settings and turn on <strong>FreeSync</strong>,
+<strong>G-Sync</strong>, or <strong>Adaptive-Sync</strong>.</li>
+</ul>
+<h2 id="2-set-the-maximum-refresh-rate-in-windows-11">2. Set the Maximum
+Refresh Rate in Windows 11</h2>
+<p>Windows must be set to your monitor's highest supported refresh rate
+for VRR to work effectively:</p>
+<ol type="1">
+<li>Open <strong>Settings</strong> (<code>Win + I</code>) and navigate
+to <strong>System</strong> &gt; <strong>Display</strong>.</li>
+<li>Scroll down and click <strong>Advanced display</strong>.</li>
+<li>Under <strong>Display information</strong>, find <strong>Choose a
+refresh rate</strong> and select the highest available value (e.g.,
+144Hz, 240Hz).</li>
+</ol>
+<h2 id="3-enable-variable-refresh-rate-in-windows-11">3. Enable Variable
+Refresh Rate in Windows 11</h2>
+<p>Windows 11 includes a native VRR toggle for DirectX 11 and DirectX 12
+games:</p>
+<ol type="1">
+<li>Go to <strong>Settings</strong> &gt; <strong>System</strong> &gt;
+<strong>Display</strong>.</li>
+<li>Scroll down to the <em>Related settings</em> section and click
+<strong>Graphics</strong>.</li>
+<li>Click <strong>Change default graphics settings</strong> (or
+<strong>Default graphics settings</strong>).</li>
+<li>Toggle the switch for <strong>Variable refresh rate</strong> to
+<strong>On</strong>.</li>
+</ol>
+<h2 id="4-configure-g-sync-for-nvidia-graphics-cards">4. Configure
+G-Sync for NVIDIA Graphics Cards</h2>
+<p>If you have an NVIDIA GPU and a G-Sync or G-Sync Compatible
+monitor:</p>
+<ol type="1">
+<li>Right-click on your desktop and select <strong>NVIDIA Control
+Panel</strong>.</li>
+<li>In the left sidebar under <em>Display</em>, select <strong>Set up
+G-SYNC</strong>.</li>
+<li>Check the box for <strong>Enable G-SYNC, G-SYNC
+Compatible</strong>.</li>
+<li>Choose between <strong>Enable for full screen mode</strong> or
+<strong>Enable for windowed and full screen mode</strong>.</li>
+<li>Select your monitor and check <strong>Enable settings for the
+selected display model</strong>.</li>
+<li>Click <strong>Apply</strong> at the bottom right.</li>
+</ol>
+<h2 id="5-configure-freesync-for-amd-graphics-cards">5. Configure
+FreeSync for AMD Graphics Cards</h2>
+<p>If you have an AMD GPU and a FreeSync-compatible monitor:</p>
+<ol type="1">
+<li>Right-click on your desktop and select <strong>AMD Software:
+Adrenalin Edition</strong>.</li>
+<li>Click the <strong>Gear icon (Settings)</strong> in the top-right
+corner, then select the <strong>Display</strong> tab.</li>
+<li>If you have multiple displays, select your primary gaming
+monitor.</li>
+<li>Toggle <strong>AMD FreeSync</strong> to
+<strong>Enabled</strong>.</li>
+</ol>
+<h2 id="6-recommended-in-game-settings">6. Recommended In-Game
+Settings</h2>
+<p>To ensure VRR functions properly inside games:</p>
+<ul>
+<li><strong>V-Sync:</strong> Enable V-Sync in the GPU control panel
+(NVIDIA Control Panel or AMD Software) and disable it inside the in-game
+settings.</li>
+<li><strong>Frame Rate Cap:</strong> Set a frame rate limit in your GPU
+driver or game engine to 2–3 FPS below your monitor's maximum refresh
+rate (e.g., cap at 141 FPS on a 144Hz display) to prevent input lag
+caused by exceeding the VRR range.</li>
+</ul></article>
+        <div id="comments-container"></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

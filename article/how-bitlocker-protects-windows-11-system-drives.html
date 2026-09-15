@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How BitLocker Protects Windows 11 System Drives - windows-11</title>
+    <meta name="description" content="BitLocker device encryption in Windows 11 safeguards system drives by scrambling data into unreadable ciphertext using advanced encryption standards, anchoring encryption keys to dedicated hardware security modules, and verifying system integrity during">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/how-bitlocker-protects-windows-11-system-drives">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="How BitLocker Protects Windows 11 System Drives - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/how-bitlocker-protects-windows-11-system-drives" />
+    <meta property="og:image:url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="BitLocker device encryption in Windows 11 safeguards system drives by scrambling data into unreadable ciphertext using advanced encryption standards, anchoring encryption keys to dedicated hardware security modules, and verifying system integrity during" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="how-bitlocker-protects-windows-11-system-drives">How BitLocker
+Protects Windows 11 System Drives</h1>
+<p>BitLocker device encryption in Windows 11 safeguards system drives by
+scrambling data into unreadable ciphertext using advanced encryption
+standards, anchoring encryption keys to dedicated hardware security
+modules, and verifying system integrity during the boot process. By
+neutralizing the threat of offline attacks and physical drive theft,
+BitLocker ensures that sensitive operating system files, temporary
+caches, and user data remain inaccessible to unauthorized parties.</p>
+<h3 id="full-volume-data-scrambling">Full-Volume Data Scrambling</h3>
+<p>BitLocker operates at the volume level, encrypting the entire system
+drive using Advanced Encryption Standard (AES) with either 128-bit or
+256-bit key lengths (typically using XTS-AES mode). This ensures that
+every file written to the system drive—including the Windows operating
+system files, system registries, hibernation files, paging files, and
+personal documents—is automatically encrypted on the fly. When data is
+read from the drive, it is decrypted in real time, provided proper
+authentication is supplied.</p>
+<h3 id="hardware-based-security-via-tpm-20">Hardware-Based Security via
+TPM 2.0</h3>
+<p>Windows 11 mandates the use of a Trusted Platform Module (TPM) 2.0
+chip, which serves as the hardware root of trust for BitLocker.</p>
+<ul>
+<li><strong>Key Sealing:</strong> The encryption key used to decrypt the
+drive is sealed inside the TPM microchip.</li>
+<li><strong>Integrity Validation:</strong> During startup, the TPM
+checks critical system metrics—such as the UEFI firmware, boot loader,
+and core OS components—against baseline measurements.</li>
+<li><strong>Conditional Key Release:</strong> The TPM only releases the
+decryption key to system memory if the boot environment matches the
+expected, uncompromised state.</li>
+</ul>
+<h3 id="mitigation-of-offline-and-physical-attacks">Mitigation of
+Offline and Physical Attacks</h3>
+<p>Without full-disk encryption, an attacker with physical access to a
+computer can bypass Windows login credentials by removing the hard drive
+and connecting it to another machine, or by booting into a secondary
+operating system via a USB drive.</p>
+<p>BitLocker prevents this vulnerability. If the drive is removed or the
+boot order is altered, the TPM will not release the decryption key. To
+any foreign operating system or external device, the system drive
+appears purely as random, undecipherable data.</p>
+<h3 id="transparent-operation-and-recovery-safeguards">Transparent
+Operation and Recovery Safeguards</h3>
+<p>For authenticated users, BitLocker works invisibly in the background
+with negligible impact on system performance. During normal boots where
+system integrity is verified, Windows loads seamlessly without extra
+prompts.</p>
+<p>If a hardware component changes or the system encounters a firmware
+anomaly, BitLocker enters recovery mode. In this state, access to the
+drive requires a 48-digit BitLocker recovery key, which is generated
+during setup and typically backed up to the user's Microsoft account,
+Active Directory, or an external offline location.</p></article>
+        <div id="comments-container"></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

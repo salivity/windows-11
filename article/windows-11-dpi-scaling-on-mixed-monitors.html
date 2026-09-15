@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windows 11 DPI Scaling on Mixed Monitors - windows-11</title>
+    <meta name="description" content="Windows 11 manages mixed-resolution and varying-density multi-monitor setups by utilizing independent display scaling, modernized Per-Monitor DPI awareness, and dynamic Desktop Window Manager (DWM) rendering. This allows the operating system to automatic">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/windows-11-dpi-scaling-on-mixed-monitors">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Windows 11 DPI Scaling on Mixed Monitors - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/windows-11-dpi-scaling-on-mixed-monitors" />
+    <meta property="og:image:url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Windows 11 manages mixed-resolution and varying-density multi-monitor setups by utilizing independent display scaling, modernized Per-Monitor DPI awareness, and dynamic Desktop Window Manager (DWM) rendering. This allows the operating system to automatic" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="windows-11-dpi-scaling-on-mixed-monitors">Windows 11 DPI Scaling
+on Mixed Monitors</h1>
+<p>Windows 11 manages mixed-resolution and varying-density multi-monitor
+setups by utilizing independent display scaling, modernized Per-Monitor
+DPI awareness, and dynamic Desktop Window Manager (DWM) rendering. This
+allows the operating system to automatically scale user interface
+elements, text, and applications independently for each display,
+ensuring content maintains a consistent physical size and sharp visual
+clarity when moved between screens with different resolutions, such as a
+high-density 4K display and a standard 1080p monitor.</p>
+<h3 id="per-monitor-dpi-awareness-pmv2">Per-Monitor DPI Awareness
+(PMv2)</h3>
+<p>At the core of Windows 11’s scaling architecture is
+<strong>Per-Monitor DPI Awareness V2</strong>. In this model, the
+operating system assigns a distinct DPI (dots per inch) and scaling
+factor (such as 100%, 150%, or 200%) to each connected screen. When an
+application runs across multiple displays:</p>
+<ul>
+<li>The OS informs the application of the specific DPI value of the
+monitor hosting the majority of its window.</li>
+<li>Modern applications built on WinUI, modern WPF, or updated Win32
+APIs redraw their assets dynamically at the native resolution of that
+specific display.</li>
+<li>Non-client elements, such as title bars, scrollbars, dialog boxes,
+and context menus, are automatically rendered by the OS to match the
+target screen's DPI without requiring developer intervention.</li>
+</ul>
+<h3 id="dynamic-window-transitions-between-displays">Dynamic Window
+Transitions Between Displays</h3>
+<p>When moving an active window from one monitor to another with a
+different scaling factor, Windows 11 handles the transition in real
+time:</p>
+<ol type="1">
+<li><strong>DWM Bitmap Scaling:</strong> While dragging the window
+across the boundary between two screens, the Desktop Window Manager
+temporarily uses bitmap scaling to interpolate the visual output,
+preventing layout distortion during motion.</li>
+<li><strong>WM_DPICHANGED Signal:</strong> Once the window crosses the
+midpoint threshold onto the new display, Windows sends a
+<code>WM_DPICHANGED</code> message to the application with the new DPI
+value and a suggested window rect.</li>
+<li><strong>Native Re-rendering:</strong> DPI-aware applications
+instantly redraw their interface, fonts, and controls using assets
+optimized for the target screen's pixel density, eliminating visual
+blur.</li>
+</ol>
+<h3 id="handling-legacy-and-non-dpi-aware-applications">Handling Legacy
+and Non-DPI-Aware Applications</h3>
+<p>Older Win32 applications that do not support dynamic DPI changes are
+handled through several fallback mechanisms:</p>
+<ul>
+<li><strong>Enhanced GDI Scaling:</strong> For applications utilizing
+GDI (Graphics Device Interface), Windows 11 renders text and primitive
+UI components natively at the target monitor's DPI, bypassing standard
+bitmap stretching for crisper text rendering.</li>
+<li><strong>DPI Virtualization:</strong> For completely unmanaged legacy
+software, the OS renders the application at a primary DPI and applies
+standard bilinear scaling on secondary monitors. While this prevents the
+window from appearing abnormally tiny on high-resolution screens, it can
+introduce mild blurriness. Users can override this per application via
+the executable's <strong>Properties &gt; Compatibility &gt; Change high
+DPI settings</strong> menu.</li>
+</ul>
+<h3 id="multi-monitor-workflow-enhancements-in-windows-11">Multi-Monitor
+Workflow Enhancements in Windows 11</h3>
+<p>Windows 11 introduces architectural refinements that improve
+multi-display usability:</p>
+<ul>
+<li><strong>Display Layout Memory:</strong> The system retains window
+placements and scaling profiles based on monitor EDID IDs, automatically
+restoring applications to their correct positions and scale factors when
+displays are disconnected and reconnected.</li>
+<li><strong>Mixed Refresh Rate Synchronization:</strong> DWM
+independently composites displays running differing refresh rates
+alongside mixed DPIs, preventing frame drops or scaling stutters when
+moving graphical elements across diverse hardware configurations.</li>
+</ul>
+<h3 id="configuration-and-customization">Configuration and
+Customization</h3>
+<p>Users can adjust these parameters individually by navigating to
+<strong>Settings &gt; System &gt; Display</strong>. Selecting an
+individual monitor allows users to apply custom scaling percentages
+(100%–500%) and native display resolutions independently, allowing for
+tailored visual setups across diverse hardware configurations.</p></article>
+        <div id="comments-container"></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

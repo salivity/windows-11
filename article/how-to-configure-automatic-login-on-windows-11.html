@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Configure Automatic Login on Windows 11 - windows-11</title>
+    <meta name="description" content="This guide explains how to configure a private Windows 11 PC to sign in automatically to a specific user account upon startup. By disabling the login screen requirement using built-in Windows utilities like netplwiz or the Registry Editor, you can bypass">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/how-to-configure-automatic-login-on-windows-11">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="How to Configure Automatic Login on Windows 11 - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/how-to-configure-automatic-login-on-windows-11" />
+    <meta property="og:image:url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="This guide explains how to configure a private Windows 11 PC to sign in automatically to a specific user account upon startup. By disabling the login screen requirement using built-in Windows utilities like netplwiz or the Registry Editor, you can bypass" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="how-to-configure-automatic-login-on-windows-11">How to Configure
+Automatic Login on Windows 11</h1>
+<p>This guide explains how to configure a private Windows 11 PC to sign
+in automatically to a specific user account upon startup. By disabling
+the login screen requirement using built-in Windows utilities like
+<code>netplwiz</code> or the Registry Editor, you can bypass the
+password or PIN prompt and boot straight to the desktop.</p>
+<hr />
+<h3 id="step-1-disable-windows-hello-requirement">Step 1: Disable
+Windows Hello Requirement</h3>
+<p>Windows 11 hides the automatic login checkbox by default if Windows
+Hello is enforced. You must disable this setting first.</p>
+<ol type="1">
+<li>Open <strong>Settings</strong> by pressing
+<code>Win + I</code>.</li>
+<li>Navigate to <strong>Accounts</strong> &gt; <strong>Sign-in
+options</strong>.</li>
+<li>Under <strong>Additional settings</strong>, find the option labeled
+<strong>"For improved security, only allow Windows Hello sign-in for
+Microsoft accounts on this device"</strong>.</li>
+<li>Toggle the switch to <strong>Off</strong>.</li>
+<li>Restart your computer or close Settings to apply the change.</li>
+</ol>
+<hr />
+<h3 id="step-2-configure-auto-login-via-netplwiz">Step 2: Configure
+Auto-Login via Netplwiz</h3>
+<p>Once the Windows Hello restriction is turned off, use the User
+Accounts tool to set your credentials.</p>
+<ol type="1">
+<li>Press <code>Win + R</code> on your keyboard to open the
+<strong>Run</strong> dialog box.</li>
+<li>Type <code>netplwiz</code> (or <code>control userpasswords2</code>)
+and press <strong>Enter</strong>.</li>
+<li>In the <strong>Users</strong> tab, select the specific user account
+you want to log in automatically.</li>
+<li>Uncheck the box that says <strong>"Users must enter a user name and
+password to use this computer"</strong>.</li>
+<li>Click <strong>Apply</strong> at the bottom right.</li>
+<li>An <strong>Automatically sign in</strong> prompt will appear:
+<ul>
+<li>Verify the username (for Microsoft accounts, enter your full email
+address).</li>
+<li>Enter your account password in both the <strong>Password</strong>
+and <strong>Confirm Password</strong> fields.</li>
+</ul></li>
+<li>Click <strong>OK</strong>, then click <strong>OK</strong> again to
+close the User Accounts window.</li>
+</ol>
+<hr />
+<h3 id="alternative-method-using-the-windows-registry">Alternative
+Method: Using the Windows Registry</h3>
+<p>If the checkbox in <code>netplwiz</code> does not appear, you can
+configure automatic login directly through the Windows Registry.</p>
+<ol type="1">
+<li>Press <code>Win + R</code>, type <code>regedit</code>, and press
+<strong>Enter</strong>.</li>
+<li>Navigate to the following path:
+<code>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon</code></li>
+<li>Locate or create the following string values (<strong>Edit</strong>
+&gt; <strong>New</strong> &gt; <strong>String Value</strong>):
+<ul>
+<li><strong>AutoAdminLogon</strong>: Double-click it and set its value
+to <code>1</code>.</li>
+<li><strong>DefaultUserName</strong>: Double-click it and enter your
+username or Microsoft account email.</li>
+<li><strong>DefaultPassword</strong>: Double-click it and enter your
+account password.</li>
+<li><strong>DefaultDomainName</strong> (Optional for local/Microsoft
+accounts): Set to your computer's local name or domain if
+applicable.</li>
+</ul></li>
+<li>Close the Registry Editor.</li>
+</ol>
+<hr />
+<h3 id="verification-and-security-warning">Verification and Security
+Warning</h3>
+<p>Restart your PC to verify that Windows 11 boots directly into the
+chosen account without prompting for credentials.</p>
+<p><em>Note: Automatic login stores your credentials on the machine and
+allows anyone with physical access to the device to access your files
+and settings. Only enable this feature on secure, private computers that
+are not at risk of theft or unauthorized physical access.</em></p></article>
+        <div id="comments-container"></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

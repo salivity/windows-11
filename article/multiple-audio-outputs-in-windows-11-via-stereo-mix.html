@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple Audio Outputs in Windows 11 via Stereo Mix - windows-11</title>
+    <meta name="description" content="Windows 11 typically limits audio playback to a single device at a time, but you can route system sound to two separate playback devices simultaneously—such as speakers and headphones—without installing third-party software. By enabling and configuri">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/multiple-audio-outputs-in-windows-11-via-stereo-mix">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Multiple Audio Outputs in Windows 11 via Stereo Mix - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/multiple-audio-outputs-in-windows-11-via-stereo-mix" />
+    <meta property="og:image:url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Windows 11 typically limits audio playback to a single device at a time, but you can route system sound to two separate playback devices simultaneously—such as speakers and headphones—without installing third-party software. By enabling and configuri" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="multiple-audio-outputs-in-windows-11-via-stereo-mix">Multiple
+Audio Outputs in Windows 11 via Stereo Mix</h1>
+<p>Windows 11 typically limits audio playback to a single device at a
+time, but you can route system sound to two separate playback devices
+simultaneously—such as speakers and headphones—without installing
+third-party software. By enabling and configuring Windows' built-in
+"Stereo Mix" recording feature, you can clone your primary audio stream
+and send it to a secondary output in real time.</p>
+<h3 id="step-1-open-the-sound-control-panel">Step 1: Open the Sound
+Control Panel</h3>
+<ol type="1">
+<li>Press <code>Win + R</code> on your keyboard to open the
+<strong>Run</strong> dialog.</li>
+<li>Type <code>mmsys.cpl</code> and press <strong>Enter</strong> to open
+the classic Sound settings panel.</li>
+</ol>
+<h3 id="step-2-set-your-primary-playback-device">Step 2: Set Your
+Primary Playback Device</h3>
+<ol type="1">
+<li>In the <strong>Playback</strong> tab, locate the device you want to
+use as your main audio output (e.g., your primary speakers or USB
+headset).</li>
+<li>Right-click the device and select <strong>Set as Default
+Device</strong>.</li>
+<li>Click <strong>Apply</strong>.</li>
+</ol>
+<h3 id="step-3-enable-stereo-mix">Step 3: Enable Stereo Mix</h3>
+<ol type="1">
+<li>Switch to the <strong>Recording</strong> tab at the top of the
+window.</li>
+<li>If <strong>Stereo Mix</strong> is not visible, right-click anywhere
+in the empty space and check both <strong>Show Disabled Devices</strong>
+and <strong>Show Disconnected Devices</strong>.</li>
+<li>Right-click <strong>Stereo Mix</strong> and choose
+<strong>Enable</strong>.</li>
+<li>Right-click <strong>Stereo Mix</strong> again and select <strong>Set
+as Default Device</strong> (or Default Communication Device, if
+needed).</li>
+</ol>
+<h3 id="step-4-route-the-audio-to-your-secondary-device">Step 4: Route
+the Audio to Your Secondary Device</h3>
+<ol type="1">
+<li>With <strong>Stereo Mix</strong> selected in the
+<strong>Recording</strong> tab, click <strong>Properties</strong> (or
+double-click <strong>Stereo Mix</strong>).</li>
+<li>Navigate to the <strong>Listen</strong> tab.</li>
+<li>Check the box labeled <strong>Listen to this device</strong>.</li>
+<li>Under the <strong>Playback through this device</strong> drop-down
+menu, select your secondary audio output device (e.g., an external
+monitor, Bluetooth speaker, or second pair of headphones).</li>
+<li>Click <strong>Apply</strong>, then click <strong>OK</strong> on both
+open windows to save the configuration.</li>
+</ol>
+<h3 id="managing-volume-and-latency">Managing Volume and Latency</h3>
+<ul>
+<li><strong>Master Volume:</strong> Changing the main Windows volume
+slider controls the overall volume of your primary device.</li>
+<li><strong>Secondary Volume:</strong> To adjust the secondary device's
+output independently, open the <strong>Levels</strong> tab inside the
+<strong>Stereo Mix Properties</strong> window.</li>
+<li><strong>Audio Delay:</strong> Because Stereo Mix duplicates the
+audio buffer in software, a minor, imperceptible delay may exist on the
+secondary device, which is normal for this configuration.</li>
+</ul></article>
+        <div id="comments-container"></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Override High DPI Scaling for Apps in Windows 11 - windows-11</title>
+    <meta name="description" content="Legacy Win32 desktop applications often suffer from blurry text, tiny interface elements, or improper sizing on modern high-resolution displays in Windows 11. This issue occurs when older software cannot natively interpret modern high-DPI display scaling">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/override-high-dpi-scaling-for-apps-in-windows-11">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Override High DPI Scaling for Apps in Windows 11 - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/override-high-dpi-scaling-for-apps-in-windows-11" />
+    <meta property="og:image:url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Legacy Win32 desktop applications often suffer from blurry text, tiny interface elements, or improper sizing on modern high-resolution displays in Windows 11. This issue occurs when older software cannot natively interpret modern high-DPI display scaling" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="override-high-dpi-scaling-for-apps-in-windows-11">Override High
+DPI Scaling for Apps in Windows 11</h1>
+<p>Legacy Win32 desktop applications often suffer from blurry text, tiny
+interface elements, or improper sizing on modern high-resolution
+displays in Windows 11. This issue occurs when older software cannot
+natively interpret modern high-DPI display scaling. You can fix these
+graphical glitches by manually overriding the high DPI scaling behavior
+through Windows compatibility settings. This guide explains the exact
+steps to locate these settings and details which scaling mode to choose
+for the best visual results.</p>
+<h2 id="steps-to-override-high-dpi-scaling">Steps to Override High DPI
+Scaling</h2>
+<ol type="1">
+<li><strong>Locate the Application</strong>: Find the executable file
+(<code>.exe</code>) or the desktop shortcut of the legacy program you
+want to fix.</li>
+<li><strong>Open Properties</strong>: Right-click the file or shortcut
+and select <strong>Properties</strong>.</li>
+<li><strong>Access Compatibility Settings</strong>: Switch to the
+<strong>Compatibility</strong> tab at the top of the Properties
+window.</li>
+<li><strong>Open High DPI Settings</strong>: Click the <strong>Change
+high DPI settings</strong> button near the bottom.</li>
+<li><strong>Enable the Override</strong>: In the new window, check the
+box labeled <strong>Override high DPI scaling behavior. Scaling
+performed by:</strong>.</li>
+<li><strong>Choose a Scaling Option</strong>: Click the drop-down menu
+beneath the checkbox and select one of the three available modes:
+<ul>
+<li><strong>Application</strong></li>
+<li><strong>System</strong></li>
+<li><strong>System (Enhanced)</strong></li>
+</ul></li>
+<li><strong>Save Changes</strong>: Click <strong>OK</strong> on the DPI
+settings window, then click <strong>Apply</strong> and
+<strong>OK</strong> on the main Properties window.</li>
+<li><strong>Restart the Application</strong>: Close the program entirely
+and relaunch it to apply the new display settings.</li>
+</ol>
+<h2 id="choosing-the-right-scaling-mode">Choosing the Right Scaling
+Mode</h2>
+<p>Windows 11 provides three distinct methods to handle application
+scaling. Select the one that matches your specific issue:</p>
+<ul>
+<li><strong>Application</strong>: This setting disables Windows DPI
+virtualization entirely. The app is forced to handle its own scaling
+directly. Use this if the application contains internal scaling logic or
+if you want crisp, pixel-perfect rendering (even if UI elements appear
+smaller).</li>
+<li><strong>System</strong>: Windows treats the application as a
+standard-DPI program and uses basic bitmap stretching to enlarge the
+interface to match your display scale. UI elements will be larger and
+easier to read, but text and icons may look slightly blurry.</li>
+<li><strong>System (Enhanced)</strong>: This mode uses GDI-based scaling
+to resize the interface while rendering text and vector elements
+natively at high resolution. This is generally the most effective option
+for older Win32 programs, as it prevents blurriness while maintaining
+proper UI proportions.</li>
+</ul>
+<h2 id="applying-the-setting-for-all-users">Applying the Setting for All
+Users</h2>
+<p>If multiple user accounts access the same computer and run into the
+same scaling issues:</p>
+<ol type="1">
+<li>Follow the steps above to open the application's
+<strong>Compatibility</strong> tab.</li>
+<li>Click the <strong>Change settings for all users</strong> button at
+the bottom.</li>
+<li>Click <strong>Change high DPI settings</strong>.</li>
+<li>Configure the override options as outlined above, then click
+<strong>OK</strong> to save the configuration globally across all
+Windows profiles.</li>
+</ol></article>
+        <div id="comments-container"></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

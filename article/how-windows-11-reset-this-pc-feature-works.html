@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Windows 11 Reset This PC Feature Works - windows-11</title>
+    <meta name="description" content="This article explains how the "Reset this PC" feature operates in Windows 11 to repair or restore a computer to its factory default state. It details the distinctions between keeping and removing personal files, examines the technical differences between">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/how-windows-11-reset-this-pc-feature-works">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="How Windows 11 Reset This PC Feature Works - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/how-windows-11-reset-this-pc-feature-works" />
+    <meta property="og:image:url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="This article explains how the "Reset this PC" feature operates in Windows 11 to repair or restore a computer to its factory default state. It details the distinctions between keeping and removing personal files, examines the technical differences between" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="how-windows-11-reset-this-pc-feature-works">How Windows 11 Reset
+This PC Feature Works</h1>
+<p>This article explains how the "Reset this PC" feature operates in
+Windows 11 to repair or restore a computer to its factory default state.
+It details the distinctions between keeping and removing personal files,
+examines the technical differences between Cloud Download and Local
+Reinstall, and outlines the step-by-step process the operating system
+undergoes during a system reset.</p>
+<h3 id="the-two-primary-reset-choices">The Two Primary Reset
+Choices</h3>
+<p>When initiating a reset in Windows 11 via <strong>Settings &gt;
+System &gt; Recovery</strong>, the system requires you to choose between
+two main paths:</p>
+<ul>
+<li><strong>Keep my files:</strong> This option reinstalls Windows 11
+while preserving your personal documents, photos, music, and user
+accounts. However, it removes all third-party applications, drivers, and
+custom system settings. It also generates an HTML list of removed
+applications on your desktop once the process completes.</li>
+<li><strong>Remove everything:</strong> This performs a complete factory
+reset. It erases all personal files, user accounts, applications,
+settings, and manufacturer-installed programs (unless specified
+otherwise). It also provides an optional data-sanitization step to clean
+the drive, making it harder for recovery tools to retrieve old
+data.</li>
+</ul>
+<h3
+id="installation-source-cloud-download-vs-local-reinstall">Installation
+Source: Cloud Download vs. Local Reinstall</h3>
+<p>After selecting your data retention preference, Windows 11 asks how
+you want to reinstall the operating system:</p>
+<ul>
+<li><strong>Cloud Download:</strong> Windows connects to Microsoft
+servers and downloads a fresh, up-to-date copy of the Windows 11
+installation files (approximately 4 GB). This option is recommended if
+existing system files are corrupted, infected with malware, or if the
+local recovery image is damaged.</li>
+<li><strong>Local Reinstall:</strong> Windows uses the existing system
+files and the Component Store (<code>WinSxS</code>) located on your hard
+drive to construct a clean installation. This option does not require an
+active internet connection and is faster, but it will not resolve issues
+if the local system files are severely damaged.</li>
+</ul>
+<h3 id="the-underlying-recovery-process">The Underlying Recovery
+Process</h3>
+<p>Behind the scenes, the "Reset this PC" mechanism executes a
+structured series of automated steps:</p>
+<ol type="1">
+<li><strong>Preparation and Validation:</strong> Windows 11 checks
+system health, verifies available storage space, and stages the
+necessary installation binaries either from the local image or the
+cloud.</li>
+<li><strong>Rebooting into WinRE:</strong> The computer reboots into the
+Windows Recovery Environment (WinRE), an isolated environment outside
+the running operating system.</li>
+<li><strong>Data Isolation (if "Keep my files" is selected):</strong>
+The system gathers user profiles, personal directories, and activation
+licenses, moving them to a safe temporary location on the disk.</li>
+<li><strong>OS Construction:</strong> WinRE applies a fresh Windows
+image to the system partition, creating a clean Windows directory and
+replacing system binaries, standard drivers, and default registry
+hives.</li>
+<li><strong>Data Migration and Cleanup:</strong> If applicable, user
+data and activation tokens are migrated back into the new OS structure.
+Old temporary directories (such as <code>Windows.old</code>) are
+established to facilitate standard cleanup tasks later.</li>
+<li><strong>Out-of-Box Experience (OOBE):</strong> The system reboots
+into the new installation. If you selected "Remove everything," you are
+greeted by the initial setup wizard; if you kept your files, Windows
+logs directly into your existing user profile.</li>
+</ol></article>
+        <div id="comments-container"></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnose Intermittent Wi-Fi Drops on Windows 11 - windows-11</title>
+    <meta name="description" content="Intermittent Wi-Fi disconnections on Windows 11 can stem from driver conflicts, aggressive power-saving settings, network congestion, or hardware issues. This guide outlines how to isolate and diagnose the root cause of random Wi-Fi drops using built-in">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/diagnose-intermittent-wi-fi-drops-on-windows-11">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Diagnose Intermittent Wi-Fi Drops on Windows 11 - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/diagnose-intermittent-wi-fi-drops-on-windows-11" />
+    <meta property="og:image:url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Intermittent Wi-Fi disconnections on Windows 11 can stem from driver conflicts, aggressive power-saving settings, network congestion, or hardware issues. This guide outlines how to isolate and diagnose the root cause of random Wi-Fi drops using built-in" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="diagnose-intermittent-wi-fi-drops-on-windows-11">Diagnose
+Intermittent Wi-Fi Drops on Windows 11</h1>
+<p>Intermittent Wi-Fi disconnections on Windows 11 can stem from driver
+conflicts, aggressive power-saving settings, network congestion, or
+hardware issues. This guide outlines how to isolate and diagnose the
+root cause of random Wi-Fi drops using built-in Windows diagnostic
+tools, event logs, driver checks, and network configuration
+analysis.</p>
+<h2 id="1-generate-a-windows-wlan-report">1. Generate a Windows WLAN
+Report</h2>
+<p>The built-in WLAN report provides a detailed timeline of your Wi-Fi
+connection events, disconnect reasons, and signal strength.</p>
+<ol type="1">
+<li>Right-click the <strong>Start</strong> button and select
+<strong>Terminal (Admin)</strong> or <strong>Command Prompt
+(Admin)</strong>.</li>
+<li>Type the following command and press <strong>Enter</strong>:
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>netsh wlan show wlanreport</span></code></pre></div></li>
+<li>Open the file path displayed in the output (typically
+<code>C:\ProgramData\Microsoft\Windows\WlanReport\wlan-report-latest.html</code>)
+in any web browser.</li>
+<li>Review the <strong>Disconnect Reasons</strong> and the color-coded
+interactive session graph to see if drops correspond to specific error
+codes, sleep states, or access point changes.</li>
+</ol>
+<h2 id="2-check-the-windows-event-viewer">2. Check the Windows Event
+Viewer</h2>
+<p>The Event Viewer logs specific reasons when the operating system
+loses connection to an access point.</p>
+<ol type="1">
+<li>Press <code>Win + R</code>, type <code>eventvwr.msc</code>, and
+press <strong>Enter</strong>.</li>
+<li>Navigate to: <strong>Applications and Services Logs</strong> &gt;
+<strong>Microsoft</strong> &gt; <strong>Windows</strong> &gt;
+<strong>WLAN-AutoConfig</strong> &gt; <strong>Operational</strong>.</li>
+<li>Look for <strong>Warning</strong> or <strong>Error</strong> entries
+that coincide with the exact time of a disconnection.</li>
+<li>Common event IDs to watch for include:
+<ul>
+<li><strong>Event ID 8003 / 8004</strong>: Connection attempt
+failure.</li>
+<li><strong>Event ID 11004</strong>: Wireless network stopped due to
+driver state changes.</li>
+<li><strong>Event ID 10002</strong>: Interface disconnection triggered
+by the adapter or access point.</li>
+</ul></li>
+</ol>
+<h2 id="3-disable-power-management-disconnects">3. Disable Power
+Management Disconnects</h2>
+<p>Windows 11 may temporarily turn off power to your wireless adapter to
+save battery, causing random connection drops.</p>
+<ol type="1">
+<li>Press <code>Win + X</code> and select <strong>Device
+Manager</strong>.</li>
+<li>Expand <strong>Network adapters</strong>, right-click your wireless
+card, and select <strong>Properties</strong>.</li>
+<li>Go to the <strong>Power Management</strong> tab (if available).</li>
+<li>Uncheck <strong>Allow the computer to turn off this device to save
+power</strong> and click <strong>OK</strong>.</li>
+<li>If the tab is missing, open <strong>Settings</strong> &gt;
+<strong>System</strong> &gt; <strong>Power &amp; battery</strong> and
+set your power mode to <strong>Best performance</strong> to prevent
+system-level throttling.</li>
+</ol>
+<h2 id="4-test-adapter-hardware-and-driver-stability">4. Test Adapter
+Hardware and Driver Stability</h2>
+<p>Corrupt or generic drivers frequently cause packet loss and dropped
+handshakes.</p>
+<ol type="1">
+<li>Open <strong>Device Manager</strong> and expand <strong>Network
+adapters</strong>.</li>
+<li>Right-click your Wi-Fi card and select <strong>Properties</strong>
+&gt; <strong>Driver</strong> tab.</li>
+<li>Check the <strong>Driver Date</strong> and <strong>Driver
+Version</strong>.</li>
+<li>If the issue started recently after an update, click <strong>Roll
+Back Driver</strong>.</li>
+<li>If the driver is outdated, download the latest version directly from
+your laptop manufacturer or Wi-Fi chip vendor (e.g., Intel, Realtek,
+Qualcomm) rather than using generic Windows Update drivers.</li>
+</ol>
+<h2 id="5-inspect-advanced-adapter-properties">5. Inspect Advanced
+Adapter Properties</h2>
+<p>Suboptimal adapter settings can cause the laptop to continuously
+search for alternative access points, leading to brief disconnects.</p>
+<ol type="1">
+<li>In <strong>Device Manager</strong>, right-click your Wi-Fi adapter,
+choose <strong>Properties</strong>, and select the
+<strong>Advanced</strong> tab.</li>
+<li>Locate <strong>Roaming Aggressiveness</strong> (or <em>Roaming
+Sensitivity</em>) and set it to <strong>Lowest</strong> or
+<strong>Medium-Low</strong> to stop the laptop from aggressively hunting
+for other signals.</li>
+<li>Locate <strong>Preferred Band</strong> and select <strong>Prefer
+5GHz band</strong> (or <strong>Prefer 6GHz band</strong> if supported)
+to avoid switching back and forth between congested 2.4GHz and 5GHz
+bands.</li>
+</ol>
+<h2 id="6-run-network-stack-diagnostics-and-resets">6. Run Network Stack
+Diagnostics and Resets</h2>
+<p>A corrupted TCP/IP stack or DNS cache can manifest as intermittent
+drops where the Wi-Fi appears connected but internet access halts.</p>
+<ol type="1">
+<li>Open <strong>Terminal (Admin)</strong>.</li>
+<li>Run the following commands sequentially to clean and rebuild the
+network stack:
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>netsh winsock reset</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>netsh int ip reset</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>ipconfig <span class="at">/release</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>ipconfig <span class="at">/renew</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>ipconfig <span class="at">/flushdns</span></span></code></pre></div></li>
+<li>Restart your laptop to apply the changes.</li>
+</ol>
+<h2 id="7-isolate-the-router-and-frequency-band">7. Isolate the Router
+and Frequency Band</h2>
+<p>Determine whether the issue is isolated to the laptop or caused by
+external interference.</p>
+<ul>
+<li><strong>Test on another network:</strong> Connect your laptop to a
+mobile hotspot. If the connection remains stable, the issue lies in your
+local network configuration, channel congestion, or router
+firmware.</li>
+<li><strong>Separate Wi-Fi SSIDs:</strong> Log in to your router’s admin
+interface and assign distinct names (SSIDs) to the 2.4GHz and 5GHz
+bands. Automatic band steering on routers can repeatedly disconnect
+laptops trying to balance the load.</li>
+</ul></article>
+        <div id="comments-container"></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

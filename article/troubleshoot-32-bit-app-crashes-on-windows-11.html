@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Troubleshoot 32-Bit App Crashes on Windows 11 - windows-11</title>
+    <meta name="description" content="Running legacy 32-bit applications on a 64-bit Windows 11 installation relies on the Windows-on-Windows 64-bit (WOW64) emulation layer, which can occasionally encounter compatibility, dependency, or permission errors. This guide outlines the most effecti">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/troubleshoot-32-bit-app-crashes-on-windows-11">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Troubleshoot 32-Bit App Crashes on Windows 11 - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/troubleshoot-32-bit-app-crashes-on-windows-11" />
+    <meta property="og:image:url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Running legacy 32-bit applications on a 64-bit Windows 11 installation relies on the Windows-on-Windows 64-bit (WOW64) emulation layer, which can occasionally encounter compatibility, dependency, or permission errors. This guide outlines the most effecti" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="troubleshoot-32-bit-app-crashes-on-windows-11">Troubleshoot
+32-Bit App Crashes on Windows 11</h1>
+<p>Running legacy 32-bit applications on a 64-bit Windows 11
+installation relies on the Windows-on-Windows 64-bit (WOW64) emulation
+layer, which can occasionally encounter compatibility, dependency, or
+permission errors. This guide outlines the most effective
+troubleshooting steps to identify the root causes of these crashes, fix
+missing 32-bit runtime libraries, adjust compatibility settings, and
+restore normal application performance.</p>
+<h3 id="1-check-event-viewer-for-specific-crash-details">1. Check Event
+Viewer for Specific Crash Details</h3>
+<p>Before applying fixes, identify the exact module causing the
+failure:</p>
+<ol type="1">
+<li>Press <strong>Win + X</strong> and select <strong>Event
+Viewer</strong>.</li>
+<li>Navigate to <strong>Windows Logs</strong> &gt;
+<strong>Application</strong>.</li>
+<li>Look for <strong>Error</strong> level events matching the timestamp
+of the crash (source usually listed as <em>Application Error</em>).</li>
+<li>Note the <strong>Faulting application name</strong>,
+<strong>Faulting module name</strong> (e.g., a specific
+<code>.dll</code>), and the <strong>Exception code</strong> (e.g.,
+<code>0xc0000005</code> indicating an access violation).</li>
+</ol>
+<h3 id="2-configure-windows-compatibility-settings">2. Configure Windows
+Compatibility Settings</h3>
+<p>Older 32-bit software often expects legacy OS environments and
+administrative permissions:</p>
+<ol type="1">
+<li>Right-click the application executable (<code>.exe</code>) or its
+shortcut and select <strong>Properties</strong>.</li>
+<li>Go to the <strong>Compatibility</strong> tab.</li>
+<li>Check <strong>Run this program in compatibility mode for:</strong>
+and select <strong>Windows 7</strong> or <strong>Windows XP (Service
+Pack 3)</strong>.</li>
+<li>Check <strong>Run this program as an administrator</strong>.</li>
+<li>Click <strong>Change high DPI settings</strong>, check
+<strong>Override high DPI scaling behavior</strong>, and set the
+drop-down to <strong>Application</strong>.</li>
+<li>Click <strong>Apply</strong> and test the application.</li>
+</ol>
+<h3 id="3-install-32-bit-x86-visual-c-redistributables">3. Install
+32-Bit (x86) Visual C++ Redistributables</h3>
+<p>Even on 64-bit Windows 11, 32-bit software requires the 32-bit (x86)
+versions of Microsoft Visual C++ Redistributable packages:</p>
+<ol type="1">
+<li>Open <strong>Settings</strong> &gt; <strong>Apps</strong> &gt;
+<strong>Installed apps</strong> to check for existing Visual C++
+installations.</li>
+<li>Ensure you have the <strong>x86</strong> versions installed for
+Visual C++ 2010, 2012, 2013, and 2015–2022.</li>
+<li>If missing, download and install the
+<strong>vc_redist.x86.exe</strong> packages directly from
+Microsoft.</li>
+<li>If already installed, select the package, click the three dots,
+select <strong>Modify</strong>, and choose <strong>Repair</strong>.</li>
+</ol>
+<h3 id="4-enable-legacy-components-directplay">4. Enable Legacy
+Components (DirectPlay)</h3>
+<p>Many older 32-bit games and multimedia programs require
+DirectPlay:</p>
+<ol type="1">
+<li>Press <strong>Win + R</strong>, type <code>optionalfeatures</code>,
+and press <strong>Enter</strong>.</li>
+<li>Scroll down to locate <strong>Legacy Components</strong>.</li>
+<li>Expand the folder and check <strong>DirectPlay</strong>.</li>
+<li>Click <strong>OK</strong>, wait for Windows to install the required
+files, and restart your computer.</li>
+</ol>
+<h3 id="5-adjust-data-execution-prevention-dep">5. Adjust Data Execution
+Prevention (DEP)</h3>
+<p>Windows 11 enforces strict memory security that can terminate older
+32-bit code:</p>
+<ol type="1">
+<li>Press <strong>Win + R</strong>, type <code>sysdm.cpl</code>, and
+press <strong>Enter</strong>.</li>
+<li>Go to the <strong>Advanced</strong> tab and click
+<strong>Settings</strong> under the <strong>Performance</strong>
+section.</li>
+<li>Navigate to the <strong>Data Execution Prevention</strong> tab.</li>
+<li>Select <strong>Turn on DEP for all programs and services except
+those I select</strong>.</li>
+<li>Click <strong>Add</strong>, locate the 32-bit <code>.exe</code>
+file, click <strong>Open</strong>, and then <strong>Apply</strong>.</li>
+</ol>
+<h3 id="6-repair-corrupted-system-files-wow64-subsystem">6. Repair
+Corrupted System Files (WOW64 Subsystem)</h3>
+<p>If system-level 32-bit translation libraries (located in
+<code>C:\Windows\SysWOW64</code>) become corrupted, built-in repair
+tools can resolve the issue:</p>
+<ol type="1">
+<li>Press <strong>Win + S</strong>, type <code>cmd</code>, right-click
+<strong>Command Prompt</strong>, and select <strong>Run as
+administrator</strong>.</li>
+<li>Run the deployment image tool:
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>DISM <span class="at">/Online</span> <span class="at">/Cleanup-Image</span> <span class="at">/RestoreHealth</span></span></code></pre></div></li>
+<li>After the DISM process completes, run the System File Checker:
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>sfc <span class="at">/scannow</span></span></code></pre></div></li>
+<li>Restart your system once the scan finishes and attempts to repair
+missing or broken files.</li>
+</ol></article>
+        <div id="comments-container"></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

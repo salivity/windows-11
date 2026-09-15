@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Disable Admin and Guest Accounts in Windows 11 - windows-11</title>
+    <meta name="description" content="Securing a Windows 11 PC often involves deactivating unused system accounts that could serve as potential entry points for unauthorized access. This guide explains how to quickly and safely disable both the built-in Administrator account and the Guest ac">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/how-to-disable-admin-and-guest-accounts-in-windows-11">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="How to Disable Admin and Guest Accounts in Windows 11 - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/how-to-disable-admin-and-guest-accounts-in-windows-11" />
+    <meta property="og:image:url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Securing a Windows 11 PC often involves deactivating unused system accounts that could serve as potential entry points for unauthorized access. This guide explains how to quickly and safely disable both the built-in Administrator account and the Guest ac" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="how-to-disable-admin-and-guest-accounts-in-windows-11">How to
+Disable Admin and Guest Accounts in Windows 11</h1>
+<p>Securing a Windows 11 PC often involves deactivating unused system
+accounts that could serve as potential entry points for unauthorized
+access. This guide explains how to quickly and safely disable both the
+built-in Administrator account and the Guest account using Command
+Prompt, PowerShell, Computer Management, and the Local Group Policy
+Editor.</p>
+<h2 id="method-1-using-command-prompt-all-windows-11-editions">Method 1:
+Using Command Prompt (All Windows 11 Editions)</h2>
+<p>Using the Command Prompt is the fastest way to disable these accounts
+across Windows 11 Home, Pro, and Enterprise editions.</p>
+<ol type="1">
+<li>Press the <strong>Windows Key</strong>, type <code>cmd</code>,
+right-click <strong>Command Prompt</strong>, and select <strong>Run as
+administrator</strong>.</li>
+<li>To disable the built-in Administrator account, enter the following
+command and press <strong>Enter</strong>:
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>net user Administrator <span class="at">/active:</span>no</span></code></pre></div></li>
+<li>To disable the Guest account, enter the following command and press
+<strong>Enter</strong>:
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>net user Guest <span class="at">/active:</span>no</span></code></pre></div></li>
+<li>Look for the message <code>The command completed successfully</code>
+to confirm the change.</li>
+</ol>
+<h2 id="method-2-using-windows-powershell">Method 2: Using Windows
+PowerShell</h2>
+<p>PowerShell provides dedicated cmdlets to manage local user account
+statuses directly.</p>
+<ol type="1">
+<li>Right-click the <strong>Start</strong> button and select
+<strong>Terminal (Admin)</strong> or search for
+<strong>PowerShell</strong> and choose <strong>Run as
+administrator</strong>.</li>
+<li>To disable the Administrator account, run:
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Disable-LocalUser <span class="op">-</span>Name <span class="st">&quot;Administrator&quot;</span></span></code></pre></div></li>
+<li>To disable the Guest account, run:
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Disable-LocalUser <span class="op">-</span>Name <span class="st">&quot;Guest&quot;</span></span></code></pre></div></li>
+</ol>
+<h2
+id="method-3-using-computer-management-windows-11-pro-and-enterprise">Method
+3: Using Computer Management (Windows 11 Pro and Enterprise)</h2>
+<p>For users who prefer a graphical interface, the Local Users and
+Groups console allows visual management of system accounts.</p>
+<ol type="1">
+<li>Press <strong>Windows Key + R</strong>, type
+<code>lusrmgr.msc</code>, and press <strong>Enter</strong>.</li>
+<li>In the left pane, click on the <strong>Users</strong> folder.</li>
+<li>Right-click the <strong>Administrator</strong> account and select
+<strong>Properties</strong>.</li>
+<li>Check the box labeled <strong>Account is disabled</strong>, then
+click <strong>Apply</strong> and <strong>OK</strong>.</li>
+<li>Repeat the process for the <strong>Guest</strong> account:
+right-click <strong>Guest</strong>, select <strong>Properties</strong>,
+check <strong>Account is disabled</strong>, and click
+<strong>Apply</strong> and <strong>OK</strong>.</li>
+</ol>
+<h2
+id="method-4-using-local-group-policy-editor-windows-11-pro-and-enterprise">Method
+4: Using Local Group Policy Editor (Windows 11 Pro and Enterprise)</h2>
+<p>Group Policy enables you to enforce system security policies
+regarding default accounts.</p>
+<ol type="1">
+<li>Press <strong>Windows Key + R</strong>, type
+<code>gpedit.msc</code>, and press <strong>Enter</strong>.</li>
+<li>Navigate to the following path: <code>Computer Configuration</code>
+&gt; <code>Windows Settings</code> &gt; <code>Security Settings</code>
+&gt; <code>Local Policies</code> &gt; <code>Security Options</code></li>
+<li>Locate and double-click <strong>Accounts: Administrator account
+status</strong>.</li>
+<li>Select <strong>Disabled</strong>, then click <strong>Apply</strong>
+and <strong>OK</strong>.</li>
+<li>Locate and double-click <strong>Accounts: Guest account
+status</strong>.</li>
+<li>Select <strong>Disabled</strong>, then click <strong>Apply</strong>
+and <strong>OK</strong>.</li>
+</ol></article>
+        <div id="comments-container"></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

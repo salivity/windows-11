@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset Network Adapters to Default in Windows 11 - windows-11</title>
+    <meta name="description" content="If you are experiencing persistent internet connectivity problems, slow speeds, or configuration errors, performing a full network reset in Windows 11 can resolve these issues. A network reset removes and reinstalls all of your physical and virtual netwo">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/reset-network-adapters-to-default-in-windows-11">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Reset Network Adapters to Default in Windows 11 - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/reset-network-adapters-to-default-in-windows-11" />
+    <meta property="og:image:url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="If you are experiencing persistent internet connectivity problems, slow speeds, or configuration errors, performing a full network reset in Windows 11 can resolve these issues. A network reset removes and reinstalls all of your physical and virtual netwo" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="reset-network-adapters-to-default-in-windows-11">Reset Network
+Adapters to Default in Windows 11</h1>
+<p>If you are experiencing persistent internet connectivity problems,
+slow speeds, or configuration errors, performing a full network reset in
+Windows 11 can resolve these issues. A network reset removes and
+reinstalls all of your physical and virtual network adapters and
+restores all networking components back to their original factory
+settings. This guide outlines the exact steps to reset your network
+configuration using Windows Settings and the Command Prompt.</p>
+<hr />
+<h2 id="method-1-reset-network-adapters-via-windows-settings">Method 1:
+Reset Network Adapters via Windows Settings</h2>
+<p>The primary and easiest way to reset all network adapters in Windows
+11 is through the built-in Settings app.</p>
+<ol type="1">
+<li><strong>Open Settings:</strong> Press <strong>Windows Key +
+I</strong> on your keyboard, or right-click the Start button and select
+<strong>Settings</strong>.</li>
+<li><strong>Navigate to Network Settings:</strong> In the left sidebar,
+click on <strong>Network &amp; internet</strong>.</li>
+<li><strong>Open Advanced Settings:</strong> Scroll down on the right
+pane and click on <strong>Advanced network settings</strong>.</li>
+<li><strong>Select Network Reset:</strong> Under the <em>More
+settings</em> section, click on <strong>Network reset</strong>.</li>
+<li><strong>Initiate the Reset:</strong> Click the <strong>Reset
+now</strong> button located next to the <em>Network reset</em>
+description.</li>
+<li><strong>Confirm:</strong> A confirmation prompt will appear asking
+if you are sure you want to reset your network settings. Click
+<strong>Yes</strong>.</li>
+<li><strong>Restart Your PC:</strong> Windows will inform you that your
+computer will shut down in 5 minutes. To complete the process
+immediately, manually restart your computer via the Start menu.</li>
+</ol>
+<hr />
+<h2 id="method-2-reset-network-adapters-via-command-prompt">Method 2:
+Reset Network Adapters via Command Prompt</h2>
+<p>If you cannot access the Settings menu, you can achieve a full reset
+using the Windows Command Prompt.</p>
+<ol type="1">
+<li><p>Press the <strong>Windows Key</strong>, type <code>cmd</code>,
+right-click on <strong>Command Prompt</strong>, and select <strong>Run
+as administrator</strong>.</p></li>
+<li><p>Run the following commands one by one, pressing
+<strong>Enter</strong> after each:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>netsh winsock reset</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>netsh int ip reset</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>ipconfig <span class="at">/release</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>ipconfig <span class="at">/renew</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>ipconfig <span class="at">/flushdns</span></span></code></pre></div></li>
+<li><p>Once all commands have successfully executed, restart your
+computer.</p></li>
+</ol>
+<hr />
+<h2 id="what-to-expect-after-a-network-reset">What to Expect After a
+Network Reset</h2>
+<p>Once your computer restarts, the following changes will have taken
+effect:</p>
+<ul>
+<li><strong>Reinstalled Adapters:</strong> Windows automatically detects
+and reinstalls your Ethernet and Wi-Fi adapters with clean default
+configurations.</li>
+<li><strong>Deleted Wi-Fi Profiles:</strong> All previously saved Wi-Fi
+networks and passwords will be cleared. You will need to select your
+network and re-enter the password.</li>
+<li><strong>Reset IP and DNS Settings:</strong> Any custom static IP
+addresses or custom DNS servers (such as Google DNS or Cloudflare) will
+be reverted to automatic (DHCP).</li>
+<li><strong>VPN and Virtual Switches:</strong> Third-party VPN clients,
+proxy settings, or virtual network adapters (like those used in Hyper-V
+or VMware) may need to be reconfigured or reinstalled.</li>
+</ul></article>
+        <div id="comments-container"></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

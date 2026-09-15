@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Create and Manage Storage Spaces in Windows 11 - windows-11</title>
+    <meta name="description" content="Storage Spaces in Windows 11 allows you to combine multiple physical drives into a single virtual storage pool to protect your data from drive failures or expand your overall storage capacity. This guide provides a direct, step-by-step walkthrough on how">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/how-to-create-and-manage-storage-spaces-in-windows-11">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="How to Create and Manage Storage Spaces in Windows 11 - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/how-to-create-and-manage-storage-spaces-in-windows-11" />
+    <meta property="og:image:url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Storage Spaces in Windows 11 allows you to combine multiple physical drives into a single virtual storage pool to protect your data from drive failures or expand your overall storage capacity. This guide provides a direct, step-by-step walkthrough on how" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="how-to-create-and-manage-storage-spaces-in-windows-11">How to
+Create and Manage Storage Spaces in Windows 11</h1>
+<p>Storage Spaces in Windows 11 allows you to combine multiple physical
+drives into a single virtual storage pool to protect your data from
+drive failures or expand your overall storage capacity. This guide
+provides a direct, step-by-step walkthrough on how to prepare your
+drives, set up a new storage pool and virtual space, select the right
+resiliency type, and manage your configuration through Windows 11
+Settings.</p>
+<h2 id="requirements-before-starting">Requirements Before Starting</h2>
+<ul>
+<li><strong>Drives:</strong> At least two physical drives (internal or
+external via USB/SATA) to create a redundant pool. A single drive can be
+used for a basic pool with no data protection.</li>
+<li><strong>Data Backup:</strong> Ensure all drives you intend to add
+are backed up, as creating a pool will erase all existing data on
+them.</li>
+<li><strong>Permissions:</strong> Administrator access on your Windows
+11 PC.</li>
+</ul>
+<hr />
+<h2 id="how-to-create-a-storage-pool-and-space">How to Create a Storage
+Pool and Space</h2>
+<p>Windows 11 includes a dedicated Storage Spaces interface within the
+modern Settings app.</p>
+<ol type="1">
+<li>Open <strong>Settings</strong> (press
+<code>Windows Key + I</code>).</li>
+<li>Navigate to <strong>System</strong> &gt;
+<strong>Storage</strong>.</li>
+<li>Scroll down and click <strong>Advanced storage settings</strong>,
+then select <strong>Storage Spaces</strong>.</li>
+<li>Click <strong>Create a storage pool and space</strong>.</li>
+<li>Enter a <strong>Name</strong> for your storage pool.</li>
+<li>Select the physical drives you want to include in the pool and click
+<strong>Create</strong>.</li>
+<li>Configure your storage space:
+<ul>
+<li><strong>Name:</strong> Enter a label for the virtual drive.</li>
+<li><strong>Size:</strong> Allocate the desired capacity (you can
+overprovision beyond your physical drive limits if needed).</li>
+<li><strong>Resiliency:</strong> Choose your desired data protection
+level (see descriptions below).</li>
+</ul></li>
+<li>Click <strong>Create</strong>.</li>
+<li>Set the drive letter, choose the file system (NTFS or ReFS), and
+assign a volume label.</li>
+<li>Click <strong>Format</strong> to finish.</li>
+</ol>
+<hr />
+<h2 id="understanding-resiliency-types">Understanding Resiliency
+Types</h2>
+<p>When setting up your storage space, select the option that best
+matches your performance and redundancy needs:</p>
+<ul>
+<li><strong>Simple (No resiliency):</strong> Stripes data across drives.
+Increases performance and maximizes capacity but provides no protection
+against drive failure. Requires at least 1 drive.</li>
+<li><strong>Two-way mirror:</strong> Writes two copies of your data
+across separate drives. Protects against a single drive failure.
+Requires at least 2 drives.</li>
+<li><strong>Three-way mirror:</strong> Writes three copies of your data
+across separate drives. Protects against the simultaneous failure of two
+drives. Requires at least 5 drives.</li>
+<li><strong>Parity:</strong> Stores data alongside parity information to
+protect against a single drive failure while maximizing usable space.
+Best for large archives and sequential read/write operations. Requires
+at least 3 drives.</li>
+</ul>
+<hr />
+<h2 id="how-to-manage-existing-storage-spaces">How to Manage Existing
+Storage Spaces</h2>
+<p>You can manage, expand, or repair your storage pools at any time via
+<strong>Settings</strong> &gt; <strong>System</strong> &gt;
+<strong>Storage</strong> &gt; <strong>Advanced storage settings</strong>
+&gt; <strong>Storage Spaces</strong>.</p>
+<h3 id="adding-drives-to-an-existing-pool">Adding Drives to an Existing
+Pool</h3>
+<ol type="1">
+<li>Select your storage pool from the list.</li>
+<li>Click <strong>Physical disks</strong>, then select <strong>Add
+disks</strong>.</li>
+<li>Choose the new drive(s) and confirm.</li>
+</ol>
+<h3 id="expanding-a-storage-space">Expanding a Storage Space</h3>
+<ol type="1">
+<li>Expand the storage pool containing the space you want to
+resize.</li>
+<li>Click the <strong>Properties</strong> button next to the specific
+space.</li>
+<li>Under the <strong>Size</strong> section, enter the new, larger
+capacity and confirm the change.</li>
+</ol>
+<h3 id="removing-or-replacing-a-drive">Removing or Replacing a
+Drive</h3>
+<ol type="1">
+<li>Expand the pool and locate the <strong>Physical disks</strong>
+section.</li>
+<li>Find the drive you want to remove and click
+<strong>Properties</strong>.</li>
+<li>Click <strong>Prepare for removal</strong> and leave your PC powered
+on until the status changes to "Ready to remove."</li>
+<li>Click <strong>Remove</strong> to safely disconnect the drive from
+the pool.</li>
+</ol>
+<h3 id="deleting-a-space-or-pool">Deleting a Space or Pool</h3>
+<ol type="1">
+<li>Go to the space you wish to delete, click
+<strong>Properties</strong>, and select <strong>Delete space</strong>
+(this erases all data on that space).</li>
+<li>Once all spaces within a pool are deleted, click <strong>Delete
+pool</strong> to release the physical disks back into general use.</li>
+</ol></article>
+        <div id="comments-container"></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

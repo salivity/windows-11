@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Windows 11 Monitors Metered Data Usage - windows-11</title>
+    <meta name="description" content="This article explains how Windows 11 monitors and manages internet data consumption across metered network connections. You will learn how the operating system tracks data packets, how marking a connection as metered curbs bandwidth usage, and how to set">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/how-windows-11-monitors-metered-data-usage">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="How Windows 11 Monitors Metered Data Usage - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/how-windows-11-monitors-metered-data-usage" />
+    <meta property="og:image:url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="This article explains how Windows 11 monitors and manages internet data consumption across metered network connections. You will learn how the operating system tracks data packets, how marking a connection as metered curbs bandwidth usage, and how to set" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="how-windows-11-monitors-metered-data-usage">How Windows 11
+Monitors Metered Data Usage</h1>
+<p>This article explains how Windows 11 monitors and manages internet
+data consumption across metered network connections. You will learn how
+the operating system tracks data packets, how marking a connection as
+metered curbs bandwidth usage, and how to set custom data limits and
+reset cycles to prevent unexpected overage charges from your internet
+service provider.</p>
+<h3 id="how-windows-11-tracks-network-data">How Windows 11 Tracks
+Network Data</h3>
+<p>Windows 11 continuously monitors incoming and outgoing network
+traffic at the operating system level through the Network Data Usage
+system service. This service logs all byte transfers passing through
+active network adapters (Wi-Fi, Ethernet, or Cellular) and attributes
+the consumption to individual applications and background services.</p>
+<p>Users can view a detailed breakdown of this consumption by navigating
+to <strong>Settings &gt; Network &amp; internet &gt; Data
+usage</strong>. Here, Windows 11 displays total usage over the previous
+30 days, ranked by the apps that consumed the most bandwidth.</p>
+<h3 id="the-role-of-metered-connections">The Role of Metered
+Connections</h3>
+<p>A metered connection is a network status setting that informs Windows
+11 that the current internet plan has a limited data allowance. When a
+network is flagged as metered, the operating system dynamically alters
+its behavior to minimize unnecessary background data consumption.</p>
+<p>Key behavioral changes include:</p>
+<ul>
+<li><strong>Windows Update Restrictions:</strong> Automatic downloads of
+cumulative updates, feature updates, and driver updates are paused,
+except for critical security patches.</li>
+<li><strong>App Store Pausing:</strong> Microsoft Store application
+updates are deferred until the device connects to an unmetered
+network.</li>
+<li><strong>Background Data Limits:</strong> Modern Store apps and
+native widgets stop fetching live background data, notifications, and
+feed refreshes.</li>
+<li><strong>Cloud Sync Throttling:</strong> Microsoft OneDrive and other
+integrated cloud services pause or limit file synchronization until
+manually authorized.</li>
+<li><strong>Optimized Video Streaming:</strong> Certain streaming
+services reduce default playback resolution to preserve bandwidth.</li>
+</ul>
+<h3 id="setting-up-a-metered-connection">Setting Up a Metered
+Connection</h3>
+<p>Windows 11 automatically sets cellular data connections as metered by
+default, but Wi-Fi and Ethernet connections must be configured
+manually.</p>
+<ol type="1">
+<li>Open <strong>Settings</strong> and select <strong>Network &amp;
+internet</strong>.</li>
+<li>Click on <strong>Wi-Fi</strong> (or <strong>Ethernet</strong>) and
+select the currently connected network properties.</li>
+<li>Toggle the <strong>Metered connection</strong> switch to
+<strong>On</strong>.</li>
+</ol>
+<h3 id="configuring-data-limits-and-reset-cycles">Configuring Data
+Limits and Reset Cycles</h3>
+<p>To maintain active control over network limits, Windows 11 allows
+users to assign specific data caps to each network profile:</p>
+<ol type="1">
+<li>Go to <strong>Settings &gt; Network &amp; internet &gt; Advanced
+network settings &gt; Data usage</strong>.</li>
+<li>Select the specific network adapter from the dropdown menu in the
+upper right corner.</li>
+<li>Click the <strong>Enter limit</strong> button.</li>
+<li>Choose a limit type (<strong>Monthly</strong>,
+<strong>One-time</strong>, or <strong>Unlimited</strong>) and define the
+data allowance in megabytes (MB) or gigabytes (GB).</li>
+<li>Specify the monthly reset date to align the monitoring window with
+your billing cycle.</li>
+</ol>
+<p>Once configured, Windows 11 monitors total transfers against this
+threshold. When the limit is approached, the system sends desktop
+notifications alerting the user. If the limit is reached, Windows 11 can
+block background data usage entirely to prevent overage costs until the
+next billing cycle begins or the limit is adjusted manually.</p></article>
+        <div id="comments-container"></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enable Nested Virtualization in Hyper-V on Windows 11 - windows-11</title>
+    <meta name="description" content="Nested virtualization allows you to run Hyper-V inside a Hyper-V virtual machine, enabling scenarios like running WSL2, Docker, or nested virtual machines within a guest operating system. This guide provides a concise, step-by-step walkthrough on configu">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/enable-nested-virtualization-in-hyper-v-on-windows-11">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Enable Nested Virtualization in Hyper-V on Windows 11 - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/enable-nested-virtualization-in-hyper-v-on-windows-11" />
+    <meta property="og:image:url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Nested virtualization allows you to run Hyper-V inside a Hyper-V virtual machine, enabling scenarios like running WSL2, Docker, or nested virtual machines within a guest operating system. This guide provides a concise, step-by-step walkthrough on configu" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="enable-nested-virtualization-in-hyper-v-on-windows-11">Enable
+Nested Virtualization in Hyper-V on Windows 11</h1>
+<p>Nested virtualization allows you to run Hyper-V inside a Hyper-V
+virtual machine, enabling scenarios like running WSL2, Docker, or nested
+virtual machines within a guest operating system. This guide provides a
+concise, step-by-step walkthrough on configuring your Windows 11 host to
+support nested virtualization using PowerShell, covering prerequisites,
+configuration commands, and essential network adjustments.</p>
+<h3 id="prerequisites">Prerequisites</h3>
+<p>Before enabling nested virtualization, ensure the following
+requirements are met:</p>
+<ul>
+<li>The host machine is running Windows 11 Pro, Enterprise, or
+Education.</li>
+<li>The host has an Intel processor with VT-x or an AMD processor with
+AMD-V support.</li>
+<li>The target virtual machine is powered off.</li>
+<li>The target virtual machine uses Configuration Version 8.0 or
+higher.</li>
+</ul>
+<hr />
+<h3 id="step-1-turn-off-the-virtual-machine">Step 1: Turn Off the
+Virtual Machine</h3>
+<p>Nested virtualization settings cannot be modified while the virtual
+machine is running.</p>
+<ol type="1">
+<li>Open <strong>Hyper-V Manager</strong>.</li>
+<li>Right-click your target virtual machine and select <strong>Turn
+Off</strong> (or <strong>Shut Down</strong>).</li>
+</ol>
+<hr />
+<h3 id="step-2-enable-virtualization-extensions-via-powershell">Step 2:
+Enable Virtualization Extensions via PowerShell</h3>
+<p>Windows 11 requires PowerShell to expose hardware virtualization
+extensions to the guest VM.</p>
+<ol type="1">
+<li>Right-click the <strong>Start menu</strong> and select
+<strong>Terminal (Admin)</strong> or <strong>PowerShell
+(Admin)</strong>.</li>
+<li>Run the following command, replacing <code>&lt;VMName&gt;</code>
+with the exact name of your virtual machine:</li>
+</ol>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Set-VMProcessor <span class="op">-</span>VMName <span class="st">&quot;&lt;VMName&gt;&quot;</span> <span class="op">-</span>ExposeVirtualizationExtensions <span class="va">$true</span></span></code></pre></div>
+<ol start="3" type="1">
+<li>To verify that the setting was applied successfully, run:</li>
+</ol>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Get-VMProcessor <span class="op">-</span>VMName <span class="st">&quot;&lt;VMName&gt;&quot;</span> <span class="op">|</span> <span class="fu">Select-Object</span> ExposeVirtualizationExtensions</span></code></pre></div>
+<p>The output should display <code>True</code>.</p>
+<hr />
+<h3 id="step-3-enable-mac-address-spoofing-recommended">Step 3: Enable
+MAC Address Spoofing (Recommended)</h3>
+<p>If you plan to run virtual machines inside the guest VM that need
+network access, you must enable MAC Address Spoofing on the guest VM's
+network adapter.</p>
+<p>Run the following command in your elevated PowerShell window:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Get-VMNetworkAdapter <span class="op">-</span>VMName <span class="st">&quot;&lt;VMName&gt;&quot;</span> <span class="op">|</span> Set-VMNetworkAdapter <span class="op">-</span>MacAddressSpoofing On</span></code></pre></div>
+<hr />
+<h3 id="step-4-start-the-vm-and-install-hyper-v">Step 4: Start the VM
+and Install Hyper-V</h3>
+<ol type="1">
+<li>Start the virtual machine.</li>
+<li>Inside the guest operating system, open PowerShell as Administrator
+and run the following command to enable the Hyper-V role:</li>
+</ol>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Enable-WindowsOptionalFeature <span class="op">-</span>Online <span class="op">-</span>FeatureName Microsoft-Hyper-V <span class="op">-</span>All</span></code></pre></div>
+<ol start="3" type="1">
+<li>Restart the guest virtual machine when prompted.</li>
+</ol>
+<hr />
+<h3 id="how-to-disable-nested-virtualization">How to Disable Nested
+Virtualization</h3>
+<p>If you ever need to disable nested virtualization on the virtual
+machine:</p>
+<ol type="1">
+<li>Shut down the virtual machine.</li>
+<li>Run the following command in PowerShell as Administrator on the
+host:</li>
+</ol>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>Set-VMProcessor <span class="op">-</span>VMName <span class="st">&quot;&lt;VMName&gt;&quot;</span> <span class="op">-</span>ExposeVirtualizationExtensions <span class="va">$false</span></span></code></pre></div></article>
+        <div id="comments-container"></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

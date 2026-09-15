@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customize Colors, Fonts, and Profiles in Windows Terminal - windows-11</title>
+    <meta name="description" content="Customizing Windows 11 Terminal allows you to optimize your command-line environment for better readability and productivity. This guide walks you through accessing the built-in settings interface to create and manage custom shell profiles, adjust font t">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/customize-colors-fonts-and-profiles-in-windows-terminal">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Customize Colors, Fonts, and Profiles in Windows Terminal - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/customize-colors-fonts-and-profiles-in-windows-terminal" />
+    <meta property="og:image:url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Customizing Windows 11 Terminal allows you to optimize your command-line environment for better readability and productivity. This guide walks you through accessing the built-in settings interface to create and manage custom shell profiles, adjust font t" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1
+id="customize-colors-fonts-and-profiles-in-windows-terminal">Customize
+Colors, Fonts, and Profiles in Windows Terminal</h1>
+<p>Customizing Windows 11 Terminal allows you to optimize your
+command-line environment for better readability and productivity. This
+guide walks you through accessing the built-in settings interface to
+create and manage custom shell profiles, adjust font typography and
+sizing, and apply or create personalized color schemes for individual
+terminal tabs.</p>
+<h2 id="opening-the-settings-menu">Opening the Settings Menu</h2>
+<p>To begin customizing, launch Windows Terminal and open the
+configuration menu:</p>
+<ol type="1">
+<li>Click the downward-facing arrow in the title bar (next to the new
+tab button).</li>
+<li>Select <strong>Settings</strong> from the dropdown menu, or press
+the shortcut <code>Ctrl + ,</code>.</li>
+</ol>
+<h2 id="managing-and-customizing-profiles">Managing and Customizing
+Profiles</h2>
+<p>Profiles allow you to configure distinct environments for different
+shells, such as PowerShell, Command Prompt, and Windows Subsystem for
+Linux (WSL).</p>
+<h3 id="adding-or-duplicating-a-profile">Adding or Duplicating a
+Profile</h3>
+<ol type="1">
+<li>In the left sidebar under the <strong>Profiles</strong> section,
+select <strong>Add a new profile</strong>.</li>
+<li>Choose <strong>New empty profile</strong> to start from scratch, or
+duplicate an existing profile.</li>
+<li>Configure the essential details:
+<ul>
+<li><strong>Name:</strong> Label your profile (e.g., "Work
+PowerShell").</li>
+<li><strong>Command line:</strong> The path to the executable (e.g.,
+<code>pwsh.exe</code> or <code>wsl.exe</code>).</li>
+<li><strong>Starting directory:</strong> The default folder path opened
+when launching the tab.</li>
+<li><strong>Icon:</strong> A custom icon path to display in the tab
+header.</li>
+</ul></li>
+<li>Click <strong>Save</strong> in the bottom right.</li>
+</ol>
+<h3 id="setting-the-default-profile">Setting the Default Profile</h3>
+<p>Under the <strong>Startup</strong> section in the left sidebar, click
+the <strong>Default profile</strong> dropdown to select which shell
+opens automatically when launching Windows Terminal.</p>
+<h2 id="changing-fonts-and-text-appearance">Changing Fonts and Text
+Appearance</h2>
+<p>You can set unique fonts for specific profiles or apply them globally
+across all shells.</p>
+<ol type="1">
+<li>Under the <strong>Profiles</strong> section, click on the specific
+profile you want to customize (or click <strong>Defaults</strong> to
+apply changes to all profiles).</li>
+<li>Under the <strong>Additional settings</strong> section, click
+<strong>Appearance</strong>.</li>
+<li>Adjust the typography options:
+<ul>
+<li><strong>Font face:</strong> Select any font installed on your system
+(e.g., <em>Cascadia Code</em>, <em>Consolas</em>, or custom Nerd
+Fonts).</li>
+<li><strong>Font size:</strong> Set your preferred text size in
+points.</li>
+<li><strong>Font weight:</strong> Adjust the thickness of the text
+(e.g., <em>Normal</em>, <em>Medium</em>, <em>Bold</em>).</li>
+</ul></li>
+<li>Click <strong>Save</strong>.</li>
+</ol>
+<h2 id="customizing-color-schemes">Customizing Color Schemes</h2>
+<p>Windows Terminal includes several pre-installed color themes, such as
+Campbell, One Half Dark, and Solarized, while also letting you design
+custom palettes.</p>
+<h3 id="applying-an-existing-color-scheme">Applying an Existing Color
+Scheme</h3>
+<ol type="1">
+<li>Select a profile under <strong>Profiles</strong> (or select
+<strong>Defaults</strong>).</li>
+<li>Click <strong>Appearance</strong>.</li>
+<li>Open the <strong>Color scheme</strong> dropdown menu and choose your
+preferred preset.</li>
+<li>Click <strong>Save</strong>.</li>
+</ol>
+<h3 id="creating-a-custom-color-scheme">Creating a Custom Color
+Scheme</h3>
+<ol type="1">
+<li>In the left sidebar, select <strong>Color schemes</strong>.</li>
+<li>Click <strong>Add new</strong> at the top of the screen.</li>
+<li>Enter a <strong>Name</strong> for your scheme.</li>
+<li>Click on individual color swatches (such as Black, Red, Green,
+Foreground, and Background) to enter hex codes or choose colors via the
+color picker.</li>
+<li>Click <strong>Save</strong>.</li>
+<li>Navigate back to your target profile's <strong>Appearance</strong>
+page and select your newly created scheme from the dropdown.</li>
+</ol>
+<h2 id="advanced-configuration-via-json">Advanced Configuration via
+JSON</h2>
+<p>For precise control, you can edit the configuration file directly by
+clicking <strong>Open JSON file</strong> at the bottom-left corner of
+the Settings UI. This opens <code>settings.json</code> in your default
+code editor, where you can paste theme blocks, automate keybindings, and
+configure advanced rendering settings.</p></article>
+        <div id="comments-container"></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

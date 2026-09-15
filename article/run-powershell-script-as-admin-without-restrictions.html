@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Run PowerShell Script as Admin Without Restrictions - windows-11</title>
+    <meta name="description" content="Running PowerShell scripts in Windows 11 often results in execution policy errors, especially when administrative privileges are required. This guide explains how to execute PowerShell scripts with full administrator privileges while bypassing execution">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/run-powershell-script-as-admin-without-restrictions">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Run PowerShell Script as Admin Without Restrictions - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/run-powershell-script-as-admin-without-restrictions" />
+    <meta property="og:image:url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Running PowerShell scripts in Windows 11 often results in execution policy errors, especially when administrative privileges are required. This guide explains how to execute PowerShell scripts with full administrator privileges while bypassing execution" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="run-powershell-script-as-admin-without-restrictions">Run
+PowerShell Script as Admin Without Restrictions</h1>
+<p>Running PowerShell scripts in Windows 11 often results in execution
+policy errors, especially when administrative privileges are required.
+This guide explains how to execute PowerShell scripts with full
+administrator privileges while bypassing execution policy restrictions
+using one-liner commands, elevated sessions, desktop shortcuts, and
+self-elevating script wrappers.</p>
+<h2 id="method-1-use-the-bypass-parameter-via-command-line">Method 1:
+Use the <code>Bypass</code> Parameter via Command Line</h2>
+<p>The most direct way to run a script without altering system-wide
+security settings is to use the <code>-ExecutionPolicy Bypass</code>
+argument from an elevated command-line interface.</p>
+<ol type="1">
+<li>Press <strong>Win + S</strong>, type <code>powershell</code>,
+right-click <strong>Windows PowerShell</strong> (or
+<strong>Terminal</strong>), and select <strong>Run as
+administrator</strong>.</li>
+<li>Run the following command, replacing the path with the actual
+location of your script:</li>
+</ol>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>powershell<span class="op">.</span><span class="fu">exe</span> <span class="op">-</span>NoProfile <span class="op">-</span>ExecutionPolicy Bypass <span class="op">-</span>File <span class="st">&quot;C:\Path\To\YourScript.ps1&quot;</span></span></code></pre></div>
+<ul>
+<li><strong><code>-NoProfile</code></strong>: Prevents loading the
+default user profile, speeding up execution.</li>
+<li><strong><code>-ExecutionPolicy Bypass</code></strong>: Allows the
+script to run without blocking or showing warning prompts for this
+single process only.</li>
+</ul>
+<hr />
+<h2 id="method-2-bypass-policy-inside-an-elevated-session">Method 2:
+Bypass Policy Inside an Elevated Session</h2>
+<p>If you already have an elevated PowerShell session open, you can set
+the bypass scope strictly to the current process. This ensures
+system-level security policies remain intact after you close the
+window.</p>
+<ol type="1">
+<li>Open <strong>PowerShell</strong> or <strong>Windows
+Terminal</strong> as <strong>Administrator</strong>.</li>
+<li>Set the policy for the current session:</li>
+</ol>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Set-ExecutionPolicy</span> <span class="op">-</span>Scope <span class="cf">Process</span> <span class="op">-</span>ExecutionPolicy Bypass <span class="op">-</span>Force</span></code></pre></div>
+<ol start="3" type="1">
+<li>Execute your script:</li>
+</ol>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="op">&amp;</span> <span class="st">&quot;C:\Path\To\YourScript.ps1&quot;</span></span></code></pre></div>
+<hr />
+<h2 id="method-3-create-a-run-as-administrator-shortcut">Method 3:
+Create a "Run as Administrator" Shortcut</h2>
+<p>You can create a desktop shortcut that automatically requests
+administrator rights and bypasses the policy upon launching.</p>
+<ol type="1">
+<li>Right-click on your Desktop and choose <strong>New &gt;
+Shortcut</strong>.</li>
+<li>In the target field, enter:</li>
+</ol>
+<pre class="text"><code>powershell.exe -NoProfile -ExecutionPolicy Bypass -File &quot;C:\Path\To\YourScript.ps1&quot;</code></pre>
+<ol start="3" type="1">
+<li>Name the shortcut and click <strong>Finish</strong>.</li>
+<li>Right-click the newly created shortcut and select
+<strong>Properties</strong>.</li>
+<li>Go to the <strong>Shortcut</strong> tab, click
+<strong>Advanced...</strong>, check the <strong>Run as
+administrator</strong> box, and click <strong>OK</strong>.</li>
+</ol>
+<hr />
+<h2 id="method-4-add-a-self-elevating-header-to-the-script">Method 4:
+Add a Self-Elevating Header to the Script</h2>
+<p>To make the <code>.ps1</code> file automatically elevate itself and
+bypass policies without manual intervention, place this block at the
+very top of your script:</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(-not</span> <span class="op">([</span>Security<span class="op">.</span><span class="fu">Principal</span><span class="op">.</span><span class="fu">WindowsPrincipal</span><span class="op">][</span>Security<span class="op">.</span><span class="fu">Principal</span><span class="op">.</span><span class="fu">WindowsIdentity</span><span class="op">]::</span>GetCurrent<span class="op">()).</span><span class="fu">IsInRole</span><span class="op">([</span>Security<span class="op">.</span><span class="fu">Principal</span><span class="op">.</span><span class="fu">WindowsBuiltInRole</span><span class="op">]::</span>Administrator<span class="op">))</span> <span class="op">{</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">Start-Process</span> powershell<span class="op">.</span><span class="fu">exe</span> <span class="op">-</span>ArgumentList <span class="st">&quot;-NoProfile -ExecutionPolicy Bypass -File </span><span class="ch">`&quot;</span><span class="va">$PSCommandPath</span><span class="ch">`&quot;</span><span class="st">&quot;</span> <span class="op">-</span>Verb RunAs</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">exit</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Your actual script code starts below:</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">Write-Host</span> <span class="st">&quot;Running with Administrator privileges and Bypassed policy!&quot;</span> <span class="op">-</span>ForegroundColor Green</span></code></pre></div>
+<p>When executed, this script detects whether it has administrative
+privileges. If not, it launches a new elevated PowerShell process with
+the <code>-ExecutionPolicy Bypass</code> flag and closes the
+unprivileged instance.</p></article>
+        <div id="comments-container"></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

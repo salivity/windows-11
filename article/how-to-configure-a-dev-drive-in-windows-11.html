@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Configure a Dev Drive in Windows 11 - windows-11</title>
+    <meta name="description" content="A Dev Drive is a specialized storage volume in Windows 11 designed to improve performance for developer workloads, such as source code repository operations, builds, and package management. Built on the Resilient File System (ReFS) and integrated with Mi">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/how-to-configure-a-dev-drive-in-windows-11">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="How to Configure a Dev Drive in Windows 11 - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/how-to-configure-a-dev-drive-in-windows-11" />
+    <meta property="og:image:url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="A Dev Drive is a specialized storage volume in Windows 11 designed to improve performance for developer workloads, such as source code repository operations, builds, and package management. Built on the Resilient File System (ReFS) and integrated with Mi" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="how-to-configure-a-dev-drive-in-windows-11">How to Configure a
+Dev Drive in Windows 11</h1>
+<p>A Dev Drive is a specialized storage volume in Windows 11 designed to
+improve performance for developer workloads, such as source code
+repository operations, builds, and package management. Built on the
+Resilient File System (ReFS) and integrated with Microsoft Defender
+Antivirus Performance Mode, Dev Drive reduces file system overhead and
+optimizes read/write speeds. This guide outlines the prerequisites and
+step-by-step instructions for creating and configuring a Dev Drive using
+Windows Settings, Command-Line tools, and moving your development caches
+to maximize performance.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Before setting up a Dev Drive, ensure your system meets the following
+requirements:</p>
+<ul>
+<li><strong>Operating System:</strong> Windows 11 Build 22621.2338 or
+later (Version 23H2 or newer).</li>
+<li><strong>System Memory:</strong> Minimum of 8 GB RAM (16 GB or more
+recommended).</li>
+<li><strong>Storage Capacity:</strong> At least 50 GB of free storage
+space.</li>
+</ul>
+<hr />
+<h2 id="method-1-create-a-dev-drive-via-windows-settings">Method 1:
+Create a Dev Drive via Windows Settings</h2>
+<p>The graphical interface is the simplest way to create a Dev Drive,
+either on an existing volume, new unallocated space, or as a virtual
+hard disk (VHD/VHDX).</p>
+<ol type="1">
+<li>Open <strong>Settings</strong> on your Windows 11 machine
+(<code>Win + I</code>).</li>
+<li>Navigate to <strong>System</strong> &gt;
+<strong>Storage</strong>.</li>
+<li>Under the <strong>Storage management</strong> section, select
+<strong>Advanced storage settings</strong>, then click <strong>Disks
+&amp; volumes</strong>.</li>
+<li>Click the <strong>Create Dev Drive</strong> button at the top of the
+page.</li>
+<li>Choose one of the following creation options:
+<ul>
+<li><strong>Create new VHD:</strong> Creates a dynamic virtual disk
+hosted on an existing drive. Specify the file name, location, size, and
+ensure the format is set to <strong>VHDX</strong>.</li>
+<li><strong>Resize an existing volume:</strong> Shrinks an existing
+volume to allocate unallocated space for the Dev Drive.</li>
+<li><strong>Use unallocated space:</strong> Uses existing unallocated
+space on an attached physical drive.</li>
+</ul></li>
+<li>Provide a <strong>Label</strong> (e.g., <code>DevDrive</code>),
+assign a <strong>Drive Letter</strong>, and choose your allocation
+size.</li>
+<li>Click <strong>Format</strong>. The drive will automatically be
+formatted using the <strong>ReFS</strong> file system.</li>
+</ol>
+<hr />
+<h2 id="method-2-create-a-dev-drive-via-powershell">Method 2: Create a
+Dev Drive via PowerShell</h2>
+<p>For automated deployments or power users, you can create and mount a
+Dev Drive using PowerShell.</p>
+<ol type="1">
+<li>Right-click the <strong>Start</strong> menu and select
+<strong>Terminal (Admin)</strong> or <strong>PowerShell
+(Admin)</strong>.</li>
+<li>Create and initialize a new VHDX file by running:
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>New-VHD <span class="op">-</span>Path <span class="st">&quot;C:\DevDrive.vhdx&quot;</span> <span class="op">-</span>SizeBytes 64GB <span class="op">-</span>Dynamic</span></code></pre></div></li>
+<li>Mount the virtual disk:
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Mount-VHD <span class="op">-</span>Path <span class="st">&quot;C:\DevDrive.vhdx&quot;</span></span></code></pre></div></li>
+<li>Initialize the disk:
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Initialize-Disk <span class="op">-</span>VirtualDisk <span class="op">(</span>Get-VHD <span class="op">-</span>Path <span class="st">&quot;C:\DevDrive.vhdx&quot;</span><span class="op">)</span></span></code></pre></div></li>
+<li>Create the partition and format it as a Dev Drive using ReFS:
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>New-Partition <span class="op">-</span>DiskNumber <span class="op">&lt;</span>DiskNumber<span class="op">&gt;</span> <span class="op">-</span>UseMaximumSize <span class="op">-</span>AssignDriveLetter <span class="op">|</span> Format-Volume <span class="op">-</span>FileSystem ReFS <span class="op">-</span>DevDrive <span class="op">-</span>NewFileSystemLabel <span class="st">&quot;DevDrive&quot;</span></span></code></pre></div>
+<em>(Replace <code>&lt;DiskNumber&gt;</code> with the disk number
+assigned during the initialization step.)</em></li>
+</ol>
+<hr />
+<h2 id="post-configuration-moving-package-caches">Post-Configuration:
+Moving Package Caches</h2>
+<p>To achieve maximum performance benefits, move your package manager
+caches and global directories to your newly created Dev Drive.</p>
+<ul>
+<li><strong>npm (Node.js):</strong>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>npm config set cache D:\npm-cache -<span class="at">-global</span></span></code></pre></div></li>
+<li><strong>NuGet (.NET):</strong> Set a system environment variable
+named <code>NUGET_PACKAGES</code> with the value pointing to
+<code>D:\NuGetPackages</code>.</li>
+<li><strong>Pip (Python):</strong> Set a system environment variable
+named <code>PIP_CACHE_DIR</code> with the value pointing to
+<code>D:\pip-cache</code>.</li>
+<li><strong>Cargo (Rust):</strong> Set a system environment variable
+named <code>CARGO_HOME</code> with the value pointing to
+<code>D:\cargo</code>.</li>
+</ul>
+<p><em>(Note: Replace <code>D:\</code> with the specific drive letter
+assigned to your Dev Drive.)</em></p>
+<hr />
+<h2 id="verifying-microsoft-defender-performance-mode">Verifying
+Microsoft Defender Performance Mode</h2>
+<p>Windows automatically enables Performance Mode for Microsoft Defender
+on any configured Dev Drive to prevent antivirus scanning from degrading
+build speeds while maintaining system security.</p>
+<ol type="1">
+<li>Open <strong>Windows Security</strong> from the Start menu.</li>
+<li>Go to <strong>Virus &amp; threat protection</strong> &gt;
+<strong>Virus &amp; threat protection settings</strong> &gt;
+<strong>Manage settings</strong>.</li>
+<li>Scroll down to <strong>Dev Drive protection</strong> to confirm that
+real-time protection is running in optimized Performance Mode.</li>
+</ol></article>
+        <div id="comments-container"></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Set Up a VPN in Windows 11 - windows-11</title>
+    <meta name="description" content="Setting up a Virtual Private Network (VPN) in Windows 11 allows you to secure your internet connection, protect sensitive data, and access private network resources remotely. This guide provides a straightforward, step-by-step walkthrough for configuring">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/how-to-set-up-a-vpn-in-windows-11">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="How to Set Up a VPN in Windows 11 - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/how-to-set-up-a-vpn-in-windows-11" />
+    <meta property="og:image:url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Setting up a Virtual Private Network (VPN) in Windows 11 allows you to secure your internet connection, protect sensitive data, and access private network resources remotely. This guide provides a straightforward, step-by-step walkthrough for configuring" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="how-to-set-up-a-vpn-in-windows-11">How to Set Up a VPN in
+Windows 11</h1>
+<p>Setting up a Virtual Private Network (VPN) in Windows 11 allows you
+to secure your internet connection, protect sensitive data, and access
+private network resources remotely. This guide provides a
+straightforward, step-by-step walkthrough for configuring the built-in
+Windows 11 VPN client, entering your connection details, and managing
+your VPN settings.</p>
+<h3 id="prerequisites">Prerequisites</h3>
+<p>Before starting, ensure you have the following information from your
+network administrator or VPN service provider:</p>
+<ul>
+<li><strong>VPN Provider:</strong> Typically "Windows (built-in)".</li>
+<li><strong>Connection Name:</strong> A friendly name of your choice
+(e.g., "Work VPN").</li>
+<li><strong>Server Name or Address:</strong> The domain name (e.g.,
+<code>vpn.example.com</code>) or IP address of the VPN server.</li>
+<li><strong>VPN Type:</strong> The protocol used (e.g., IKEv2, SSTP,
+L2TP/IPsec with pre-shared key, or Automatic).</li>
+<li><strong>Sign-in Info:</strong> The method used to authenticate
+(Username and password, Smart card, Certificate, or One-time password)
+along with your credentials.</li>
+</ul>
+<hr />
+<h3 id="step-1-open-vpn-settings">Step 1: Open VPN Settings</h3>
+<ol type="1">
+<li>Press <strong>Windows Key + I</strong> to open the
+<strong>Settings</strong> app.</li>
+<li>In the left sidebar, click <strong>Network &amp;
+internet</strong>.</li>
+<li>Select <strong>VPN</strong> from the menu on the right.</li>
+</ol>
+<hr />
+<h3 id="step-2-add-a-vpn-connection">Step 2: Add a VPN Connection</h3>
+<ol type="1">
+<li>Click the <strong>Add VPN</strong> button located at the top of the
+window.</li>
+<li>In the configuration window that appears, fill in the required
+fields:
+<ul>
+<li><strong>VPN provider:</strong> Select <strong>Windows
+(built-in)</strong> from the dropdown.</li>
+<li><strong>Connection name:</strong> Enter a name to identify this
+network.</li>
+<li><strong>Server name or address:</strong> Enter the hostname or IP
+address provided by your VPN host.</li>
+<li><strong>VPN type:</strong> Select your specific protocol (e.g.,
+<strong>IKEv2</strong> or <strong>L2TP/IPsec</strong>) or leave it on
+<strong>Automatic</strong>.</li>
+<li><strong>Type of sign-in info:</strong> Select your authentication
+method (most commonly <strong>User name and password</strong>).</li>
+<li><strong>User name (optional):</strong> Enter your username.</li>
+<li><strong>Password (optional):</strong> Enter your password.</li>
+</ul></li>
+<li>Check <strong>Remember my sign-in info</strong> if you do not want
+to enter your credentials every time you connect.</li>
+<li>Click <strong>Save</strong>.</li>
+</ol>
+<hr />
+<h3 id="step-3-connect-to-your-vpn">Step 3: Connect to Your VPN</h3>
+<p>Once the profile is created, you can connect using either of the
+following methods:</p>
+<ul>
+<li><strong>From Settings:</strong> Go to <strong>Settings &gt; Network
+&amp; internet &gt; VPN</strong>, locate your profile, and click
+<strong>Connect</strong>.</li>
+<li><strong>From the Taskbar:</strong> Click the <strong>Network,
+Volume, and Battery</strong> quick settings cluster on your taskbar,
+click the <strong>VPN</strong> icon, choose your connection, and select
+<strong>Connect</strong>.</li>
+</ul>
+<hr />
+<h3 id="step-4-configure-advanced-settings">Step 4: Configure Advanced
+Settings</h3>
+<p>To modify advanced options such as proxy settings or metered
+connection rules:</p>
+<ol type="1">
+<li>Go to <strong>Settings &gt; Network &amp; internet &gt;
+VPN</strong>.</li>
+<li>Click the arrow next to your VPN connection name.</li>
+<li>Under <strong>More connection options</strong>, click
+<strong>Edit</strong> to update your server address or sign-in
+credentials, or adjust the <strong>Proxy settings</strong> and
+<strong>Metered connection</strong> toggles as required by your network
+environment.</li>
+</ol>
+<hr />
+<h3 id="step-5-disconnect-or-remove-a-vpn-profile">Step 5: Disconnect or
+Remove a VPN Profile</h3>
+<ul>
+<li><strong>To Disconnect:</strong> Open the VPN menu from the taskbar
+or Settings and click <strong>Disconnect</strong>.</li>
+<li><strong>To Remove:</strong> Navigate to <strong>Settings &gt;
+Network &amp; internet &gt; VPN</strong>, click the arrow next to the
+VPN profile, and click <strong>Remove</strong>. Confirm the deletion
+when prompted.</li>
+</ul></article>
+        <div id="comments-container"></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

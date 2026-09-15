@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Wi-Fi Hotspot via Command Line in Windows 11 - windows-11</title>
+    <meta name="description" content="Setting up a command-line Wi-Fi hotspot in Windows 11 allows you to share your internet connection with other devices without navigating through the graphical user interface. This guide provides a clear, step-by-step walkthrough to check your wireless ad">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/create-wi-fi-hotspot-via-command-line-in-windows-11">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Create Wi-Fi Hotspot via Command Line in Windows 11 - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/create-wi-fi-hotspot-via-command-line-in-windows-11" />
+    <meta property="og:image:url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Setting up a command-line Wi-Fi hotspot in Windows 11 allows you to share your internet connection with other devices without navigating through the graphical user interface. This guide provides a clear, step-by-step walkthrough to check your wireless ad" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="create-wi-fi-hotspot-via-command-line-in-windows-11">Create
+Wi-Fi Hotspot via Command Line in Windows 11</h1>
+<p>Setting up a command-line Wi-Fi hotspot in Windows 11 allows you to
+share your internet connection with other devices without navigating
+through the graphical user interface. This guide provides a clear,
+step-by-step walkthrough to check your wireless adapter's compatibility,
+configure network credentials, broadcast the ad-hoc network, and manage
+internet sharing directly using Windows Command Prompt.</p>
+<h3 id="step-1-open-command-prompt-as-administrator">Step 1: Open
+Command Prompt as Administrator</h3>
+<ol type="1">
+<li>Press the <strong>Windows Key + S</strong> and type
+<code>cmd</code>.</li>
+<li>Right-click on <strong>Command Prompt</strong> and select
+<strong>Run as administrator</strong>.</li>
+</ol>
+<h3 id="step-2-verify-hosted-network-support">Step 2: Verify Hosted
+Network Support</h3>
+<p>Before creating a hotspot, check if your Wi-Fi adapter supports
+hosted networks:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>netsh wlan show drivers</span></code></pre></div>
+<p>Look for the line that reads <strong>Hosted network
+supported</strong>. If it says <strong>Yes</strong>, you can proceed. If
+it says <strong>No</strong>, your Wi-Fi adapter driver does not support
+legacy hosted networks, and you may need to update your driver or use
+the native Windows Mobile Hotspot settings.</p>
+<h3 id="step-3-configure-the-hotspot-credentials">Step 3: Configure the
+Hotspot Credentials</h3>
+<p>To set the Network Name (SSID) and the Security Key (Password), enter
+the following command:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>netsh wlan set hostednetwork mode=allow ssid=<span class="st">&quot;YourNetworkName&quot;</span> key=<span class="st">&quot;YourPassword123&quot;</span></span></code></pre></div>
+<p><em>Replace <code>YourNetworkName</code> with your preferred hotspot
+name and <code>YourPassword123</code> with a secure password (must be at
+least 8 characters).</em></p>
+<h3 id="step-4-start-the-hosted-network">Step 4: Start the Hosted
+Network</h3>
+<p>Activate and broadcast your Wi-Fi network with this command:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>netsh wlan start hostednetwork</span></code></pre></div>
+<p>You will receive a confirmation message stating: <em>"The hosted
+network started."</em></p>
+<h3 id="step-5-share-your-internet-connection">Step 5: Share Your
+Internet Connection</h3>
+<p>To allow connected devices to access the internet:</p>
+<ol type="1">
+<li>Press <strong>Windows Key + R</strong>, type <code>ncpa.cpl</code>,
+and press <strong>Enter</strong> to open Network Connections.</li>
+<li>Right-click your active internet connection (Ethernet or primary
+Wi-Fi) and select <strong>Properties</strong>.</li>
+<li>Go to the <strong>Sharing</strong> tab.</li>
+<li>Check the box labeled <strong>Allow other network users to connect
+through this computer’s Internet connection</strong>.</li>
+<li>Under <strong>Home networking connection</strong>, select the
+virtual adapter corresponding to your newly created hosted network
+(typically labeled as <em>Local Area Connection*</em>).</li>
+<li>Click <strong>OK</strong> to save the changes.</li>
+</ol>
+<h3 id="step-6-stop-the-hotspot">Step 6: Stop the Hotspot</h3>
+<p>To turn off the hotspot at any time, run:</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>netsh wlan stop hostednetwork</span></code></pre></div></article>
+        <div id="comments-container"></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

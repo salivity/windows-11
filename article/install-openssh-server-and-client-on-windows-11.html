@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Install OpenSSH Server and Client on Windows 11 - windows-11</title>
+    <meta name="description" content="This guide provides a straightforward walkthrough for installing and configuring both the OpenSSH Client and OpenSSH Server components on Windows 11. Whether you prefer using the graphical Windows Settings interface or fast command-line execution via Pow">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/install-openssh-server-and-client-on-windows-11">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Install OpenSSH Server and Client on Windows 11 - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/install-openssh-server-and-client-on-windows-11" />
+    <meta property="og:image:url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="This guide provides a straightforward walkthrough for installing and configuring both the OpenSSH Client and OpenSSH Server components on Windows 11. Whether you prefer using the graphical Windows Settings interface or fast command-line execution via Pow" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="install-openssh-server-and-client-on-windows-11">Install OpenSSH
+Server and Client on Windows 11</h1>
+<p>This guide provides a straightforward walkthrough for installing and
+configuring both the OpenSSH Client and OpenSSH Server components on
+Windows 11. Whether you prefer using the graphical Windows Settings
+interface or fast command-line execution via PowerShell, you will learn
+how to enable these tools and start the SSH server service for secure
+remote access.</p>
+<hr />
+<h3 id="method-1-install-openssh-using-windows-settings">Method 1:
+Install OpenSSH Using Windows Settings</h3>
+<p>The graphical interface is the simplest method to add optional
+Windows features.</p>
+<h4 id="step-1-open-optional-features">Step 1: Open Optional
+Features</h4>
+<ol type="1">
+<li>Open the <strong>Start Menu</strong> and click
+<strong>Settings</strong> (or press <code>Win + I</code>).</li>
+<li>Navigate to <strong>System</strong> on the left menu, then select
+<strong>Optional features</strong> on the right pane.</li>
+</ol>
+<h4 id="step-2-add-openssh-components">Step 2: Add OpenSSH
+Components</h4>
+<ol type="1">
+<li>Click the <strong>View features</strong> button next to <em>Add an
+optional feature</em>.</li>
+<li>In the search bar, type <code>OpenSSH</code>.</li>
+<li>Select <strong>OpenSSH Client</strong> (if not already installed)
+and <strong>OpenSSH Server</strong>.</li>
+<li>Click <strong>Next</strong>, then click
+<strong>Install</strong>.</li>
+</ol>
+<p>Windows will download and install the selected components in the
+background.</p>
+<hr />
+<h3 id="method-2-install-openssh-using-powershell">Method 2: Install
+OpenSSH Using PowerShell</h3>
+<p>PowerShell provides a quick, automated way to install both
+features.</p>
+<h4 id="step-1-open-powershell-as-administrator">Step 1: Open PowerShell
+as Administrator</h4>
+<ol type="1">
+<li>Right-click the <strong>Start Menu</strong> icon.</li>
+<li>Select <strong>Terminal (Admin)</strong> or <strong>PowerShell
+(Admin)</strong>.</li>
+</ol>
+<h4 id="step-2-check-feature-status">Step 2: Check Feature Status</h4>
+<p>Run the following command to check if the components are already
+installed:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Get-WindowsCapability <span class="op">-</span>Online <span class="op">|</span> <span class="fu">Where-Object</span> Name <span class="op">-like</span> <span class="st">&#39;OpenSSH*&#39;</span></span></code></pre></div>
+<h4 id="step-3-install-the-client-and-server">Step 3: Install the Client
+and Server</h4>
+<ul>
+<li><p>To install the <strong>OpenSSH Client</strong>, run:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Add-WindowsCapability <span class="op">-</span>Online <span class="op">-</span>Name OpenSSH<span class="op">.</span><span class="fu">Client</span><span class="op">~~~~</span><span class="dv">0.0</span><span class="op">.</span><span class="dv">1.0</span></span></code></pre></div></li>
+<li><p>To install the <strong>OpenSSH Server</strong>, run:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Add-WindowsCapability <span class="op">-</span>Online <span class="op">-</span>Name OpenSSH<span class="op">.</span><span class="fu">Server</span><span class="op">~~~~</span><span class="dv">0.0</span><span class="op">.</span><span class="dv">1.0</span></span></code></pre></div></li>
+</ul>
+<p>Both commands should return an output showing
+<code>RestartNeeded : False</code> and
+<code>State : Installed</code>.</p>
+<hr />
+<h3 id="configure-and-start-the-openssh-server">Configure and Start the
+OpenSSH Server</h3>
+<p>After installing the OpenSSH Server, you must start the service and
+configure it to run automatically on system boot.</p>
+<ol type="1">
+<li>Open PowerShell as Administrator.</li>
+<li>Set the SSH service startup type to <strong>Automatic</strong>:
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Set-Service</span> <span class="op">-</span>Name sshd <span class="op">-</span>StartupType <span class="st">&#39;Automatic&#39;</span></span></code></pre></div></li>
+<li>Start the SSH service:
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Start-Service</span> sshd</span></code></pre></div></li>
+<li>Verify that the SSH server is running and listening on port 22:
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Get-Service</span> <span class="op">-</span>Name sshd</span></code></pre></div></li>
+</ol>
+<h3 id="verify-firewall-configuration">Verify Firewall
+Configuration</h3>
+<p>The OpenSSH installation automatically creates a firewall rule. To
+ensure incoming connections on port 22 are permitted, run:</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>Get-NetFirewallRule <span class="op">-</span>Name <span class="op">*</span>OpenSSH-Server<span class="op">*</span> <span class="op">|</span> <span class="fu">Select-Object</span> Name<span class="op">,</span> DisplayName<span class="op">,</span> Enabled<span class="op">,</span> Direction</span></code></pre></div>
+<p>If the rule is enabled, your Windows 11 machine is ready to accept
+incoming SSH connections.</p></article>
+        <div id="comments-container"></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

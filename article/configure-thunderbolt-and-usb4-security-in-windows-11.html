@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configure Thunderbolt and USB4 Security in Windows 11 - windows-11</title>
+    <meta name="description" content="PCIe tunneling over Thunderbolt and USB4 allows high-speed external devices like external GPUs, high-performance storage, and docks to communicate directly with your system's memory. While this unlocks peak performance, it also introduces security risks">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/configure-thunderbolt-and-usb4-security-in-windows-11">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Configure Thunderbolt and USB4 Security in Windows 11 - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/configure-thunderbolt-and-usb4-security-in-windows-11" />
+    <meta property="og:image:url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="PCIe tunneling over Thunderbolt and USB4 allows high-speed external devices like external GPUs, high-performance storage, and docks to communicate directly with your system's memory. While this unlocks peak performance, it also introduces security risks" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="configure-thunderbolt-and-usb4-security-in-windows-11">Configure
+Thunderbolt and USB4 Security in Windows 11</h1>
+<p>PCIe tunneling over Thunderbolt and USB4 allows high-speed external
+devices like external GPUs, high-performance storage, and docks to
+communicate directly with your system's memory. While this unlocks peak
+performance, it also introduces security risks such as Direct Memory
+Access (DMA) attacks. This guide explains how to check, enable, and
+configure Kernel DMA Protection and related security policies in Windows
+11 to protect your computer against unauthorized PCIe hardware.</p>
+<hr />
+<h3 id="step-1-check-kernel-dma-protection-status">Step 1: Check Kernel
+DMA Protection Status</h3>
+<p>Windows 11 uses Kernel DMA Protection to shield systems from drive-by
+DMA attacks using Thunderbolt and USB4 ports.</p>
+<ol type="1">
+<li>Press <strong>Windows Key + R</strong> to open the Run dialog.</li>
+<li>Type <code>msinfo32</code> and press <strong>Enter</strong> to open
+<strong>System Information</strong>.</li>
+<li>In the <strong>System Summary</strong> pane, scroll down to find
+<strong>Kernel DMA Protection</strong>.</li>
+<li>Verify the value:
+<ul>
+<li><strong>On</strong>: Your system is actively protecting against
+malicious external DMA devices.</li>
+<li><strong>Off</strong>: Hardware virtualization or firmware-level
+security is disabled or unsupported.</li>
+</ul></li>
+</ol>
+<hr />
+<h3 id="step-2-enable-kernel-dma-protection-in-uefibios">Step 2: Enable
+Kernel DMA Protection in UEFI/BIOS</h3>
+<p>If Kernel DMA Protection is off, it must be enabled within your
+computer's firmware.</p>
+<ol type="1">
+<li>Restart your PC and press the appropriate key during boot (commonly
+<strong>F2</strong>, <strong>F10</strong>, <strong>F12</strong>, or
+<strong>Del</strong>) to enter BIOS/UEFI settings.</li>
+<li>Locate the virtualization and security settings:
+<ul>
+<li><strong>Intel platforms</strong>: Enable <strong>Intel
+Virtualization Technology (VT-x)</strong> and <strong>Intel Directed I/O
+(VT-d)</strong>.</li>
+<li><strong>AMD platforms</strong>: Enable <strong>SVM Mode</strong> and
+<strong>AMD-Vi (IOMMU)</strong>.</li>
+</ul></li>
+<li>Locate the Thunderbolt or USB4 configuration menu:
+<ul>
+<li>Set <strong>Thunderbolt Security Level</strong> or <strong>PCIe
+Tunneling Security</strong> to <strong>Kernel DMA Protection</strong>
+(or <strong>SL1: User Authorization</strong> / <strong>SL2: Secure
+Connect</strong> on older firmwares).</li>
+<li>Enable <strong>Pre-boot DMA Protection</strong> if available.</li>
+</ul></li>
+<li>Save your changes and restart the computer into Windows 11.</li>
+</ol>
+<hr />
+<h3 id="step-3-configure-dma-enumeration-policies-via-group-policy">Step
+3: Configure DMA Enumeration Policies via Group Policy</h3>
+<p>Windows 11 Pro, Enterprise, and Education editions allow
+administrators to control how external PCIe tunneling devices behave
+when locked or when devices are incompatible with DMA remapping.</p>
+<ol type="1">
+<li>Press <strong>Windows Key + R</strong>, type
+<code>gpedit.msc</code>, and press <strong>Enter</strong>.</li>
+<li>Navigate to:<br />
+<code>Computer Configuration</code> &gt;
+<code>Administrative Templates</code> &gt; <code>System</code> &gt;
+<code>Kernel DMA Protection</code></li>
+<li>Double-click <strong>Enumeration policy for external devices
+incompatible with Kernel DMA Protection</strong>.</li>
+<li>Set the policy to <strong>Enabled</strong>.</li>
+<li>Under <strong>Options</strong>, select an enumeration policy:
+<ul>
+<li><strong>Block All</strong>: Blocks any external peripheral that does
+not support DMA remapping (most secure).</li>
+<li><strong>Allow only while logged in</strong>: Allows devices to
+connect only after a user successfully logs into Windows.</li>
+<li><strong>Allow all</strong>: Permits all external devices regardless
+of DMA compatibility (least secure).</li>
+</ul></li>
+<li>Click <strong>Apply</strong> and then <strong>OK</strong>.</li>
+</ol>
+<hr />
+<h3
+id="step-4-configure-dma-enumeration-policies-via-registry-windows-home">Step
+4: Configure DMA Enumeration Policies via Registry (Windows Home)</h3>
+<p>For Windows 11 Home edition, you can apply the same security policies
+using the Windows Registry.</p>
+<ol type="1">
+<li>Press <strong>Windows Key + R</strong>, type <code>regedit</code>,
+and press <strong>Enter</strong>.</li>
+<li>Navigate to:<br />
+<code>HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\KernelDMA</code><br />
+<em>(If the <code>KernelDMA</code> key does not exist, right-click
+<code>Windows</code>, select <strong>New &gt; Key</strong>, and name it
+<code>KernelDMA</code>.)</em></li>
+<li>Right-click in the right pane, select <strong>New &gt; DWORD
+(32-bit) Value</strong>, and name it
+<code>DeviceEnumerationPolicy</code>.</li>
+<li>Double-click <code>DeviceEnumerationPolicy</code> and set its value:
+<ul>
+<li><code>0</code>: Block all incompatible devices.</li>
+<li><code>1</code>: Allow devices only while logged in (default).</li>
+<li><code>2</code>: Allow all devices.</li>
+</ul></li>
+<li>Click <strong>OK</strong> and restart your computer to apply the
+changes.</li>
+</ol></article>
+        <div id="comments-container"></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

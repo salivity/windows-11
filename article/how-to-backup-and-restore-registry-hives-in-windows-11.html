@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Backup and Restore Registry Hives in Windows 11 - windows-11</title>
+    <meta name="description" content="Backing up and restoring individual registry hives or keys in Windows 11 is an essential safeguard before making manual modifications to the system configuration. While full system restore points provide broad protection, exporting specific registry bran">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/how-to-backup-and-restore-registry-hives-in-windows-11">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="How to Backup and Restore Registry Hives in Windows 11 - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/how-to-backup-and-restore-registry-hives-in-windows-11" />
+    <meta property="og:image:url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Backing up and restoring individual registry hives or keys in Windows 11 is an essential safeguard before making manual modifications to the system configuration. While full system restore points provide broad protection, exporting specific registry bran" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="how-to-backup-and-restore-registry-hives-in-windows-11">How to
+Backup and Restore Registry Hives in Windows 11</h1>
+<p>Backing up and restoring individual registry hives or keys in Windows
+11 is an essential safeguard before making manual modifications to the
+system configuration. While full system restore points provide broad
+protection, exporting specific registry branches allows for precise,
+lightweight backups that can be restored instantly if errors occur. This
+guide covers how to back up and restore specific registry keys using
+both the graphical Registry Editor and the Command Prompt.</p>
+<h2 id="backing-up-a-registry-key-or-hive-using-registry-editor">Backing
+Up a Registry Key or Hive Using Registry Editor</h2>
+<ol type="1">
+<li>Press <strong>Win + R</strong> to open the Run dialog, type
+<code>regedit</code>, and press <strong>Enter</strong>.</li>
+<li>If prompted by User Account Control (UAC), click
+<strong>Yes</strong>.</li>
+<li>In the left navigation pane, locate and select the specific hive,
+subkey, or branch you plan to modify (for example,
+<code>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows</code>).</li>
+<li>Right-click the selected key and click <strong>Export</strong> (or
+select <strong>File &gt; Export</strong> from the top menu).</li>
+<li>In the <strong>Export Registry File</strong> window:
+<ul>
+<li>Choose a safe storage location (such as an external drive or
+dedicated backup folder).</li>
+<li>Enter a descriptive name for the backup file (e.g.,
+<code>Backup_Windows_Key_Date.reg</code>).</li>
+<li>Ensure <strong>Selected branch</strong> is checked under the
+<strong>Export range</strong> section.</li>
+<li>Leave the <strong>Save as type</strong> set to <strong>Registration
+Files (*.reg)</strong>, or select <strong>Registry Hive Files
+(<em>.</em>)</strong> if you require a raw binary hive copy.</li>
+</ul></li>
+<li>Click <strong>Save</strong>.</li>
+</ol>
+<h2
+id="restoring-a-registry-key-or-hive-using-registry-editor">Restoring a
+Registry Key or Hive Using Registry Editor</h2>
+<h3 id="method-1-direct-file-merge">Method 1: Direct File Merge</h3>
+<ol type="1">
+<li>Locate the exported <code>.reg</code> file in File Explorer.</li>
+<li>Double-click the <code>.reg</code> file (or right-click and select
+<strong>Merge</strong>).</li>
+<li>Click <strong>Yes</strong> when prompted by User Account
+Control.</li>
+<li>Click <strong>Yes</strong> when Windows asks to confirm adding the
+information to the registry.</li>
+<li>Click <strong>OK</strong> once the confirmation prompt appears.</li>
+<li>Restart your PC if the restored key controls system-level
+settings.</li>
+</ol>
+<h3 id="method-2-import-from-registry-editor">Method 2: Import from
+Registry Editor</h3>
+<ol type="1">
+<li>Open <code>regedit</code> as an administrator.</li>
+<li>Click <strong>File</strong> in the top menu and select
+<strong>Import</strong>.</li>
+<li>Browse to the location of your backup file, select the
+<code>.reg</code> or hive file, and click <strong>Open</strong>.</li>
+<li>A prompt will confirm that the keys and values have been
+successfully added to the registry.</li>
+</ol>
+<h2 id="backing-up-and-restoring-via-command-prompt-cmd">Backing Up and
+Restoring via Command Prompt (CMD)</h2>
+<p>You can also use the native <code>reg.exe</code> tool via an elevated
+Command Prompt to automate or script backups.</p>
+<h3 id="to-export-a-key">To Export a Key:</h3>
+<ol type="1">
+<li>Press <strong>Win + S</strong>, type <code>cmd</code>, right-click
+<strong>Command Prompt</strong>, and select <strong>Run as
+administrator</strong>.</li>
+<li>Run the following command (replace the path and filename with your
+target):
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>reg export <span class="st">&quot;HKEY_LOCAL_MACHINE\SOFTWARE\ExampleKey&quot;</span> <span class="st">&quot;C:\Backups\ExampleKey_Backup.reg&quot;</span> <span class="at">/y</span></span></code></pre></div></li>
+</ol>
+<h3 id="to-import-a-key">To Import a Key:</h3>
+<ol type="1">
+<li>Open Command Prompt as administrator.</li>
+<li>Run the import command:
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>reg import <span class="st">&quot;C:\Backups\ExampleKey_Backup.reg&quot;</span></span></code></pre></div></li>
+</ol>
+<h3 id="to-save-and-restore-binary-hives">To Save and Restore Binary
+Hives:</h3>
+<p>For raw hive-level operations:</p>
+<ul>
+<li><strong>Save hive:</strong>
+<code>reg save "HKEY_LOCAL_MACHINE\SYSTEM" "C:\Backups\SYSTEM.hiv" /y</code></li>
+<li><strong>Restore hive:</strong>
+<code>reg restore "HKEY_LOCAL_MACHINE\SYSTEM" "C:\Backups\SYSTEM.hiv"</code>
+<em>(Note: Restoring active system hives requires Windows Recovery
+Environment or WinPE, as active system files are locked while Windows is
+running).</em></li>
+</ul></article>
+        <div id="comments-container"></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

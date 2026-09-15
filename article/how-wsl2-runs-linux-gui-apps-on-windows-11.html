@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How WSL2 Runs Linux GUI Apps on Windows 11 - windows-11</title>
+    <meta name="description" content="Windows 11 runs Linux graphical user interface (GUI) applications seamlessly alongside standard Windows software through an integrated architectural extension for WSL2 called WSLg (Windows Subsystem for Linux GUI). This technology enables Linux desktop a">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/how-wsl2-runs-linux-gui-apps-on-windows-11">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="How WSL2 Runs Linux GUI Apps on Windows 11 - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/how-wsl2-runs-linux-gui-apps-on-windows-11" />
+    <meta property="og:image:url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Windows 11 runs Linux graphical user interface (GUI) applications seamlessly alongside standard Windows software through an integrated architectural extension for WSL2 called WSLg (Windows Subsystem for Linux GUI). This technology enables Linux desktop a" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="how-wsl2-runs-linux-gui-apps-on-windows-11">How WSL2 Runs Linux
+GUI Apps on Windows 11</h1>
+<p>Windows 11 runs Linux graphical user interface (GUI) applications
+seamlessly alongside standard Windows software through an integrated
+architectural extension for WSL2 called WSLg (Windows Subsystem for
+Linux GUI). This technology enables Linux desktop applications to launch
+directly from the Start menu or terminal, complete with their own
+distinct window frames, taskbar icons, audio support, and
+hardware-accelerated 3D rendering. Instead of running a full Linux
+desktop environment in a bulky virtual machine window, WSL2 isolates the
+graphical rendering pipeline through a lightweight companion system and
+projects individual application windows natively onto the Windows
+desktop using remote desktop protocols.</p>
+<h3 id="the-system-distribution-architecture-wslg">The System
+Distribution Architecture (WSLg)</h3>
+<p>When a user initiates WSL2, Windows automatically boots a hidden,
+lightweight Linux companion distribution alongside the user’s primary
+Linux distribution (such as Ubuntu or Debian). This specialized system
+distribution isolates the GUI infrastructure, meaning the user's main
+environment does not need to be bogged down with complex desktop service
+configurations.</p>
+<p>The system distribution contains:</p>
+<ul>
+<li><strong>Weston:</strong> A Wayland compositor that manages graphical
+output.</li>
+<li><strong>XWayland:</strong> A compatibility layer that allows
+traditional X11 applications to communicate with the Wayland
+compositor.</li>
+<li><strong>PulseAudio:</strong> An audio server that manages sound
+input and output.</li>
+<li><strong>FreeRDP:</strong> An implementation of the Remote Desktop
+Protocol (RDP) responsible for transmitting the rendered UI to
+Windows.</li>
+</ul>
+<h3 id="graphical-display-and-the-rail-protocol">Graphical Display and
+the RAIL Protocol</h3>
+<p>WSLg achieves seamless integration by treating each Linux GUI window
+as an independent Remote Desktop session:</p>
+<ol type="1">
+<li><strong>Window Creation:</strong> When a Linux application launches,
+it communicates with either the Wayland server or XWayland using
+standard Linux graphical APIs.</li>
+<li><strong>Composition:</strong> Weston receives the window draw
+commands and composites the graphical surfaces within the Linux
+environment.</li>
+<li><strong>RAIL Redirection:</strong> Instead of streaming an entire
+virtual desktop, Weston uses FreeRDP with the Remote Applications
+Integrated Locally (RAIL) extension. RAIL breaks the graphical output
+into individual, distinct window frames.</li>
+<li><strong>Desktop Presentation:</strong> The Windows desktop receives
+these individual surfaces and manages them using the native Windows
+Desktop Window Manager (DWM). This allows Linux apps to support Windows
+snapping, alt-tab switching, minimize/maximize behaviors, and native
+taskbar grouping.</li>
+</ol>
+<h3 id="hardware-acceleration-with-gpu-virtualization">Hardware
+Acceleration with GPU Virtualization</h3>
+<p>To ensure smooth performance for graphics-intensive tasks, WSL2 does
+not rely solely on software rendering. Microsoft developed GPU
+virtualization drivers to provide near-native performance:</p>
+<ul>
+<li><strong>Dxgkrnl:</strong> A Linux kernel driver developed by
+Microsoft that communicates with the Windows DirectX Graphics Kernel on
+the host machine.</li>
+<li><strong>Mesa 3D Support:</strong> The system includes a Direct3D 12
+(D3D12) backend for Mesa. When a Linux application requests OpenGL,
+OpenCL, or Vulkan rendering, Mesa translates those calls into DirectX 12
+commands.</li>
+<li><strong>Host Execution:</strong> These translated commands are
+passed through <code>/dev/dxg</code> directly to the host machine's
+physical GPU, enabling hardware acceleration for 3D rendering, video
+playback, and AI/machine learning workloads.</li>
+</ul>
+<h3 id="audio-clipboard-and-peripheral-integration">Audio, Clipboard,
+and Peripheral Integration</h3>
+<p>WSLg handles peripheral data and audio streams concurrently with
+visual rendering:</p>
+<ul>
+<li><strong>Audio Playback and Input:</strong> Linux applications send
+audio streams to the PulseAudio server inside the system distribution.
+PulseAudio routes this data over a local Remote Desktop Protocol virtual
+channel directly to the Windows host audio engine, enabling microphone
+input and speaker output.</li>
+<li><strong>Shared Clipboard:</strong> Wayland and X11 clipboard events
+are mapped directly to the Windows clipboard format listener, allowing
+bi-directional copy-and-paste of text, images, and files between Linux
+and Windows applications.</li>
+</ul></article>
+        <div id="comments-container"></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

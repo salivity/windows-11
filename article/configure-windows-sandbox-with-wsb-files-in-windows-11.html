@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configure Windows Sandbox with WSB Files in Windows 11 - windows-11</title>
+    <meta name="description" content="Windows Sandbox provides a lightweight desktop environment to safely run applications in isolation, and it can be customized using Windows Sandbox configuration (.wsb) files. This guide explains the structure of .wsb files, the configuration options avai">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/configure-windows-sandbox-with-wsb-files-in-windows-11">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Configure Windows Sandbox with WSB Files in Windows 11 - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/configure-windows-sandbox-with-wsb-files-in-windows-11" />
+    <meta property="og:image:url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Windows Sandbox provides a lightweight desktop environment to safely run applications in isolation, and it can be customized using Windows Sandbox configuration (.wsb) files. This guide explains the structure of .wsb files, the configuration options avai" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1
+id="configure-windows-sandbox-with-wsb-files-in-windows-11">Configure
+Windows Sandbox with WSB Files in Windows 11</h1>
+<p>Windows Sandbox provides a lightweight desktop environment to safely
+run applications in isolation, and it can be customized using Windows
+Sandbox configuration (<code>.wsb</code>) files. This guide explains the
+structure of <code>.wsb</code> files, the configuration options
+available in Windows 11, and how to create and run custom sandbox
+environments to automate tasks, share folders, manage hardware access,
+and adjust resource limits.</p>
+<hr />
+<h3 id="prerequisites">Prerequisites</h3>
+<p>Before creating custom configurations, ensure Windows Sandbox is
+enabled on your system:</p>
+<ol type="1">
+<li>Press <code>Windows Key + R</code>, type
+<code>optionalfeatures.exe</code>, and press
+<strong>Enter</strong>.</li>
+<li>Check the box for <strong>Windows Sandbox</strong> and click
+<strong>OK</strong>.</li>
+<li>Restart your PC if prompted.</li>
+</ol>
+<p><em>Note: Windows Sandbox requires Windows 11 Pro, Enterprise, or
+Education, along with hardware virtualization enabled in your
+BIOS/UEFI.</em></p>
+<hr />
+<h3 id="anatomy-of-a-wsb-file">Anatomy of a <code>.wsb</code> File</h3>
+<p>A Windows Sandbox configuration file is a plain-text file formatted
+in XML with a <code>.wsb</code> extension. It allows you to configure
+settings inside a root <code>&lt;Configuration&gt;</code> tag.</p>
+<p>Here are the primary configuration tags supported in Windows 11:</p>
+<h4 id="1-vgpu-virtual-gpu">1. vGPU (Virtual GPU)</h4>
+<p>Controls whether hardware-accelerated graphics rendering is
+enabled.</p>
+<ul>
+<li><strong><code>&lt;VGpu&gt;Enable&lt;/VGpu&gt;</code></strong>:
+Enables GPU acceleration.</li>
+<li><strong><code>&lt;VGpu&gt;Disable&lt;/VGpu&gt;</code></strong>:
+Disables GPU acceleration and relies on software rasterization.</li>
+</ul>
+<h4 id="2-networking">2. Networking</h4>
+<p>Controls network access inside the sandbox.</p>
+<ul>
+<li><strong><code>&lt;Networking&gt;Default&lt;/Networking&gt;</code></strong>
+or
+<strong><code>&lt;Networking&gt;Enable&lt;/Networking&gt;</code></strong>:
+Enables network access.</li>
+<li><strong><code>&lt;Networking&gt;Disable&lt;/Networking&gt;</code></strong>:
+Disables network access to create an isolated offline environment.</li>
+</ul>
+<h4 id="3-mapped-folders">3. Mapped Folders</h4>
+<p>Shares folders from the host machine to the sandbox.</p>
+<ul>
+<li><strong><code>&lt;HostFolder&gt;</code></strong>: The absolute path
+on your host PC.</li>
+<li><strong><code>&lt;SandboxFolder&gt;</code></strong>: (Optional) The
+destination path inside the sandbox. If omitted, it defaults to the
+sandbox desktop.</li>
+<li><strong><code>&lt;ReadOnly&gt;</code></strong>: Set to
+<code>true</code> to prevent the sandbox from modifying host files, or
+<code>false</code> for read/write access.</li>
+</ul>
+<h4 id="4-logon-command">4. Logon Command</h4>
+<p>Specifies a single command or script to execute automatically when
+the sandbox boots up.</p>
+<ul>
+<li><strong><code>&lt;LogonCommand&gt;</code></strong> containing
+<strong><code>&lt;Command&gt;</code></strong>: Executes commands using
+<code>cmd.exe</code> syntax, PowerShell, or runs an executable from a
+mapped folder.</li>
+</ul>
+<h4 id="5-additional-system-settings">5. Additional System Settings</h4>
+<ul>
+<li><strong><code>&lt;MemoryInMB&gt;</code></strong>: Sets memory limits
+in megabytes (e.g.,
+<code>&lt;MemoryInMB&gt;4096&lt;/MemoryInMB&gt;</code>).</li>
+<li><strong><code>&lt;AudioInput&gt;</code></strong>: Set to
+<code>Enable</code> or <code>Disable</code> to control microphone
+access.</li>
+<li><strong><code>&lt;VideoInput&gt;</code></strong>: Set to
+<code>Enable</code> or <code>Disable</code> to control webcam
+access.</li>
+<li><strong><code>&lt;ClipboardRedirection&gt;</code></strong>: Set to
+<code>Enable</code> or <code>Disable</code> host/sandbox clipboard
+sharing.</li>
+<li><strong><code>&lt;PrinterRedirection&gt;</code></strong>: Set to
+<code>Enable</code> or <code>Disable</code> host printer sharing.</li>
+<li><strong><code>&lt;ProtectedClient&gt;</code></strong>: Set to
+<code>Enable</code> to turn on extra security mitigations for the Remote
+Desktop session.</li>
+</ul>
+<hr />
+<h3 id="example-configuration-file">Example Configuration File</h3>
+<p>Below is a complete <code>.wsb</code> configuration that enables
+networking, shares a host directory as read-only, sets a memory limit of
+4 GB, and automatically launches an installer upon startup.</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode xml"><code class="sourceCode xml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Configuration</span>&gt;</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">VGpu</span>&gt;Enable&lt;/<span class="kw">VGpu</span>&gt;</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">Networking</span>&gt;Enable&lt;/<span class="kw">Networking</span>&gt;</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">MemoryInMB</span>&gt;4096&lt;/<span class="kw">MemoryInMB</span>&gt;</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">ClipboardRedirection</span>&gt;Enable&lt;/<span class="kw">ClipboardRedirection</span>&gt;</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">AudioInput</span>&gt;Disable&lt;/<span class="kw">AudioInput</span>&gt;</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">VideoInput</span>&gt;Disable&lt;/<span class="kw">VideoInput</span>&gt;</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">MappedFolders</span>&gt;</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">MappedFolder</span>&gt;</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">HostFolder</span>&gt;C:\SandboxShared&lt;/<span class="kw">HostFolder</span>&gt;</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">SandboxFolder</span>&gt;C:\Users\WDAGUtilityAccount\Desktop\Shared&lt;/<span class="kw">SandboxFolder</span>&gt;</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">ReadOnly</span>&gt;true&lt;/<span class="kw">ReadOnly</span>&gt;</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">MappedFolder</span>&gt;</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">MappedFolders</span>&gt;</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">LogonCommand</span>&gt;</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Command</span>&gt;powershell.exe -ExecutionPolicy Bypass -File C:\Users\WDAGUtilityAccount\Desktop\Shared\setup.ps1&lt;/<span class="kw">Command</span>&gt;</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">LogonCommand</span>&gt;</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Configuration</span>&gt;</span></code></pre></div>
+<hr />
+<h3 id="how-to-create-and-run-the-wsb-file">How to Create and Run the
+<code>.wsb</code> File</h3>
+<ol type="1">
+<li>Open <strong>Notepad</strong> or your preferred text editor.</li>
+<li>Copy and paste your customized XML configuration into the
+editor.</li>
+<li>Click <strong>File &gt; Save As</strong>.</li>
+<li>In the "Save as type" dropdown, select <strong>All Files
+(<em>.</em>)</strong>.</li>
+<li>Enter a name with the <code>.wsb</code> extension (for example,
+<code>DevEnvironment.wsb</code>).</li>
+<li>Double-click the saved <code>.wsb</code> file to start Windows
+Sandbox with your custom settings.</li>
+</ol></article>
+        <div id="comments-container"></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

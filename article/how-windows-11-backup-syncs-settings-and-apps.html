@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Windows 11 Backup Syncs Settings and Apps - windows-11</title>
+    <meta name="description" content="The Windows Backup app in Windows 11 provides a centralized solution for creating a digital snapshot of your personal computing environment and syncing it across devices. By integrating your Microsoft Account (MSA) or Entra ID with OneDrive and Microsoft">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/how-windows-11-backup-syncs-settings-and-apps">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="How Windows 11 Backup Syncs Settings and Apps - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/how-windows-11-backup-syncs-settings-and-apps" />
+    <meta property="og:image:url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="The Windows Backup app in Windows 11 provides a centralized solution for creating a digital snapshot of your personal computing environment and syncing it across devices. By integrating your Microsoft Account (MSA) or Entra ID with OneDrive and Microsoft" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="how-windows-11-backup-syncs-settings-and-apps">How Windows 11
+Backup Syncs Settings and Apps</h1>
+<p>The Windows Backup app in Windows 11 provides a centralized solution
+for creating a digital snapshot of your personal computing environment
+and syncing it across devices. By integrating your Microsoft Account
+(MSA) or Entra ID with OneDrive and Microsoft cloud services, the tool
+continuously captures your operating system preferences, saved
+credentials, installed applications, and personal files. When you sign
+in to a new or reset Windows 11 device, the system automatically
+retrieves this cloud profile to replicate your previous workspace
+seamlessly.</p>
+<h3 id="microsoft-account-integration">Microsoft Account
+Integration</h3>
+<p>The core foundation of the Windows Backup tool is the Microsoft
+Account. When you sign in, Windows establishes an encrypted channel
+between your local device and Microsoft's identity and synchronization
+services. This profile acts as the single source of truth for your
+device state, ensuring that any supported changes made on one PC are
+reflected across any other Windows 11 PC registered to the same
+account.</p>
+<h3 id="system-and-personalization-settings-sync">System and
+Personalization Settings Sync</h3>
+<p>Windows Backup records key operating system configurations,
+including:</p>
+<ul>
+<li><strong>Personalization:</strong> Desktop themes, accent colors,
+background wallpapers, and taskbar configurations.</li>
+<li><strong>Accessibility:</strong> Narrator, Magnifier, high-contrast
+themes, and mouse/keyboard accessibility preferences.</li>
+<li><strong>System Preferences:</strong> Language packs, regional
+settings, dictionary history, and date/time formats.</li>
+</ul>
+<p>These settings are packaged as small metadata payloads and sent to
+Microsoft’s cloud settings store. When you log into a secondary device,
+the OS checks for updated payloads and applies the configurations
+directly to the Windows Registry and local user profile.</p>
+<h3 id="credentials-and-wi-fi-passwords">Credentials and Wi-Fi
+Passwords</h3>
+<p>Windows Backup securely synchronizes sensitive authentication data
+using end-to-end encryption tied to your account identity:</p>
+<ul>
+<li><strong>Network Credentials:</strong> Saved Wi-Fi network names
+(SSIDs) and their associated WPA/WPA2/WPA3 pre-shared keys.</li>
+<li><strong>Web and App Passwords:</strong> Stored credentials managed
+through the Windows Credential Manager and Microsoft Edge.</li>
+</ul>
+<p>This data is encrypted locally using Windows cryptographic APIs
+before transmission, preventing unauthorized access during transit and
+storage. Once verified on a target device, these credentials are added
+directly to that device's local Credential Locker.</p>
+<h3 id="app-retention-and-pinning">App Retention and Pinning</h3>
+<p>Windows Backup treats applications differently based on their
+architecture:</p>
+<ul>
+<li><strong>Microsoft Store Apps:</strong> The system creates a manifest
+of installed Store applications linked to your digital license. During
+restoration, Windows 11 automatically downloads and installs these apps
+in the background.</li>
+<li><strong>Desktop (Win32) Applications:</strong> The app records the
+shortcuts, taskbar pins, and Start Menu layout. On a new device, these
+desktop apps appear in their designated positions; clicking an
+uninstalled app shortcut directs you to the publisher's official
+download source or triggers an automatic web-installer.</li>
+</ul>
+<h3 id="folders-and-files-via-onedrive">Folders and Files via
+OneDrive</h3>
+<p>User data stored within default system libraries—such as Desktop,
+Documents, Pictures, Music, and Videos—is continuously synchronized
+using the native OneDrive client. This ensures that physical files are
+kept up to date in real time, making them accessible immediately without
+manual export or import procedures.</p>
+<h3 id="device-restoration-via-oobe">Device Restoration via OOBE</h3>
+<p>The restoration phase primarily occurs during the Out-of-Box
+Experience (OOBE) when configuring a new PC. Upon authenticating with
+your Microsoft Account, the setup wizard detects available cloud
+backups. Selecting a backup initiates a background process that
+downloads files, applies settings, restores credentials, and reinstalls
+apps, creating a consistent user experience with minimal downtime.</p></article>
+        <div id="comments-container"></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

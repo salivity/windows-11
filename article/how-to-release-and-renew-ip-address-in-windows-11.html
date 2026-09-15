@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Release and Renew IP Address in Windows 11 - windows-11</title>
+    <meta name="description" content="Releasing and renewing your Dynamic Host Configuration Protocol (DHCP) lease in Windows 11 is an effective troubleshooting step for resolving network connectivity issues, IP address conflicts, and internet access errors. By using the Command Prompt with">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/how-to-release-and-renew-ip-address-in-windows-11">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="How to Release and Renew IP Address in Windows 11 - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/how-to-release-and-renew-ip-address-in-windows-11" />
+    <meta property="og:image:url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Releasing and renewing your Dynamic Host Configuration Protocol (DHCP) lease in Windows 11 is an effective troubleshooting step for resolving network connectivity issues, IP address conflicts, and internet access errors. By using the Command Prompt with" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="how-to-release-and-renew-ip-address-in-windows-11">How to
+Release and Renew IP Address in Windows 11</h1>
+<p>Releasing and renewing your Dynamic Host Configuration Protocol
+(DHCP) lease in Windows 11 is an effective troubleshooting step for
+resolving network connectivity issues, IP address conflicts, and
+internet access errors. By using the Command Prompt with the
+<code>ipconfig</code> utility, you can force your computer to discard
+its current network configuration and request a brand-new IP address
+from your local router or DHCP server.</p>
+<h3 id="step-1-open-command-prompt-as-administrator">Step 1: Open
+Command Prompt as Administrator</h3>
+<ol type="1">
+<li>Click the <strong>Start</strong> button or press the <strong>Windows
+Key</strong>.</li>
+<li>Type <code>cmd</code> or <code>Command Prompt</code> into the search
+bar.</li>
+<li>Right-click on <strong>Command Prompt</strong> from the search
+results and select <strong>Run as administrator</strong>.</li>
+<li>Click <strong>Yes</strong> if prompted by User Account Control
+(UAC).</li>
+</ol>
+<h3 id="step-2-release-the-current-ip-address">Step 2: Release the
+Current IP Address</h3>
+<p>In the Command Prompt window, type the following command and press
+<strong>Enter</strong>:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>ipconfig <span class="at">/release</span></span></code></pre></div>
+<p>This command instructs your computer to release its current IPv4
+address lease by sending a DHCP release message to the DHCP server. Your
+internet connection will temporarily disconnect.</p>
+<p><em>(Optional)</em> If your network uses IPv6 and you wish to release
+that configuration as well, run:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ipconfig <span class="at">/release6</span></span></code></pre></div>
+<h3 id="step-3-clear-the-dns-cache-recommended">Step 3: Clear the DNS
+Cache (Recommended)</h3>
+<p>Before requesting a new address, clearing the DNS resolver cache can
+eliminate stale entries:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ipconfig <span class="at">/flushdns</span></span></code></pre></div>
+<h3 id="step-4-renew-the-ip-address">Step 4: Renew the IP Address</h3>
+<p>To request a new IP address configuration from your DHCP server, type
+the following command and press <strong>Enter</strong>:</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ipconfig <span class="at">/renew</span></span></code></pre></div>
+<p>After a brief pause, the Command Prompt will display the new network
+configuration details, including the newly assigned IPv4 Address, Subnet
+Mask, and Default Gateway.</p>
+<p><em>(Optional)</em> To renew IPv6 addresses, execute:</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ipconfig <span class="at">/renew6</span></span></code></pre></div>
+<h3 id="step-5-verify-the-connection">Step 5: Verify the Connection</h3>
+<p>To confirm that your device has successfully acquired an active IP
+configuration, run:</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>ipconfig</span></code></pre></div>
+<p>Review the active network adapter (such as <strong>Ethernet
+adapter</strong> or <strong>Wireless LAN adapter Wi-Fi</strong>) to
+ensure an IP address is assigned and your network connection is
+restored.</p></article>
+        <div id="comments-container"></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

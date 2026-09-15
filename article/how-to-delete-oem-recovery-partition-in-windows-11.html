@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Delete OEM Recovery Partition in Windows 11 - windows-11</title>
+    <meta name="description" content="OEM recovery partitions often remain locked on your drive, consuming valuable storage space that the standard Windows 11 Disk Management tool cannot modify or delete. This guide outlines how to safely bypass these system restrictions using Windows 11's b">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/how-to-delete-oem-recovery-partition-in-windows-11">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="How to Delete OEM Recovery Partition in Windows 11 - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/how-to-delete-oem-recovery-partition-in-windows-11" />
+    <meta property="og:image:url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="OEM recovery partitions often remain locked on your drive, consuming valuable storage space that the standard Windows 11 Disk Management tool cannot modify or delete. This guide outlines how to safely bypass these system restrictions using Windows 11's b" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="how-to-delete-oem-recovery-partition-in-windows-11">How to
+Delete OEM Recovery Partition in Windows 11</h1>
+<p>OEM recovery partitions often remain locked on your drive, consuming
+valuable storage space that the standard Windows 11 Disk Management tool
+cannot modify or delete. This guide outlines how to safely bypass these
+system restrictions using Windows 11's built-in Diskpart utility to
+remove stubborn OEM partitions and merge the unallocated space back into
+your primary drive.</p>
+<h3 id="why-standard-tools-fail">Why Standard Tools Fail</h3>
+<p>Windows 11 flags OEM (Original Equipment Manufacturer) partitions as
+protected to prevent accidental deletion of factory restore files.
+Consequently, right-clicking these partitions in Disk Management results
+in a grayed-out "Delete Volume" option or an error stating the action is
+not supported. Using the command-line Diskpart tool with an override
+parameter is the standard method to remove them.</p>
+<h3 id="important-considerations-before-deletion">Important
+Considerations Before Deletion</h3>
+<ul>
+<li><strong>Data Safety:</strong> Deleting a partition is permanent.
+Ensure you do not delete your primary system partition (<code>C:</code>)
+or the EFI System Partition.</li>
+<li><strong>Factory Reset Capability:</strong> Removing the OEM
+partition deletes the manufacturer-specific recovery image. You will
+still be able to reinstall Windows 11 using official media, but
+factory-bundled software will be lost.</li>
+</ul>
+<hr />
+<h3
+id="step-by-step-guide-deleting-the-partition-via-diskpart">Step-by-Step
+Guide: Deleting the Partition via Diskpart</h3>
+<ol type="1">
+<li><p><strong>Open Command Prompt as Administrator</strong></p>
+<ul>
+<li>Press <code>Windows Key + S</code>, type <code>cmd</code>,
+right-click <strong>Command Prompt</strong>, and select <strong>Run as
+administrator</strong>.</li>
+</ul></li>
+<li><p><strong>Launch the Diskpart Utility</strong></p>
+<ul>
+<li>Type <code>diskpart</code> and press <strong>Enter</strong>.</li>
+</ul></li>
+<li><p><strong>Identify the Disk</strong></p>
+<ul>
+<li>Type <code>list disk</code> and press <strong>Enter</strong>.</li>
+<li>Note the disk number containing the OEM recovery partition (usually
+<code>Disk 0</code>).</li>
+</ul></li>
+<li><p><strong>Select the Disk</strong></p>
+<ul>
+<li>Type <code>select disk X</code> (replace <code>X</code> with your
+actual disk number) and press <strong>Enter</strong>.</li>
+</ul></li>
+<li><p><strong>Identify the Recovery Partition</strong></p>
+<ul>
+<li>Type <code>list partition</code> and press
+<strong>Enter</strong>.</li>
+<li>Locate the partition labeled "Recovery" or identified as "OEM". Note
+its partition number.</li>
+</ul></li>
+<li><p><strong>Select the Partition</strong></p>
+<ul>
+<li>Type <code>select partition Y</code> (replace <code>Y</code> with
+the specific partition number) and press <strong>Enter</strong>.</li>
+</ul></li>
+<li><p><strong>Force Delete the Partition</strong></p>
+<ul>
+<li>Type the following command and press <strong>Enter</strong>:
+<pre class="text"><code>delete partition override</code></pre></li>
+<li>The <code>override</code> parameter bypasses the protection flag and
+removes the partition immediately.</li>
+</ul></li>
+<li><p><strong>Exit Diskpart</strong></p>
+<ul>
+<li>Type <code>exit</code> and press <strong>Enter</strong> to close the
+utility.</li>
+</ul></li>
+</ol>
+<hr />
+<h3 id="reclaiming-the-unallocated-space">Reclaiming the Unallocated
+Space</h3>
+<p>Once the partition is deleted, the space becomes "Unallocated." You
+can allocate it using Disk Management:</p>
+<ol type="1">
+<li>Right-click the <strong>Start Menu</strong> and select <strong>Disk
+Management</strong>.</li>
+<li>If the unallocated space is directly adjacent (to the right) of your
+<code>C:</code> drive, right-click <code>C:</code>, select
+<strong>Extend Volume</strong>, and follow the on-screen wizard.</li>
+<li>If the space is not adjacent or you prefer a separate drive,
+right-click the unallocated space and choose <strong>New Simple
+Volume</strong> to assign it a new drive letter.</li>
+</ol></article>
+        <div id="comments-container"></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

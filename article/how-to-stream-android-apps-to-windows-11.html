@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Stream Android Apps to Windows 11 - windows-11</title>
+    <meta name="description" content="Streaming Android applications directly to a Windows 11 desktop allows you to interact with your mobile apps, notifications, and media on a larger screen without installing dedicated PC clients. This guide covers the most efficient and direct methods to">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/how-to-stream-android-apps-to-windows-11">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="How to Stream Android Apps to Windows 11 - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/how-to-stream-android-apps-to-windows-11" />
+    <meta property="og:image:url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Streaming Android applications directly to a Windows 11 desktop allows you to interact with your mobile apps, notifications, and media on a larger screen without installing dedicated PC clients. This guide covers the most efficient and direct methods to" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="how-to-stream-android-apps-to-windows-11">How to Stream Android
+Apps to Windows 11</h1>
+<p>Streaming Android applications directly to a Windows 11 desktop
+allows you to interact with your mobile apps, notifications, and media
+on a larger screen without installing dedicated PC clients. This guide
+covers the most efficient and direct methods to mirror and stream
+Android apps to your PC, focusing on native Windows tools like Microsoft
+Phone Link and high-performance third-party utilities like Scrcpy.</p>
+<h2
+id="method-1-using-microsoft-phone-link-best-for-supported-devices">Method
+1: Using Microsoft Phone Link (Best for Supported Devices)</h2>
+<p>Microsoft Phone Link provides native Android app streaming on Windows
+11, allowing you to open mobile apps in individual windows on your
+desktop. This feature works out of the box with supported Android
+devices, including most Samsung Galaxy phones, HONOR devices, and select
+ASUS and OnePlus models.</p>
+<h3 id="prerequisites">Prerequisites</h3>
+<ul>
+<li>A PC running Windows 11 with the <strong>Phone Link</strong> app
+installed.</li>
+<li>An Android device running Android 9.0 or higher with the
+<strong>Link to Windows</strong> app installed (pre-installed on
+supported hardware).</li>
+<li>Both devices connected to the same Wi-Fi network with Bluetooth
+enabled.</li>
+</ul>
+<h3 id="step-by-step-setup">Step-by-Step Setup</h3>
+<ol type="1">
+<li><strong>Open Phone Link on Windows 11:</strong> Search for "Phone
+Link" in the Windows Start menu and launch it.</li>
+<li><strong>Sign In:</strong> Sign in with your Microsoft account.</li>
+<li><strong>Set Up Link to Windows on Android:</strong> Open the
+<strong>Link to Windows</strong> app on your phone (or toggle it on from
+the Quick Settings panel) and scan the QR code displayed on your PC
+screen.</li>
+<li><strong>Grant Permissions:</strong> Allow the requested permissions
+on your phone to permit screen sharing and app access.</li>
+<li><strong>Launch an App:</strong> In the Phone Link app on your PC,
+select the <strong>Apps</strong> tab. Click on any app icon to initiate
+the stream. The app will open in a separate window on your Windows 11
+desktop.</li>
+</ol>
+<hr />
+<h2 id="method-2-using-scrcpy-universal-and-low-latency">Method 2: Using
+Scrcpy (Universal and Low Latency)</h2>
+<p>For Android devices that do not support app streaming via Phone Link,
+<strong>Scrcpy</strong> is a free, open-source tool that mirrors and
+streams your Android screen to Windows 11 with near-zero latency and no
+root access required.</p>
+<h3 id="prerequisites-1">Prerequisites</h3>
+<ul>
+<li>Any Android phone running Android 5.0 or later.</li>
+<li>A USB cable (for initial setup; wireless streaming is supported
+afterward).</li>
+<li>USB Debugging enabled on your Android device.</li>
+</ul>
+<h3 id="step-by-step-setup-1">Step-by-Step Setup</h3>
+<ol type="1">
+<li><strong>Enable Developer Options on Android:</strong>
+<ul>
+<li>Go to <strong>Settings</strong> &gt; <strong>About
+Phone</strong>.</li>
+<li>Tap <strong>Build Number</strong> seven times until you see the
+message "You are now a developer."</li>
+</ul></li>
+<li><strong>Enable USB Debugging:</strong>
+<ul>
+<li>Go to <strong>Settings</strong> &gt; <strong>System</strong> &gt;
+<strong>Developer Options</strong>.</li>
+<li>Toggle on <strong>USB Debugging</strong>.</li>
+</ul></li>
+<li><strong>Download Scrcpy on Windows 11:</strong>
+<ul>
+<li>Download the latest release of Scrcpy for Windows.</li>
+<li>Extract the ZIP folder to a convenient location on your PC.</li>
+</ul></li>
+<li><strong>Connect and Run:</strong>
+<ul>
+<li>Connect your phone to your PC via USB.</li>
+<li>Accept the "Allow USB debugging" prompt on your phone screen.</li>
+<li>Open the extracted Scrcpy folder on your PC and double-click
+<code>scrcpy.exe</code>.</li>
+</ul></li>
+<li><strong>Control Your Apps:</strong> Your Android screen will appear
+in a low-latency desktop window, allowing you to launch and use any app
+with your mouse and keyboard.</li>
+</ol>
+<hr />
+<h2 id="tips-for-optimal-streaming-performance">Tips for Optimal
+Streaming Performance</h2>
+<ul>
+<li><strong>Use 5 GHz Wi-Fi:</strong> When streaming wirelessly, connect
+both devices to a 5 GHz Wi-Fi band to minimize input lag and frame
+drops.</li>
+<li><strong>Keep Screen Off During Streaming:</strong> In tools like
+Scrcpy, you can keep the phone's physical screen turned off while
+streaming to save battery by launching it via the command line with
+<code>scrcpy --turn-screen-off</code>.</li>
+<li><strong>Clipboard Synchronization:</strong> Both Phone Link and
+Scrcpy support shared clipboards, enabling seamless copying and pasting
+of text between Windows 11 and Android.</li>
+</ul></article>
+        <div id="comments-container"></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

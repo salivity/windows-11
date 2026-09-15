@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Safely Delete Windows.old in Windows 11 - windows-11</title>
+    <meta name="description" content="When you upgrade to Windows 11, the operating system automatically creates a Windows.old folder to store your previous system files in case you want to roll back. If your system is stable and you need to free up dozens of gigabytes of disk space, you can">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/how-to-safely-delete-windows-old-in-windows-11">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="How to Safely Delete Windows.old in Windows 11 - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/how-to-safely-delete-windows-old-in-windows-11" />
+    <meta property="og:image:url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="When you upgrade to Windows 11, the operating system automatically creates a Windows.old folder to store your previous system files in case you want to roll back. If your system is stable and you need to free up dozens of gigabytes of disk space, you can" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="how-to-safely-delete-windowsold-in-windows-11">How to Safely
+Delete Windows.old in Windows 11</h1>
+<p>When you upgrade to Windows 11, the operating system automatically
+creates a <code>Windows.old</code> folder to store your previous system
+files in case you want to roll back. If your system is stable and you
+need to free up dozens of gigabytes of disk space, you can safely remove
+this directory. This guide provides the quickest and safest methods to
+remove the <code>Windows.old</code> folder using built-in Windows 11
+tools.</p>
+<hr />
+<h3 id="why-you-shouldnt-just-press-delete">Why You Shouldn't Just Press
+"Delete"</h3>
+<p>Do not try to delete the <code>Windows.old</code> folder directly
+from File Explorer. Because it contains protected system files and
+specific access permissions, attempting to delete it manually will
+usually result in "Access Denied" errors. Use the official system
+cleanup tools outlined below instead.</p>
+<hr />
+<h3 id="method-1-use-windows-11-settings-recommended">Method 1: Use
+Windows 11 Settings (Recommended)</h3>
+<ol type="1">
+<li>Open the <strong>Settings</strong> app by pressing
+<code>Win + I</code>.</li>
+<li>Navigate to <strong>System</strong> &gt;
+<strong>Storage</strong>.</li>
+<li>Under the storage breakdown, click on <strong>Temporary
+files</strong>.</li>
+<li>Wait for Windows to scan your drive.</li>
+<li>Look through the list and check the box next to <strong>Previous
+Windows installation(s)</strong>.</li>
+<li>Uncheck any items you want to keep (such as your <em>Downloads</em>
+folder).</li>
+<li>Scroll back up and click the <strong>Remove files</strong>
+button.</li>
+</ol>
+<hr />
+<h3 id="method-2-use-disk-cleanup">Method 2: Use Disk Cleanup</h3>
+<ol type="1">
+<li>Press the <strong>Windows Key</strong>, type <strong>Disk
+Cleanup</strong>, and press <code>Enter</code>.</li>
+<li>Select the drive where Windows is installed (usually the
+<code>C:</code> drive) and click <strong>OK</strong>.</li>
+<li>Click the <strong>Clean up system files</strong> button near the
+bottom. (Provide administrator permission if prompted).</li>
+<li>Select the <code>C:</code> drive again and click
+<strong>OK</strong>.</li>
+<li>In the <em>Files to delete</em> list, check <strong>Previous Windows
+installation(s)</strong>.</li>
+<li>Click <strong>OK</strong>, then click <strong>Delete Files</strong>
+to confirm.</li>
+</ol>
+<hr />
+<h3 id="method-3-use-storage-sense-for-automatic-cleanup">Method 3: Use
+Storage Sense for Automatic Cleanup</h3>
+<p>Windows 11 will automatically delete the <code>Windows.old</code>
+folder after 10 days. If you want Storage Sense to handle it
+immediately:</p>
+<ol type="1">
+<li>Go to <strong>Settings</strong> &gt; <strong>System</strong> &gt;
+<strong>Storage</strong>.</li>
+<li>Click on <strong>Storage Sense</strong>.</li>
+<li>Toggle Storage Sense to <strong>On</strong>.</li>
+<li>Scroll to the bottom and click <strong>Run Storage Sense
+now</strong>.</li>
+</ol></article>
+        <div id="comments-container"></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

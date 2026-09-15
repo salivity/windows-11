@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Windows 11 File Explorer Cloud Status Works - windows-11</title>
+    <meta name="description" content="The integrated cloud status indicator in Windows 11 File Explorer provides real-time visual feedback on the synchronization state of files and folders stored in cloud services like Microsoft OneDrive. By leveraging the Windows Cloud Files API and the "Fi">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/how-windows-11-file-explorer-cloud-status-works">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="How Windows 11 File Explorer Cloud Status Works - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/how-windows-11-file-explorer-cloud-status-works" />
+    <meta property="og:image:url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="The integrated cloud status indicator in Windows 11 File Explorer provides real-time visual feedback on the synchronization state of files and folders stored in cloud services like Microsoft OneDrive. By leveraging the Windows Cloud Files API and the "Fi" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="how-windows-11-file-explorer-cloud-status-works">How Windows 11
+File Explorer Cloud Status Works</h1>
+<p>The integrated cloud status indicator in Windows 11 File Explorer
+provides real-time visual feedback on the synchronization state of files
+and folders stored in cloud services like Microsoft OneDrive. By
+leveraging the Windows Cloud Files API and the "Files On-Demand"
+architecture, File Explorer displays specific glyphs in the "Status"
+column and as icon overlays, allowing users to instantly see whether an
+item is stored locally, saved exclusively in the cloud, currently
+syncing, or experiencing an error.</p>
+<h3
+id="the-underlying-technology-files-on-demand-and-cloud-filter-api">The
+Underlying Technology: Files On-Demand and Cloud Filter API</h3>
+<p>Windows 11 communicates with cloud storage providers using the Cloud
+Filter API (<code>cfapi</code>). Instead of downloading an entire cloud
+directory to the local drive, Windows generates "sparse" or placeholder
+files. These files contain metadata—such as file name, size, and date
+modified—without consuming full local storage capacity.</p>
+<p>When an application or user accesses a placeholder file, the
+operating system intercepts the request, calls the cloud provider’s sync
+engine, hydrates the file (downloads the actual data stream in real
+time), and opens it seamlessly. The status indicator reflects the exact
+stage of this hydration and synchronization lifecycle.</p>
+<h3 id="key-cloud-status-indicators-and-their-meanings">Key Cloud Status
+Indicators and Their Meanings</h3>
+<p>File Explorer utilizes standardized icons within the dedicated
+<strong>Status</strong> column to convey state:</p>
+<ul>
+<li><strong>Blue Cloud Icon (Online-Only):</strong> The file exists
+exclusively on the cloud server. It occupies virtually zero disk space
+on the local drive. A local copy is only downloaded when the file is
+opened or manually set to download.</li>
+<li><strong>Green Circle with a Green Checkmark (Locally
+Available):</strong> When an online-only file is opened, it downloads to
+the device and transitions to a locally available file. It can be viewed
+offline, but Windows Storage Sense may automatically convert it back to
+an online-only state if disk space runs low.</li>
+<li><strong>Solid Green Circle with a White Checkmark (Always
+Available):</strong> Applied when a user explicitly selects "Always keep
+on this device." These files are permanently downloaded, available
+offline, and will never be offloaded automatically by system storage
+optimization tasks.</li>
+<li><strong>Two Blue Circular Arrows (Syncing):</strong> The file or
+folder is actively transmitting changes. This occurs during an upload of
+local modifications, a download of cloud changes, or during the initial
+indexing process.</li>
+<li><strong>Red Circle with a White "X" (Sync Issue/Error):</strong> The
+sync engine encountered an error. Common causes include network
+interruptions, filename character restrictions, authentication issues,
+or reaching cloud storage limits.</li>
+<li><strong>Person Icon Overlay:</strong> While not strictly a sync
+status, this badge indicates that the file or folder has shared access
+permissions configured with other users.</li>
+</ul>
+<h3 id="controlling-cloud-file-states">Controlling Cloud File
+States</h3>
+<p>Users can manage these states directly through the File Explorer
+context menu:</p>
+<ul>
+<li><strong>Free up space:</strong> Right-clicking a local or pinned
+file and selecting this option purges the local data payload while
+retaining the metadata, instantly changing the indicator back to the
+<strong>Blue Cloud</strong> icon and reclaiming hard drive space.</li>
+<li><strong>Always keep on this device:</strong> Right-clicking an
+online-only item and selecting this option forces an immediate download
+and locks the indicator to the <strong>Solid Green Circle</strong>,
+ensuring perpetual offline availability.</li>
+</ul></article>
+        <div id="comments-container"></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Use Windows Memory Diagnostic in Windows 11 - windows-11</title>
+    <meta name="description" content="Faulty or failing RAM can lead to frequent crashes, unexpected system freezes, and Blue Screen of Death (BSOD) errors on your PC. Windows 11 includes a built-in utility called Windows Memory Diagnostic that allows you to easily scan your physical memory">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/how-to-use-windows-memory-diagnostic-in-windows-11">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="How to Use Windows Memory Diagnostic in Windows 11 - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/how-to-use-windows-memory-diagnostic-in-windows-11" />
+    <meta property="og:image:url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Faulty or failing RAM can lead to frequent crashes, unexpected system freezes, and Blue Screen of Death (BSOD) errors on your PC. Windows 11 includes a built-in utility called Windows Memory Diagnostic that allows you to easily scan your physical memory" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="how-to-use-windows-memory-diagnostic-in-windows-11">How to Use
+Windows Memory Diagnostic in Windows 11</h1>
+<p>Faulty or failing RAM can lead to frequent crashes, unexpected system
+freezes, and Blue Screen of Death (BSOD) errors on your PC. Windows 11
+includes a built-in utility called Windows Memory Diagnostic that allows
+you to easily scan your physical memory modules for hardware defects.
+This guide provides a step-by-step walkthrough on how to launch the
+tool, run the diagnostic scan, and interpret the test results.</p>
+<h2 id="how-to-open-and-run-windows-memory-diagnostic">How to Open and
+Run Windows Memory Diagnostic</h2>
+<p>To launch the tool and begin testing your memory, follow these
+steps:</p>
+<ol type="1">
+<li>Press <strong>Windows Key + R</strong> to open the Run dialog
+box.</li>
+<li>Type <code>mdsched.exe</code> and press <strong>Enter</strong> (or
+click <strong>OK</strong>). Alternatively, search for <strong>Windows
+Memory Diagnostic</strong> in the Start menu and select it.</li>
+<li>A prompt will appear offering two choices:
+<ul>
+<li><strong>Restart now and check for problems (recommended):</strong>
+This immediately restarts your computer and begins the memory scan.
+Ensure you save all open work before clicking this option.</li>
+<li><strong>Check for problems the next time I start my
+computer:</strong> This schedules the scan to run the next time you turn
+on or manually restart your PC.</li>
+</ul></li>
+</ol>
+<h2 id="the-memory-test-process">The Memory Test Process</h2>
+<p>Once your computer restarts, it will boot directly into the blue
+Windows Memory Diagnostic screen.</p>
+<ul>
+<li>The tool runs automatically using the <strong>Standard</strong> test
+configuration, which performs a series of read/write passes on your RAM
+modules.</li>
+<li>A progress bar will show the overall completion percentage and
+whether any hardware errors have been detected so far.</li>
+<li>If you want to change the test options, press <strong>F1</strong> on
+your keyboard to switch between <strong>Basic</strong>,
+<strong>Standard</strong>, and <strong>Extended</strong> test mixes,
+adjust the cache settings, or increase the number of passes. Press
+<strong>F10</strong> to apply changes.</li>
+<li>After the test finishes, your computer will reboot back into Windows
+11 automatically.</li>
+</ul>
+<h2 id="how-to-view-the-diagnostic-results">How to View the Diagnostic
+Results</h2>
+<p>After Windows loads, a notification should appear in the System Tray
+detailing the results of the scan. If the notification does not appear,
+you can check the results manually using the Event Viewer:</p>
+<ol type="1">
+<li>Right-click the <strong>Start</strong> button and select
+<strong>Event Viewer</strong> (or press <strong>Win + X</strong> and
+select it from the menu).</li>
+<li>In the left pane, expand <strong>Windows Logs</strong> and select
+<strong>System</strong>.</li>
+<li>In the right pane, click <strong>Filter Current Log...</strong></li>
+<li>In the <strong>Event sources</strong> dropdown menu, scroll down,
+check the box next to <strong>MemoryDiagnostics-Results</strong>, and
+click <strong>OK</strong>.</li>
+<li>Look for the most recent log entries in the middle pane.
+Double-click an entry to read the detailed report.</li>
+</ol>
+<p>If the report indicates errors, your RAM is likely defective or
+improperly seated, and the affected memory stick may need to be reseated
+in its slot or replaced.</p></article>
+        <div id="comments-container"></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

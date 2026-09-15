@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disable Driver Signature Enforcement in Windows 11 - windows-11</title>
+    <meta name="description" content="Driver Signature Enforcement is a Windows 11 security feature that prevents the installation of unsigned or custom drivers that could compromise system integrity. However, developers and advanced users often need to install custom or legacy drivers for s">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/disable-driver-signature-enforcement-in-windows-11">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Disable Driver Signature Enforcement in Windows 11 - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/disable-driver-signature-enforcement-in-windows-11" />
+    <meta property="og:image:url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Driver Signature Enforcement is a Windows 11 security feature that prevents the installation of unsigned or custom drivers that could compromise system integrity. However, developers and advanced users often need to install custom or legacy drivers for s" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="disable-driver-signature-enforcement-in-windows-11">Disable
+Driver Signature Enforcement in Windows 11</h1>
+<p>Driver Signature Enforcement is a Windows 11 security feature that
+prevents the installation of unsigned or custom drivers that could
+compromise system integrity. However, developers and advanced users
+often need to install custom or legacy drivers for specialized hardware.
+This guide provides a straightforward, step-by-step walkthrough to
+temporarily disable Driver Signature Enforcement in Windows 11 using the
+Advanced Startup menu, allowing you to install unsigned drivers without
+permanently compromising your system's security.</p>
+<h3 id="method-1-using-windows-11-settings">Method 1: Using Windows 11
+Settings</h3>
+<ol type="1">
+<li><strong>Open Recovery Settings:</strong> Press
+<code>Windows Key + I</code> to open <strong>Settings</strong>. Go to
+<strong>System</strong> and select <strong>Recovery</strong>.</li>
+<li><strong>Access Advanced Startup:</strong> Locate the
+<strong>Advanced startup</strong> option and click the <strong>Restart
+now</strong> button next to it. Confirm by clicking <strong>Restart
+now</strong> again.</li>
+<li><strong>Navigate to Startup Settings:</strong> Once your PC restarts
+into the blue recovery environment:
+<ul>
+<li>Select <strong>Troubleshoot</strong>.</li>
+<li>Click on <strong>Advanced options</strong>.</li>
+<li>Choose <strong>Startup Settings</strong>.</li>
+</ul></li>
+<li><strong>Restart into Startup Settings:</strong> Click the
+<strong>Restart</strong> button at the bottom-right corner of the
+screen.</li>
+<li><strong>Disable Signature Enforcement:</strong> After your computer
+reboots, a numbered list of options will appear. Press
+<strong>7</strong> or <strong>F7</strong> on your keyboard to select
+<strong>Disable driver signature enforcement</strong>.</li>
+</ol>
+<p>Your computer will now boot into Windows 11 with driver signature
+enforcement disabled for this session.</p>
+<hr />
+<h3 id="method-2-using-the-command-prompt-shortcut">Method 2: Using the
+Command Prompt Shortcut</h3>
+<p>If you prefer a faster route to the Advanced Startup menu:</p>
+<ol type="1">
+<li>Press <code>Windows Key + R</code> to open the <strong>Run</strong>
+dialog box.</li>
+<li>Type <code>shutdown /r /o /f /t 00</code> and press
+<strong>Enter</strong>.</li>
+<li>Your computer will immediately restart into the Advanced Startup
+menu.</li>
+<li>Follow the same navigation: <strong>Troubleshoot</strong> &gt;
+<strong>Advanced options</strong> &gt; <strong>Startup Settings</strong>
+&gt; <strong>Restart</strong>, then press <strong>7</strong> or
+<strong>F7</strong>.</li>
+</ol>
+<hr />
+<h3
+id="installing-the-custom-driver-and-re-enabling-security">Installing
+the Custom Driver and Re-enabling Security</h3>
+<p>Once the system boots to the desktop:</p>
+<ol type="1">
+<li>Open <strong>Device Manager</strong> by right-clicking the Start
+button and selecting it from the menu.</li>
+<li>Locate the device requiring the custom driver, right-click it, and
+select <strong>Update driver</strong>.</li>
+<li>Choose <strong>Browse my computer for drivers</strong> and navigate
+to your unsigned driver files (<code>.inf</code>).</li>
+<li>Complete the installation. If a red warning prompt appears stating
+that Windows cannot verify the publisher, choose <strong>Install this
+driver software anyway</strong>.</li>
+</ol>
+<p>After the installation finishes, simply restart your computer
+normally. Windows 11 will automatically re-enable Driver Signature
+Enforcement on the next boot, while the custom driver you just installed
+will remain functional.</p></article>
+        <div id="comments-container"></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

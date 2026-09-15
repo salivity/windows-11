@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Manage Services in Windows 11 Task Manager - windows-11</title>
+    <meta name="description" content="Managing background system services is essential for troubleshooting system instability, freeing up system resources, and controlling how applications run on your PC. Windows 11 features a streamlined Task Manager that includes a dedicated Services secti">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/how-to-manage-services-in-windows-11-task-manager">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="How to Manage Services in Windows 11 Task Manager - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/how-to-manage-services-in-windows-11-task-manager" />
+    <meta property="og:image:url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Managing background system services is essential for troubleshooting system instability, freeing up system resources, and controlling how applications run on your PC. Windows 11 features a streamlined Task Manager that includes a dedicated Services secti" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="how-to-manage-services-in-windows-11-task-manager">How to Manage
+Services in Windows 11 Task Manager</h1>
+<p>Managing background system services is essential for troubleshooting
+system instability, freeing up system resources, and controlling how
+applications run on your PC. Windows 11 features a streamlined Task
+Manager that includes a dedicated Services section, allowing you to
+monitor active background processes, view their operational statuses,
+and start, stop, or restart services directly without immediately
+launching the full Services management console.</p>
+<h3 id="opening-the-services-tab-in-task-manager">Opening the Services
+Tab in Task Manager</h3>
+<ol type="1">
+<li>Open Task Manager by pressing <strong>Ctrl + Shift + Esc</strong>,
+or by right-clicking the <strong>Start</strong> button and selecting
+<strong>Task Manager</strong>.</li>
+<li>Click the <strong>Services</strong> icon on the left sidebar
+(represented by a puzzle piece or listed as the bottom-most navigation
+item).</li>
+</ol>
+<h3 id="understanding-the-services-interface">Understanding the Services
+Interface</h3>
+<p>The Services tab displays a complete list of installed services
+alongside critical details:</p>
+<ul>
+<li><strong>Name:</strong> The internal system name of the service.</li>
+<li><strong>PID (Process Identifier):</strong> The numerical ID assigned
+to the service if it is actively running.</li>
+<li><strong>Description:</strong> A readable name explaining the
+function of the service.</li>
+<li><strong>Status:</strong> Displays whether the service is
+<strong>Running</strong> or <strong>Stopped</strong>.</li>
+<li><strong>Group:</strong> The service host group the service belongs
+to (if applicable).</li>
+</ul>
+<p>You can sort the list by clicking any column header or use the search
+bar at the top to find specific services quickly.</p>
+<h3 id="starting-stopping-and-restarting-services">Starting, Stopping,
+and Restarting Services</h3>
+<p>To control the state of an individual service:</p>
+<ol type="1">
+<li>Locate the service you want to modify in the list.</li>
+<li>Right-click the service name.</li>
+<li>Select your desired action from the context menu:
+<ul>
+<li><strong>Start:</strong> Initiates a stopped service.</li>
+<li><strong>Stop:</strong> Halts a currently running service.</li>
+<li><strong>Restart:</strong> Stops and immediately restarts the service
+to apply changes or clear glitches.</li>
+</ul></li>
+</ol>
+<h3 id="navigating-to-associated-processes">Navigating to Associated
+Processes</h3>
+<p>If a service is actively running and you want to analyze its CPU or
+memory usage:</p>
+<ol type="1">
+<li>Right-click the running service in the list.</li>
+<li>Select <strong>Go to details</strong>.</li>
+<li>Task Manager will automatically jump to the <strong>Details</strong>
+tab and highlight the exact executable (<code>.exe</code>) and PID
+handling that service.</li>
+</ol>
+<h3 id="accessing-advanced-service-configurations">Accessing Advanced
+Service Configurations</h3>
+<p>The Task Manager provides basic operational control. If you need to
+change a service's startup type (e.g., Automatic, Manual, or Disabled)
+or adjust recovery actions:</p>
+<ol type="1">
+<li>Look at the top navigation bar of the Task Manager Services window
+or right-click any service.</li>
+<li>Click <strong>Open Services</strong>.</li>
+<li>This launches the full Microsoft Management Console
+(<code>services.msc</code>), where double-clicking any service opens its
+complete properties window for advanced configuration.</li>
+</ol></article>
+        <div id="comments-container"></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

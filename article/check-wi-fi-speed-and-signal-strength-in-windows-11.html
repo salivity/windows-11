@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Wi-Fi Speed and Signal Strength in Windows 11 - windows-11</title>
+    <meta name="description" content="Windows 11 provides several built-in tools to inspect your wireless network connection without requiring third-party software. This guide demonstrates how to check critical Wi-Fi metrics—including receive and transmit link speeds, signal strength perce">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/check-wi-fi-speed-and-signal-strength-in-windows-11">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Check Wi-Fi Speed and Signal Strength in Windows 11 - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/check-wi-fi-speed-and-signal-strength-in-windows-11" />
+    <meta property="og:image:url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Windows 11 provides several built-in tools to inspect your wireless network connection without requiring third-party software. This guide demonstrates how to check critical Wi-Fi metrics—including receive and transmit link speeds, signal strength perce" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="check-wi-fi-speed-and-signal-strength-in-windows-11">Check Wi-Fi
+Speed and Signal Strength in Windows 11</h1>
+<p>Windows 11 provides several built-in tools to inspect your wireless
+network connection without requiring third-party software. This guide
+demonstrates how to check critical Wi-Fi metrics—including receive and
+transmit link speeds, signal strength percentages, network band (2.4
+GHz, 5 GHz, or 6 GHz), and Wi-Fi generation protocols—using Windows
+Settings, the Control Panel, and Command Prompt.</p>
+<hr />
+<h3 id="method-1-using-windows-settings-recommended">Method 1: Using
+Windows Settings (Recommended)</h3>
+<p>The modern Settings app provides a full summary of your wireless
+network hardware, link rates, and security specifications.</p>
+<ol type="1">
+<li>Open <strong>Settings</strong> by pressing <strong>Windows +
+I</strong>.</li>
+<li>Select <strong>Network &amp; internet</strong> from the left
+sidebar.</li>
+<li>Click on <strong>Wi-Fi</strong>, then select <strong>[Your Network
+Name] properties</strong> (or click <strong>Manage known
+networks</strong> and select your active network).</li>
+<li>Scroll down to the properties section to view:
+<ul>
+<li><strong>Link speed (Receive/Transmit):</strong> The maximum
+connection speed between your PC and the router (in Mbps).</li>
+<li><strong>Signal strength:</strong> Indicated by full/partial
+bars.</li>
+<li><strong>Network band &amp; Channel:</strong> Displays whether you
+are connected to 2.4 GHz, 5 GHz, or 6 GHz.</li>
+<li><strong>Protocol:</strong> Displays the Wi-Fi standard (e.g., Wi-Fi
+5, Wi-Fi 6, Wi-Fi 7).</li>
+<li><strong>IPv4/IPv6 address and MAC address.</strong></li>
+</ul></li>
+</ol>
+<hr />
+<h3 id="method-2-using-command-prompt-exact-percentages--details">Method
+2: Using Command Prompt (Exact Percentages &amp; Details)</h3>
+<p>The Command Prompt provides precise numeric readings for signal
+quality and link speed via the Network Shell tool.</p>
+<ol type="1">
+<li>Press <strong>Windows + R</strong>, type <code>cmd</code>, and press
+<strong>Enter</strong>.</li>
+<li>Type the following command and press <strong>Enter</strong>:
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>netsh wlan show interfaces</span></code></pre></div></li>
+<li>Locate the following fields in the output:
+<ul>
+<li><strong>Signal:</strong> The connection quality displayed as an
+exact percentage (e.g., 92%).</li>
+<li><strong>Receive rate (Mbps):</strong> The current download link
+speed.</li>
+<li><strong>Transmit rate (Mbps):</strong> The current upload link
+speed.</li>
+<li><strong>Radio type:</strong> The active 802.11 standard (e.g.,
+802.11ax).</li>
+<li><strong>Channel:</strong> The exact wireless channel currently in
+use.</li>
+</ul></li>
+</ol>
+<hr />
+<h3 id="method-3-using-control-panel-network-connections">Method 3:
+Using Control Panel (Network Connections)</h3>
+<p>The legacy Network Status window offers a quick look at the current
+operational speed and general signal quality.</p>
+<ol type="1">
+<li>Press <strong>Windows + R</strong>, type <code>ncpa.cpl</code>, and
+press <strong>Enter</strong> to open <strong>Network
+Connections</strong>.</li>
+<li>Double-click your active <strong>Wi-Fi</strong> adapter.</li>
+<li>The <strong>Wi-Fi Status</strong> window will appear, displaying:
+<ul>
+<li><strong>Speed:</strong> The combined theoretical link rate.</li>
+<li><strong>Signal Quality:</strong> A visual five-bar indicator.</li>
+<li><strong>Duration:</strong> How long the current session has been
+active.</li>
+<li><strong>Bytes Sent/Received:</strong> Real-time data transfer
+totals.</li>
+</ul></li>
+</ol>
+<hr />
+<h3 id="method-4-using-task-manager-live-throughput">Method 4: Using
+Task Manager (Live Throughput)</h3>
+<p>To monitor active bandwidth usage alongside connection details:</p>
+<ol type="1">
+<li>Press <strong>Ctrl + Shift + Esc</strong> to open <strong>Task
+Manager</strong>.</li>
+<li>Click the <strong>Performance</strong> tab on the left.</li>
+<li>Select <strong>Wi-Fi</strong> to view real-time send/receive
+throughput graphs, the SSID, adapter name, and current IP address.</li>
+</ol></article>
+        <div id="comments-container"></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

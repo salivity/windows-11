@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Windows Studio Effects Uses NPUs on Windows 11 - windows-11</title>
+    <meta name="description" content="Windows Studio Effects is a collection of AI-powered audio and video features integrated directly into Windows 11 to improve video calls and live streaming. By offloading complex machine learning workloads to a dedicated Neural Processing Unit (NPU), the">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/how-windows-studio-effects-uses-npus-on-windows-11">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="How Windows Studio Effects Uses NPUs on Windows 11 - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/how-windows-studio-effects-uses-npus-on-windows-11" />
+    <meta property="og:image:url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Windows Studio Effects is a collection of AI-powered audio and video features integrated directly into Windows 11 to improve video calls and live streaming. By offloading complex machine learning workloads to a dedicated Neural Processing Unit (NPU), the" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="how-windows-studio-effects-uses-npus-on-windows-11">How Windows
+Studio Effects Uses NPUs on Windows 11</h1>
+<p>Windows Studio Effects is a collection of AI-powered audio and video
+features integrated directly into Windows 11 to improve video calls and
+live streaming. By offloading complex machine learning workloads to a
+dedicated Neural Processing Unit (NPU), the operating system applies
+advanced effects like background blur, automatic framing, eye contact
+correction, and voice focus in real time. This dedicated architecture
+ensures high performance and consistent quality across all communication
+apps without draining the battery or degrading CPU and GPU
+performance.</p>
+<h3 id="the-role-of-the-npu-in-studio-effects">The Role of the NPU in
+Studio Effects</h3>
+<p>An NPU is a specialized processor designed explicitly to handle
+matrix math and parallel computing tasks common in artificial
+intelligence and machine learning models. Traditional software that
+relies on the CPU or GPU for real-time video processing often causes
+system slowdowns, high fan noise, and rapid battery consumption.</p>
+<p>Windows 11 utilizes the NPU via the DirectML API and the ONNX Runtime
+to execute AI models locally on the device. Because the NPU operates at
+a fraction of the power consumption required by standard processors, it
+can continuously process video frames and audio streams in the
+background with minimal latency and high energy efficiency.</p>
+<h3 id="core-features-powered-by-the-npu">Core Features Powered by the
+NPU</h3>
+<p>Windows Studio Effects leverages distinct AI models tailored to
+specific camera and microphone enhancements:</p>
+<ul>
+<li><strong>Background Effects (Standard and Portrait Blur):</strong>
+The NPU runs real-time computer vision models that perform semantic
+segmentation, accurately separating the subject from the background to
+apply depth-of-field blurring without edge distortion.</li>
+<li><strong>Eye Contact:</strong> This feature uses facial landmark
+detection and gaze-redirection algorithms to adjust the subject's eyes
+virtually, making it appear as though the user is looking directly into
+the camera even when viewing the screen.</li>
+<li><strong>Automatic Framing:</strong> The NPU continuously tracks
+facial and upper-body movements, automatically cropping and zooming the
+camera feed to keep the subject centered as they move within the
+frame.</li>
+<li><strong>Portrait Light:</strong> By analyzing 3D facial geometry,
+the NPU simulates a virtual light source to balance exposure, reduce
+harsh shadows, and brighten the subject in poorly lit environments.</li>
+<li><strong>Voice Focus:</strong> For audio, the NPU runs deep neural
+networks trained to distinguish human speech frequencies from ambient
+room noise, typing sounds, and background chatter, isolating only the
+user's voice for transmission.</li>
+</ul>
+<h3 id="system-wide-integration-and-efficiency">System-Wide Integration
+and Efficiency</h3>
+<p>Because Windows Studio Effects operates at the hardware driver level,
+its features work automatically across any video conferencing or
+recording application, including Microsoft Teams, Zoom, and OBS
+Studio.</p>
+<p>By dedicating continuous AI inference tasks to hardware rated for
+specific Trillions of Operations per Second (TOPS)—found in processors
+such as Intel Core Ultra, AMD Ryzen AI, and Qualcomm Snapdragon X
+series—Windows 11 maintains complete CPU and GPU availability for
+primary computing tasks, ensuring sustained battery life and responsive
+multitasking during active video sessions.</p></article>
+        <div id="comments-container"></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

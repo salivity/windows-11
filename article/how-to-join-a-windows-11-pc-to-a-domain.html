@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Join a Windows 11 PC to a Domain - windows-11</title>
+    <meta name="description" content="This guide provides a direct, step-by-step walkthrough on how to connect a computer running Windows 11 Pro or Enterprise to a corporate Active Directory domain controller network. Joining a domain allows organizations to centrally manage user accounts, e">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/how-to-join-a-windows-11-pc-to-a-domain">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="How to Join a Windows 11 PC to a Domain - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/how-to-join-a-windows-11-pc-to-a-domain" />
+    <meta property="og:image:url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="This guide provides a direct, step-by-step walkthrough on how to connect a computer running Windows 11 Pro or Enterprise to a corporate Active Directory domain controller network. Joining a domain allows organizations to centrally manage user accounts, e" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="how-to-join-a-windows-11-pc-to-a-domain">How to Join a Windows
+11 PC to a Domain</h1>
+<p>This guide provides a direct, step-by-step walkthrough on how to
+connect a computer running Windows 11 Pro or Enterprise to a corporate
+Active Directory domain controller network. Joining a domain allows
+organizations to centrally manage user accounts, enforce security
+policies, and grant seamless access to shared network resources such as
+file servers, printers, and internal applications.</p>
+<h3 id="prerequisites-before-joining">Prerequisites Before Joining</h3>
+<p>Before attempting to join the domain, ensure the following
+requirements are met:</p>
+<ul>
+<li><strong>Operating System:</strong> Windows 11 Pro, Enterprise, or
+Education (Windows 11 Home does not support domain joining).</li>
+<li><strong>Network Connectivity:</strong> The PC must be connected
+directly to the corporate network via Ethernet, internal Wi-Fi, or a
+pre-logon corporate VPN.</li>
+<li><strong>DNS Configuration:</strong> The network adapter's primary
+DNS must point directly to the domain controller or internal corporate
+DNS server.</li>
+<li><strong>Credentials:</strong> A domain user account with permissions
+to join a computer to the Active Directory domain.</li>
+<li><strong>Domain Name:</strong> The fully qualified domain name
+(FQDN), such as <code>corp.domain.com</code>.</li>
+</ul>
+<hr />
+<h3 id="method-1-join-via-windows-11-settings-recommended">Method 1:
+Join via Windows 11 Settings (Recommended)</h3>
+<ol type="1">
+<li>Open <strong>Settings</strong> by pressing
+<code>Windows Key + I</code>.</li>
+<li>Navigate to <strong>Accounts</strong> on the left menu, then select
+<strong>Access work or school</strong>.</li>
+<li>Click the <strong>Connect</strong> button next to <em>Add a work or
+school account</em>.</li>
+<li>In the pop-up window, do not enter an email address. Instead, click
+the link at the bottom: <strong>Join this device to a local Active
+Directory domain</strong>.</li>
+<li>Enter the <strong>Domain name</strong> (FQDN) in the text box and
+click <strong>Next</strong>.</li>
+<li>Enter the <strong>Username</strong> and <strong>Password</strong> of
+a domain account authorized to join devices to the domain, then click
+<strong>OK</strong>.</li>
+<li>You will be prompted to add an account to use the PC. You can skip
+this or add a domain user, then click <strong>Next</strong>.</li>
+<li>Click <strong>Restart now</strong> to complete the domain join
+process.</li>
+</ol>
+<hr />
+<h3 id="method-2-join-via-system-properties-classic">Method 2: Join via
+System Properties (Classic)</h3>
+<ol type="1">
+<li>Press <code>Windows Key + R</code> to open the Run dialog box.</li>
+<li>Type <code>sysdm.cpl</code> and press <strong>Enter</strong> to open
+<strong>System Properties</strong>.</li>
+<li>Under the <strong>Computer Name</strong> tab, click the
+<strong>Change...</strong> button.</li>
+<li>In the <em>Member of</em> section at the bottom, select the
+<strong>Domain</strong> radio button.</li>
+<li>Type the corporate domain name into the box and click
+<strong>OK</strong>.</li>
+<li>When prompted, enter the credentials of an authorized domain user or
+administrator and click <strong>OK</strong>.</li>
+<li>A message will appear stating: <em>"Welcome to the [Domain Name]
+domain."</em> Click <strong>OK</strong>.</li>
+<li>Click <strong>OK</strong> on the restart notification, close the
+System Properties window, and click <strong>Restart Now</strong>.</li>
+</ol>
+<hr />
+<h3 id="logging-in-after-restart">Logging In After Restart</h3>
+<ol type="1">
+<li>On the Windows 11 sign-in screen, click <strong>Other user</strong>
+in the lower-left corner.</li>
+<li>Enter your domain username in one of the following formats:
+<ul>
+<li><code>DOMAIN\username</code></li>
+<li><code>username@domain.com</code></li>
+</ul></li>
+<li>Enter your domain password and press <strong>Enter</strong> to sign
+in to your new domain profile.</li>
+</ol></article>
+        <div id="comments-container"></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

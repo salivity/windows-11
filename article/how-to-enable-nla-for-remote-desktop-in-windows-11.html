@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Enable NLA for Remote Desktop in Windows 11 - windows-11</title>
+    <meta name="description" content="Network Level Authentication (NLA) is a critical security feature that requires users to authenticate themselves to the network before establishing a Remote Desktop session, protecting the host machine from unauthorized access and denial-of-service attac">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/how-to-enable-nla-for-remote-desktop-in-windows-11">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="How to Enable NLA for Remote Desktop in Windows 11 - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/how-to-enable-nla-for-remote-desktop-in-windows-11" />
+    <meta property="og:image:url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Network Level Authentication (NLA) is a critical security feature that requires users to authenticate themselves to the network before establishing a Remote Desktop session, protecting the host machine from unauthorized access and denial-of-service attac" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="how-to-enable-nla-for-remote-desktop-in-windows-11">How to
+Enable NLA for Remote Desktop in Windows 11</h1>
+<p>Network Level Authentication (NLA) is a critical security feature
+that requires users to authenticate themselves to the network before
+establishing a Remote Desktop session, protecting the host machine from
+unauthorized access and denial-of-service attacks. This guide outlines
+how to enable NLA in Windows 11 using the Settings app, System
+Properties, Group Policy Editor, and PowerShell.</p>
+<h2 id="method-1-enable-nla-via-windows-settings">Method 1: Enable NLA
+via Windows Settings</h2>
+<ol type="1">
+<li>Press <strong>Windows Key + I</strong> to open the
+<strong>Settings</strong> app.</li>
+<li>Navigate to <strong>System</strong> on the left menu, then scroll
+down and click <strong>Remote Desktop</strong>.</li>
+<li>Toggle the <strong>Remote Desktop</strong> switch to
+<strong>On</strong> if it is not already enabled.</li>
+<li>Click the arrow next to the <strong>Remote Desktop</strong> toggle
+to expand the settings.</li>
+<li>Check the box next to <strong>Require devices to use Network Level
+Authentication to connect (recommended)</strong>.</li>
+</ol>
+<hr />
+<h2 id="method-2-enable-nla-via-system-properties">Method 2: Enable NLA
+via System Properties</h2>
+<ol type="1">
+<li>Press <strong>Windows Key + R</strong> to open the Run dialog
+box.</li>
+<li>Type <code>sysdm.cpl</code> and press <strong>Enter</strong> to open
+System Properties.</li>
+<li>Switch to the <strong>Remote</strong> tab.</li>
+<li>Under the <strong>Remote Desktop</strong> section, ensure
+<strong>Allow remote connections to this computer</strong> is
+selected.</li>
+<li>Check the box for <strong>Allow connections only from computers
+running Remote Desktop with Network Level Authentication
+(recommended)</strong>.</li>
+<li>Click <strong>Apply</strong>, then click <strong>OK</strong>.</li>
+</ol>
+<hr />
+<h2 id="method-3-enable-nla-via-local-group-policy-editor">Method 3:
+Enable NLA via Local Group Policy Editor</h2>
+<p><em>Note: Group Policy Editor is available in Windows 11 Pro,
+Enterprise, and Education editions.</em></p>
+<ol type="1">
+<li>Press <strong>Windows Key + R</strong>, type
+<code>gpedit.msc</code>, and press <strong>Enter</strong>.</li>
+<li>Navigate to the following path in the left pane:
+<code>Computer Configuration</code> &gt;
+<code>Administrative Templates</code> &gt;
+<code>Windows Components</code> &gt;
+<code>Remote Desktop Services</code> &gt;
+<code>Remote Desktop Session Host</code> &gt; <code>Security</code></li>
+<li>In the right pane, double-click <strong>Require user authentication
+for remote connections by using Network Level
+Authentication</strong>.</li>
+<li>Select the <strong>Enabled</strong> option.</li>
+<li>Click <strong>Apply</strong> and then <strong>OK</strong>.</li>
+</ol>
+<hr />
+<h2 id="method-4-enable-nla-via-powershell">Method 4: Enable NLA via
+PowerShell</h2>
+<ol type="1">
+<li>Right-click the <strong>Start</strong> button and select
+<strong>Terminal (Admin)</strong> or <strong>PowerShell
+(Admin)</strong>.</li>
+<li>Run the following command to enable NLA in the Windows
+Registry:</li>
+</ol>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Set-ItemProperty</span> <span class="op">-</span>Path <span class="st">&#39;HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp&#39;</span> <span class="op">-</span>Name <span class="st">&quot;UserAuthentication&quot;</span> <span class="op">-</span>Value <span class="dv">1</span></span></code></pre></div>
+<ol start="3" type="1">
+<li>To verify that NLA is enabled, run:</li>
+</ol>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Get-ItemProperty</span> <span class="op">-</span>Path <span class="st">&#39;HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp&#39;</span> <span class="op">-</span>Name <span class="st">&quot;UserAuthentication&quot;</span></span></code></pre></div>
+<p>If the output value is <code>1</code>, Network Level Authentication
+is active.</p></article>
+        <div id="comments-container"></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

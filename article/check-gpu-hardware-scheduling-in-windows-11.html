@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check GPU Hardware Scheduling in Windows 11 - windows-11</title>
+    <meta name="description" content="Hardware-accelerated GPU Scheduling (HAGS) is a Windows feature designed to reduce latency and improve gaming and application performance by delegating high-priority graphics memory management directly to the GPU. This guide outlines the exact steps to c">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/check-gpu-hardware-scheduling-in-windows-11">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Check GPU Hardware Scheduling in Windows 11 - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/check-gpu-hardware-scheduling-in-windows-11" />
+    <meta property="og:image:url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Hardware-accelerated GPU Scheduling (HAGS) is a Windows feature designed to reduce latency and improve gaming and application performance by delegating high-priority graphics memory management directly to the GPU. This guide outlines the exact steps to c" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="check-gpu-hardware-scheduling-in-windows-11">Check GPU Hardware
+Scheduling in Windows 11</h1>
+<p>Hardware-accelerated GPU Scheduling (HAGS) is a Windows feature
+designed to reduce latency and improve gaming and application
+performance by delegating high-priority graphics memory management
+directly to the GPU. This guide outlines the exact steps to check
+whether HAGS is enabled, disabled, or supported on your Windows 11
+system using standard Windows settings and the Registry Editor.</p>
+<h2 id="method-1-check-via-windows-11-settings">Method 1: Check via
+Windows 11 Settings</h2>
+<p>The simplest and most direct way to check your HAGS status is through
+the Windows Settings app:</p>
+<ol type="1">
+<li>Press <strong>Windows Key + I</strong> to open the
+<strong>Settings</strong> menu.</li>
+<li>Under the <strong>System</strong> tab, select
+<strong>Display</strong> on the right pane.</li>
+<li>Scroll down to the <strong>Related settings</strong> section and
+click on <strong>Graphics</strong>.</li>
+<li>Click on the <strong>Change default graphics settings</strong> link
+at the top of the page.</li>
+<li>Locate the <strong>Hardware-accelerated GPU scheduling</strong>
+toggle:
+<ul>
+<li><strong>On:</strong> The feature is actively enabled.</li>
+<li><strong>Off:</strong> The feature is supported but currently
+disabled.</li>
+</ul></li>
+</ol>
+<p><em>Note: If the "Hardware-accelerated GPU scheduling" option does
+not appear at all, your current graphics card or installed driver does
+not support HAGS.</em></p>
+<h2 id="method-2-check-via-the-windows-registry">Method 2: Check via the
+Windows Registry</h2>
+<p>You can also check the configuration state of HAGS via the Windows
+Registry:</p>
+<ol type="1">
+<li>Press <strong>Windows Key + R</strong>, type <code>regedit</code>,
+and press <strong>Enter</strong> to open the Registry Editor.</li>
+<li>Navigate to the following path:
+<code>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\GraphicsDrivers</code></li>
+<li>Look for the DWORD (32-bit) Value named <strong>HwSchMode</strong>
+in the right pane:
+<ul>
+<li><strong>2:</strong> Hardware-accelerated GPU scheduling is
+<strong>Enabled</strong>.</li>
+<li><strong>1:</strong> Hardware-accelerated GPU scheduling is
+<strong>Disabled</strong>.</li>
+</ul></li>
+</ol>
+<h2 id="hardware-requirements-for-hags">Hardware Requirements for
+HAGS</h2>
+<p>To use Hardware-accelerated GPU Scheduling, your PC must meet the
+following hardware and software requirements:</p>
+<ul>
+<li><strong>GPU Architecture:</strong> NVIDIA GeForce GTX 1000 series or
+newer, AMD Radeon RX 5600 series or newer, or Intel Arc GPUs.</li>
+<li><strong>Driver Version:</strong> WDDM 2.7 (Windows Display Driver
+Model) or higher supported drivers.</li>
+<li><strong>Operating System:</strong> Windows 10 (version 2004 or
+newer) or Windows 11.</li>
+</ul></article>
+        <div id="comments-container"></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify DNS over HTTPS in Windows 11 with Packet Tools - windows-11</title>
+    <meta name="description" content="DNS over HTTPS (DoH) enhances online privacy by encrypting standard DNS lookups inside HTTPS traffic. This guide outlines how to use packet inspection tools, specifically Wireshark and the built-in Windows pktmon utility, to capture network traffic in Wi">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/verify-dns-over-https-in-windows-11-with-packet-tools">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Verify DNS over HTTPS in Windows 11 with Packet Tools - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/verify-dns-over-https-in-windows-11-with-packet-tools" />
+    <meta property="og:image:url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="DNS over HTTPS (DoH) enhances online privacy by encrypting standard DNS lookups inside HTTPS traffic. This guide outlines how to use packet inspection tools, specifically Wireshark and the built-in Windows pktmon utility, to capture network traffic in Wi" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="verify-dns-over-https-in-windows-11-with-packet-tools">Verify
+DNS over HTTPS in Windows 11 with Packet Tools</h1>
+<p>DNS over HTTPS (DoH) enhances online privacy by encrypting standard
+DNS lookups inside HTTPS traffic. This guide outlines how to use packet
+inspection tools, specifically Wireshark and the built-in Windows
+<code>pktmon</code> utility, to capture network traffic in Windows 11
+and confirm that your DNS queries are securely encrypted over port 443
+rather than transmitted as plaintext over port 53.</p>
+<hr />
+<h3 id="step-1-ensure-dns-over-https-is-enabled-in-windows-11">Step 1:
+Ensure DNS over HTTPS is Enabled in Windows 11</h3>
+<p>Before analyzing network packets, confirm DoH is active on your
+system:</p>
+<ol type="1">
+<li>Open <strong>Settings</strong> (<code>Win + I</code>) and navigate
+to <strong>Network &amp; internet</strong>.</li>
+<li>Select your active connection (<strong>Wi-Fi</strong> or
+<strong>Ethernet</strong>).</li>
+<li>Click <strong>Hardware properties</strong> (or <strong>Edit</strong>
+next to <strong>DNS server assignment</strong>).</li>
+<li>Set DNS to <strong>Manual</strong>, enter a DoH-compatible IPv4/IPv6
+address (such as Cloudflare <code>1.1.1.1</code> or Google
+<code>8.8.8.8</code>), and set <strong>DNS over HTTPS</strong> to
+<strong>Encrypted only (DNS over HTTPS)</strong>.</li>
+</ol>
+<hr />
+<h3 id="step-2-verify-doh-using-wireshark">Step 2: Verify DoH Using
+Wireshark</h3>
+<p>Wireshark is the standard packet analysis tool for inspecting
+protocol encryption.</p>
+<h4 id="1-start-capture">1. Start Capture</h4>
+<ol type="1">
+<li>Launch <strong>Wireshark</strong> with administrator
+privileges.</li>
+<li>Select your active network adapter and double-click it to start
+capturing packets.</li>
+</ol>
+<h4 id="2-test-for-plaintext-dns-leaks">2. Test for Plaintext DNS
+Leaks</h4>
+<ol type="1">
+<li>In the top filter bar, enter:
+<pre class="text"><code>dns</code></pre></li>
+<li>Open a terminal or browser and query a domain (e.g., run
+<code>ipconfig /flushdns</code> followed by accessing a new
+website).</li>
+<li><strong>Expected Result:</strong> If DoH is working correctly,
+standard plaintext DNS queries (UDP/TCP port 53) will show zero results
+or only internal local-link queries (such as MDNS/LLMNR), confirming
+that public domain queries are not leaking unencrypted.</li>
+</ol>
+<h4 id="3-inspect-the-encrypted-doh-stream">3. Inspect the Encrypted DoH
+Stream</h4>
+<ol type="1">
+<li>Clear the filter and enter:
+<pre class="text"><code>tls.handshake.type == 1 or (tcp.port == 443 and ip.addr == &lt;Your_DoH_Server_IP&gt;)</code></pre>
+<em>(Replace <code>&lt;Your_DoH_Server_IP&gt;</code> with your
+configured DNS IP, e.g., <code>1.1.1.1</code>)</em></li>
+<li>Generate DNS requests by browsing to new websites.</li>
+<li><strong>Expected Result:</strong> You will observe standard TLS
+handshakes and subsequent <strong>Application Data</strong> packets sent
+over TCP port 443. The contents of these packets will be encrypted and
+unreadable, confirming that your DNS queries are securely wrapped inside
+HTTPS.</li>
+</ol>
+<hr />
+<h3 id="step-3-verify-doh-using-windows-built-in-pktmon">Step 3: Verify
+DoH Using Windows Built-in <code>pktmon</code></h3>
+<p>If Wireshark is not installed, you can use the built-in Windows
+Packet Monitor.</p>
+<h4 id="1-filter-for-standard-port-53-traffic">1. Filter for Standard
+Port 53 Traffic</h4>
+<p>Open <strong>PowerShell</strong> or <strong>Command Prompt</strong>
+as Administrator and run:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>pktmon filter remove</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>pktmon filter add DNS_Plaintext <span class="at">-p</span> 53</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>pktmon start -<span class="at">-etw</span></span></code></pre></div>
+<h4 id="2-generate-network-activity">2. Generate Network Activity</h4>
+<p>Flush the DNS cache and make a request:</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ipconfig <span class="at">/flushdns</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>ping example.com</span></code></pre></div>
+<h4 id="3-stop-and-review-the-capture">3. Stop and Review the
+Capture</h4>
+<p>Stop the monitoring session:</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>pktmon stop</span></code></pre></div>
+<ul>
+<li><strong>Analysis:</strong> If the packet count for the
+<code>DNS_Plaintext</code> filter shows <code>0</code>, your system is
+not using traditional plaintext DNS.</li>
+</ul>
+<h4 id="4-filter-for-doh-traffic-on-port-443">4. Filter for DoH Traffic
+on Port 443</h4>
+<p>Reset filters to monitor DoH IP traffic:</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>pktmon filter remove</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>pktmon filter add DoH_Traffic <span class="at">-p</span> 443 <span class="at">-i</span> 1.1.1.1</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>pktmon start -<span class="at">-etw</span></span></code></pre></div>
+<p>Run <code>ipconfig /flushdns</code> and resolve another domain, then
+run <code>pktmon stop</code>. You will see packet counters increment on
+port 443, validating that DNS queries are routing through the encrypted
+HTTPS channel.</p></article>
+        <div id="comments-container"></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

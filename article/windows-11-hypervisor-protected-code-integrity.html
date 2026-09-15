@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windows 11 Hypervisor-Protected Code Integrity - windows-11</title>
+    <meta name="description" content="Windows 11 protects its core operating system through Hypervisor-Protected Code Integrity (HVCI), also known as Memory Integrity. By leveraging hardware virtualization, Windows creates an isolated, highly secure environment that restricts the OS kernel f">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/windows-11-hypervisor-protected-code-integrity">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Windows 11 Hypervisor-Protected Code Integrity - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/windows-11-hypervisor-protected-code-integrity" />
+    <meta property="og:image:url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Windows 11 protects its core operating system through Hypervisor-Protected Code Integrity (HVCI), also known as Memory Integrity. By leveraging hardware virtualization, Windows creates an isolated, highly secure environment that restricts the OS kernel f" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="windows-11-hypervisor-protected-code-integrity">Windows 11
+Hypervisor-Protected Code Integrity</h1>
+<p>Windows 11 protects its core operating system through
+Hypervisor-Protected Code Integrity (HVCI), also known as Memory
+Integrity. By leveraging hardware virtualization, Windows creates an
+isolated, highly secure environment that restricts the OS kernel from
+modifying its own execution rules. This article explains how Windows 11
+utilizes Virtualization-Based Security (VBS) and hypervisor memory
+controls to prevent malicious code from executing within the Windows
+kernel, ensuring that even compromised kernel-level drivers cannot
+bypass security policies.</p>
+<h3
+id="virtualization-based-security-vbs-architecture">Virtualization-Based
+Security (VBS) Architecture</h3>
+<p>At the foundation of this protection is the Windows hypervisor
+(Hyper-V). When Virtualization-Based Security (VBS) is enabled, the
+hypervisor divides system memory into distinct Virtual Trust Levels
+(VTLs):</p>
+<ul>
+<li><strong>VTL0 (Normal World):</strong> The standard operating
+environment where user applications, third-party software, and the
+standard Windows kernel operate.</li>
+<li><strong>VTL1 (Secure World):</strong> A restricted, isolated
+environment that runs secure micro-services, isolated security
+authorities, and the code integrity verification engine.</li>
+</ul>
+<p>Because the hypervisor operates below the operating system, code
+running inside VTL0 cannot directly access or alter the memory assigned
+to VTL1.</p>
+<h3 id="how-hvci-validates-kernel-code">How HVCI Validates Kernel
+Code</h3>
+<p>Hypervisor-Protected Code Integrity (HVCI) operates inside VTL1. When
+a kernel-mode driver or component requests execution in VTL0, the
+request is redirected to the secure environment:</p>
+<ol type="1">
+<li><strong>Signature Verification:</strong> The code integrity module
+in VTL1 inspects the digital signature and certificates of the
+binary.</li>
+<li><strong>Policy Enforcement:</strong> VTL1 determines if the driver
+complies with strict Microsoft signing policies and security
+standards.</li>
+<li><strong>Execution Approval:</strong> Only after the integrity check
+passes does VTL1 grant permission for the memory pages to be marked as
+executable.</li>
+</ol>
+<h3 id="hardware-enforced-memory-protections-wx">Hardware-Enforced
+Memory Protections (W^X)</h3>
+<p>HVCI enforces a strict security policy known as "Write XOR Execute"
+(W^X). Under this rule, a memory page in the kernel can be writable or
+executable, but never both simultaneously:</p>
+<ul>
+<li><strong>Preventing Code Injection:</strong> If a page contains
+executable code, its write permissions are revoked by the hypervisor
+using Second Level Address Translation (SLAT) / Extended Page Tables
+(EPT).</li>
+<li><strong>Preventing Data Execution:</strong> If a page is writable
+(such as standard data buffers), the hypervisor strips its execution
+privileges.</li>
+</ul>
+<p>Because these memory page permissions are managed directly by the
+hypervisor at the hardware level, the standard kernel in VTL0 lacks the
+privilege to change its own page permissions from writable to
+executable.</p>
+<h3 id="mitigation-of-kernel-level-exploits">Mitigation of Kernel-Level
+Exploits</h3>
+<p>In traditional operating systems, an attacker who obtains
+kernel-level privileges (Ring 0) gains complete control over the
+machine, allowing them to disable security software, patch kernel code,
+and inject malicious rootkits.</p>
+<p>With hypervisor protections enabled in Windows 11, kernel-level
+compromise is severely contained. Even if an attacker achieves Ring 0
+execution in VTL0, they cannot load unsigned drivers, tamper with
+existing executable memory, or bypass code integrity checks, because the
+enforcement authority resides entirely outside their reach in VTL1.</p></article>
+        <div id="comments-container"></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

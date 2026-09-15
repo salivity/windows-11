@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How File History Backs Up Files in Windows 11 - windows-11</title>
+    <meta name="description" content="File History in Windows 11 is a built-in backup feature that automatically creates point-in-time copies of your personal files to an external storage drive. By monitoring designated folders for changes, it saves updated versions of your documents, photos">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/how-file-history-backs-up-files-in-windows-11">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="How File History Backs Up Files in Windows 11 - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/how-file-history-backs-up-files-in-windows-11" />
+    <meta property="og:image:url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="File History in Windows 11 is a built-in backup feature that automatically creates point-in-time copies of your personal files to an external storage drive. By monitoring designated folders for changes, it saves updated versions of your documents, photos" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="how-file-history-backs-up-files-in-windows-11">How File History
+Backs Up Files in Windows 11</h1>
+<p>File History in Windows 11 is a built-in backup feature that
+automatically creates point-in-time copies of your personal files to an
+external storage drive. By monitoring designated folders for changes, it
+saves updated versions of your documents, photos, and other data on a
+regular schedule. This allows you to quickly recover previous file
+states or restore deleted items whenever your external drive is
+connected.</p>
+<h2 id="how-file-history-functions">How File History Functions</h2>
+<p>File History operates continuously in the background by tracking file
+modifications. When active, it uses the Windows file system to detect
+when a file inside a monitored folder has been added, modified, or
+deleted.</p>
+<p>Instead of backing up your entire operating system or applications,
+File History focuses strictly on user data libraries, including:</p>
+<ul>
+<li>Documents</li>
+<li>Pictures</li>
+<li>Music</li>
+<li>Videos</li>
+<li>Desktop folder</li>
+<li>Saved offline OneDrive files</li>
+</ul>
+<p>When a file is modified, File History copies the new version to the
+designated external drive and appends a date-and-time stamp to the
+filename. This method preserves a historical timeline of your files
+without overwriting the original backups.</p>
+<h2 id="storage-structure-on-the-external-drive">Storage Structure on
+the External Drive</h2>
+<p>When you connect an external hard drive or USB flash drive and enable
+File History, Windows creates a specific directory structure on the root
+of the drive:</p>
+<p><code>[Drive Letter]:\FileHistory\[Username]\[ComputerName]\Data\</code></p>
+<p>Inside the <code>Data</code> folder, File History mirrors your PC's
+original directory tree (such as
+<code>C\Users\[Username]\Documents</code>). Each file saved will look
+like:</p>
+<ul>
+<li><code>ProjectReport (2023_10_25 14_30_00 UTC).docx</code></li>
+<li><code>ProjectReport (2023_10_25 15_30_00 UTC).docx</code></li>
+</ul>
+<p>This structure ensures that you can manually browse your files using
+standard File Explorer if necessary, even without using the Windows
+restore tool.</p>
+<h2 id="backup-schedules-and-retention-rules">Backup Schedules and
+Retention Rules</h2>
+<p>File History offers customizable backup intervals and retention
+settings to balance data safety and drive capacity:</p>
+<ul>
+<li><strong>Backup Frequency:</strong> By default, File History saves
+copies of your files every hour. You can adjust this frequency to range
+from every 10 minutes to once daily.</li>
+<li><strong>Keep Saved Versions:</strong> You can configure how long
+Windows retains backup versions. Options range from one month to two
+years, "Until space is needed," or "Forever" (default). When the
+external drive fills up, File History can automatically delete the
+oldest versions to make room for new ones.</li>
+</ul>
+<p>If the external drive is disconnected, File History continues
+tracking changes and temporarily caches version data on your local hard
+drive. Once the external drive is reconnected, File History transfers
+the cached versions and updates the external storage automatically.</p>
+<h2 id="restoring-files-with-file-history">Restoring Files with File
+History</h2>
+<p>Restoring files is integrated directly into Windows:</p>
+<ol type="1">
+<li>Open <strong>Control Panel</strong> and navigate to <strong>File
+History</strong> (or search for "Restore your files with File History"
+in the taskbar).</li>
+<li>Browse through the backup snapshots using the forward and back
+navigation arrows at the bottom of the window to find the desired date
+and time.</li>
+<li>Select the file, folder, or specific version you want to
+recover.</li>
+<li>Click the green <strong>Restore</strong> button to return the file
+to its original location, or right-click to restore it to a different
+path.</li>
+</ol></article>
+        <div id="comments-container"></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

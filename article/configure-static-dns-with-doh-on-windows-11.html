@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configure Static DNS with DoH on Windows 11 - windows-11</title>
+    <meta name="description" content="Setting up static DNS servers with DNS-over-HTTPS (DoH) in Windows 11 enhances your privacy and security by encrypting standard DNS queries. This guide provides clear, step-by-step instructions to manually assign static IPv4 or IPv6 DNS addresses and ena">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/configure-static-dns-with-doh-on-windows-11">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Configure Static DNS with DoH on Windows 11 - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/configure-static-dns-with-doh-on-windows-11" />
+    <meta property="og:image:url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Setting up static DNS servers with DNS-over-HTTPS (DoH) in Windows 11 enhances your privacy and security by encrypting standard DNS queries. This guide provides clear, step-by-step instructions to manually assign static IPv4 or IPv6 DNS addresses and ena" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="configure-static-dns-with-doh-on-windows-11">Configure Static
+DNS with DoH on Windows 11</h1>
+<p>Setting up static DNS servers with DNS-over-HTTPS (DoH) in Windows 11
+enhances your privacy and security by encrypting standard DNS queries.
+This guide provides clear, step-by-step instructions to manually assign
+static IPv4 or IPv6 DNS addresses and enable built-in DoH encryption
+templates directly through the Windows 11 Settings app.</p>
+<hr />
+<h2 id="step-1-open-network-adapter-properties">Step 1: Open Network
+Adapter Properties</h2>
+<ol type="1">
+<li>Press <code>Win + I</code> to open <strong>Settings</strong>.</li>
+<li>Select <strong>Network &amp; internet</strong> from the left
+sidebar.</li>
+<li>Click on your active connection type: <strong>Ethernet</strong> (for
+wired connections) or <strong>Wi-Fi</strong> (for wireless
+connections).</li>
+<li>If using Wi-Fi, click on <strong>Manage known networks</strong> and
+select your current network to open its properties.</li>
+</ol>
+<hr />
+<h2 id="step-2-edit-dns-server-assignment">Step 2: Edit DNS Server
+Assignment</h2>
+<ol type="1">
+<li>Scroll down to find the <strong>DNS server assignment</strong>
+section.</li>
+<li>Click the <strong>Edit</strong> button next to it.</li>
+<li>In the drop-down menu, change the setting from <strong>Automatic
+(DHCP)</strong> to <strong>Manual</strong>.</li>
+</ol>
+<hr />
+<h2 id="step-3-configure-static-dns-and-enable-doh">Step 3: Configure
+Static DNS and Enable DoH</h2>
+<ol type="1">
+<li>Toggle the <strong>IPv4</strong> switch to <strong>On</strong> (you
+can also enable <strong>IPv6</strong> if your network supports it).</li>
+<li>Enter your chosen static DNS addresses into the <strong>Preferred
+DNS</strong> and <strong>Alternate DNS</strong> fields. Common
+privacy-focused providers with native DoH support in Windows 11 include:
+<ul>
+<li><strong>Cloudflare:</strong> <code>1.1.1.1</code> (Preferred) and
+<code>1.0.0.1</code> (Alternate)</li>
+<li><strong>Google:</strong> <code>8.8.8.8</code> (Preferred) and
+<code>8.8.4.4</code> (Alternate)</li>
+<li><strong>Quad9:</strong> <code>9.9.9.9</code> (Preferred) and
+<code>149.112.112.112</code> (Alternate)</li>
+</ul></li>
+<li>Under <strong>DNS encryption</strong>, select one of the following
+options:
+<ul>
+<li><strong>Encrypted only (DNS over HTTPS):</strong> Windows will drop
+DNS requests if DoH fails.</li>
+<li><strong>Encrypted preferred, unencrypted allowed:</strong> Windows
+will fall back to unencrypted DNS if DoH fails.</li>
+</ul></li>
+<li>Set the DNS encryption preference for both the Preferred and
+Alternate DNS entries.</li>
+<li>Click <strong>Save</strong> to apply the configuration.</li>
+</ol>
+<hr />
+<h2 id="step-4-adding-custom-doh-providers-optional">Step 4: Adding
+Custom DoH Providers (Optional)</h2>
+<p>If you use a custom DNS provider not recognized automatically by
+Windows 11, you must register the DoH template via PowerShell:</p>
+<ol type="1">
+<li>Right-click the Start button and select <strong>Terminal
+(Admin)</strong> or <strong>PowerShell (Admin)</strong>.</li>
+<li>Run the following command to register a custom DoH server template:
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>netsh dns add encryption server<span class="op">=&lt;</span>IP_ADDRESS<span class="op">&gt;</span> dohtemplate<span class="op">=&lt;</span>DOH_URL<span class="op">&gt;</span> autoupgrade<span class="op">=</span>yes udpfallback<span class="op">=</span>no</span></code></pre></div></li>
+<li>Replace <code>&lt;IP_ADDRESS&gt;</code> with the static IP of your
+DNS server and <code>&lt;DOH_URL&gt;</code> with the provider's HTTPS
+endpoint.</li>
+<li>Return to Windows Settings and apply the static DNS server using the
+steps outlined above.</li>
+</ol></article>
+        <div id="comments-container"></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

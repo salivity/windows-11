@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repair Windows 11 Bootloader with Command Prompt - windows-11</title>
+    <meta name="description" content="A corrupted Windows 11 bootloader prevents your operating system from starting, frequently causing blue screen errors, infinite boot loops, or "No bootable device found" messages. This step-by-step guide explains how to access the Windows Recovery Enviro">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/repair-windows-11-bootloader-with-command-prompt">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Repair Windows 11 Bootloader with Command Prompt - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/repair-windows-11-bootloader-with-command-prompt" />
+    <meta property="og:image:url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="A corrupted Windows 11 bootloader prevents your operating system from starting, frequently causing blue screen errors, infinite boot loops, or "No bootable device found" messages. This step-by-step guide explains how to access the Windows Recovery Enviro" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="repair-windows-11-bootloader-with-command-prompt">Repair Windows
+11 Bootloader with Command Prompt</h1>
+<p>A corrupted Windows 11 bootloader prevents your operating system from
+starting, frequently causing blue screen errors, infinite boot loops, or
+"No bootable device found" messages. This step-by-step guide explains
+how to access the Windows Recovery Environment and rebuild the Unified
+Extensible Firmware Interface (UEFI) Boot Configuration Data (BCD) using
+the Command Prompt.</p>
+<h2 id="step-1-boot-into-advanced-startup">Step 1: Boot into Advanced
+Startup</h2>
+<p>Because Windows will not start normally, you must access the Command
+Prompt through recovery media:</p>
+<ol type="1">
+<li>Insert a Windows 11 bootable USB drive into your PC and boot from
+it.</li>
+<li>Select your language preferences and click
+<strong>Next</strong>.</li>
+<li>Click <strong>Repair your computer</strong> in the bottom-left
+corner.</li>
+<li>Select <strong>Troubleshoot</strong> &gt; <strong>Advanced
+options</strong> &gt; <strong>Command Prompt</strong>.</li>
+</ol>
+<h2 id="step-2-identify-the-efi-system-partition">Step 2: Identify the
+EFI System Partition</h2>
+<p>Windows 11 requires UEFI and uses a specific FAT32 partition to store
+boot files. You need to assign a drive letter to this hidden
+partition.</p>
+<ol type="1">
+<li>In the Command Prompt window, launch the disk partitioning utility:
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>diskpart</span></code></pre></div></li>
+<li>View your connected storage drives:
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>list disk</span></code></pre></div></li>
+<li>Select your primary drive (usually Disk 0):
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>select disk 0</span></code></pre></div></li>
+<li>Display the partitions to locate the EFI system partition:
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>list volume</span></code></pre></div></li>
+<li>Look for the hidden volume formatted in <strong>FAT32</strong>,
+typically sized between 100 MB and 500 MB. Note its volume number (e.g.,
+Volume 2).</li>
+<li>Select the EFI volume:
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>select volume 2</span></code></pre></div></li>
+<li>Assign a temporary drive letter (such as <code>Z:</code>):
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>assign letter=Z</span></code></pre></div></li>
+<li>Exit the Diskpart utility:
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">exit</span></span></code></pre></div></li>
+</ol>
+<h2 id="step-3-rebuild-the-bootloader-files">Step 3: Rebuild the
+Bootloader Files</h2>
+<p>Once the EFI partition is mounted, use the <code>bcdboot</code>
+command to copy fresh boot files from your Windows directory to the EFI
+partition.</p>
+<ol type="1">
+<li>Ensure your primary Windows installation partition is mapped
+correctly (often assigned to <code>C:</code> in recovery mode).</li>
+<li>Execute the following command:
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>bcdboot C:\Windows <span class="at">/s</span> Z: <span class="at">/f</span> UEFI</span></code></pre></div>
+<em>(Replace <code>C:</code> with your actual Windows installation drive
+letter and <code>Z:</code> with the letter assigned in the previous step
+if different).</em></li>
+</ol>
+<p>If successful, you will see the message: <strong>"Boot files
+successfully created."</strong></p>
+<h2 id="step-4-run-bootrec-repair-commands">Step 4: Run Bootrec Repair
+Commands</h2>
+<p>To ensure all boot records and configuration references are properly
+refreshed, execute the standard boot repair commands:</p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>bootrec <span class="at">/fixmbr</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>bootrec <span class="at">/rebuildbcd</span></span></code></pre></div>
+<p>If the system prompts you to add installations to the boot list,
+press <strong>Y</strong> (Yes) and hit <strong>Enter</strong>.</p>
+<h2 id="step-5-reboot-your-computer">Step 5: Reboot Your Computer</h2>
+<ol type="1">
+<li>Close the Command Prompt window by typing:
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">exit</span></span></code></pre></div></li>
+<li>Click <strong>Continue (Exit and continue to Windows
+11)</strong>.</li>
+<li>Remove the bootable USB drive.</li>
+</ol>
+<p>Your system will restart and boot directly into Windows 11 using the
+newly generated bootloader files.</p></article>
+        <div id="comments-container"></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

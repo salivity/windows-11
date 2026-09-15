@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Windows 11 Recall Captures and Indexes Snapshots - windows-11</title>
+    <meta name="description" content="Windows 11 Recall is an AI-powered capability designed for Copilot+ PCs that acts as a searchable visual timeline of your digital activity. This article explains the technical workflow behind Recall, detailing how the system periodically captures encrypt">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/how-windows-11-recall-captures-and-indexes-snapshots">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="How Windows 11 Recall Captures and Indexes Snapshots - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/how-windows-11-recall-captures-and-indexes-snapshots" />
+    <meta property="og:image:url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Windows 11 Recall is an AI-powered capability designed for Copilot+ PCs that acts as a searchable visual timeline of your digital activity. This article explains the technical workflow behind Recall, detailing how the system periodically captures encrypt" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="how-windows-11-recall-captures-and-indexes-snapshots">How
+Windows 11 Recall Captures and Indexes Snapshots</h1>
+<p>Windows 11 Recall is an AI-powered capability designed for Copilot+
+PCs that acts as a searchable visual timeline of your digital activity.
+This article explains the technical workflow behind Recall, detailing
+how the system periodically captures encrypted snapshots of your screen,
+processes them locally using Neural Processing Units (NPUs), and creates
+a semantic search index that lets you retrieve past documents, websites,
+images, and conversations.</p>
+<h3 id="periodic-snapshot-capture">Periodic Snapshot Capture</h3>
+<p>Recall operates continuously in the background, capturing visual
+snapshots of your active desktop.</p>
+<ul>
+<li><strong>Event-Driven Captures:</strong> Rather than taking a
+fixed-rate video stream, Recall captures a high-resolution snapshot
+every few seconds, specifically triggering when on-screen content
+changes.</li>
+<li><strong>Storage and Filtering:</strong> Snapshots are saved locally
+on the device's hard drive within an allocated storage limit. Users can
+configure storage sizes, pause recording, or exclude specific
+applications, websites, and private browsing sessions.</li>
+<li><strong>Content Filtering:</strong> Protected content, such as
+DRM-restricted media and InPrivate browsing windows in supported
+browsers, is automatically excluded from capture.</li>
+</ul>
+<h3 id="local-ai-processing-and-optical-character-recognition-ocr">Local
+AI Processing and Optical Character Recognition (OCR)</h3>
+<p>Once a snapshot is captured, it is processed entirely on-device
+without sending data to the cloud.</p>
+<ul>
+<li><strong>NPU Acceleration:</strong> Recall relies on a dedicated
+Neural Processing Unit capable of at least 40 TOPS (trillion operations
+per second) to run small language models and computer vision algorithms
+in real time without degrading CPU or GPU performance.</li>
+<li><strong>Text Extraction (OCR):</strong> An on-device OCR engine
+scans every pixel of the snapshot to extract written text in multiple
+languages, preserving the coordinates of where words appear on the
+screen.</li>
+<li><strong>Visual Recognition:</strong> Multimodal AI models analyze
+graphical elements within the snapshot, identifying objects, user
+interface layouts, charts, and images.</li>
+</ul>
+<h3 id="semantic-and-relational-indexing">Semantic and Relational
+Indexing</h3>
+<p>To make visual snapshots searchable, Recall converts raw visual and
+textual data into structured metadata.</p>
+<ul>
+<li><strong>Vector Embeddings:</strong> The system generates vector
+embeddings—mathematical representations of the text and imagery—that
+capture the contextual meaning of what was on the screen rather than
+just exact keyword matches.</li>
+<li><strong>Local Database Storage:</strong> The extracted text, visual
+tags, application metadata, timestamps, and embeddings are written to an
+encrypted local SQLite database.</li>
+<li><strong>Contextual Association:</strong> The index correlates
+snapshots with the source application, window title, and exact point in
+time to maintain context.</li>
+</ul>
+<h3 id="search-and-retrieval">Search and Retrieval</h3>
+<p>When a user searches within Recall, the feature queries the local
+index to find matching snapshots.</p>
+<ul>
+<li><strong>Natural Language Queries:</strong> Users can enter
+descriptive phrases (such as "blue leather jacket" or "quarterly revenue
+chart"). The search engine compares the query’s vector embedding against
+the indexed embeddings to find semantically relevant snapshots.</li>
+<li><strong>Timeline Scrubbing:</strong> Users can also navigate
+chronologically using a visual timeline slider to browse snapshots
+sequentially.</li>
+<li><strong>Interactive Actions:</strong> When a snapshot is opened, the
+indexed text remains interactive, allowing users to highlight, copy, or
+reopen the original website or document directly via deep links.</li>
+</ul>
+<h3 id="security-and-encryption">Security and Encryption</h3>
+<p>All Recall snapshots and associated database entries are protected
+locally:</p>
+<ul>
+<li><strong>Drive Encryption:</strong> The snapshot library and vector
+index are encrypted using BitLocker or Device Encryption.</li>
+<li><strong>Isolated Access:</strong> Data is tied to the specific user
+profile and is only decrypted and accessed when the user authenticates
+through Windows Hello.</li>
+</ul></article>
+        <div id="comments-container"></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

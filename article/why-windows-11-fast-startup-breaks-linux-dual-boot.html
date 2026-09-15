@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Windows 11 Fast Startup Breaks Linux Dual-Boot - windows-11</title>
+    <meta name="description" content="Fast Startup in Windows 11 is designed to reduce boot times, but it frequently causes drive-mounting failures, data corruption, and bootloader conflicts on dual-boot systems running Linux. This issue occurs because Fast Startup does not perform a complet">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/why-windows-11-fast-startup-breaks-linux-dual-boot">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Why Windows 11 Fast Startup Breaks Linux Dual-Boot - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/why-windows-11-fast-startup-breaks-linux-dual-boot" />
+    <meta property="og:image:url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Fast Startup in Windows 11 is designed to reduce boot times, but it frequently causes drive-mounting failures, data corruption, and bootloader conflicts on dual-boot systems running Linux. This issue occurs because Fast Startup does not perform a complet" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="why-windows-11-fast-startup-breaks-linux-dual-boot">Why Windows
+11 Fast Startup Breaks Linux Dual-Boot</h1>
+<p>Fast Startup in Windows 11 is designed to reduce boot times, but it
+frequently causes drive-mounting failures, data corruption, and
+bootloader conflicts on dual-boot systems running Linux. This issue
+occurs because Fast Startup does not perform a complete system shutdown;
+instead, it puts the Windows kernel and system partitions into a hybrid
+hibernation state. This article explains the technical mechanics behind
+why Fast Startup interferes with Linux and how to resolve the
+problem.</p>
+<h3 id="how-fast-startup-works">How Fast Startup Works</h3>
+<p>When you shut down a PC with Fast Startup enabled, Windows 11 closes
+all active user applications and logs out the user session, but it does
+not fully power down the kernel. Instead, it writes the current state of
+the Windows kernel, system drivers, and loaded hardware states into the
+<code>hiberfil.sys</code> file on your drive.</p>
+<p>Because the operating system expects to resume from this saved image
+upon the next boot, it retains an active lock on the system's storage
+volumes and keeps the NTFS filesystem metadata in memory rather than
+finalizing and flushing everything to the disk.</p>
+<h3 id="why-linux-fails-to-mount-windows-drives">Why Linux Fails to
+Mount Windows Drives</h3>
+<p>When you boot into Linux after using Fast Startup in Windows 11, the
+Linux kernel detects that the NTFS partitions are in an inconsistent or
+"hibernated" state.</p>
+<ul>
+<li><strong>Read-Only Mounting:</strong> Modern Linux NTFS drivers (such
+as <code>ntfs3</code> or the older <code>ntfs-3g</code> user-space
+driver) detect the hibernation flag on the NTFS volume. To prevent
+catastrophic data loss, Linux will automatically refuse to mount the
+drive or will mount it strictly as read-only.</li>
+<li><strong>Risk of File System Corruption:</strong> If Linux were to
+forcefully mount a hibernated NTFS partition with read-write
+permissions, any modifications—such as adding, editing, or deleting
+files—would not be registered by Windows. When Windows boots back up, it
+restores the filesystem state stored in <code>hiberfil.sys</code>,
+completely oblivious to the changes made in Linux. This metadata
+mismatch leads to severe filesystem corruption, orphaned inodes, and
+lost files.</li>
+</ul>
+<h3 id="interference-with-uefi-and-bootloaders">Interference with UEFI
+and Bootloaders</h3>
+<p>Fast Startup can also disrupt the system's UEFI boot process. Because
+Windows attempts to perform a quick resume rather than a cold boot, it
+may modify the UEFI boot order or skip the GRUB boot menu entirely,
+defaulting straight back into Windows. This prevents users from
+selecting Linux without manually triggering the UEFI boot selection menu
+via function keys during startup.</p>
+<h3 id="how-to-resolve-the-issue">How to Resolve the Issue</h3>
+<p>To ensure reliable dual-booting and safe shared drive access, Fast
+Startup must be disabled in Windows 11:</p>
+<ol type="1">
+<li>Open the <strong>Control Panel</strong> in Windows 11.</li>
+<li>Navigate to <strong>Hardware and Sound</strong> &gt; <strong>Power
+Options</strong>.</li>
+<li>Click on <strong>"Choose what the power buttons do"</strong> in the
+left sidebar.</li>
+<li>Click <strong>"Change settings that are currently
+unavailable"</strong> to grant administrator privileges.</li>
+<li>Under the <em>Shutdown settings</em> section, uncheck <strong>"Turn
+on fast startup (recommended)"</strong>.</li>
+<li>Click <strong>Save changes</strong>.</li>
+</ol>
+<p>Once disabled, Windows 11 will perform a full, clean shutdown every
+time, allowing Linux to safely mount shared NTFS drives with full read
+and write capabilities.</p></article>
+        <div id="comments-container"></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>
