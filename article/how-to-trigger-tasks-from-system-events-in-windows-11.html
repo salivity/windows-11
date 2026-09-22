@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Trigger Tasks from System Events in Windows 11 - windows-11</title>
+    <meta name="description" content="Automating tasks in Windows 11 based on specific system occurrences is an effective way to maintain system health, run backups, or trigger custom scripts. By combining the diagnostic logging of the Windows Event Viewer with the automation engine of Task">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/how-to-trigger-tasks-from-system-events-in-windows-11">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="How to Trigger Tasks from System Events in Windows 11 - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/how-to-trigger-tasks-from-system-events-in-windows-11" />
+    <meta property="og:image" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Automating tasks in Windows 11 based on specific system occurrences is an effective way to maintain system health, run backups, or trigger custom scripts. By combining the diagnostic logging of the Windows Event Viewer with the automation engine of Task" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        
+    <div class="article-layout">
+        <aside id="profile-sidebar" class="profile-column" aria-label="Author Profile"></aside>
+        <div class="article-main-column">
+            <article><h1 id="how-to-trigger-tasks-from-system-events-in-windows-11">How to
+Trigger Tasks from System Events in Windows 11</h1>
+<p>Automating tasks in Windows 11 based on specific system occurrences
+is an effective way to maintain system health, run backups, or trigger
+custom scripts. By combining the diagnostic logging of the Windows Event
+Viewer with the automation engine of Task Scheduler, you can instruct
+your computer to execute a program or script the exact moment a specific
+Event ID or source log is registered. This guide provides a
+straightforward, step-by-step walkthrough to identify target system
+events and configure custom scheduled tasks triggered by those
+events.</p>
+<hr />
+<h3 id="step-1-identify-the-target-event-details">Step 1: Identify the
+Target Event Details</h3>
+<p>Before creating your scheduled task, you need the specific identifier
+for the event you want to use as a trigger.</p>
+<ol type="1">
+<li>Press <strong>Win + R</strong>, type <code>eventvwr.msc</code>, and
+press <strong>Enter</strong> to open the <strong>Event
+Viewer</strong>.</li>
+<li>In the left sidebar, expand <strong>Windows Logs</strong> and select
+the category relevant to your trigger (such as <strong>System</strong>,
+<strong>Application</strong>, or <strong>Security</strong>).</li>
+<li>Locate the event you want to use as a trigger and click on it.</li>
+<li>Note the following three details from the event summary:
+<ul>
+<li><strong>Log Name</strong> (e.g., <em>System</em>)</li>
+<li><strong>Source</strong> (e.g., <em>Kernel-Power</em>, <em>Disk</em>,
+or <em>Service Control Manager</em>)</li>
+<li><strong>Event ID</strong> (e.g., <em>1074</em> for a system
+shutdown/restart)</li>
+</ul></li>
+</ol>
+<hr />
+<h3 id="step-2-create-a-custom-task-in-task-scheduler">Step 2: Create a
+Custom Task in Task Scheduler</h3>
+<p>Using the full "Create Task" wizard allows you to fine-tune
+permissions, triggers, and actions.</p>
+<ol type="1">
+<li>Press <strong>Win + R</strong>, type <code>taskschd.msc</code>, and
+press <strong>Enter</strong> to open <strong>Task
+Scheduler</strong>.</li>
+<li>In the right-hand <strong>Actions</strong> pane, click
+<strong>Create Task...</strong>.</li>
+</ol>
+<h4 id="general-tab">General Tab</h4>
+<ul>
+<li>Enter a <strong>Name</strong> and optional
+<strong>Description</strong> for your task.</li>
+<li>Under <strong>Security options</strong>, choose whether the task
+should run only when the user is logged on or whether it should run
+regardless of login status.</li>
+<li>Check <strong>Run with highest privileges</strong> if your action
+requires administrator rights.</li>
+</ul>
+<h4 id="triggers-tab">Triggers Tab</h4>
+<ol type="1">
+<li>Click the <strong>Triggers</strong> tab, then click
+<strong>New...</strong>.</li>
+<li>Open the <strong>Begin the task</strong> drop-down menu and select
+<strong>On an event</strong>.</li>
+<li>Choose the <strong>Basic</strong> setting and specify the event
+details identified in Step 1:
+<ul>
+<li><strong>Log:</strong> Select the corresponding log (e.g.,
+<em>System</em>).</li>
+<li><strong>Source:</strong> Select the exact source name from the
+list.</li>
+<li><strong>Event ID:</strong> Type the numerical Event ID.</li>
+</ul></li>
+<li><em>(Optional)</em> For advanced scenarios involving specific event
+data, switch the radio button to <strong>Custom</strong> and click
+<strong>New Event Filter...</strong> to build complex XML queries.</li>
+<li>Click <strong>OK</strong>.</li>
+</ol>
+<h4 id="actions-tab">Actions Tab</h4>
+<ol type="1">
+<li>Click the <strong>Actions</strong> tab, then click
+<strong>New...</strong>.</li>
+<li>Set <strong>Action</strong> to <strong>Start a
+program</strong>.</li>
+<li>In the <strong>Program/script</strong> field, click
+<strong>Browse...</strong> to select your executable, batch file
+(<code>.bat</code>), or script (<code>.ps1</code>).
+<ul>
+<li>If running a PowerShell script, enter <code>powershell.exe</code> in
+the program box, and add
+<code>-ExecutionPolicy Bypass -File "C:\Path\To\YourScript.ps1"</code>
+into the <strong>Add arguments</strong> box.</li>
+</ul></li>
+<li>Click <strong>OK</strong>.</li>
+</ol>
+<h4 id="conditions-and-settings-tabs">Conditions and Settings Tabs</h4>
+<ul>
+<li>Review the <strong>Conditions</strong> tab to configure network and
+power restrictions (e.g., uncheck <em>Start the task only if the
+computer is on AC power</em> for laptops).</li>
+<li>Review the <strong>Settings</strong> tab to dictate how the task
+behaves if it fails or runs longer than expected.</li>
+<li>Click <strong>OK</strong> to save the task. Enter your Windows user
+credentials if prompted.</li>
+</ul>
+<hr />
+<h3 id="step-3-verify-and-test-the-task">Step 3: Verify and Test the
+Task</h3>
+<ol type="1">
+<li>In Task Scheduler, select <strong>Task Scheduler Library</strong>
+from the left pane and find your newly created task in the central
+list.</li>
+<li>In the right-hand pane, click <strong>Enable All Tasks
+History</strong> to ensure future executions are logged.</li>
+<li>Simulate or wait for the system event to occur.</li>
+<li>Refresh Task Scheduler and check the <strong>Last Run
+Result</strong> column or the <strong>History</strong> tab at the bottom
+to confirm that your event successfully triggered the task.</li>
+</ol></article>
+        <div id="comments-container"></div>
+        <script>
+            const utterancesScript = document.createElement('script');
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+        </div>
+    </div>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

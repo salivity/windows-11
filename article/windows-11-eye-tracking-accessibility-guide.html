@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windows 11 Eye Tracking Accessibility Guide - windows-11</title>
+    <meta name="description" content="Windows 11 natively integrates eye-tracking hardware through its built-in Eye Control feature, allowing users to navigate the operating system, control the mouse cursor, type with an on-screen keyboard, and utilize text-to-speech functionality purely thr">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/windows-11-eye-tracking-accessibility-guide">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Windows 11 Eye Tracking Accessibility Guide - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/windows-11-eye-tracking-accessibility-guide" />
+    <meta property="og:image" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Windows 11 natively integrates eye-tracking hardware through its built-in Eye Control feature, allowing users to navigate the operating system, control the mouse cursor, type with an on-screen keyboard, and utilize text-to-speech functionality purely thr" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        
+    <div class="article-layout">
+        <aside id="profile-sidebar" class="profile-column" aria-label="Author Profile"></aside>
+        <div class="article-main-column">
+            <article><h1 id="windows-11-eye-tracking-accessibility-guide">Windows 11 Eye
+Tracking Accessibility Guide</h1>
+<p>Windows 11 natively integrates eye-tracking hardware through its
+built-in Eye Control feature, allowing users to navigate the operating
+system, control the mouse cursor, type with an on-screen keyboard, and
+utilize text-to-speech functionality purely through gaze interaction.
+This guide details how supported eye-tracking devices connect to Windows
+11, how the native accessibility stack processes gaze data, and how
+users interact with core system functions without relying on third-party
+middleware.</p>
+<h2 id="hardware-compatibility-and-connection">Hardware Compatibility
+and Connection</h2>
+<p>Windows 11 relies on the Microsoft Windows Eye Control API to
+communicate directly with certified peripheral hardware. Supported
+devices—most notably from manufacturers like Tobii Dynavox and
+EyeTech—connect via USB and require the vendor’s base driver or platform
+software to track corneal reflections.</p>
+<p>Once connected, the hardware processes infrared reflections from the
+user's eyes to determine the point of gaze on the screen. The driver
+feeds these spatial coordinates directly into the Windows accessibility
+subsystem, translating physical eye movements into digital display
+coordinates in real time.</p>
+<h2 id="enabling-eye-control-in-windows-11">Enabling Eye Control in
+Windows 11</h2>
+<p>Windows 11 does not require specialized secondary software to run
+basic navigation. Integration occurs through the following native
+workflow:</p>
+<ol type="1">
+<li>Open <strong>Settings</strong> and select
+<strong>Accessibility</strong>.</li>
+<li>Scroll to the <strong>Interaction</strong> section and select
+<strong>Eye control</strong>.</li>
+<li>Toggle the <strong>Eye control</strong> switch to
+<strong>On</strong>.</li>
+</ol>
+<p>Upon activation, the system launches the device's initial calibration
+sequence to map gaze boundaries. Once calibration is complete, the
+<strong>Eye Control Launchpad</strong> appears on the screen.</p>
+<h2 id="core-interaction-features-via-the-launchpad">Core Interaction
+Features via the Launchpad</h2>
+<p>The Eye Control Launchpad is a persistent, floating interface that
+docks to the top or bottom of the screen. Users interact with the
+Launchpad using <strong>dwell time</strong>—holding their gaze on a
+specific icon for a predetermined fraction of a second to trigger an
+action.</p>
+<ul>
+<li><strong>Mouse Emulation:</strong> Users can select left-click,
+right-click, double-click, or drag-and-drop modes. After choosing an
+action from the Launchpad, looking at any target on the screen executes
+the selected click type.</li>
+<li><strong>On-Screen Keyboard:</strong> Eye Control provides a
+specialized virtual keyboard designed for gaze typing. Users dwell on
+individual keys to type or utilize gaze-based shape-writing to slide
+their eyes across letters to form words quickly.</li>
+<li><strong>Text-to-Speech (TTS):</strong> The keyboard interface
+includes a built-in speech synthesizer that reads aloud typed sentences,
+enabling augmentative and alternative communication (AAC) directly
+within the OS.</li>
+</ul>
+<h2 id="system-level-integration-and-customization">System-Level
+Integration and Customization</h2>
+<p>Because Eye Control is embedded within the core Windows 11
+architecture, it works across the entire OS, including the taskbar, File
+Explorer, standard Win32 applications, and modern web browsers.</p>
+<p>Within the Eye Control settings menu, users can fine-tune several
+performance parameters:</p>
+<ul>
+<li><strong>Dwell Time:</strong> Adjustable hold durations to prevent
+accidental clicks caused by natural eye wandering (saccades).</li>
+<li><strong>Smoothing and Precision:</strong> Algorithms that stabilize
+cursor jitter caused by micro-eye movements.</li>
+<li><strong>Typing Speed and Predictions:</strong> Word prediction
+engines that reduce the number of individual gaze points needed to form
+complete sentences.</li>
+</ul>
+<p>Eye Control also functions alongside other Windows 11 accessibility
+tools, such as Narrator and Magnifier, providing a modular assistive
+environment tailored to individual motor and communication needs.</p></article>
+        <div id="comments-container"></div>
+        <script>
+            const utterancesScript = document.createElement('script');
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+        </div>
+    </div>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

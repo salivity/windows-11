@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Change Sleep and Screen Timeout on Windows 11 - windows-11</title>
+    <meta name="description" content="This guide explains how to configure screen timeouts, standard sleep intervals, and advanced unattended sleep timeouts in Windows 11. Customizing these settings ensures your system manages power efficiently based on whether you are actively using the dev">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/how-to-change-sleep-and-screen-timeout-on-windows-11">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="How to Change Sleep and Screen Timeout on Windows 11 - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/how-to-change-sleep-and-screen-timeout-on-windows-11" />
+    <meta property="og:image" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="This guide explains how to configure screen timeouts, standard sleep intervals, and advanced unattended sleep timeouts in Windows 11. Customizing these settings ensures your system manages power efficiently based on whether you are actively using the dev" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        
+    <div class="article-layout">
+        <aside id="profile-sidebar" class="profile-column" aria-label="Author Profile"></aside>
+        <div class="article-main-column">
+            <article><h1 id="how-to-change-sleep-and-screen-timeout-on-windows-11">How to
+Change Sleep and Screen Timeout on Windows 11</h1>
+<p>This guide explains how to configure screen timeouts, standard sleep
+intervals, and advanced unattended sleep timeouts in Windows 11.
+Customizing these settings ensures your system manages power efficiently
+based on whether you are actively using the device, stepping away, or
+letting the computer wake automatically for background tasks.</p>
+<h2 id="adjust-standard-screen-and-sleep-timeouts">Adjust Standard
+Screen and Sleep Timeouts</h2>
+<ol type="1">
+<li>Open <strong>Settings</strong> by pressing
+<code>Windows Key + I</code>.</li>
+<li>Navigate to <strong>System</strong> and select <strong>Power &amp;
+battery</strong> (or <strong>Power</strong> on desktop computers).</li>
+<li>Click on the <strong>Screen and sleep</strong> dropdown section to
+expand it.</li>
+<li>Set your preferred durations for the following options:
+<ul>
+<li><strong>On battery power, turn off my screen after</strong></li>
+<li><strong>When plugged in, turn off my screen after</strong></li>
+<li><strong>On battery power, put my device to sleep after</strong></li>
+<li><strong>When plugged in, put my device to sleep after</strong></li>
+</ul></li>
+</ol>
+<p>Changes apply immediately once selected.</p>
+<h2 id="configure-the-unattended-sleep-timeout">Configure the Unattended
+Sleep Timeout</h2>
+<p>The unattended sleep timeout controls how quickly Windows returns to
+sleep if the computer is woken by a background task, remote trigger, or
+wake timer without user interaction. By default, this is hidden and set
+to 2 minutes.</p>
+<h3 id="step-1-reveal-the-setting-in-power-options">Step 1: Reveal the
+Setting in Power Options</h3>
+<ol type="1">
+<li>Press <code>Windows Key + R</code>, type <code>regedit</code>, and
+press <strong>Enter</strong>.</li>
+<li>Navigate to the following path:
+<code>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\PowerSettings\238C9FA8-0AAD-41ED-83F4-97BE242C8F20\7bc4a2f9-d8fc-4469-b07b-33eb785aaca0</code></li>
+<li>Double-click the <strong>Attributes</strong> DWORD value on the
+right pane.</li>
+<li>Change the <strong>Value data</strong> from <code>1</code> to
+<code>2</code> and click <strong>OK</strong>.</li>
+<li>Close the Registry Editor.</li>
+</ol>
+<h3 id="step-2-set-the-unattended-timeout-duration">Step 2: Set the
+Unattended Timeout Duration</h3>
+<ol type="1">
+<li>Press <code>Windows Key + R</code>, type <code>powercfg.cpl</code>,
+and press <strong>Enter</strong>.</li>
+<li>Click <strong>Change plan settings</strong> next to your active
+power plan.</li>
+<li>Click <strong>Change advanced power settings</strong>.</li>
+<li>Expand the <strong>Sleep</strong> branch, then expand <strong>System
+unattended sleep timeout</strong>.</li>
+<li>Change the duration (in minutes) to your desired value for both
+<strong>On battery</strong> and <strong>Plugged in</strong>.</li>
+<li>Click <strong>Apply</strong>, then <strong>OK</strong>.</li>
+</ol>
+<h3
+id="alternative-set-unattended-sleep-timeout-via-command-prompt">Alternative:
+Set Unattended Sleep Timeout via Command Prompt</h3>
+<p>You can set this directly from an elevated Command Prompt or
+PowerShell terminal without modifying the Registry:</p>
+<ul>
+<li><strong>When plugged in (AC):</strong>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>powercfg <span class="at">/SETACVALUEINDEX</span> SUB_SLEEP UNATTENDSLEEP <span class="kw">&lt;</span>seconds<span class="kw">&gt;</span></span></code></pre></div></li>
+<li><strong>On battery (DC):</strong>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>powercfg <span class="at">/SETDCVALUEINDEX</span> SUB_SLEEP UNATTENDSLEEP <span class="kw">&lt;</span>seconds<span class="kw">&gt;</span></span></code></pre></div></li>
+<li><strong>Apply changes:</strong>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>powercfg <span class="at">/SETACTIVE</span> SCHEME_CURRENT</span></code></pre></div></li>
+</ul>
+<p><em>(Replace <code>&lt;seconds&gt;</code> with the desired duration
+in seconds, such as <code>1200</code> for 20 minutes.)</em></p></article>
+        <div id="comments-container"></div>
+        <script>
+            const utterancesScript = document.createElement('script');
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+        </div>
+    </div>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

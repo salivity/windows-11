@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restrict Microsoft Store Purchases on Windows 11 - windows-11</title>
+    <meta name="description" content="Managing app installations and purchases in the Windows 11 Microsoft Store helps prevent unauthorized spending, accidental downloads, and unapproved software installations. You can restrict access by enabling purchase authentication within the Store sett">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/restrict-microsoft-store-purchases-on-windows-11">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Restrict Microsoft Store Purchases on Windows 11 - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/restrict-microsoft-store-purchases-on-windows-11" />
+    <meta property="og:image" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Managing app installations and purchases in the Windows 11 Microsoft Store helps prevent unauthorized spending, accidental downloads, and unapproved software installations. You can restrict access by enabling purchase authentication within the Store sett" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        
+    <div class="article-layout">
+        <aside id="profile-sidebar" class="profile-column" aria-label="Author Profile"></aside>
+        <div class="article-main-column">
+            <article><h1 id="restrict-microsoft-store-purchases-on-windows-11">Restrict
+Microsoft Store Purchases on Windows 11</h1>
+<p>Managing app installations and purchases in the Windows 11 Microsoft
+Store helps prevent unauthorized spending, accidental downloads, and
+unapproved software installations. You can restrict access by enabling
+purchase authentication within the Store settings, configuring Microsoft
+Family Safety accounts for children, or completely disabling the Store
+using the Local Group Policy Editor.</p>
+<h2 id="method-1-require-a-password-or-pin-for-purchases">Method 1:
+Require a Password or PIN for Purchases</h2>
+<p>The quickest way to prevent accidental or unauthorized transactions
+is to require account verification every time a purchase is made.</p>
+<ol type="1">
+<li>Open the <strong>Microsoft Store</strong> on your Windows 11
+PC.</li>
+<li>Click your <strong>profile icon</strong> in the top-right corner and
+select <strong>Settings</strong>.</li>
+<li>Under the <strong>Purchase sign-in</strong> section, toggle the
+switch to <strong>On</strong> for "I want to buy without a password, for
+faster checkout." (Turning this option off requires your password or PIN
+for every transaction).</li>
+<li>Enter your Microsoft account credentials if prompted to confirm the
+change.</li>
+</ol>
+<h2 id="method-2-use-microsoft-family-safety-for-child-accounts">Method
+2: Use Microsoft Family Safety for Child Accounts</h2>
+<p>If you are managing a PC for children, Microsoft Family Safety allows
+you to approve downloads and block specific age ratings.</p>
+<ol type="1">
+<li>Go to <strong>Settings</strong> &gt; <strong>Accounts</strong> &gt;
+<strong>Family</strong>.</li>
+<li>Ensure your child is added as a standard user under your family
+group.</li>
+<li>Visit the <strong>Microsoft Family Safety</strong> portal in your
+web browser and sign in with the parent account.</li>
+<li>Select the child's profile and navigate to <strong>Content
+filters</strong>.</li>
+<li>Under <strong>Apps and games</strong>, set the maximum age rating
+for allowed downloads.</li>
+<li>Under <strong>Spending</strong>, enable <strong>Require approval for
+every purchase</strong> to receive notification requests before any
+transaction or download completes.</li>
+</ol>
+<h2
+id="method-3-block-the-microsoft-store-using-group-policy-windows-11-pro-enterprise-education">Method
+3: Block the Microsoft Store Using Group Policy (Windows 11 Pro,
+Enterprise, Education)</h2>
+<p>For complete control on professional editions of Windows 11, you can
+disable the Microsoft Store entirely.</p>
+<ol type="1">
+<li>Press <strong>Windows Key + R</strong>, type
+<code>gpedit.msc</code>, and press <strong>Enter</strong>.</li>
+<li>Navigate to: <code>Computer Configuration</code> &gt;
+<code>Administrative Templates</code> &gt;
+<code>Windows Components</code> &gt; <code>Store</code></li>
+<li>Double-click the policy named <strong>Turn off the Store
+application</strong>.</li>
+<li>Select <strong>Enabled</strong>, then click <strong>Apply</strong>
+and <strong>OK</strong>.</li>
+<li>Restart your computer to apply the restriction. Users will no longer
+be able to open or download items from the Store.</li>
+</ol>
+<h2 id="method-4-switch-account-types-to-standard-user">Method 4: Switch
+Account Types to Standard User</h2>
+<p>Standard accounts cannot install applications that require
+administrative privileges or change core system configurations.</p>
+<ol type="1">
+<li>Open <strong>Settings</strong> &gt; <strong>Accounts</strong> &gt;
+<strong>Other users</strong>.</li>
+<li>Click the user account you want to restrict and select
+<strong>Change account type</strong>.</li>
+<li>Change the dropdown menu from <strong>Administrator</strong> to
+<strong>Standard User</strong>.</li>
+<li>Click <strong>OK</strong>.</li>
+</ol></article>
+        <div id="comments-container"></div>
+        <script>
+            const utterancesScript = document.createElement('script');
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+        </div>
+    </div>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

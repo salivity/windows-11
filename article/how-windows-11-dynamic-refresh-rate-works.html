@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Windows 11 Dynamic Refresh Rate Works - windows-11</title>
+    <meta name="description" content="Dynamic Refresh Rate (DRR) is a Windows 11 feature designed to automatically switch between standard and high display refresh rates based on active screen tasks. By dynamically adjusting the refresh rate between lower frequencies like 60Hz and higher spe">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/how-windows-11-dynamic-refresh-rate-works">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="How Windows 11 Dynamic Refresh Rate Works - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/how-windows-11-dynamic-refresh-rate-works" />
+    <meta property="og:image" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Dynamic Refresh Rate (DRR) is a Windows 11 feature designed to automatically switch between standard and high display refresh rates based on active screen tasks. By dynamically adjusting the refresh rate between lower frequencies like 60Hz and higher spe" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        
+    <div class="article-layout">
+        <aside id="profile-sidebar" class="profile-column" aria-label="Author Profile"></aside>
+        <div class="article-main-column">
+            <article><h1 id="how-windows-11-dynamic-refresh-rate-works">How Windows 11
+Dynamic Refresh Rate Works</h1>
+<p>Dynamic Refresh Rate (DRR) is a Windows 11 feature designed to
+automatically switch between standard and high display refresh rates
+based on active screen tasks. By dynamically adjusting the refresh rate
+between lower frequencies like 60Hz and higher speeds like 120Hz or
+more, DRR ensures fluid visual motion during interactions like scrolling
+and writing while conserving critical battery power during static
+tasks.</p>
+<h2 id="the-problem-with-fixed-high-refresh-rates">The Problem with
+Fixed High Refresh Rates</h2>
+<p>Modern laptops and monitors often feature high refresh rate panels
+(120Hz, 144Hz, or higher) to make system animations, cursor movement,
+and gaming appear exceptionally smooth. However, running a display at a
+constant 120Hz or higher demands continuous processing from the GPU and
+increases the power consumption of the display panel itself. When
+reading an article, viewing a photo, or typing an email, a constant
+120Hz output consumes significant battery life without providing any
+perceptible visual benefit.</p>
+<h2 id="how-dynamic-refresh-rate-manages-display-output">How Dynamic
+Refresh Rate Manages Display Output</h2>
+<p>DRR acts as an intelligent intermediary between your hardware and the
+operating system. Instead of remaining locked at a single frequency, it
+switches refresh rates seamlessly in real time:</p>
+<ul>
+<li><strong>Low Power State (60Hz):</strong> When the display content is
+mostly static—such as reading a web page, working in a spreadsheet
+without moving, or watching standard 24fps–60fps video—Windows drops the
+refresh rate to 60Hz to reduce GPU load and conserve battery.</li>
+<li><strong>High Performance State (120Hz+):</strong> The moment you
+interact with the system—such as scrolling through a document, moving a
+window, or interacting with the stylus—DRR instantly boosts the refresh
+rate to 120Hz or higher to eliminate motion blur and input lag.</li>
+<li><strong>Instant Recovery:</strong> As soon as interaction stops, the
+display immediately returns to 60Hz.</li>
+</ul>
+<p>Because the transition between rates happens seamlessly without
+screen flickering or black frames, users perceive the display as
+consistently smooth while avoiding the power penalty of a permanent high
+refresh rate.</p>
+<h2 id="key-applications-benefiting-from-drr">Key Applications
+Benefiting from DRR</h2>
+<p>DRR is deeply integrated into core Windows 11 experiences and
+supported productivity applications:</p>
+<ul>
+<li><strong>Digital Inking:</strong> When using a stylus on touchscreen
+devices like the Surface Pro, DRR immediately shifts to 120Hz. This
+provides near-zero latency and natural pen-on-paper responsiveness,
+dropping back to 60Hz the moment the pen lifts.</li>
+<li><strong>Document and Web Scrolling:</strong> Applications such as
+Microsoft Edge, Word, and File Explorer leverage DRR to provide fluid
+scrolling without stutter, returning to 60Hz as soon as you pause to
+read.</li>
+</ul>
+<h2 id="system-requirements-for-dynamic-refresh-rate">System
+Requirements for Dynamic Refresh Rate</h2>
+<p>To use DRR, your hardware and software must meet specific
+criteria:</p>
+<ul>
+<li><strong>Operating System:</strong> Windows 11.</li>
+<li><strong>Display:</strong> A panel supporting Variable Refresh Rate
+(VRR) and a native refresh rate of at least 120Hz.</li>
+<li><strong>Graphics Driver:</strong> A GPU driver that supports Windows
+Display Driver Model (WDDM) 3.0 or higher.</li>
+</ul>
+<h2 id="how-to-enable-drr-in-windows-11">How to Enable DRR in Windows
+11</h2>
+<p>If your hardware supports DRR, you can enable it through the
+following steps:</p>
+<ol type="1">
+<li>Open <strong>Settings</strong> and select
+<strong>System</strong>.</li>
+<li>Click on <strong>Display</strong>, then navigate to <strong>Advanced
+display</strong>.</li>
+<li>Under the <strong>Choose a refresh rate</strong> dropdown menu,
+select the <strong>Dynamic</strong> option (e.g., <em>Dynamic (60 Hz or
+120 Hz)</em>).</li>
+</ol></article>
+        <div id="comments-container"></div>
+        <script>
+            const utterancesScript = document.createElement('script');
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+        </div>
+    </div>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Smart App Control Needs a Clean Windows Install - windows-11</title>
+    <meta name="description" content="Smart App Control (SAC) is an advanced security feature in Windows 11 designed to automatically block malicious, untrusted, and unsigned applications using cloud-powered intelligence. However, enabling this feature often requires a completely clean insta">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/why-smart-app-control-needs-a-clean-windows-install">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Why Smart App Control Needs a Clean Windows Install - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/why-smart-app-control-needs-a-clean-windows-install" />
+    <meta property="og:image" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Smart App Control (SAC) is an advanced security feature in Windows 11 designed to automatically block malicious, untrusted, and unsigned applications using cloud-powered intelligence. However, enabling this feature often requires a completely clean insta" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        
+    <div class="article-layout">
+        <aside id="profile-sidebar" class="profile-column" aria-label="Author Profile"></aside>
+        <div class="article-main-column">
+            <article><h1 id="why-smart-app-control-needs-a-clean-windows-install">Why Smart
+App Control Needs a Clean Windows Install</h1>
+<p>Smart App Control (SAC) is an advanced security feature in Windows 11
+designed to automatically block malicious, untrusted, and unsigned
+applications using cloud-powered intelligence. However, enabling this
+feature often requires a completely clean installation of the operating
+system. This requirement exists because Windows must establish an
+untainted, verified baseline of system integrity from day one,
+preventing pre-existing untrusted software from compromising the
+security model or causing system instability.</p>
+<h3 id="establishing-a-trusted-security-baseline">Establishing a Trusted
+Security Baseline</h3>
+<p>Smart App Control relies on a "zero-trust" approach for application
+execution. For the feature to operate effectively, it must assume that
+every file on the system has been vetted from the moment of
+installation.</p>
+<p>If SAC could be enabled on an existing Windows installation, the
+operating system would inherit potentially compromised, unsigned, or
+legacy applications that were installed prior to the feature being
+activated. By requiring a fresh installation, Microsoft ensures there
+are no pre-existing, unverified binaries already running with elevated
+privileges or residing in protected system directories.</p>
+<h3 id="preventing-system-instability-and-false-positives">Preventing
+System Instability and False Positives</h3>
+<p>If Smart App Control were turned on retroactively on an active
+system, it could immediately break critical software, background
+services, or custom drivers that lack proper digital signatures.</p>
+<p>To prevent user disruption:</p>
+<ul>
+<li><strong>Evaluation Mode:</strong> On a clean install, SAC starts in
+"Evaluation Mode" to determine whether your application usage patterns
+are a good fit for strict enforcement without getting in your way.</li>
+<li><strong>Avoidance of Sudden Breakage:</strong> Allowing users to
+force SAC on an aged installation would result in a flood of blocked
+processes, broken dependencies, and potential operating system
+instability.</li>
+</ul>
+<h3 id="the-limits-of-retroactive-auditing">The Limits of Retroactive
+Auditing</h3>
+<p>Windows cannot reliably perform a retroactive security audit on
+gigabytes of existing third-party data. While Microsoft Defender can
+scan files for known signatures of malware, Smart App Control uses a
+stricter predictive model backed by Microsoft cloud telemetry. Because
+files already on your drive could have been modified or injected with
+malicious code prior to enabling SAC, retroactively validating their
+legitimacy is not cryptographically dependable.</p>
+<h3 id="why-upgrades-and-manual-disabling-lock-the-feature">Why Upgrades
+and Manual Disabling Lock the Feature</h3>
+<p>When you upgrade to Windows 11 from Windows 10, or if you manually
+switch Smart App Control from "On" or "Evaluation" to "Off," the
+security state is considered permanently altered.</p>
+<p>Once turned off, untrusted binaries may enter the system. Because
+Windows can no longer guarantee the environment is pure, the toggle is
+permanently disabled in the Windows Security settings. The only
+supported method to reset this state and regain access to Smart App
+Control is to perform a clean installation or a full factory reset of
+Windows 11.</p></article>
+        <div id="comments-container"></div>
+        <script>
+            const utterancesScript = document.createElement('script');
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+        </div>
+    </div>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

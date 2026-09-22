@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map Network Drive Persistently in Windows 11 CMD - windows-11</title>
+    <meta name="description" content="Mapping a shared network folder to a persistent drive letter ensures your system automatically reconnects to the network resource every time Windows 11 reboots. This guide provides the exact command-line instructions using both Command Prompt (net use) a">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/map-network-drive-persistently-in-windows-11-cmd">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Map Network Drive Persistently in Windows 11 CMD - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/map-network-drive-persistently-in-windows-11-cmd" />
+    <meta property="og:image" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Mapping a shared network folder to a persistent drive letter ensures your system automatically reconnects to the network resource every time Windows 11 reboots. This guide provides the exact command-line instructions using both Command Prompt (net use) a" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        
+    <div class="article-layout">
+        <aside id="profile-sidebar" class="profile-column" aria-label="Author Profile"></aside>
+        <div class="article-main-column">
+            <article><h1 id="map-network-drive-persistently-in-windows-11-cmd">Map Network
+Drive Persistently in Windows 11 CMD</h1>
+<p>Mapping a shared network folder to a persistent drive letter ensures
+your system automatically reconnects to the network resource every time
+Windows 11 reboots. This guide provides the exact command-line
+instructions using both Command Prompt (<code>net use</code>) and
+PowerShell (<code>New-PSDrive</code>) to establish a persistent network
+drive connection quickly and reliably.</p>
+<h3 id="using-command-prompt-net-use">Using Command Prompt
+(<code>net use</code>)</h3>
+<ol type="1">
+<li>Press <strong>Win + S</strong>, type <code>cmd</code>, and launch
+<strong>Command Prompt</strong>.</li>
+<li>Run the following command syntax to map a drive persistently:</li>
+</ol>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>net use Z: \\ServerName\ShareName <span class="at">/persistent:</span>yes</span></code></pre></div>
+<ul>
+<li>Replace <code>Z:</code> with your desired drive letter.</li>
+<li>Replace <code>\\ServerName\ShareName</code> with the actual UNC path
+to your network folder.</li>
+<li>The <code>/persistent:yes</code> switch ensures the drive reconnects
+automatically upon system restart.</li>
+</ul>
+<h4 id="mapping-with-authentication">Mapping with Authentication</h4>
+<p>If the network share requires specific credentials, append the
+username and password parameters:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>net use Z: \\ServerName\ShareName <span class="at">/user:</span>Domain\Username Password <span class="at">/persistent:</span>yes</span></code></pre></div>
+<p>To prevent your password from appearing in plain text or command
+history, use an asterisk <code>*</code> to be prompted securely:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>net use Z: \\ServerName\ShareName <span class="at">/user:</span>Domain\Username * <span class="at">/persistent:</span>yes</span></code></pre></div>
+<hr />
+<h3 id="using-powershell-new-psdrive">Using PowerShell
+(<code>New-PSDrive</code>)</h3>
+<p>If you prefer using PowerShell, execute the following command to
+create a persistent drive mapping:</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">New-PSDrive</span> <span class="op">-</span>Name <span class="st">&quot;Z&quot;</span> <span class="op">-</span>PSProvider <span class="st">&quot;FileSystem&quot;</span> <span class="op">-</span>Root <span class="st">&quot;\\ServerName\ShareName&quot;</span> <span class="op">-</span>Persist</span></code></pre></div>
+<ul>
+<li><code>-Name "Z"</code> specifies the drive letter without a
+colon.</li>
+<li><code>-Persist</code> makes the drive permanent across Windows
+sessions and visible in File Explorer.</li>
+</ul>
+<p>If credentials are required in PowerShell:</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">New-PSDrive</span> <span class="op">-</span>Name <span class="st">&quot;Z&quot;</span> <span class="op">-</span>PSProvider <span class="st">&quot;FileSystem&quot;</span> <span class="op">-</span>Root <span class="st">&quot;\\ServerName\ShareName&quot;</span> <span class="op">-</span>Persist <span class="op">-</span>Credential <span class="op">(</span><span class="fu">Get-Credential</span><span class="op">)</span></span></code></pre></div>
+<hr />
+<h3 id="verifying-and-managing-the-connection">Verifying and Managing
+the Connection</h3>
+<ul>
+<li><p><strong>View Active Mappings:</strong> Type <code>net use</code>
+and press <strong>Enter</strong> to display all currently mapped network
+drives and their persistence status.</p></li>
+<li><p><strong>Disconnect a Mapped Drive:</strong> To remove the mapped
+network drive, run:</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>net use Z: <span class="at">/delete</span></span></code></pre></div></li>
+</ul></article>
+        <div id="comments-container"></div>
+        <script>
+            const utterancesScript = document.createElement('script');
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+        </div>
+    </div>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

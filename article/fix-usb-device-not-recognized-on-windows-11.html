@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fix USB Device Not Recognized on Windows 11 - windows-11</title>
+    <meta name="description" content="When Windows 11 fails to recognize a USB device, the issue typically stems from hardware connection faults, outdated drivers, incorrect power settings, or system glitches. This troubleshooting guide walks you through clear, sequential steps to diagnose a">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/fix-usb-device-not-recognized-on-windows-11">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Fix USB Device Not Recognized on Windows 11 - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/fix-usb-device-not-recognized-on-windows-11" />
+    <meta property="og:image" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="When Windows 11 fails to recognize a USB device, the issue typically stems from hardware connection faults, outdated drivers, incorrect power settings, or system glitches. This troubleshooting guide walks you through clear, sequential steps to diagnose a" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        
+    <div class="article-layout">
+        <aside id="profile-sidebar" class="profile-column" aria-label="Author Profile"></aside>
+        <div class="article-main-column">
+            <article><h1 id="fix-usb-device-not-recognized-on-windows-11">Fix USB Device Not
+Recognized on Windows 11</h1>
+<p>When Windows 11 fails to recognize a USB device, the issue typically
+stems from hardware connection faults, outdated drivers, incorrect power
+settings, or system glitches. This troubleshooting guide walks you
+through clear, sequential steps to diagnose and resolve USB detection
+problems, starting with basic hardware checks and progressing to
+system-level driver and power configuration fixes.</p>
+<h3 id="1-perform-basic-hardware-checks">1. Perform Basic Hardware
+Checks</h3>
+<p>Before changing system settings, rule out physical faults:</p>
+<ul>
+<li><strong>Try another USB port:</strong> Connect the device directly
+to a different port on your PC, preferably directly on the motherboard
+(rear ports on a desktop) rather than a USB hub or front-panel
+port.</li>
+<li><strong>Test the device on another computer:</strong> Plug the USB
+device into another PC to verify whether the device itself is
+functioning.</li>
+<li><strong>Inspect the connectors:</strong> Check both the USB
+cable/connector and the port for dust, debris, or physical damage.</li>
+<li><strong>Restart your computer:</strong> A simple reboot often clears
+temporary hardware glitches and re-initializes USB controllers.</li>
+</ul>
+<h3 id="2-reinstall-usb-drivers-in-device-manager">2. Reinstall USB
+Drivers in Device Manager</h3>
+<p>Corrupted or improperly loaded drivers often trigger the "USB device
+not recognized" error.</p>
+<ol type="1">
+<li>Right-click the <strong>Start</strong> button and select
+<strong>Device Manager</strong>.</li>
+<li>Expand the <strong>Universal Serial Bus controllers</strong>
+section.</li>
+<li>Look for any entry labeled <strong>Unknown USB Device (Device
+Descriptor Request Failed)</strong> or any device showing a yellow
+exclamation mark.</li>
+<li>Right-click the affected device and select <strong>Uninstall
+device</strong>.</li>
+<li>Click <strong>Uninstall</strong> to confirm.</li>
+<li>Restart your PC. Windows 11 will automatically attempt to reinstall
+the appropriate driver upon reboot.</li>
+</ol>
+<h3 id="3-disable-usb-selective-suspend">3. Disable USB Selective
+Suspend</h3>
+<p>Windows 11 includes a power-saving feature that suspends power to
+individual USB ports, which can prevent devices from reconnecting
+properly.</p>
+<ol type="1">
+<li>Press <strong>Windows Key + R</strong>, type <code>control</code>,
+and press <strong>Enter</strong> to open the Control Panel.</li>
+<li>Set the <em>View by</em> option to <strong>Small icons</strong> or
+<strong>Large icons</strong>, then click <strong>Power
+Options</strong>.</li>
+<li>Click <strong>Change plan settings</strong> next to your active
+power plan.</li>
+<li>Click <strong>Change advanced power settings</strong>.</li>
+<li>Expand <strong>USB settings</strong> &gt; <strong>USB selective
+suspend setting</strong>.</li>
+<li>Set both <strong>On battery</strong> (if applicable) and
+<strong>Plugged in</strong> to <strong>Disabled</strong>.</li>
+<li>Click <strong>Apply</strong>, then <strong>OK</strong>.</li>
+</ol>
+<h3 id="4-turn-off-power-management-for-usb-root-hubs">4. Turn Off Power
+Management for USB Root Hubs</h3>
+<p>Prevent Windows from cutting power to the USB hubs automatically.</p>
+<ol type="1">
+<li>Open <strong>Device Manager</strong>.</li>
+<li>Expand <strong>Universal Serial Bus controllers</strong>.</li>
+<li>Right-click <strong>USB Root Hub</strong> (repeat for each one
+listed) and select <strong>Properties</strong>.</li>
+<li>Go to the <strong>Power Management</strong> tab.</li>
+<li>Uncheck <strong>Allow the computer to turn off this device to save
+power</strong>.</li>
+<li>Click <strong>OK</strong> and restart your computer.</li>
+</ol>
+<h3 id="5-run-the-hardware-and-devices-troubleshooter">5. Run the
+Hardware and Devices Troubleshooter</h3>
+<p>Windows includes a built-in diagnostic tool to resolve hardware
+conflicts.</p>
+<ol type="1">
+<li>Press <strong>Windows Key + R</strong> to open the Run dialog.</li>
+<li>Type <code>msdt.exe -id DeviceDiagnostic</code> and press
+<strong>Enter</strong>.</li>
+<li>Click <strong>Advanced</strong> and ensure <strong>Apply repairs
+automatically</strong> is checked.</li>
+<li>Click <strong>Next</strong> and follow the on-screen prompts to
+detect and repair issues.</li>
+</ol>
+<h3 id="6-install-the-latest-windows-and-chipset-updates">6. Install the
+Latest Windows and Chipset Updates</h3>
+<p>Outdated motherboard chipset drivers can cause communication failures
+between the OS and USB ports.</p>
+<ol type="1">
+<li>Go to <strong>Settings</strong> &gt; <strong>Windows
+Update</strong>.</li>
+<li>Click <strong>Check for updates</strong> and install any pending
+updates.</li>
+<li>Check <strong>Advanced options</strong> &gt; <strong>Optional
+updates</strong> to see if any driver or firmware updates are available
+for your system.</li>
+<li>Visit your PC or motherboard manufacturer's website to download and
+install the latest chipset drivers designed for Windows 11.</li>
+</ol></article>
+        <div id="comments-container"></div>
+        <script>
+            const utterancesScript = document.createElement('script');
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+        </div>
+    </div>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

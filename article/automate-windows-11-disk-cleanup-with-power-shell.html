@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automate Windows 11 Disk Cleanup with PowerShell - windows-11</title>
+    <meta name="description" content="Automating routine disk cleaning and maintenance tasks in Windows 11 helps maintain peak system performance, reclaim valuable storage space, and extend the lifespan of your drives. This guide covers how to write a PowerShell maintenance script to clear t">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/automate-windows-11-disk-cleanup-with-power-shell">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Automate Windows 11 Disk Cleanup with PowerShell - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/automate-windows-11-disk-cleanup-with-power-shell" />
+    <meta property="og:image" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Automating routine disk cleaning and maintenance tasks in Windows 11 helps maintain peak system performance, reclaim valuable storage space, and extend the lifespan of your drives. This guide covers how to write a PowerShell maintenance script to clear t" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        
+    <div class="article-layout">
+        <aside id="profile-sidebar" class="profile-column" aria-label="Author Profile"></aside>
+        <div class="article-main-column">
+            <article><h1 id="automate-windows-11-disk-cleanup-with-powershell">Automate
+Windows 11 Disk Cleanup with PowerShell</h1>
+<p>Automating routine disk cleaning and maintenance tasks in Windows 11
+helps maintain peak system performance, reclaim valuable storage space,
+and extend the lifespan of your drives. This guide covers how to write a
+PowerShell maintenance script to clear temporary files, empty the
+Recycle Bin, run disk optimization (TRIM/Defrag), and automate the
+entire process using Windows Task Scheduler.</p>
+<hr />
+<h3 id="step-1-write-the-powershell-maintenance-script">Step 1: Write
+the PowerShell Maintenance Script</h3>
+<p>Create a PowerShell script (<code>.ps1</code>) that executes the
+primary disk cleanup and maintenance commands.</p>
+<p>Open a text editor like Notepad or VS Code, paste the following
+script, and save it as <code>DiskMaintenance.ps1</code>:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run with Administrator Privileges</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">Write-Output</span> <span class="st">&quot;Starting Disk Maintenance...&quot;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Empty the Recycle Bin on all drives silently</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span> <span class="op">{</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">Clear-RecycleBin</span> <span class="op">-</span>Force <span class="op">-</span>ErrorAction SilentlyContinue</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">Write-Output</span> <span class="st">&quot;Recycle Bin cleared successfully.&quot;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="cf">catch</span> <span class="op">{</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">Write-Output</span> <span class="st">&quot;Failed to clear Recycle Bin.&quot;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Delete User Temporary Files</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="va">$UserTemp</span> <span class="op">=</span> <span class="st">&quot;</span><span class="va">$env</span><span class="op">:</span><span class="va">TEMP</span><span class="st">\*&quot;</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span> <span class="op">{</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">Remove-Item</span> <span class="op">-</span>Path <span class="va">$UserTemp</span> <span class="op">-</span>Recurse <span class="op">-</span>Force <span class="op">-</span>ErrorAction SilentlyContinue</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">Write-Output</span> <span class="st">&quot;User temporary files removed.&quot;</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="cf">catch</span> <span class="op">{</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">Write-Output</span> <span class="st">&quot;Some user temporary files could not be removed.&quot;</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Delete System Temporary Files</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="va">$SystemTemp</span> <span class="op">=</span> <span class="st">&quot;C:\Windows\Temp\*&quot;</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span> <span class="op">{</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">Remove-Item</span> <span class="op">-</span>Path <span class="va">$SystemTemp</span> <span class="op">-</span>Recurse <span class="op">-</span>Force <span class="op">-</span>ErrorAction SilentlyContinue</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">Write-Output</span> <span class="st">&quot;System temporary files removed.&quot;</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="cf">catch</span> <span class="op">{</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">Write-Output</span> <span class="st">&quot;Some system temporary files could not be removed.&quot;</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Clean Windows Update Download Cache</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="va">$UpdateCache</span> <span class="op">=</span> <span class="st">&quot;C:\Windows\SoftwareDistribution\Download\*&quot;</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span> <span class="op">{</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    <span class="fu">Remove-Item</span> <span class="op">-</span>Path <span class="va">$UpdateCache</span> <span class="op">-</span>Recurse <span class="op">-</span>Force <span class="op">-</span>ErrorAction SilentlyContinue</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>    <span class="fu">Write-Output</span> <span class="st">&quot;Windows update cache cleared.&quot;</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="cf">catch</span> <span class="op">{</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>    <span class="fu">Write-Output</span> <span class="st">&quot;Windows update cache could not be cleared.&quot;</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. Optimize and Re-trim Drives (SSD TRIM and HDD Defrag)</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span> <span class="op">{</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>    <span class="fu">Write-Output</span> <span class="st">&quot;Optimizing Drive C:...&quot;</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>    Optimize-Volume <span class="op">-</span>DriveLetter C <span class="op">-</span>ReTrim <span class="op">-</span>Verbose</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>    <span class="fu">Write-Output</span> <span class="st">&quot;Drive C: optimization completed.&quot;</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="cf">catch</span> <span class="op">{</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>    <span class="fu">Write-Output</span> <span class="st">&quot;Volume optimization failed.&quot;</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="fu">Write-Output</span> <span class="st">&quot;Disk maintenance process finished.&quot;</span></span></code></pre></div>
+<hr />
+<h3 id="step-2-test-the-script-locally">Step 2: Test the Script
+Locally</h3>
+<p>Before automating the execution, test the script to ensure it runs
+without syntax errors.</p>
+<ol type="1">
+<li>Right-click the Windows Start menu and select <strong>Terminal
+(Admin)</strong> or <strong>PowerShell (Admin)</strong>.</li>
+<li>Set the execution policy to allow running local scripts if you
+haven't already:
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Set-ExecutionPolicy</span> RemoteSigned <span class="op">-</span>Scope CurrentUser</span></code></pre></div></li>
+<li>Run your script by providing its full path:
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="op">&amp;</span> <span class="st">&quot;C:\Scripts\DiskMaintenance.ps1&quot;</span></span></code></pre></div></li>
+</ol>
+<hr />
+<h3 id="step-3-automate-execution-using-task-scheduler">Step 3: Automate
+Execution Using Task Scheduler</h3>
+<p>To execute this script automatically on a recurring schedule (e.g.,
+weekly), configure a Windows Scheduled Task using PowerShell.</p>
+<p>Run the following command in an elevated PowerShell session:</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the action to run PowerShell silently with the script</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="va">$Action</span> <span class="op">=</span> New-ScheduledTaskAction <span class="op">-</span>Execute <span class="st">&quot;PowerShell.exe&quot;</span> <span class="op">-</span>Argument <span class="st">&quot;-NoProfile -WindowStyle Hidden -ExecutionPolicy Bypass -File </span><span class="ch">`&quot;</span><span class="st">C:\Scripts\DiskMaintenance.ps1</span><span class="ch">`&quot;</span><span class="st">&quot;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the trigger (Runs every Sunday at 2:00 AM)</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="va">$Trigger</span> <span class="op">=</span> New-ScheduledTaskTrigger <span class="op">-</span>Weekly <span class="op">-</span>DaysOfWeek Sunday <span class="op">-</span>At <span class="dv">2</span><span class="op">:</span>00AM</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the task settings</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="va">$Settings</span> <span class="op">=</span> New-ScheduledTaskSettingsSet <span class="op">-</span>AllowStartIfOnBatteries<span class="op">:</span><span class="va">$false</span> <span class="op">-</span>DontStopIfGoingOnBatteries <span class="op">-</span>StartWhenAvailable</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Register the scheduled task with administrative privileges</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>Register-ScheduledTask <span class="op">-</span>TaskName <span class="st">&quot;Automated Disk Cleanup&quot;</span> <span class="op">-</span>Action <span class="va">$Action</span> <span class="op">-</span>Trigger <span class="va">$Trigger</span> <span class="op">-</span>Settings <span class="va">$Settings</span> <span class="op">-</span>User <span class="st">&quot;NT AUTHORITY\SYSTEM&quot;</span> <span class="op">-</span>RunLevel Highest</span></code></pre></div>
+<hr />
+<h3 id="step-4-verify-the-scheduled-task">Step 4: Verify the Scheduled
+Task</h3>
+<p>To confirm the scheduled task is created and active:</p>
+<ol type="1">
+<li>Press <code>Win + R</code>, type <code>taskschd.msc</code>, and
+press <strong>Enter</strong>.</li>
+<li>Click <strong>Task Scheduler Library</strong> in the left
+sidebar.</li>
+<li>Locate <strong>Automated Disk Cleanup</strong> in the middle
+pane.</li>
+<li>Right-click the task and select <strong>Run</strong> to verify that
+it executes successfully in the background.</li>
+</ol></article>
+        <div id="comments-container"></div>
+        <script>
+            const utterancesScript = document.createElement('script');
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+        </div>
+    </div>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

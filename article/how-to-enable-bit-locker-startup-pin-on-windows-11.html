@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Enable BitLocker Startup PIN on Windows 11 - windows-11</title>
+    <meta name="description" content="Setting a pre-boot PIN for BitLocker adds an essential layer of security to Windows 11 by requiring authentication before the operating system boots and unlocks the drive encryption keys. By default, BitLocker relies solely on the Trusted Platform Module">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/how-to-enable-bit-locker-startup-pin-on-windows-11">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="How to Enable BitLocker Startup PIN on Windows 11 - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/how-to-enable-bit-locker-startup-pin-on-windows-11" />
+    <meta property="og:image" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Setting a pre-boot PIN for BitLocker adds an essential layer of security to Windows 11 by requiring authentication before the operating system boots and unlocks the drive encryption keys. By default, BitLocker relies solely on the Trusted Platform Module" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        
+    <div class="article-layout">
+        <aside id="profile-sidebar" class="profile-column" aria-label="Author Profile"></aside>
+        <div class="article-main-column">
+            <article><h1 id="how-to-enable-bitlocker-startup-pin-on-windows-11">How to Enable
+BitLocker Startup PIN on Windows 11</h1>
+<p>Setting a pre-boot PIN for BitLocker adds an essential layer of
+security to Windows 11 by requiring authentication before the operating
+system boots and unlocks the drive encryption keys. By default,
+BitLocker relies solely on the Trusted Platform Module (TPM), which
+unlocks automatically when the system powers on. This guide walks you
+through enabling the startup PIN policy in the Local Group Policy Editor
+and configuring your personal PIN using the Command Prompt.</p>
+<h3 id="prerequisites">Prerequisites</h3>
+<ul>
+<li>Windows 11 Pro, Enterprise, or Education edition (BitLocker is not
+available on Windows 11 Home).</li>
+<li>A functional TPM 2.0 chip.</li>
+<li>BitLocker enabled on the operating system drive (typically the C:
+drive).</li>
+<li>Administrator privileges.</li>
+</ul>
+<hr />
+<h3 id="step-1-allow-startup-pin-in-group-policy">Step 1: Allow Startup
+PIN in Group Policy</h3>
+<p>Windows 11 must be configured to allow a PIN alongside TPM
+authentication.</p>
+<ol type="1">
+<li>Press <strong>Win + R</strong>, type <code>gpedit.msc</code>, and
+press <strong>Enter</strong> to open the Local Group Policy Editor.</li>
+<li>Navigate to the following path: <code>Computer Configuration</code>
+&gt; <code>Administrative Templates</code> &gt;
+<code>Windows Components</code> &gt;
+<code>BitLocker Drive Encryption</code> &gt;
+<code>Operating System Drives</code></li>
+<li>In the right pane, double-click <strong>Require additional
+authentication at startup</strong>.</li>
+<li>Select <strong>Enabled</strong>.</li>
+<li>Under the <strong>Options</strong> section:
+<ul>
+<li>Ensure <strong>Allow BitLocker without a compatible TPM</strong> is
+unchecked (unless using non-TPM hardware).</li>
+<li>Set <strong>Configure TPM startup PIN:</strong> to <strong>Require
+startup PIN with TPM</strong> (or <strong>Allow startup PIN with
+TPM</strong>).</li>
+</ul></li>
+<li>Click <strong>Apply</strong>, then click <strong>OK</strong>.</li>
+</ol>
+<hr />
+<h3 id="step-2-set-the-pre-boot-bitlocker-pin">Step 2: Set the Pre-Boot
+BitLocker PIN</h3>
+<p>Once the policy is applied, you must assign the actual PIN to your
+encrypted drive.</p>
+<ol type="1">
+<li>Press the <strong>Windows Key</strong>, type <code>cmd</code>,
+right-click <strong>Command Prompt</strong>, and select <strong>Run as
+administrator</strong>.</li>
+<li>Run the following command (replace <code>C:</code> with your
+operating system drive letter if different):
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>manage-bde <span class="at">-protectors</span> <span class="at">-add</span> C: <span class="at">-TPMAndPIN</span></span></code></pre></div></li>
+<li>When prompted, enter your desired PIN (between 6 and 20 digits by
+default).</li>
+<li>Re-type the PIN to confirm.</li>
+</ol>
+<hr />
+<h3 id="step-3-verify-and-test-the-configuration">Step 3: Verify and
+Test the Configuration</h3>
+<ol type="1">
+<li>In the elevated Command Prompt, verify that the protector was added
+successfully by typing:
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>manage-bde <span class="at">-status</span> C:</span></code></pre></div></li>
+<li>Look under the <strong>Key Protectors</strong> section for
+<code>TPM And PIN</code>.</li>
+<li>Restart your computer. Upon booting, your PC will prompt you to
+enter the BitLocker PIN before loading Windows 11.</li>
+</ol>
+<hr />
+<h3 id="how-to-change-or-remove-the-pin-later">How to Change or Remove
+the PIN Later</h3>
+<ul>
+<li><strong>To change the PIN:</strong> Run
+<code>manage-bde -changepin C:</code> in an elevated Command
+Prompt.</li>
+<li><strong>To remove the PIN (revert to TPM-only):</strong> Run
+<code>manage-bde -protectors -delete C: -type TPMAndPIN</code> followed
+by <code>manage-bde -protectors -add C: -tpm</code>.</li>
+</ul></article>
+        <div id="comments-container"></div>
+        <script>
+            const utterancesScript = document.createElement('script');
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+        </div>
+    </div>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

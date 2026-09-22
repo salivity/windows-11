@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fix Blue Screen of Death (BSOD) in Windows 11 - windows-11</title>
+    <meta name="description" content="A Blue Screen of Death (BSOD) in Windows 11 typically indicates a critical system crash caused by faulty hardware, corrupted drivers, or damaged system files. This guide provides a straightforward, step-by-step approach to identifying the root cause of t">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/fix-blue-screen-of-death-bsod-in-windows-11">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Fix Blue Screen of Death (BSOD) in Windows 11 - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/fix-blue-screen-of-death-bsod-in-windows-11" />
+    <meta property="og:image" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="A Blue Screen of Death (BSOD) in Windows 11 typically indicates a critical system crash caused by faulty hardware, corrupted drivers, or damaged system files. This guide provides a straightforward, step-by-step approach to identifying the root cause of t" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        
+    <div class="article-layout">
+        <aside id="profile-sidebar" class="profile-column" aria-label="Author Profile"></aside>
+        <div class="article-main-column">
+            <article><h1 id="fix-blue-screen-of-death-bsod-in-windows-11">Fix Blue Screen of
+Death (BSOD) in Windows 11</h1>
+<p>A Blue Screen of Death (BSOD) in Windows 11 typically indicates a
+critical system crash caused by faulty hardware, corrupted drivers, or
+damaged system files. This guide provides a straightforward,
+step-by-step approach to identifying the root cause of the stop code and
+applying the most effective troubleshooting methods to restore system
+stability.</p>
+<h3 id="1-note-the-stop-code">1. Note the Stop Code</h3>
+<p>When the blue screen appears, Windows displays a specific error
+message known as a "Stop Code" (e.g.,
+<code>CRITICAL_PROCESS_DIED</code>, <code>DPC_WATCHDOG_VIOLATION</code>,
+or <code>MEMORY_MANAGEMENT</code>), sometimes accompanied by a specific
+failing <code>.sys</code> file. Write down this code or scan the
+on-screen QR code with your phone to pinpoint the exact failure
+area.</p>
+<h3 id="2-disconnect-external-peripherals">2. Disconnect External
+Peripherals</h3>
+<p>Faulty hardware or incompatible USB devices often trigger BSODs.
+Disconnect all non-essential peripherals, including external hard
+drives, printers, webcams, and secondary monitors. Restart your PC to
+check if the issue persists. If the crash stops, reconnect devices one
+by one to identify the faulty hardware.</p>
+<h3 id="3-boot-into-safe-mode">3. Boot into Safe Mode</h3>
+<p>If Windows 11 cannot boot normally, enter Safe Mode to troubleshoot
+without third-party drivers or software interfering:</p>
+<ol type="1">
+<li>Turn your PC on and off three times consecutively during boot to
+trigger the <strong>Automatic Repair</strong> screen.</li>
+<li>Select <strong>Advanced options</strong> &gt;
+<strong>Troubleshoot</strong> &gt; <strong>Advanced options</strong>
+&gt; <strong>Startup Settings</strong> &gt;
+<strong>Restart</strong>.</li>
+<li>Press <strong>4</strong> or <strong>F4</strong> to boot into Safe
+Mode.</li>
+</ol>
+<h3 id="4-update-or-roll-back-drivers">4. Update or Roll Back
+Drivers</h3>
+<p>Corrupt or outdated drivers—especially display and chipset
+drivers—are the primary cause of BSOD crashes.</p>
+<ul>
+<li><strong>To update drivers:</strong> Right-click the
+<strong>Start</strong> button, select <strong>Device Manager</strong>,
+expand the relevant hardware category (such as <em>Display
+adapters</em>), right-click the component, and select <strong>Update
+driver</strong>.</li>
+<li><strong>To roll back recent updates:</strong> If the crash occurred
+right after a driver update, right-click the device in <strong>Device
+Manager</strong>, select <strong>Properties</strong>, go to the
+<strong>Driver</strong> tab, and click <strong>Roll Back
+Driver</strong>.</li>
+</ul>
+<h3 id="5-repair-corrupted-system-files">5. Repair Corrupted System
+Files</h3>
+<p>Windows includes built-in tools to detect and fix damaged system
+files:</p>
+<ol type="1">
+<li>Press the <strong>Windows Key + S</strong>, type <code>cmd</code>,
+right-click <strong>Command Prompt</strong>, and select <strong>Run as
+administrator</strong>.</li>
+<li>Run the Deployment Image Servicing and Management tool:
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>DISM <span class="at">/Online</span> <span class="at">/Cleanup-Image</span> <span class="at">/RestoreHealth</span></span></code></pre></div></li>
+<li>Once complete, run the System File Checker:
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>sfc <span class="at">/scannow</span></span></code></pre></div></li>
+<li>Restart your computer after the scans finish.</li>
+</ol>
+<h3 id="6-test-your-ram-for-errors">6. Test Your RAM for Errors</h3>
+<p>Faulty memory modules frequently trigger random blue screens.</p>
+<ol type="1">
+<li>Press <strong>Windows Key + R</strong>, type
+<code>mdsched.exe</code>, and press <strong>Enter</strong>.</li>
+<li>Select <strong>Restart now and check for problems</strong>.</li>
+<li>Your computer will restart and run the Windows Memory Diagnostic
+tool. If errors are detected, reseat your RAM sticks or replace damaged
+modules.</li>
+</ol>
+<h3 id="7-uninstall-recent-windows-updates">7. Uninstall Recent Windows
+Updates</h3>
+<p>If the BSOD started immediately after an operating system update:</p>
+<ol type="1">
+<li>Open <strong>Settings</strong> &gt; <strong>Windows Update</strong>
+&gt; <strong>Update history</strong>.</li>
+<li>Scroll down and select <strong>Uninstall updates</strong>.</li>
+<li>Locate the most recently installed update and click
+<strong>Uninstall</strong>.</li>
+</ol>
+<h3 id="8-use-system-restore">8. Use System Restore</h3>
+<p>If the crashes started recently, revert your system to an earlier,
+stable state:</p>
+<ol type="1">
+<li>Press <strong>Windows Key + R</strong>, type
+<code>rstrui.exe</code>, and press <strong>Enter</strong>.</li>
+<li>Select a restore point created before the crashes began and follow
+the on-screen instructions.</li>
+</ol></article>
+        <div id="comments-container"></div>
+        <script>
+            const utterancesScript = document.createElement('script');
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+        </div>
+    </div>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

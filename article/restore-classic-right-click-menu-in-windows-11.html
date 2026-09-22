@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restore Classic Right-Click Menu in Windows 11 - windows-11</title>
+    <meta name="description" content="Windows 11 introduced a redesigned, simplified context menu that hides many traditional options behind a secondary "Show more options" click. This guide explains how to permanently restore the full, classic Windows 10-style right-click context menu by de">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/restore-classic-right-click-menu-in-windows-11">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Restore Classic Right-Click Menu in Windows 11 - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/restore-classic-right-click-menu-in-windows-11" />
+    <meta property="og:image" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Windows 11 introduced a redesigned, simplified context menu that hides many traditional options behind a secondary "Show more options" click. This guide explains how to permanently restore the full, classic Windows 10-style right-click context menu by de" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        
+    <div class="article-layout">
+        <aside id="profile-sidebar" class="profile-column" aria-label="Author Profile"></aside>
+        <div class="article-main-column">
+            <article><h1 id="restore-classic-right-click-menu-in-windows-11">Restore Classic
+Right-Click Menu in Windows 11</h1>
+<p>Windows 11 introduced a redesigned, simplified context menu that
+hides many traditional options behind a secondary "Show more options"
+click. This guide explains how to permanently restore the full, classic
+Windows 10-style right-click context menu by default using a simple
+Command Prompt command or manual Registry edit, as well as how to revert
+the changes if needed.</p>
+<h2 id="method-1-using-command-prompt-fastest">Method 1: Using Command
+Prompt (Fastest)</h2>
+<p>The quickest way to restore the classic context menu is by using a
+single command in the Windows Terminal or Command Prompt.</p>
+<ol type="1">
+<li>Right-click the <strong>Start</strong> button and select
+<strong>Terminal</strong> or <strong>Command Prompt</strong>.</li>
+<li>Copy and paste the following command into the window:</li>
+</ol>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>reg add <span class="st">&quot;HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32&quot;</span> <span class="at">/f</span> <span class="at">/ve</span></span></code></pre></div>
+<ol start="3" type="1">
+<li>Press <strong>Enter</strong>. You should see the message:
+<code>The operation completed successfully.</code></li>
+<li>Restart the Windows Explorer process to apply the changes
+immediately. You can do this by running the following command:</li>
+</ol>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>taskkill <span class="at">/f</span> <span class="at">/im</span> explorer.exe <span class="kw">&amp;&amp;</span> <span class="bu">start</span> explorer.exe</span></code></pre></div>
+<p>Alternatively, restart your computer. The classic right-click menu
+will now open by default.</p>
+<hr />
+<h2 id="method-2-using-the-registry-editor-manual">Method 2: Using the
+Registry Editor (Manual)</h2>
+<p>If you prefer to make the change manually through the Windows
+Registry Editor:</p>
+<ol type="1">
+<li>Press <strong>Windows Key + R</strong> to open the Run dialog
+box.</li>
+<li>Type <code>regedit</code> and press <strong>Enter</strong> to launch
+the Registry Editor.</li>
+<li>Navigate to the following path:
+<pre class="text"><code>HKEY_CURRENT_USER\Software\Classes\CLSID</code></pre></li>
+<li>Right-click the <strong>CLSID</strong> folder, select
+<strong>New</strong> &gt; <strong>Key</strong>, and name it:
+<pre class="text"><code>{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}</code></pre></li>
+<li>Right-click the newly created key
+(<code>{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}</code>), select
+<strong>New</strong> &gt; <strong>Key</strong>, and name this subkey:
+<pre class="text"><code>InprocServer32</code></pre></li>
+<li>Select the <strong>InprocServer32</strong> key. In the right pane,
+double-click the <strong>(Default)</strong> entry.</li>
+<li>Without typing anything, click <strong>OK</strong>. This ensures the
+data value is set to blank rather than
+<code>(value not set)</code>.</li>
+<li>Close the Registry Editor and restart your computer or restart
+Windows Explorer via Task Manager.</li>
+</ol>
+<hr />
+<h2 id="how-to-undo-and-restore-the-windows-11-modern-menu">How to Undo
+and Restore the Windows 11 Modern Menu</h2>
+<p>To switch back to the standard Windows 11 context menu at any
+time:</p>
+<ol type="1">
+<li>Open <strong>Command Prompt</strong> or
+<strong>Terminal</strong>.</li>
+<li>Run the following command:</li>
+</ol>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>reg delete <span class="st">&quot;HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}&quot;</span> <span class="at">/f</span></span></code></pre></div>
+<ol start="3" type="1">
+<li>Restart Windows Explorer or reboot your PC to restore the default
+Windows 11 context menu.</li>
+</ol></article>
+        <div id="comments-container"></div>
+        <script>
+            const utterancesScript = document.createElement('script');
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+        </div>
+    </div>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set Up Hyper-V Virtual Machines in Windows 11 - windows-11</title>
+    <meta name="description" content="This guide walks you through enabling and configuring Microsoft Hyper-V to run virtual machines on Windows 11 Pro and Enterprise editions. You will learn how to verify your hardware virtualization settings, enable the Hyper-V feature, configure virtual n">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/set-up-hyper-v-virtual-machines-in-windows-11">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Set Up Hyper-V Virtual Machines in Windows 11 - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/set-up-hyper-v-virtual-machines-in-windows-11" />
+    <meta property="og:image" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="This guide walks you through enabling and configuring Microsoft Hyper-V to run virtual machines on Windows 11 Pro and Enterprise editions. You will learn how to verify your hardware virtualization settings, enable the Hyper-V feature, configure virtual n" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        
+    <div class="article-layout">
+        <aside id="profile-sidebar" class="profile-column" aria-label="Author Profile"></aside>
+        <div class="article-main-column">
+            <article><h1 id="set-up-hyper-v-virtual-machines-in-windows-11">Set Up Hyper-V
+Virtual Machines in Windows 11</h1>
+<p>This guide walks you through enabling and configuring Microsoft
+Hyper-V to run virtual machines on Windows 11 Pro and Enterprise
+editions. You will learn how to verify your hardware virtualization
+settings, enable the Hyper-V feature, configure virtual networking, and
+create your first virtual machine from an operating system installation
+image.</p>
+<h3 id="step-1-verify-hardware-virtualization">Step 1: Verify Hardware
+Virtualization</h3>
+<p>Before enabling Hyper-V, ensure your system hardware supports
+virtualization and that the feature is enabled in your BIOS/UEFI
+firmware.</p>
+<ol type="1">
+<li>Press <code>Ctrl + Shift + Esc</code> to open <strong>Task
+Manager</strong>.</li>
+<li>Select the <strong>Performance</strong> tab and click on
+<strong>CPU</strong>.</li>
+<li>Look at the bottom-right details for
+<strong>Virtualization</strong>. Ensure it says
+<strong>Enabled</strong>.</li>
+<li>If it is disabled, restart your PC, enter your BIOS/UEFI settings,
+and enable <strong>Intel VT-x</strong> or <strong>AMD-V</strong>.</li>
+</ol>
+<h3 id="step-2-enable-hyper-v-in-windows-11">Step 2: Enable Hyper-V in
+Windows 11</h3>
+<p>Hyper-V is a built-in feature in Windows 11 Pro, Enterprise, and
+Education editions, but it is turned off by default.</p>
+<h4 id="option-a-using-windows-features">Option A: Using Windows
+Features</h4>
+<ol type="1">
+<li>Press the <code>Windows Key + R</code>, type
+<code>optionalfeatures.exe</code>, and press
+<strong>Enter</strong>.</li>
+<li>In the Windows Features window, locate
+<strong>Hyper-V</strong>.</li>
+<li>Check the box next to <strong>Hyper-V</strong> (ensure both
+<em>Hyper-V Management Tools</em> and <em>Hyper-V Platform</em> are
+selected).</li>
+<li>Click <strong>OK</strong>, wait for the installation to finish, and
+click <strong>Restart Now</strong>.</li>
+</ol>
+<h4 id="option-b-using-powershell">Option B: Using PowerShell</h4>
+<ol type="1">
+<li>Right-click the <strong>Start</strong> button and select
+<strong>Terminal (Admin)</strong> or <strong>PowerShell
+(Admin)</strong>.</li>
+<li>Run the following command:
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Enable-WindowsOptionalFeature <span class="op">-</span>Online <span class="op">-</span>FeatureName Microsoft-Hyper-V <span class="op">-</span>All</span></code></pre></div></li>
+<li>Type <code>Y</code> to reboot your system when prompted.</li>
+</ol>
+<h3 id="step-3-configure-a-virtual-switch">Step 3: Configure a Virtual
+Switch</h3>
+<p>To give your virtual machines access to your local network and the
+internet, configure a virtual switch.</p>
+<ol type="1">
+<li>Open the Start menu, search for <strong>Hyper-V Manager</strong>,
+and open it.</li>
+<li>Select your host computer name in the left sidebar.</li>
+<li>In the right-hand <strong>Actions</strong> pane, click
+<strong>Virtual Switch Manager</strong>.</li>
+<li>Under <em>Virtual Switches</em>, select <strong>New virtual network
+switch</strong>.</li>
+<li>Choose <strong>External</strong> (connects VM to the physical
+network/internet) and click <strong>Create Virtual Switch</strong>.</li>
+<li>Name your switch (e.g., "External Switch"), select your active
+network adapter, and click <strong>OK</strong>.</li>
+</ol>
+<h3 id="step-4-create-a-new-virtual-machine">Step 4: Create a New
+Virtual Machine</h3>
+<ol type="1">
+<li>In <strong>Hyper-V Manager</strong>, go to the
+<strong>Actions</strong> pane and click <strong>New &gt; Virtual
+Machine</strong>.</li>
+<li>In the wizard, configure the following:
+<ul>
+<li><strong>Name and Location:</strong> Enter a name for the VM.</li>
+<li><strong>Specify Generation:</strong> Choose <strong>Generation
+2</strong> for modern 64-bit operating systems supporting UEFI and
+Secure Boot (use Generation 1 for legacy 32-bit OS).</li>
+<li><strong>Assign Memory:</strong> Allocate RAM (e.g., 4096 MB for 4
+GB). Check <em>Use Dynamic Memory</em> if desired.</li>
+<li><strong>Configure Networking:</strong> Select the Virtual Switch
+created in Step 3.</li>
+<li><strong>Connect Virtual Hard Disk:</strong> Specify the virtual hard
+disk name, location, and maximum size.</li>
+<li><strong>Installation Options:</strong> Select <strong>Install an
+operating system from a bootable image file</strong> and browse to your
+downloaded <code>.iso</code> file.</li>
+</ul></li>
+<li>Click <strong>Finish</strong> to build the virtual machine.</li>
+</ol>
+<h3 id="step-5-start-the-virtual-machine-and-install-the-os">Step 5:
+Start the Virtual Machine and Install the OS</h3>
+<ol type="1">
+<li>In the central pane of Hyper-V Manager, right-click your newly
+created virtual machine and select <strong>Connect</strong>.</li>
+<li>Click the green <strong>Start</strong> button in the Virtual Machine
+Connection window.</li>
+<li>Press any key if prompted to boot from the CD/DVD ISO.</li>
+<li>Follow the standard on-screen installation prompts to set up your
+guest operating system.</li>
+</ol></article>
+        <div id="comments-container"></div>
+        <script>
+            const utterancesScript = document.createElement('script');
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+        </div>
+    </div>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

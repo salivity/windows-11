@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Enable XPS Document Writer in Windows 11 - windows-11</title>
+    <meta name="description" content="The Microsoft XPS Document Writer is a built-in virtual printer in Windows that allows users to create and save .xps or .oxps files from any application capable of printing. While Windows 11 includes this functionality, the feature is often disabled by d">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/how-to-enable-xps-document-writer-in-windows-11">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="How to Enable XPS Document Writer in Windows 11 - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/how-to-enable-xps-document-writer-in-windows-11" />
+    <meta property="og:image" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="The Microsoft XPS Document Writer is a built-in virtual printer in Windows that allows users to create and save .xps or .oxps files from any application capable of printing. While Windows 11 includes this functionality, the feature is often disabled by d" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        
+    <div class="article-layout">
+        <aside id="profile-sidebar" class="profile-column" aria-label="Author Profile"></aside>
+        <div class="article-main-column">
+            <article><h1 id="how-to-enable-xps-document-writer-in-windows-11">How to Enable
+XPS Document Writer in Windows 11</h1>
+<p>The Microsoft XPS Document Writer is a built-in virtual printer in
+Windows that allows users to create and save <code>.xps</code> or
+<code>.oxps</code> files from any application capable of printing. While
+Windows 11 includes this functionality, the feature is often disabled by
+default or removed from the active printers list. This guide provides
+clear, step-by-step instructions to enable and install the Microsoft XPS
+Document Writer on Windows 11 using Windows Optional Features, the
+Settings app, and Windows PowerShell.</p>
+<hr />
+<h2 id="method-1-turn-on-the-feature-via-windows-features">Method 1:
+Turn on the Feature via Windows Features</h2>
+<p>The quickest way to activate the XPS printing components is through
+the Windows Optional Features dialogue.</p>
+<ol type="1">
+<li>Press <strong>Windows Key + R</strong> to open the Run dialogue
+box.</li>
+<li>Type <code>optionalfeatures</code> and press
+<strong>Enter</strong>.</li>
+<li>In the Windows Features window, scroll down the list and locate
+<strong>Microsoft XPS Document Writer</strong>.</li>
+<li>Check the box next to <strong>Microsoft XPS Document
+Writer</strong>.</li>
+<li>(Optional) Check the box next to <strong>Microsoft XPS
+Viewer</strong> if you also need to open and view XPS files.</li>
+<li>Click <strong>OK</strong>. Windows will download and apply the
+necessary files.</li>
+<li>Click <strong>Close</strong> once the process is complete.</li>
+</ol>
+<hr />
+<h2 id="method-2-add-the-printer-manually-via-settings">Method 2: Add
+the Printer Manually via Settings</h2>
+<p>If the feature is enabled but the printer does not appear in your
+print menu, you can add it manually using Windows Settings.</p>
+<ol type="1">
+<li>Open <strong>Settings</strong> by pressing <strong>Windows Key +
+I</strong>.</li>
+<li>Navigate to <strong>Bluetooth &amp; devices</strong> &gt;
+<strong>Printers &amp; scanners</strong>.</li>
+<li>Click the <strong>Add device</strong> button.</li>
+<li>Wait a few seconds until the option <strong>The printer that I want
+isn't listed</strong> appears, then click <strong>Add
+manually</strong>.</li>
+<li>Select <strong>Add a local printer or network printer with manual
+settings</strong> and click <strong>Next</strong>.</li>
+<li>Select <strong>Use an existing port</strong>, choose
+<strong>PORTPROMPT: (Local Port)</strong> from the drop-down menu, and
+click <strong>Next</strong>.</li>
+<li>In the Manufacturer list on the left, select
+<strong>Microsoft</strong>.</li>
+<li>In the Printers list on the right, select <strong>Microsoft XPS
+Document Writer v4</strong> (or standard version).</li>
+<li>Click <strong>Next</strong>, choose whether to keep the current
+driver or replace it, name the printer, and click <strong>Next</strong>
+to complete the installation.</li>
+</ol>
+<hr />
+<h2 id="method-3-enable-using-windows-powershell">Method 3: Enable Using
+Windows PowerShell</h2>
+<p>For advanced users or system administrators, the feature can be
+enabled instantly via an elevated command prompt or PowerShell.</p>
+<ol type="1">
+<li>Right-click the <strong>Start</strong> button and select
+<strong>Terminal (Admin)</strong> or <strong>Windows PowerShell
+(Admin)</strong>.</li>
+<li>Enter the following command and press <strong>Enter</strong>:</li>
+</ol>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Enable-WindowsOptionalFeature <span class="op">-</span>Online <span class="op">-</span>FeatureName <span class="st">&quot;Printing-XPSServices-Features&quot;</span> <span class="op">-</span>All</span></code></pre></div>
+<ol start="3" type="1">
+<li>If you also want to enable the XPS Viewer, run:</li>
+</ol>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Add-WindowsCapability <span class="op">-</span>Online <span class="op">-</span>Name <span class="st">&quot;XPS.Viewer~~~~0.0.1.0&quot;</span></span></code></pre></div>
+<ol start="4" type="1">
+<li>Close the PowerShell window once the operation shows a successful
+status. The Microsoft XPS Document Writer will now be available in your
+printer list.</li>
+</ol></article>
+        <div id="comments-container"></div>
+        <script>
+            const utterancesScript = document.createElement('script');
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+        </div>
+    </div>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

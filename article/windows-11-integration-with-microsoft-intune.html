@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windows 11 Integration with Microsoft Intune - windows-11</title>
+    <meta name="description" content="This article provides an overview of how Windows 11 natively integrates with Microsoft Intune to enable modern, cloud-based endpoint management. By pairing Windows 11 with Intune, organizations can transition away from traditional on-premises infrastruct">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/windows-11-integration-with-microsoft-intune">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Windows 11 Integration with Microsoft Intune - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/windows-11-integration-with-microsoft-intune" />
+    <meta property="og:image" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="This article provides an overview of how Windows 11 natively integrates with Microsoft Intune to enable modern, cloud-based endpoint management. By pairing Windows 11 with Intune, organizations can transition away from traditional on-premises infrastruct" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        
+    <div class="article-layout">
+        <aside id="profile-sidebar" class="profile-column" aria-label="Author Profile"></aside>
+        <div class="article-main-column">
+            <article><h1 id="windows-11-integration-with-microsoft-intune">Windows 11
+Integration with Microsoft Intune</h1>
+<p>This article provides an overview of how Windows 11 natively
+integrates with Microsoft Intune to enable modern, cloud-based endpoint
+management. By pairing Windows 11 with Intune, organizations can
+transition away from traditional on-premises infrastructure like Active
+Directory Group Policy and Configuration Manager. The integration
+streamlines device provisioning via Windows Autopilot, simplifies policy
+and configuration management, enforces robust hardware-backed security
+standards, and automates software deployment and update rings from a
+centralized cloud console.</p>
+<h3 id="modern-provisioning-with-windows-autopilot">Modern Provisioning
+with Windows Autopilot</h3>
+<p>Windows 11 integrates seamlessly with Windows Autopilot through
+Microsoft Intune, enabling zero-touch deployment. Devices can be shipped
+directly from the hardware vendor to the end user. Once powered on and
+connected to the internet, the device connects to Intune, joins
+Microsoft Entra ID (formerly Azure AD), and automatically downloads
+required policies, configurations, and applications without requiring IT
+intervention.</p>
+<h3 id="configuration-and-policy-management">Configuration and Policy
+Management</h3>
+<p>Intune leverages the native Mobile Device Management (MDM) client
+built directly into Windows 11. Administrators manage devices using:</p>
+<ul>
+<li><strong>Settings Catalog:</strong> A centralized interface
+containing thousands of granular settings to configure Windows 11
+features directly.</li>
+<li><strong>Administrative Templates (ADMX):</strong> Native support for
+Group Policy-style controls delivered entirely from the cloud.</li>
+<li><strong>Custom Profiles (OMA-URI):</strong> Advanced configuration
+capabilities to target specific Windows 11 CSPs (Configuration Service
+Providers).</li>
+</ul>
+<h3 id="hardware-backed-security-and-compliance">Hardware-Backed
+Security and Compliance</h3>
+<p>Windows 11 requires modern hardware features such as TPM 2.0, Secure
+Boot, and Virtualization-Based Security (VBS). Intune utilizes these
+hardware requirements to enforce enterprise-grade security:</p>
+<ul>
+<li><strong>Endpoint Security Baselines:</strong> Pre-configured groups
+of Windows security settings recommended by Microsoft to protect against
+modern threats.</li>
+<li><strong>BitLocker Encryption:</strong> Automated key generation,
+silent drive encryption, and secure key escrow directly into Entra
+ID.</li>
+<li><strong>Compliance Policies:</strong> Real-time evaluation of device
+health (such as OS build, firewall status, and encryption).
+Non-compliant devices can be blocked from accessing corporate resources
+via Microsoft Entra Conditional Access.</li>
+<li><strong>Microsoft Defender Integration:</strong> Direct management
+of Defender Antivirus, Firewall, and Endpoint Detection and Response
+(EDR) capabilities via Intune.</li>
+</ul>
+<h3 id="application-lifecycle-management">Application Lifecycle
+Management</h3>
+<p>Intune serves as the distribution platform for all Windows 11
+application types. Administrators can package, deploy, update, and
+retire:</p>
+<ul>
+<li><strong>Microsoft 365 Apps:</strong> Automated deployment of Office
+suites with customizable update channels.</li>
+<li><strong>New Microsoft Store Integration:</strong> Direct integration
+with the Windows 11 Microsoft Store to deploy Store and Win32 apps
+securely.</li>
+<li><strong>Line-of-Business (LOB) and Win32 Apps:</strong> Packaging
+and deployment of custom <code>.msi</code>, <code>.exe</code>, and
+<code>.msix</code> installers using the Intune Management Extension
+(IME).</li>
+<li><strong>Company Portal:</strong> A self-service portal for Windows
+11 users to install approved applications on demand.</li>
+</ul>
+<h3 id="cloud-based-patch-and-update-management">Cloud-Based Patch and
+Update Management</h3>
+<p>Through Windows Update for Business (WUfB) policies in Intune,
+administrators can manage the entire lifecycle of Windows 11
+updates:</p>
+<ul>
+<li><strong>Quality Updates:</strong> Rapid deployment of monthly
+security patches.</li>
+<li><strong>Feature Updates:</strong> Controlled rollout and scheduling
+of major annual Windows 11 feature releases.</li>
+<li><strong>Driver and Firmware Updates:</strong> Approval and
+deployment workflows for OEM drivers and firmware managed directly
+within the Intune portal.</li>
+<li><strong>Expedited Updates:</strong> The ability to bypass regular
+maintenance windows to deploy emergency security fixes across the
+fleet.</li>
+</ul></article>
+        <div id="comments-container"></div>
+        <script>
+            const utterancesScript = document.createElement('script');
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+        </div>
+    </div>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

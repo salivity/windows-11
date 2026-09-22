@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boot Windows 11 to Command Prompt Without GUI - windows-11</title>
+    <meta name="description" content="Booting Windows 11 directly into the Command Prompt allows users to troubleshoot startup issues, repair corrupted system files, and manage disks without loading the standard graphical desktop. This guide outlines the most effective methods to access a pu">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/boot-windows-11-to-command-prompt-without-gui">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Boot Windows 11 to Command Prompt Without GUI - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/boot-windows-11-to-command-prompt-without-gui" />
+    <meta property="og:image" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Booting Windows 11 directly into the Command Prompt allows users to troubleshoot startup issues, repair corrupted system files, and manage disks without loading the standard graphical desktop. This guide outlines the most effective methods to access a pu" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        
+    <div class="article-layout">
+        <aside id="profile-sidebar" class="profile-column" aria-label="Author Profile"></aside>
+        <div class="article-main-column">
+            <article><h1 id="boot-windows-11-to-command-prompt-without-gui">Boot Windows 11
+to Command Prompt Without GUI</h1>
+<p>Booting Windows 11 directly into the Command Prompt allows users to
+troubleshoot startup issues, repair corrupted system files, and manage
+disks without loading the standard graphical desktop. This guide
+outlines the most effective methods to access a pure command-line
+environment using the Windows Recovery Environment (WinRE), Safe Mode,
+and Windows Installation Media.</p>
+<h3 id="method-1-using-the-advanced-startup-menu-winre">Method 1: Using
+the Advanced Startup Menu (WinRE)</h3>
+<p>The most direct way to get a full command prompt environment without
+the Windows desktop running in the background is through the Windows
+Recovery Environment.</p>
+<ol type="1">
+<li><strong>Access Advanced Startup:</strong>
+<ul>
+<li>If Windows is running: Open <strong>Settings</strong> &gt;
+<strong>System</strong> &gt; <strong>Recovery</strong>, then click
+<strong>Restart now</strong> next to <em>Advanced startup</em>.</li>
+<li>From the login screen: Click the <strong>Power</strong> icon, hold
+down the <strong>Shift</strong> key, and click
+<strong>Restart</strong>.</li>
+<li>If Windows will not boot: Turn the PC on and off abruptly three
+consecutive times using the physical power button to trigger Automatic
+Repair.</li>
+</ul></li>
+<li><strong>Navigate to the Command Prompt:</strong>
+<ul>
+<li>On the <em>Choose an option</em> blue screen, select
+<strong>Troubleshoot</strong>.</li>
+<li>Click <strong>Advanced options</strong>.</li>
+<li>Select <strong>Command Prompt</strong>.</li>
+</ul></li>
+<li><strong>Log in:</strong>
+<ul>
+<li>Choose your administrator account and enter the password when
+prompted.</li>
+</ul></li>
+</ol>
+<p>The system will launch directly into <code>cmd.exe</code> running on
+the <code>X:\</code> drive (the WinRE RAM disk) without loading the
+Windows Explorer GUI.</p>
+<hr />
+<h3 id="method-2-booting-into-safe-mode-with-command-prompt">Method 2:
+Booting into Safe Mode with Command Prompt</h3>
+<p>If you need the Command Prompt to interact directly with your
+installed Windows system drivers rather than the recovery environment,
+use Safe Mode with Command Prompt.</p>
+<ol type="1">
+<li>Access the <strong>Advanced Startup</strong> screen using any method
+described in Method 1.</li>
+<li>Navigate to <strong>Troubleshoot</strong> &gt; <strong>Advanced
+options</strong> &gt; <strong>Startup Settings</strong>.</li>
+<li>Click the <strong>Restart</strong> button.</li>
+<li>After your PC restarts, a list of options will appear. Press
+<strong>6</strong> or <strong>F6</strong> on your keyboard to select
+<strong>Enable Safe Mode with Command Prompt</strong>.</li>
+</ol>
+<p>Windows will boot directly to a Command Prompt window on a black
+background, omitting the standard taskbar and desktop interface.</p>
+<hr />
+<h3 id="method-3-using-windows-11-installation-media">Method 3: Using
+Windows 11 Installation Media</h3>
+<p>If the operating system cannot load at all and the recovery partition
+is unavailable, use a bootable USB drive.</p>
+<ol type="1">
+<li>Insert a bootable Windows 11 USB flash drive into the PC.</li>
+<li>Turn on the computer and press the boot menu key (commonly
+<strong>F12</strong>, <strong>F11</strong>, <strong>F8</strong>, or
+<strong>Esc</strong>) to boot from the USB drive.</li>
+<li>When the initial Windows Setup screen appears:
+<ul>
+<li><strong>Quick Shortcut:</strong> Press <strong>Shift + F10</strong>
+on your keyboard to immediately open the Command Prompt.</li>
+<li><strong>Alternative Navigation:</strong> Click
+<strong>Next</strong>, click <strong>Repair your computer</strong> in
+the bottom-left corner, select <strong>Troubleshoot</strong>, and choose
+<strong>Command Prompt</strong>.</li>
+</ul></li>
+</ol></article>
+        <div id="comments-container"></div>
+        <script>
+            const utterancesScript = document.createElement('script');
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+        </div>
+    </div>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

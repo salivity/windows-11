@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bypass Windows 11 OOBE Internet Requirement - windows-11</title>
+    <meta name="description" content="Microsoft requires an active internet connection and a Microsoft account to complete the initial setup on Windows 11 Home and Pro editions. However, you can bypass this requirement during the Out-of-Box Experience (OOBE) using a simple command-line worka">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/bypass-windows-11-oobe-internet-requirement">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Bypass Windows 11 OOBE Internet Requirement - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/bypass-windows-11-oobe-internet-requirement" />
+    <meta property="og:image" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Microsoft requires an active internet connection and a Microsoft account to complete the initial setup on Windows 11 Home and Pro editions. However, you can bypass this requirement during the Out-of-Box Experience (OOBE) using a simple command-line worka" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        
+    <div class="article-layout">
+        <aside id="profile-sidebar" class="profile-column" aria-label="Author Profile"></aside>
+        <div class="article-main-column">
+            <article><h1 id="bypass-windows-11-oobe-internet-requirement">Bypass Windows 11
+OOBE Internet Requirement</h1>
+<p>Microsoft requires an active internet connection and a Microsoft
+account to complete the initial setup on Windows 11 Home and Pro
+editions. However, you can bypass this requirement during the Out-of-Box
+Experience (OOBE) using a simple command-line workaround. This guide
+explains how to skip the network requirement and set up Windows 11 with
+an offline, local account.</p>
+<h2 id="why-bypass-the-internet-requirement">Why Bypass the Internet
+Requirement?</h2>
+<p>Skipping the network setup during the OOBE is useful if:</p>
+<ul>
+<li>You want to set up an offline local account instead of linking a
+Microsoft account.</li>
+<li>Your device lacks working Wi-Fi or Ethernet drivers during the fresh
+installation.</li>
+<li>You do not have access to an active internet connection.</li>
+</ul>
+<hr />
+<h2
+id="step-by-step-guide-to-bypass-the-network-requirement">Step-by-Step
+Guide to Bypass the Network Requirement</h2>
+<h3 id="step-1-reach-the-network-setup-screen">Step 1: Reach the Network
+Setup Screen</h3>
+<p>Turn on your PC and proceed through the initial region and keyboard
+layout selection screens until you reach the screen that says
+<strong>"Let's connect you to a network."</strong></p>
+<h3 id="step-2-open-the-command-prompt">Step 2: Open the Command
+Prompt</h3>
+<ol type="1">
+<li>On your keyboard, press <strong><code>Shift + F10</code></strong>.
+(On some laptops, you may need to press
+<strong><code>Fn + Shift + F10</code></strong>).</li>
+<li>A Command Prompt window will appear over the setup screen.</li>
+</ol>
+<h3 id="step-3-execute-the-bypass-command">Step 3: Execute the Bypass
+Command</h3>
+<ol type="1">
+<li>Click into the Command Prompt window.</li>
+<li>Type the following command exactly as shown:
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>OOBE\BYPASSNRO</span></code></pre></div></li>
+<li>Press <strong>Enter</strong>.</li>
+</ol>
+<h3 id="step-4-complete-the-offline-setup">Step 4: Complete the Offline
+Setup</h3>
+<ol type="1">
+<li>Your computer will automatically reboot and return to the beginning
+of the Windows 11 setup screen.</li>
+<li>Select your region and keyboard layout again.</li>
+<li>When you reach the <strong>"Let's connect you to a network"</strong>
+screen, a new option will appear: <strong>"I don't have
+internet."</strong> Click it.</li>
+<li>On the following screen, click <strong>"Continue with limited
+setup."</strong></li>
+<li>Enter your desired username, set an optional password, and finish
+setting up your local Windows 11 profile.</li>
+</ol></article>
+        <div id="comments-container"></div>
+        <script>
+            const utterancesScript = document.createElement('script');
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+        </div>
+    </div>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Windows 11 Manages Color Profiles and ACM - windows-11</title>
+    <meta name="description" content="Windows 11 modernizes display color handling by combining traditional International Color Consortium (ICC) profiles with Automatic Color Management (ACM). While legacy Windows versions relied on individual applications to interpret color spaces, Windows">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/how-windows-11-manages-color-profiles-and-acm">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="How Windows 11 Manages Color Profiles and ACM - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/how-windows-11-manages-color-profiles-and-acm" />
+    <meta property="og:image" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Windows 11 modernizes display color handling by combining traditional International Color Consortium (ICC) profiles with Automatic Color Management (ACM). While legacy Windows versions relied on individual applications to interpret color spaces, Windows" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        
+    <div class="article-layout">
+        <aside id="profile-sidebar" class="profile-column" aria-label="Author Profile"></aside>
+        <div class="article-main-column">
+            <article><h1 id="how-windows-11-manages-color-profiles-and-acm">How Windows 11
+Manages Color Profiles and ACM</h1>
+<p>Windows 11 modernizes display color handling by combining traditional
+International Color Consortium (ICC) profiles with Automatic Color
+Management (ACM). While legacy Windows versions relied on individual
+applications to interpret color spaces, Windows 11 introduces
+system-level color management to ensure consistent, accurate colors
+across standard dynamic range (SDR) and high dynamic range (HDR)
+monitors. This article explains the mechanics of legacy color profiles,
+how ACM works, its hardware requirements, and how to configure these
+settings in Windows 11.</p>
+<h2 id="legacy-color-management-vs-modern-color-pipelines">Legacy Color
+Management vs. Modern Color Pipelines</h2>
+<p>In older Windows versions, the desktop window manager operated
+primarily in an 8-bit sRGB color space. Color accuracy was
+decentralized:</p>
+<ul>
+<li><strong>Application-Level Mapping:</strong> Only specialized
+creative software (like Adobe Photoshop) read ICC profiles and mapped
+colors accurately to wide-gamut displays.</li>
+<li><strong>Oversaturation Issues:</strong> Standard applications
+without color-management awareness displayed standard sRGB content
+stretched across wide-gamut monitors (such as DCI-P3 or Adobe RGB),
+causing unnatural oversaturation.</li>
+<li><strong>Bit-Depth Bottlenecks:</strong> System rendering was
+limited, leading to visible banding in smooth color gradients.</li>
+</ul>
+<h2 id="what-is-automatic-color-management-acm">What Is Automatic Color
+Management (ACM)?</h2>
+<p>Automatic Color Management (ACM) is an operating-system-level feature
+introduced in Windows 11 that standardizes color representation across
+all applications. When enabled, ACM ensures that:</p>
+<ol type="1">
+<li><strong>System-Level Color Mapping:</strong> Windows renders the
+entire desktop using a high-precision floating-point (FP16)
+pipeline.</li>
+<li><strong>Proper Color Space Translation:</strong> Colors targeting
+standard sRGB are constrained correctly to the sRGB gamut, while
+wide-gamut applications can access the monitor’s full color potential
+simultaneously without oversaturating standard UI elements.</li>
+<li><strong>Enhanced Bit-Depth:</strong> ACM uses advanced dithering and
+FP16 processing to reduce color banding on 8-bit and 10-bit panels.</li>
+</ol>
+<h2 id="how-windows-11-uses-color-profiles-with-acm">How Windows 11 Uses
+Color Profiles with ACM</h2>
+<p>When ACM is inactive, Windows 11 relies on user-selected ICC profiles
+assigned through the traditional Color Management Control Panel. These
+profiles act as look-up tables for compatible software to adjust
+output.</p>
+<p>When ACM is enabled:</p>
+<ul>
+<li>Windows reads the display's extended display identification data
+(EDID) or custom calibrated ICC profile to detect the monitor's native
+color gamut and target primaries.</li>
+<li>The OS dynamically converts the color space of every window before
+sending the final frame to the graphics card, eliminating the need to
+manually switch profiles between daily tasks and color-critical
+workflows.</li>
+</ul>
+<h2 id="system-requirements-for-automatic-color-management">System
+Requirements for Automatic Color Management</h2>
+<p>To use ACM in Windows 11, the system must meet the following hardware
+and software criteria:</p>
+<ul>
+<li><strong>Operating System:</strong> Windows 11 version 22H2 (Build
+22621) or higher.</li>
+<li><strong>Display Driver:</strong> Windows Display Driver Model (WDDM)
+version 3.0 or higher.</li>
+<li><strong>GPU:</strong> AMD Radeon RX 400 series or newer / NVIDIA
+GeForce GTX 10-series or newer / Intel 11th Gen Core (Iris Xe) or
+newer.</li>
+<li><strong>Display Panel:</strong> A monitor supporting wide color
+gamut (typically 100% sRGB or higher, such as DCI-P3).</li>
+</ul>
+<h2 id="how-to-configure-color-profiles-and-acm-in-windows-11">How to
+Configure Color Profiles and ACM in Windows 11</h2>
+<h3 id="enabling-automatic-color-management">Enabling Automatic Color
+Management</h3>
+<ol type="1">
+<li>Open <strong>Settings</strong> by pressing
+<code>Win + I</code>.</li>
+<li>Navigate to <strong>System</strong> &gt;
+<strong>Display</strong>.</li>
+<li>Select the target monitor if using a multi-display setup.</li>
+<li>Click on <strong>Color profile</strong> or <strong>Advanced
+display</strong>.</li>
+<li>Toggle on <strong>Automatically manage color for apps</strong>.</li>
+</ol>
+<h3 id="managing-custom-icc-profiles">Managing Custom ICC Profiles</h3>
+<ol type="1">
+<li>Go to <strong>Settings</strong> &gt; <strong>System</strong> &gt;
+<strong>Display</strong> &gt; <strong>Color profile</strong>.</li>
+<li>Click <strong>Add profile</strong> to import a custom
+<code>.icc</code> or <code>.icm</code> file generated by a hardware
+calibration tool.</li>
+<li>Set the imported profile as the default for the display. Windows 11
+will use this profile as the reference target for both standard
+rendering and ACM operations.</li>
+</ol></article>
+        <div id="comments-container"></div>
+        <script>
+            const utterancesScript = document.createElement('script');
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+        </div>
+    </div>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

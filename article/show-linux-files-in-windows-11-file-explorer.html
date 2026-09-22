@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Linux Files in Windows 11 File Explorer - windows-11</title>
+    <meta name="description" content="Windows 11 includes built-in integration for the Windows Subsystem for Linux (WSL), allowing you to access and manage your Linux distribution files directly from the File Explorer sidebar. This guide walks you through enabling WSL, accessing the dedicate">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/show-linux-files-in-windows-11-file-explorer">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Show Linux Files in Windows 11 File Explorer - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/show-linux-files-in-windows-11-file-explorer" />
+    <meta property="og:image" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Windows 11 includes built-in integration for the Windows Subsystem for Linux (WSL), allowing you to access and manage your Linux distribution files directly from the File Explorer sidebar. This guide walks you through enabling WSL, accessing the dedicate" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        
+    <div class="article-layout">
+        <aside id="profile-sidebar" class="profile-column" aria-label="Author Profile"></aside>
+        <div class="article-main-column">
+            <article><h1 id="show-linux-files-in-windows-11-file-explorer">Show Linux Files
+in Windows 11 File Explorer</h1>
+<p>Windows 11 includes built-in integration for the Windows Subsystem
+for Linux (WSL), allowing you to access and manage your Linux
+distribution files directly from the File Explorer sidebar. This guide
+walks you through enabling WSL, accessing the dedicated Linux entry in
+the navigation pane, and restoring the shortcut if it does not
+automatically appear.</p>
+<h3 id="step-1-install-and-initialize-wsl">Step 1: Install and
+Initialize WSL</h3>
+<p>The Linux entry in File Explorer only appears if WSL is active and at
+least one Linux distribution is installed and initialized.</p>
+<ol type="1">
+<li>Right-click the <strong>Start</strong> button and select
+<strong>Terminal (Admin)</strong> or <strong>PowerShell
+(Admin)</strong>.</li>
+<li>Enter the following command and press <strong>Enter</strong>:
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>wsl <span class="op">--</span>install</span></code></pre></div></li>
+<li>Restart your computer if prompted.</li>
+<li>Open the installed Linux distribution (such as Ubuntu) from the
+Start menu and complete the initial username and password setup.</li>
+</ol>
+<h3 id="step-2-locate-the-linux-sidebar-icon">Step 2: Locate the Linux
+Sidebar Icon</h3>
+<p>Once a distribution is running, Windows 11 adds a dedicated node to
+the sidebar.</p>
+<ol type="1">
+<li>Press <strong>Win + E</strong> to open <strong>File
+Explorer</strong>.</li>
+<li>Look at the left navigation sidebar.</li>
+<li>Scroll down to locate the <strong>Linux</strong> entry, represented
+by the Tux penguin icon.</li>
+<li>Click <strong>Linux</strong> to expand the list of installed
+distributions, then open any distribution folder to browse its root
+filesystem (<code>/</code>).</li>
+</ol>
+<h3 id="step-3-troubleshooting-a-missing-linux-sidebar-entry">Step 3:
+Troubleshooting a Missing Linux Sidebar Entry</h3>
+<p>If the Linux icon does not appear in the sidebar after installation,
+use the following methods to access and pin it:</p>
+<ul>
+<li><strong>Access via Network Path:</strong> Click the address bar in
+File Explorer, type <code>\\wsl.localhost\</code> (or
+<code>\\wsl$</code>), and press <strong>Enter</strong>. This directly
+opens the WSL directory containing your installed Linux distros.</li>
+<li><strong>Pin to Quick Access:</strong> Inside
+<code>\\wsl.localhost\</code>, right-click your distribution's folder
+and select <strong>Pin to Quick access</strong>. This places a permanent
+shortcut in the top section of your sidebar.</li>
+<li><strong>Enable All Folders in Navigation Pane:</strong> In File
+Explorer, click the <strong>three dots (...)</strong> in the command
+bar, select <strong>Options</strong>, go to the <strong>View</strong>
+tab, scroll down to <strong>Navigation pane</strong>, check <strong>Show
+all folders</strong>, and click <strong>OK</strong>.</li>
+</ul></article>
+        <div id="comments-container"></div>
+        <script>
+            const utterancesScript = document.createElement('script');
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+        </div>
+    </div>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

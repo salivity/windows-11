@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How UAC Protects System Configurations in Windows 11 - windows-11</title>
+    <meta name="description" content="User Account Control (UAC) is a foundational security component in Windows 11 designed to prevent unauthorized changes to the operating system. By ensuring that applications and users run in standard privilege modes by default, UAC acts as a gatekeeper t">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/how-uac-protects-system-configurations-in-windows-11">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="How UAC Protects System Configurations in Windows 11 - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/how-uac-protects-system-configurations-in-windows-11" />
+    <meta property="og:image" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="User Account Control (UAC) is a foundational security component in Windows 11 designed to prevent unauthorized changes to the operating system. By ensuring that applications and users run in standard privilege modes by default, UAC acts as a gatekeeper t" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        
+    <div class="article-layout">
+        <aside id="profile-sidebar" class="profile-column" aria-label="Author Profile"></aside>
+        <div class="article-main-column">
+            <article><h1 id="how-uac-protects-system-configurations-in-windows-11">How UAC
+Protects System Configurations in Windows 11</h1>
+<p>User Account Control (UAC) is a foundational security component in
+Windows 11 designed to prevent unauthorized changes to the operating
+system. By ensuring that applications and users run in standard
+privilege modes by default, UAC acts as a gatekeeper that requires
+explicit administrative authorization before critical system files,
+settings, or registry entries can be modified. This mechanism mitigates
+the risk of malware executing silent system-wide changes and prevents
+unintended configuration errors by users.</p>
+<h2 id="principle-of-least-privilege-and-token-separation">Principle of
+Least Privilege and Token Separation</h2>
+<p>In Windows 11, even user accounts designated as "Administrator"
+operate with standard user privileges during routine tasks. When an
+administrator logs into Windows 11, the operating system assigns two
+distinct access tokens:</p>
+<ul>
+<li><strong>Standard User Token:</strong> Used to launch daily
+applications like web browsers, document editors, and background
+processes.</li>
+<li><strong>Administrator Token:</strong> Kept inactive until a process
+explicitly requests elevated permissions.</li>
+</ul>
+<p>By isolating these permissions, Windows 11 ensures that software
+cannot inherit administrative rights automatically. If an application
+attempts to modify core system files or global settings, UAC halts the
+action until elevation is granted.</p>
+<h2 id="the-secure-desktop-and-elevation-prompts">The Secure Desktop and
+Elevation Prompts</h2>
+<p>When an action requires administrative rights, UAC intercepts the
+request and dims the display, switching the environment to the
+<strong>Secure Desktop</strong>.</p>
+<p>The Secure Desktop isolates the elevation prompt from the standard
+user interface. This isolation prevents malicious third-party software
+from injecting mouse clicks, keystrokes, or spoofing the dialog box via
+UI automation attacks.</p>
+<p>The prompt presents two scenarios depending on the logged-in account
+type:</p>
+<ul>
+<li><strong>Consent Prompt (Administrators):</strong> Requires clicking
+"Yes" to confirm that the user intended to run the program with elevated
+privileges.</li>
+<li><strong>Credential Prompt (Standard Users):</strong> Requires
+entering the username and password of an administrator account to
+proceed.</li>
+</ul>
+<h2 id="shielding-critical-system-components">Shielding Critical System
+Components</h2>
+<p>UAC directly protects several key configuration areas from
+tampering:</p>
+<ol type="1">
+<li><strong>System Directories:</strong> Prevents unauthorized writes to
+directories such as <code>C:\Windows</code>,
+<code>C:\Program Files</code>, and
+<code>C:\Program Files (x86)</code>.</li>
+<li><strong>The Windows Registry:</strong> Restricts modifications to
+system-wide keys located in <code>HKEY_LOCAL_MACHINE</code> (HKLM),
+ensuring that critical boot configurations, hardware settings, and
+security policies remain intact.</li>
+<li><strong>System Services and Drivers:</strong> Blocks software from
+installing, modifying, or terminating essential Windows services and
+low-level kernel drivers without permission.</li>
+<li><strong>Device Settings and Group Policies:</strong> Stops
+unauthorized network changes, security profile modifications, and user
+account additions.</li>
+</ol>
+<h2 id="file-and-registry-virtualization">File and Registry
+Virtualization</h2>
+<p>For legacy applications not originally designed to run under standard
+user rights, UAC utilizes File and Registry Virtualization.</p>
+<p>When an older program attempts to write directly to a protected area
+(like <code>Program Files</code> or the <code>HKLM</code> registry), UAC
+intercepts the call and redirects the data to a user-specific
+folder:</p>
+<ul>
+<li><strong>Files:</strong> Redirected to
+<code>%LocalAppData%\VirtualStore</code></li>
+<li><strong>Registry:</strong> Redirected to
+<code>HKEY_CURRENT_USER\Software\Classes\VirtualStore</code></li>
+</ul>
+<p>This virtualization enables legacy applications to function correctly
+without compromising the integrity of global system configurations.</p>
+<h2 id="configurable-protection-levels">Configurable Protection
+Levels</h2>
+<p>Windows 11 allows administrators to adjust UAC sensitivity according
+to their security needs:</p>
+<ul>
+<li><strong>Always Notify:</strong> Prompts on all configuration changes
+and program installations, using the Secure Desktop.</li>
+<li><strong>Notify me only when apps try to make changes
+(Default):</strong> Prompts only when software requests elevation; does
+not prompt when the user manually changes Windows settings.</li>
+<li><strong>Notify me only when apps try to make changes (Do not dim my
+desktop):</strong> Prompts for elevation without switching to the Secure
+Desktop.</li>
+<li><strong>Never Notify (Disabled):</strong> Disables UAC entirely,
+automatically granting elevated rights to requests, which leaves system
+configurations vulnerable to silent exploitation.</li>
+</ul></article>
+        <div id="comments-container"></div>
+        <script>
+            const utterancesScript = document.createElement('script');
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+        </div>
+    </div>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

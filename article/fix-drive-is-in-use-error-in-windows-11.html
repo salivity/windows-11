@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fix "Drive Is in Use" Error in Windows 11 - windows-11</title>
+    <meta name="description" content="When formatting an internal or external drive in Windows 11, the process may fail with a message stating that the drive is currently in use by another program or process. This error typically occurs when an open file, background service, File Explorer wi">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/fix-drive-is-in-use-error-in-windows-11">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Fix "Drive Is in Use" Error in Windows 11 - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/fix-drive-is-in-use-error-in-windows-11" />
+    <meta property="og:image" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="When formatting an internal or external drive in Windows 11, the process may fail with a message stating that the drive is currently in use by another program or process. This error typically occurs when an open file, background service, File Explorer wi" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        
+    <div class="article-layout">
+        <aside id="profile-sidebar" class="profile-column" aria-label="Author Profile"></aside>
+        <div class="article-main-column">
+            <article><h1 id="fix-drive-is-in-use-error-in-windows-11">Fix "Drive Is in Use"
+Error in Windows 11</h1>
+<p>When formatting an internal or external drive in Windows 11, the
+process may fail with a message stating that the drive is currently in
+use by another program or process. This error typically occurs when an
+open file, background service, File Explorer window, or system process
+holds an active lock on the volume. This guide provides direct,
+step-by-step methods to identify the conflicting process, release the
+drive lock, and successfully format your storage device using built-in
+Windows 11 tools.</p>
+<h2 id="1-close-open-applications-and-windows-explorer">1. Close Open
+Applications and Windows Explorer</h2>
+<p>Background applications or active File Explorer windows often prevent
+Windows from locking the partition for formatting.</p>
+<ol type="1">
+<li>Close any open files, media players, or software accessing files on
+the target drive.</li>
+<li>Close all <strong>File Explorer</strong> windows.</li>
+<li>Open <strong>Task Manager</strong> (<code>Ctrl</code> +
+<code>Shift</code> + <code>Esc</code>).</li>
+<li>Locate <strong>Windows Explorer</strong> in the <em>Processes</em>
+tab, right-click it, and select <strong>Restart</strong>.</li>
+<li>Attempt the format again.</li>
+</ol>
+<h2 id="2-identify-the-locking-process-using-resource-monitor">2.
+Identify the Locking Process Using Resource Monitor</h2>
+<p>Resource Monitor allows you to pinpoint and terminate the exact
+process accessing your drive.</p>
+<ol type="1">
+<li>Press <code>Win</code> + <code>R</code>, type <code>resmon</code>,
+and press <code>Enter</code>.</li>
+<li>Navigate to the <strong>CPU</strong> tab.</li>
+<li>Expand the <strong>Associated Handles</strong> section.</li>
+<li>In the <em>Search Handles</em> box, type the drive letter followed
+by a colon (for example, <code>E:</code>).</li>
+<li>Review the list of processes holding a handle on that drive.</li>
+<li>Right-click the offending process and select <strong>End
+Process</strong>.</li>
+<li>Try formatting the drive.</li>
+</ol>
+<h2 id="3-force-format-using-diskpart">3. Force Format Using
+Diskpart</h2>
+<p>Diskpart runs with elevated administrative privileges and can force a
+dismount of the drive.</p>
+<ol type="1">
+<li>Press <code>Win</code> + <code>X</code> and select <strong>Terminal
+(Admin)</strong> or <strong>Command Prompt (Admin)</strong>.</li>
+<li>Type <code>diskpart</code> and press <code>Enter</code>.</li>
+<li>Type <code>list volume</code> and identify your drive number or
+letter.</li>
+<li>Type <code>select volume X</code> (replace <code>X</code> with your
+volume number or letter).</li>
+<li>Type <code>format fs=ntfs quick</code> (or <code>fs=exfat</code> /
+<code>fs=fat32</code> depending on your needs) and press
+<code>Enter</code>.</li>
+<li>If prompted that the volume is in use, type <code>Y</code> to force
+a dismount.</li>
+<li>Type <code>exit</code> once the format reaches 100%.</li>
+</ol>
+<h2 id="4-clean-and-format-with-disk-management">4. Clean and Format
+with Disk Management</h2>
+<p>Disk Management offers a visual interface to delete existing volumes
+and re-create them cleanly.</p>
+<ol type="1">
+<li>Right-click the <strong>Start</strong> button and select
+<strong>Disk Management</strong>.</li>
+<li>Locate the partition giving the error.</li>
+<li>Right-click the partition and choose <strong>Delete Volume</strong>
+(Note: This erases all data on the volume).</li>
+<li>Once the space is marked as <em>Unallocated</em>, right-click it and
+select <strong>New Simple Volume</strong>.</li>
+<li>Follow the on-screen wizard to assign a drive letter and format the
+drive.</li>
+</ol>
+<h2 id="5-boot-into-safe-mode-to-format">5. Boot into Safe Mode to
+Format</h2>
+<p>If system services or antivirus programs persistently lock the drive,
+formatting in Safe Mode eliminates third-party conflicts.</p>
+<ol type="1">
+<li>Open <strong>Settings</strong> (<code>Win</code> + <code>I</code>)
+and go to <strong>System</strong> &gt; <strong>Recovery</strong>.</li>
+<li>Next to <em>Advanced startup</em>, click <strong>Restart
+now</strong>.</li>
+<li>After rebooting, navigate to <strong>Troubleshoot</strong> &gt;
+<strong>Advanced options</strong> &gt; <strong>Startup Settings</strong>
+&gt; <strong>Restart</strong>.</li>
+<li>Press <code>4</code> or <code>F4</code> to enable <strong>Safe
+Mode</strong>.</li>
+<li>Once logged in, open <strong>File Explorer</strong> or <strong>Disk
+Management</strong> and format the drive normally.</li>
+<li>Restart the computer to return to standard Windows 11 mode.</li>
+</ol></article>
+        <div id="comments-container"></div>
+        <script>
+            const utterancesScript = document.createElement('script');
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+        </div>
+    </div>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

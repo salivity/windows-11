@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Install Qualcomm Snapdragon Drivers on Windows 11 ARM - windows-11</title>
+    <meta name="description" content="Installing Qualcomm Snapdragon hardware-specific drivers on Windows 11 ARM laptops is essential for ensuring optimal system performance, battery management, NPU acceleration, and peripheral stability. Because Windows on ARM relies heavily on integrated s">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/install-qualcomm-snapdragon-drivers-on-windows-11-arm">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Install Qualcomm Snapdragon Drivers on Windows 11 ARM - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/install-qualcomm-snapdragon-drivers-on-windows-11-arm" />
+    <meta property="og:image" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Installing Qualcomm Snapdragon hardware-specific drivers on Windows 11 ARM laptops is essential for ensuring optimal system performance, battery management, NPU acceleration, and peripheral stability. Because Windows on ARM relies heavily on integrated s" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        
+    <div class="article-layout">
+        <aside id="profile-sidebar" class="profile-column" aria-label="Author Profile"></aside>
+        <div class="article-main-column">
+            <article><h1 id="install-qualcomm-snapdragon-drivers-on-windows-11-arm">Install
+Qualcomm Snapdragon Drivers on Windows 11 ARM</h1>
+<p>Installing Qualcomm Snapdragon hardware-specific drivers on Windows
+11 ARM laptops is essential for ensuring optimal system performance,
+battery management, NPU acceleration, and peripheral stability. Because
+Windows on ARM relies heavily on integrated system-on-chip (SoC)
+architectures, drivers must be obtained through verified channels such
+as Windows Update, original equipment manufacturer (OEM) packages, or
+manual INF deployment. This guide details the most effective methods to
+successfully install and update Snapdragon drivers on Windows 11.</p>
+<h2 id="method-1-windows-update-recommended">Method 1: Windows Update
+(Recommended)</h2>
+<p>Qualcomm works directly with Microsoft and device manufacturers to
+distribute certified drivers via the Windows Update catalog.</p>
+<ol type="1">
+<li>Open <strong>Settings</strong> on your Windows 11 laptop.</li>
+<li>Select <strong>Windows Update</strong> from the left navigation
+pane.</li>
+<li>Click <strong>Check for updates</strong> to download and install
+available critical driver packages automatically.</li>
+<li>If a specific driver is missing, scroll down and select
+<strong>Advanced options</strong>.</li>
+<li>Under the <em>Additional options</em> section, click
+<strong>Optional updates</strong>.</li>
+<li>Expand <strong>Driver updates</strong>, check any available Qualcomm
+or system-specific hardware updates, and click <strong>Download &amp;
+install</strong>.</li>
+<li>Restart your device once the installation completes.</li>
+</ol>
+<h2 id="method-2-oem-support-portals">Method 2: OEM Support Portals</h2>
+<p>Snapdragon drivers are customized by laptop manufacturers (such as
+Microsoft Surface, Lenovo, Dell, HP, and Samsung) to match specific
+power profiles and thermal limits.</p>
+<ol type="1">
+<li>Identify your laptop’s exact model number.</li>
+<li>Visit your laptop manufacturer’s official support and driver
+download page.</li>
+<li>Search for your model and filter the operating system by
+<strong>Windows 11 ARM64</strong>.</li>
+<li>Download the relevant driver packages (e.g., Chipset, Adreno GPU,
+Qualcomm FastConnect Wi-Fi/Bluetooth, or Qualcomm Hexagon NPU).</li>
+<li>If the download is an executable installer (<code>.exe</code>), run
+the program as an Administrator and follow the on-screen prompts.</li>
+<li>If the download is a <code>.zip</code> or <code>.cab</code> file,
+extract the archive to a designated folder on your local drive.</li>
+</ol>
+<h2 id="method-3-manual-installation-via-device-manager">Method 3:
+Manual Installation via Device Manager</h2>
+<p>If you have extracted raw driver files (<code>.inf</code>), install
+them directly through Device Manager:</p>
+<ol type="1">
+<li>Right-click the <strong>Start</strong> button and select
+<strong>Device Manager</strong>.</li>
+<li>Locate the hardware device requiring the driver (often listed under
+<em>System devices</em>, <em>Display adapters</em>, <em>Network
+adapters</em>, or <em>Other devices</em> with a yellow warning
+icon).</li>
+<li>Right-click the device and select <strong>Update
+driver</strong>.</li>
+<li>Choose <strong>Browse my computer for drivers</strong>.</li>
+<li>Click <strong>Browse</strong>, navigate to the folder containing the
+extracted Qualcomm driver files, and ensure the <strong>Include
+subfolders</strong> checkbox is marked.</li>
+<li>Click <strong>Next</strong>. Windows will detect, verify, and
+install the compatible ARM64 driver.</li>
+<li>Restart your laptop if prompted.</li>
+</ol>
+<h2 id="method-4-bulk-driver-installation-using-pnputil-advanced">Method
+4: Bulk Driver Installation Using PnPUtil (Advanced)</h2>
+<p>For driver packages containing multiple <code>.inf</code> files (such
+as complete recovery driver packs), use the built-in Windows Driver
+Package Utility:</p>
+<ol type="1">
+<li>Right-click the <strong>Start</strong> button and select
+<strong>Terminal (Admin)</strong> or <strong>Command Prompt
+(Admin)</strong>.</li>
+<li>Run the following command, replacing <code>C:\DriverPath</code> with
+the path to your extracted Qualcomm drivers folder:</li>
+</ol>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pnputil <span class="at">/add-driver</span> <span class="st">&quot;C:\DriverPath\*.inf&quot;</span> <span class="at">/subdirs</span> <span class="at">/install</span></span></code></pre></div>
+<ol start="3" type="1">
+<li>Wait for the utility to import and install all driver packages into
+the Windows Driver Store.</li>
+<li>Restart your computer to apply the newly registered drivers.</li>
+</ol>
+<h2 id="verification">Verification</h2>
+<p>After completing any of the installation methods, open <strong>Device
+Manager</strong> to verify that all components are functioning. Ensure
+there are no unknown devices or warning symbols under categories like
+<strong>System devices</strong>, <strong>Processors</strong>, or
+<strong>Display adapters</strong>.</p></article>
+        <div id="comments-container"></div>
+        <script>
+            const utterancesScript = document.createElement('script');
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+        </div>
+    </div>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configure ASR Rules in Windows 11 Pro and Enterprise - windows-11</title>
+    <meta name="description" content="Attack Surface Reduction (ASR) rules in Windows 11 help prevent common malware infection vectors by restricting risky behaviors, such as launching executable files from Office apps or running obfuscated scripts. This guide details how to configure ASR ru">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/configure-asr-rules-in-windows-11-pro-and-enterprise">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Configure ASR Rules in Windows 11 Pro and Enterprise - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/configure-asr-rules-in-windows-11-pro-and-enterprise" />
+    <meta property="og:image" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Attack Surface Reduction (ASR) rules in Windows 11 help prevent common malware infection vectors by restricting risky behaviors, such as launching executable files from Office apps or running obfuscated scripts. This guide details how to configure ASR ru" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        
+    <div class="article-layout">
+        <aside id="profile-sidebar" class="profile-column" aria-label="Author Profile"></aside>
+        <div class="article-main-column">
+            <article><h1 id="configure-asr-rules-in-windows-11-pro-and-enterprise">Configure
+ASR Rules in Windows 11 Pro and Enterprise</h1>
+<p>Attack Surface Reduction (ASR) rules in Windows 11 help prevent
+common malware infection vectors by restricting risky behaviors, such as
+launching executable files from Office apps or running obfuscated
+scripts. This guide details how to configure ASR rules on Windows 11 Pro
+and Enterprise editions using Group Policy, PowerShell, and Microsoft
+Intune, as well as how to verify their operation.</p>
+<h2 id="understanding-asr-rule-states">Understanding ASR Rule
+States</h2>
+<p>Before configuring rules, choose the appropriate enforcement state
+for your environment:</p>
+<ul>
+<li><strong>Disabled (0):</strong> The rule is turned off.</li>
+<li><strong>Block (1):</strong> Actions violating the rule are blocked
+immediately.</li>
+<li><strong>Audit (2):</strong> Actions are allowed, but an event is
+logged in Windows Event Viewer to evaluate impact.</li>
+<li><strong>Warn (6):</strong> Users see a prompt allowing them to
+bypass the block if necessary.</li>
+</ul>
+<hr />
+<h2
+id="method-1-configure-asr-rules-via-group-policy-pro-and-enterprise">Method
+1: Configure ASR Rules via Group Policy (Pro and Enterprise)</h2>
+<p>Group Policy allows local or domain-level management of ASR
+rules.</p>
+<ol type="1">
+<li>Press <code>Win + R</code>, type <code>gpedit.msc</code>, and press
+<strong>Enter</strong> to open the Local Group Policy Editor.</li>
+<li>Navigate to: <code>Computer Configuration</code> &gt;
+<code>Administrative Templates</code> &gt;
+<code>Windows Components</code> &gt;
+<code>Microsoft Defender Antivirus</code> &gt;
+<code>Microsoft Defender Exploit Guard</code> &gt;
+<code>Attack Surface Reduction</code></li>
+<li>Double-click the policy named <strong>Configure Attack Surface
+Reduction rules</strong>.</li>
+<li>Select <strong>Enabled</strong>.</li>
+<li>Under the <strong>Options</strong> section, click the
+<strong>Show...</strong> button.</li>
+<li>In the <strong>Value Name</strong> column, enter the specific ASR
+Rule GUID (for example,
+<code>d4f940ab-401b-4efc-aadc-ad5f3c50688a</code> to block Office
+applications from creating child processes).</li>
+<li>In the <strong>Value</strong> column, set the state:
+<ul>
+<li><code>1</code> for Block</li>
+<li><code>2</code> for Audit</li>
+<li><code>6</code> for Warn</li>
+</ul></li>
+<li>Click <strong>OK</strong>, then click <strong>Apply</strong> and
+<strong>OK</strong>.</li>
+</ol>
+<hr />
+<h2
+id="method-2-configure-asr-rules-via-powershell-pro-and-enterprise">Method
+2: Configure ASR Rules via PowerShell (Pro and Enterprise)</h2>
+<p>PowerShell provides a quick method to configure individual or
+multiple ASR rules locally.</p>
+<ol type="1">
+<li>Right-click the <strong>Start</strong> menu and select
+<strong>Terminal (Admin)</strong> or <strong>PowerShell
+(Admin)</strong>.</li>
+<li>Run the <code>Set-MpPreference</code> cmdlet using the rule GUID and
+desired action.</li>
+</ol>
+<p><strong>To enable a rule in Block mode:</strong></p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Set-MpPreference <span class="op">-</span>AttackSurfaceReductionRules_Ids <span class="op">&lt;</span>Rule-GUID<span class="op">&gt;</span> <span class="op">-</span>AttackSurfaceReductionRules_Actions Enabled</span></code></pre></div>
+<p><strong>To enable a rule in Audit mode:</strong></p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Set-MpPreference <span class="op">-</span>AttackSurfaceReductionRules_Ids <span class="op">&lt;</span>Rule-GUID<span class="op">&gt;</span> <span class="op">-</span>AttackSurfaceReductionRules_Actions AuditMode</span></code></pre></div>
+<p><strong>To disable a rule:</strong></p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Set-MpPreference <span class="op">-</span>AttackSurfaceReductionRules_Ids <span class="op">&lt;</span>Rule-GUID<span class="op">&gt;</span> <span class="op">-</span>AttackSurfaceReductionRules_Actions Disabled</span></code></pre></div>
+<p><em>Example (Block executable content from email client and
+webmail):</em></p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Set-MpPreference <span class="op">-</span>AttackSurfaceReductionRules_Ids BE9BA2D9-53EA-4CDC-84E5-9B1EEEE46550 <span class="op">-</span>AttackSurfaceReductionRules_Actions Enabled</span></code></pre></div>
+<hr />
+<h2
+id="method-3-configure-asr-rules-via-microsoft-intune-enterprise">Method
+3: Configure ASR Rules via Microsoft Intune (Enterprise)</h2>
+<p>For enterprise environments using cloud endpoint management,
+Microsoft Intune offers centralized deployment.</p>
+<ol type="1">
+<li>Sign in to the <strong>Microsoft Intune admin center</strong>.</li>
+<li>Navigate to <strong>Endpoint security</strong> &gt; <strong>Attack
+surface reduction</strong>.</li>
+<li>Select <strong>Create Policy</strong>.</li>
+<li>Set <strong>Platform</strong> to <strong>Windows 10, Windows 11, and
+Windows Server</strong> and <strong>Profile</strong> to <strong>Attack
+Surface Reduction rules</strong>. Click <strong>Create</strong>.</li>
+<li>Enter a name and description for the policy, then click
+<strong>Next</strong>.</li>
+<li>In the <strong>Configuration settings</strong> tab, locate the
+individual ASR rules and set them to <strong>Block</strong>,
+<strong>Audit mode</strong>, or <strong>Warn</strong>.</li>
+<li>Assign the policy to target device or user groups, review the
+configuration, and click <strong>Save</strong>.</li>
+</ol>
+<hr />
+<h2 id="verifying-asr-configuration-and-events">Verifying ASR
+Configuration and Events</h2>
+<h3 id="check-active-rules-via-powershell">Check Active Rules via
+PowerShell</h3>
+<p>Run the following command in an elevated PowerShell prompt to list
+active rule IDs and their configured states:</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>Get-MpPreference <span class="op">|</span> <span class="fu">Select-Object</span> <span class="op">-</span>ExpandProperty AttackSurfaceReductionRules_Ids</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>Get-MpPreference <span class="op">|</span> <span class="fu">Select-Object</span> <span class="op">-</span>ExpandProperty AttackSurfaceReductionRules_Actions</span></code></pre></div>
+<h3 id="view-asr-events-in-event-viewer">View ASR Events in Event
+Viewer</h3>
+<p>When an ASR rule triggers, Microsoft Defender logs the event to the
+system:</p>
+<ol type="1">
+<li>Open <strong>Event Viewer</strong> (<code>eventvwr.msc</code>).</li>
+<li>Navigate to: <code>Applications and Services Logs</code> &gt;
+<code>Microsoft</code> &gt; <code>Windows</code> &gt;
+<code>Windows Defender</code> &gt; <code>Operational</code></li>
+<li>Look for the following Event IDs:
+<ul>
+<li><strong>Event ID 1121:</strong> Rule triggered in
+<strong>Block</strong> mode.</li>
+<li><strong>Event ID 1122:</strong> Rule triggered in
+<strong>Audit</strong> mode.</li>
+<li><strong>Event ID 1123:</strong> Rule triggered in
+<strong>Warn</strong> mode.</li>
+</ul></li>
+</ol></article>
+        <div id="comments-container"></div>
+        <script>
+            const utterancesScript = document.createElement('script');
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+        </div>
+    </div>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

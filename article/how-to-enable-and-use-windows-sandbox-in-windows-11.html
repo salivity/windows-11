@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Enable and Use Windows Sandbox in Windows 11 - windows-11</title>
+    <meta name="description" content="Windows Sandbox provides a lightweight, isolated desktop environment where you can safely run untrusted applications without risking your main operating system. Every time the sandbox is closed, all software, files, and state changes are permanently dele">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/how-to-enable-and-use-windows-sandbox-in-windows-11">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="How to Enable and Use Windows Sandbox in Windows 11 - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/how-to-enable-and-use-windows-sandbox-in-windows-11" />
+    <meta property="og:image" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Windows Sandbox provides a lightweight, isolated desktop environment where you can safely run untrusted applications without risking your main operating system. Every time the sandbox is closed, all software, files, and state changes are permanently dele" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        
+    <div class="article-layout">
+        <aside id="profile-sidebar" class="profile-column" aria-label="Author Profile"></aside>
+        <div class="article-main-column">
+            <article><h1 id="how-to-enable-and-use-windows-sandbox-in-windows-11">How to
+Enable and Use Windows Sandbox in Windows 11</h1>
+<p>Windows Sandbox provides a lightweight, isolated desktop environment
+where you can safely run untrusted applications without risking your
+main operating system. Every time the sandbox is closed, all software,
+files, and state changes are permanently deleted. This guide walks
+through the system requirements, enabling the feature via Windows
+Features or PowerShell, and creating custom configuration files to
+tailor your testing environment.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Before enabling Windows Sandbox, ensure your system meets the
+following requirements:</p>
+<ul>
+<li><strong>Operating System:</strong> Windows 11 Pro, Enterprise, or
+Education (Windows 11 Home does not support Sandbox natively).</li>
+<li><strong>Architecture:</strong> AMD64 or ARM64.</li>
+<li><strong>Hardware Virtualization:</strong> Enabled in your system's
+BIOS/UEFI.</li>
+<li><strong>Memory:</strong> Minimum 4 GB RAM (8 GB recommended).</li>
+<li><strong>Storage:</strong> At least 1 GB of free disk space (SSD
+recommended).</li>
+<li><strong>CPU:</strong> Minimum 2 CPU cores (4 cores with
+hyperthreading recommended).</li>
+</ul>
+<p>To verify that virtualization is enabled, open <strong>Task
+Manager</strong> (<code>Ctrl + Shift + Esc</code>), click the
+<strong>Performance</strong> tab, select <strong>CPU</strong>, and look
+for <strong>Virtualization: Enabled</strong> in the bottom-right
+corner.</p>
+<hr />
+<h2 id="step-1-enable-windows-sandbox">Step 1: Enable Windows
+Sandbox</h2>
+<p>You can enable Windows Sandbox using the graphical interface or via
+PowerShell.</p>
+<h3 id="method-a-using-windows-features">Method A: Using Windows
+Features</h3>
+<ol type="1">
+<li>Press the <strong>Windows Key</strong>, type
+<code>Turn Windows features on or off</code>, and press
+<strong>Enter</strong>.</li>
+<li>Scroll down the list and check the box next to <strong>Windows
+Sandbox</strong>.</li>
+<li>Click <strong>OK</strong>.</li>
+<li>Once Windows finishes applying changes, click <strong>Restart
+now</strong>.</li>
+</ol>
+<h3 id="method-b-using-powershell">Method B: Using PowerShell</h3>
+<ol type="1">
+<li>Right-click the <strong>Start</strong> button and select
+<strong>Terminal (Admin)</strong> or <strong>PowerShell
+(Admin)</strong>.</li>
+<li>Run the following command:
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Enable-WindowsOptionalFeature <span class="op">-</span>FeatureName <span class="st">&quot;Containers-DisposableClientVM&quot;</span> <span class="op">-</span>All <span class="op">-</span>Online</span></code></pre></div></li>
+<li>Type <code>Y</code> and press <strong>Enter</strong> to restart your
+computer.</li>
+</ol>
+<hr />
+<h2 id="step-2-running-windows-sandbox">Step 2: Running Windows
+Sandbox</h2>
+<ol type="1">
+<li>Open the <strong>Start Menu</strong>, search for <strong>Windows
+Sandbox</strong>, and select the application.</li>
+<li>Copy any installer or untrusted executable file from your host
+machine (<code>Ctrl + C</code>).</li>
+<li>Paste the file directly inside the Windows Sandbox window
+(<code>Ctrl + V</code>).</li>
+<li>Run and test the application inside the sandbox environment.</li>
+<li>Close the Sandbox window when finished. A prompt will confirm that
+all sandbox data will be permanently discarded.</li>
+</ol>
+<hr />
+<h2 id="step-3-configure-windows-sandbox-with-wsb-files">Step 3:
+Configure Windows Sandbox with WSB Files</h2>
+<p>By default, Sandbox runs with networking enabled and direct access to
+your GPU, but no access to host folders. You can customize this behavior
+using XML configuration files saved with the <code>.wsb</code>
+extension.</p>
+<h3 id="basic-configuration-example">Basic Configuration Example</h3>
+<p>Create a file named <code>SandboxConfig.wsb</code> using a text
+editor (like Notepad) and add the following structure:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode xml"><code class="sourceCode xml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Configuration</span>&gt;</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">&lt;!-- vGPU: Enable or Disable hardware-accelerated graphics --&gt;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">VGpu</span>&gt;Default&lt;/<span class="kw">VGpu</span>&gt;</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">&lt;!-- Networking: Enable or Disable network access --&gt;</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">Networking</span>&gt;Disable&lt;/<span class="kw">Networking</span>&gt;</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="co">&lt;!-- MappedFolders: Share a folder from the host machine --&gt;</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">MappedFolders</span>&gt;</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">MappedFolder</span>&gt;</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">HostFolder</span>&gt;C:\SandboxShare&lt;/<span class="kw">HostFolder</span>&gt;</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">SandboxFolder</span>&gt;C:\Users\WDAGUtilityAccount\Desktop\Shared&lt;/<span class="kw">SandboxFolder</span>&gt;</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">ReadOnly</span>&gt;true&lt;/<span class="kw">ReadOnly</span>&gt;</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">MappedFolder</span>&gt;</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">MappedFolders</span>&gt;</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  <span class="co">&lt;!-- LogonCommand: Run a command or script automatically upon launch --&gt;</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">LogonCommand</span>&gt;</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Command</span>&gt;explorer.exe C:\Users\WDAGUtilityAccount\Desktop\Shared&lt;/<span class="kw">Command</span>&gt;</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">LogonCommand</span>&gt;</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Configuration</span>&gt;</span></code></pre></div>
+<h3 id="key-configuration-directives">Key Configuration Directives</h3>
+<ul>
+<li><strong><code>&lt;VGpu&gt;</code></strong>: Set to
+<code>Enable</code>, <code>Disable</code>, or <code>Default</code>.
+Disabling vGPU prevents graphics acceleration, which is useful when
+testing malware that targets GPU drivers.</li>
+<li><strong><code>&lt;Networking&gt;</code></strong>: Set to
+<code>Disable</code> to completely isolate the sandbox from your local
+network and the internet, preventing data exfiltration during
+tests.</li>
+<li><strong><code>&lt;MappedFolders&gt;</code></strong>: Allows sharing
+folders between host and sandbox. Set <code>&lt;ReadOnly&gt;</code> to
+<code>true</code> to ensure the untrusted environment cannot modify host
+files.</li>
+<li><strong><code>&lt;LogonCommand&gt;</code></strong>: Executes
+commands automatically when the sandbox boots.</li>
+</ul>
+<p>Double-click any <code>.wsb</code> file to launch a tailored sandbox
+instance with those exact parameters.</p></article>
+        <div id="comments-container"></div>
+        <script>
+            const utterancesScript = document.createElement('script');
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+        </div>
+    </div>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev Home in Windows 11: Developer Setup Guide - windows-11</title>
+    <meta name="description" content="Dev Home is a centralized control center built into Windows 11 designed to streamline the developer workflow and eliminate the friction of setting up a new development environment. By offering unattended machine configuration, seamless repository cloning">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/dev-home-in-windows-11-developer-setup-guide">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Dev Home in Windows 11: Developer Setup Guide - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/dev-home-in-windows-11-developer-setup-guide" />
+    <meta property="og:image" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Dev Home is a centralized control center built into Windows 11 designed to streamline the developer workflow and eliminate the friction of setting up a new development environment. By offering unattended machine configuration, seamless repository cloning" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        
+    <div class="article-layout">
+        <aside id="profile-sidebar" class="profile-column" aria-label="Author Profile"></aside>
+        <div class="article-main-column">
+            <article><h1 id="dev-home-in-windows-11-developer-setup-guide">Dev Home in
+Windows 11: Developer Setup Guide</h1>
+<p>Dev Home is a centralized control center built into Windows 11
+designed to streamline the developer workflow and eliminate the friction
+of setting up a new development environment. By offering unattended
+machine configuration, seamless repository cloning, custom Dev Drive
+creation, and integrated performance monitoring widgets, Dev Home
+transforms the time-consuming process of onboarding a new PC into a
+fast, automated task.</p>
+<h2 id="what-is-dev-home">What is Dev Home?</h2>
+<p>Dev Home is an open-source application introduced by Microsoft to
+provide software developers with a unified hub for managing their
+development environments on Windows 11. Rather than manually tracking
+down installers, configuring environment variables, and cloning
+repositories individually, Dev Home allows developers to configure their
+workstations, monitor system resources, and manage GitHub tasks from a
+single interface.</p>
+<h2 id="how-dev-home-simplifies-machine-setup">How Dev Home Simplifies
+Machine Setup</h2>
+<p>The core feature of Dev Home is the <strong>Machine
+Configuration</strong> tool, which reduces the multi-hour setup process
+into a few automated steps:</p>
+<h3 id="1-automated-tool-and-dependency-installation">1. Automated Tool
+and Dependency Installation</h3>
+<p>Dev Home utilizes the Windows Package Manager (WinGet) to install
+software stacks. Developers can:</p>
+<ul>
+<li>Select development tools, runtimes, SDKs, and IDEs (such as Visual
+Studio Code, Git, Node.js, or Docker) directly from an intuitive
+graphical interface.</li>
+<li>Use a <strong>WinGet Configuration file</strong> (a declarative YAML
+file) to automate the installation of packages, extensions, and system
+settings unattended. This ensures that every developer on a team works
+with identical environment configurations.</li>
+</ul>
+<h3 id="2-streamlined-repository-cloning">2. Streamlined Repository
+Cloning</h3>
+<p>Setting up projects typically requires manual authentication and
+multiple terminal commands. Dev Home connects directly to GitHub and
+Azure DevOps accounts, allowing users to:</p>
+<ul>
+<li>Search their accessible repositories from within the app.</li>
+<li>Clone multiple repositories simultaneously to specific directories
+with customized settings.</li>
+</ul>
+<h3 id="3-integrated-dev-drive-creation">3. Integrated Dev Drive
+Creation</h3>
+<p>Dev Home allows users to initialize a <strong>Dev Drive</strong>
+directly within the setup flow. Dev Drive is a specialized storage
+volume based on the Resilient File System (ReFS). It offers:</p>
+<ul>
+<li>Optimized file system performance for heavy I/O tasks (such as
+<code>npm install</code>, package caching, and project builds).</li>
+<li>Custom Microsoft Defender antivirus filters that boost build
+performance without compromising system security.</li>
+</ul>
+<h2 id="monitoring-and-productivity-features">Monitoring and
+Productivity Features</h2>
+<p>Beyond initial setup, Dev Home serves as a daily productivity
+dashboard:</p>
+<ul>
+<li><strong>Customizable Widgets:</strong> Pin hardware monitors (CPU,
+GPU, memory, and network usage) and developer platform widgets (GitHub
+pull requests, issues, and notifications) directly to the Dev Home
+dashboard or the Windows 11 widget board.</li>
+<li><strong>Extensible Architecture:</strong> Dev Home supports
+extensions, allowing third-party tools and custom enterprise extensions
+to integrate natively into the dashboard.</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>Dev Home eliminates manual friction during machine onboarding on
+Windows 11. By standardizing setup via declarative configuration files,
+speeding up file operations with Dev Drive, and unifying tool
+management, it allows software engineers to go from a clean Windows
+installation to writing code in minimal time.</p></article>
+        <div id="comments-container"></div>
+        <script>
+            const utterancesScript = document.createElement('script');
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+        </div>
+    </div>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

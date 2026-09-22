@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Limit WSL2 Memory and CPU Usage in Windows 11 - windows-11</title>
+    <meta name="description" content="Windows Subsystem for Linux 2 (WSL2) can dynamically consume up to 50% of your total system memory or more by default, which can cause performance bottlenecks on your host Windows 11 system. This guide provides a straightforward method to limit WSL2's RA">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/limit-wsl-2-memory-and-cpu-usage-in-windows-11">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Limit WSL2 Memory and CPU Usage in Windows 11 - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/limit-wsl-2-memory-and-cpu-usage-in-windows-11" />
+    <meta property="og:image" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Windows Subsystem for Linux 2 (WSL2) can dynamically consume up to 50% of your total system memory or more by default, which can cause performance bottlenecks on your host Windows 11 system. This guide provides a straightforward method to limit WSL2's RA" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        
+    <div class="article-layout">
+        <aside id="profile-sidebar" class="profile-column" aria-label="Author Profile"></aside>
+        <div class="article-main-column">
+            <article><h1 id="limit-wsl2-memory-and-cpu-usage-in-windows-11">Limit WSL2 Memory
+and CPU Usage in Windows 11</h1>
+<p>Windows Subsystem for Linux 2 (WSL2) can dynamically consume up to
+50% of your total system memory or more by default, which can cause
+performance bottlenecks on your host Windows 11 system. This guide
+provides a straightforward method to limit WSL2's RAM allocation and CPU
+core usage by creating and modifying the global <code>.wslconfig</code>
+configuration file.</p>
+<h2 id="step-1-open-your-user-profile-directory">Step 1: Open Your User
+Profile Directory</h2>
+<p>The <code>.wslconfig</code> file controls global settings across all
+installed WSL2 distributions and must be placed in your Windows user
+profile root folder.</p>
+<ol type="1">
+<li>Press <code>Win + R</code> on your keyboard to open the
+<strong>Run</strong> dialog.</li>
+<li>Type <code>%USERPROFILE%</code> and press <strong>Enter</strong>.
+This opens <code>C:\Users\&lt;YourUsername&gt;</code>.</li>
+</ol>
+<h2 id="step-2-create-or-edit-the-wslconfig-file">Step 2: Create or Edit
+the .wslconfig File</h2>
+<ol type="1">
+<li>Check if a file named <code>.wslconfig</code> already exists in this
+folder.</li>
+<li>If it does not exist, right-click inside the directory, choose
+<strong>New &gt; Text Document</strong>, and name it
+<code>.wslconfig</code> (ensure you remove the <code>.txt</code> file
+extension).</li>
+<li>Open <code>.wslconfig</code> in Notepad or any code editor.</li>
+</ol>
+<h2 id="step-3-add-memory-and-cpu-limits">Step 3: Add Memory and CPU
+Limits</h2>
+<p>Paste the following configuration into the <code>.wslconfig</code>
+file:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode ini"><code class="sourceCode ini"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">[wsl2]</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Limit the maximum memory allocated to WSL2 (e.g., 4GB, 8GB, 16GB)</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dt">memory</span><span class="ot">=</span><span class="st">4GB</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Limit the number of logical processor cores WSL2 can use</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="dt">processors</span><span class="ot">=</span><span class="dv">2</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Optional: Set the size of the swap virtual memory file</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="dt">swap</span><span class="ot">=</span><span class="st">2GB</span></span></code></pre></div>
+<h3 id="configuration-parameters-explained">Configuration Parameters
+Explained:</h3>
+<ul>
+<li><strong>memory</strong>: Defines the maximum amount of RAM the WSL2
+virtual machine can consume. You can specify values in gigabytes (e.g.,
+<code>8GB</code>) or megabytes (e.g., <code>4096MB</code>).</li>
+<li><strong>processors</strong>: Sets the number of CPU cores available
+to WSL2. Enter a whole integer that is less than or equal to your total
+logical processors.</li>
+<li><strong>swap</strong>: Sets the swap storage limit. Setting this
+prevents WSL2 from creating an excessively large swap file on your
+disk.</li>
+</ul>
+<p>Save and close the file after making your changes.</p>
+<h2 id="step-4-restart-wsl2-to-apply-changes">Step 4: Restart WSL2 to
+Apply Changes</h2>
+<p>For the new resource limits to take effect, you must restart the WSL
+service:</p>
+<ol type="1">
+<li>Open <strong>PowerShell</strong> or <strong>Command Prompt</strong>
+as an Administrator.</li>
+<li>Run the shutdown command:
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>wsl -<span class="at">-shutdown</span></span></code></pre></div></li>
+<li>Relaunch your Linux distribution from the Start menu or
+terminal.</li>
+</ol>
+<h2 id="step-5-verify-the-applied-limits">Step 5: Verify the Applied
+Limits</h2>
+<p>Open your WSL2 terminal and run the following commands to ensure the
+limits are active:</p>
+<ul>
+<li>Check assigned memory:
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">free</span> <span class="at">-h</span></span></code></pre></div></li>
+<li>Check assigned CPU cores:
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nproc</span></span></code></pre></div></li>
+</ul>
+<p>The outputs should match the values configured in your
+<code>.wslconfig</code> file.</p></article>
+        <div id="comments-container"></div>
+        <script>
+            const utterancesScript = document.createElement('script');
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+        </div>
+    </div>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

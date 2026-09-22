@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Track Hardware Bottlenecks in Windows 11 - windows-11</title>
+    <meta name="description" content="Windows 11 includes a powerful built-in tool called Performance Monitor (PerfMon) that allows you to capture and analyze system resource usage over extended periods. This guide explains how to set up custom Data Collector Sets in Performance Monitor to l">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/how-to-track-hardware-bottlenecks-in-windows-11">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="How to Track Hardware Bottlenecks in Windows 11 - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/how-to-track-hardware-bottlenecks-in-windows-11" />
+    <meta property="og:image" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Windows 11 includes a powerful built-in tool called Performance Monitor (PerfMon) that allows you to capture and analyze system resource usage over extended periods. This guide explains how to set up custom Data Collector Sets in Performance Monitor to l" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        
+    <div class="article-layout">
+        <aside id="profile-sidebar" class="profile-column" aria-label="Author Profile"></aside>
+        <div class="article-main-column">
+            <article><h1 id="how-to-track-hardware-bottlenecks-in-windows-11">How to Track
+Hardware Bottlenecks in Windows 11</h1>
+<p>Windows 11 includes a powerful built-in tool called Performance
+Monitor (PerfMon) that allows you to capture and analyze system resource
+usage over extended periods. This guide explains how to set up custom
+Data Collector Sets in Performance Monitor to log real-time data for
+your CPU, memory, storage, and network components. By tracking these key
+metrics over hours or days, you can accurately identify hardware
+bottlenecks, diagnose system slowdowns, and determine which components
+need an upgrade or optimization.</p>
+<h2 id="opening-performance-monitor">Opening Performance Monitor</h2>
+<ol type="1">
+<li>Press <strong>Windows Key + R</strong> to open the Run dialog.</li>
+<li>Type <code>perfmon</code> and press <strong>Enter</strong> (or
+search for <strong>Performance Monitor</strong> in the Start menu).</li>
+</ol>
+<h2 id="creating-a-long-term-data-collector-set">Creating a Long-Term
+Data Collector Set</h2>
+<p>To track performance continuously in the background, you must
+configure a custom Data Collector Set:</p>
+<ol type="1">
+<li>In the left navigation pane, expand <strong>Data Collector
+Sets</strong>.</li>
+<li>Right-click <strong>User Defined</strong>, select
+<strong>New</strong>, and click <strong>Data Collector
+Set</strong>.</li>
+<li>Enter a name for the log (e.g., <em>Hardware Bottleneck
+Tracker</em>).</li>
+<li>Select <strong>Create manually (Advanced)</strong> and click
+<strong>Next</strong>.</li>
+<li>Check the box for <strong>Performance counter</strong> and click
+<strong>Next</strong>.</li>
+</ol>
+<h2 id="adding-essential-hardware-counters">Adding Essential Hardware
+Counters</h2>
+<p>Click the <strong>Add...</strong> button to select the specific
+hardware counters that reveal bottlenecks:</p>
+<h3 id="1-processor-cpu">1. Processor (CPU)</h3>
+<ul>
+<li><strong>Processor Information &gt; % Processor Time</strong>: Tracks
+overall CPU utilization.</li>
+<li><strong>System &gt; Processor Queue Length</strong>: Shows the
+number of threads waiting for CPU time (a sustained value above 2 per
+core indicates a CPU bottleneck).</li>
+</ul>
+<h3 id="2-memory-ram">2. Memory (RAM)</h3>
+<ul>
+<li><strong>Memory &gt; % Committed Bytes In Use</strong>: Measures
+overall RAM consumption against the commit limit.</li>
+<li><strong>Memory &gt; Available MBytes</strong>: Tracks remaining free
+physical RAM.</li>
+<li><strong>Memory &gt; Pages/sec</strong>: Measures how often Windows
+reads from or writes to the pagefile (high rates suggest insufficient
+physical RAM).</li>
+</ul>
+<h3 id="3-storage-ssdhdd">3. Storage (SSD/HDD)</h3>
+<ul>
+<li><strong>PhysicalDisk &gt; % Disk Time</strong>: Measures the
+percentage of elapsed time the drive spends servicing read or write
+requests.</li>
+<li><strong>PhysicalDisk &gt; Avg. Disk Queue Length</strong>: Shows
+outstanding drive requests (sustained values above 2 indicate a slow or
+overloaded drive).</li>
+<li><strong>PhysicalDisk &gt; Avg. Disk sec/Transfer</strong>: Measures
+response latency (values over 0.020 seconds or 20ms indicate disk
+latency issues).</li>
+</ul>
+<h3 id="4-network">4. Network</h3>
+<ul>
+<li><strong>Network Interface &gt; Bytes Total/sec</strong>: Measures
+overall bandwidth usage to detect network saturation.</li>
+</ul>
+<p>After selecting the counters, click <strong>Add &gt;&gt;</strong> for
+each, then click <strong>OK</strong>.</p>
+<h2 id="configuring-intervals-and-duration">Configuring Intervals and
+Duration</h2>
+<ol type="1">
+<li>Set the <strong>Sample interval</strong>. For long-term tracking
+(several hours or days), set this between <strong>5 to 15
+seconds</strong> to prevent log files from becoming excessively
+large.</li>
+<li>Click <strong>Next</strong>, choose a directory to save the log
+files, and click <strong>Finish</strong>.</li>
+</ol>
+<h2 id="running-and-stopping-the-data-collection">Running and Stopping
+the Data Collection</h2>
+<ol type="1">
+<li>Under <strong>Data Collector Sets &gt; User Defined</strong>, select
+your newly created set.</li>
+<li>Right-click your set in the center pane and select
+<strong>Start</strong> (the icon will display a green play symbol).</li>
+<li>Run your standard workloads, games, or applications while the
+monitor runs in the background.</li>
+<li>To finish logging, right-click the set and select
+<strong>Stop</strong>.</li>
+</ol>
+<h2 id="analyzing-the-logged-data">Analyzing the Logged Data</h2>
+<ol type="1">
+<li>In the left pane of Performance Monitor, expand <strong>Reports &gt;
+User Defined</strong>.</li>
+<li>Click the name of your Data Collector Set and select the specific
+log file you generated.</li>
+<li>Review the graphical overview or switch the display type to
+<strong>Report</strong> using the toolbar button or <strong>Ctrl +
+G</strong>.</li>
+<li>Look for sustained peaks:
+<ul>
+<li><strong>CPU Bottleneck</strong>: Sustained
+<code>% Processor Time</code> above 85–90% combined with a high
+<code>Processor Queue Length</code>.</li>
+<li><strong>RAM Bottleneck</strong>: <code>Available MBytes</code>
+dropping below 10% of total RAM alongside high <code>Pages/sec</code>
+spikes.</li>
+<li><strong>Disk Bottleneck</strong>: <code>% Disk Time</code>
+consistently at 100% paired with <code>Avg. Disk sec/Transfer</code>
+consistently exceeding 20–25ms.</li>
+</ul></li>
+</ol></article>
+        <div id="comments-container"></div>
+        <script>
+            const utterancesScript = document.createElement('script');
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+        </div>
+    </div>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

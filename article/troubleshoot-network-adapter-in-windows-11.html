@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Troubleshoot Network Adapter in Windows 11 - windows-11</title>
+    <meta name="description" content="Network adapter issues can disrupt your internet connection, preventing access to local networks and online services. This guide explains how to use the built-in Windows 11 Network Diagnostics tool to identify and resolve adapter connectivity problems. B">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/troubleshoot-network-adapter-in-windows-11">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Troubleshoot Network Adapter in Windows 11 - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/troubleshoot-network-adapter-in-windows-11" />
+    <meta property="og:image" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Network adapter issues can disrupt your internet connection, preventing access to local networks and online services. This guide explains how to use the built-in Windows 11 Network Diagnostics tool to identify and resolve adapter connectivity problems. B" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        
+    <div class="article-layout">
+        <aside id="profile-sidebar" class="profile-column" aria-label="Author Profile"></aside>
+        <div class="article-main-column">
+            <article><h1 id="troubleshoot-network-adapter-in-windows-11">Troubleshoot Network
+Adapter in Windows 11</h1>
+<p>Network adapter issues can disrupt your internet connection,
+preventing access to local networks and online services. This guide
+explains how to use the built-in Windows 11 Network Diagnostics tool to
+identify and resolve adapter connectivity problems. By following these
+straightforward steps, you will learn how to run the troubleshooter,
+apply automatic repairs, and perform basic network resets to restore
+your connection.</p>
+<h2 id="accessing-windows-11-network-diagnostics">Accessing Windows 11
+Network Diagnostics</h2>
+<p>Windows 11 provides direct methods to launch the network
+troubleshooting utility.</p>
+<h3 id="method-1-the-system-tray">Method 1: The System Tray</h3>
+<ol type="1">
+<li>Locate the <strong>Network/Wi-Fi icon</strong> in the bottom-right
+corner of the taskbar.</li>
+<li>Right-click the icon.</li>
+<li>Select <strong>Diagnose network problems</strong>.</li>
+</ol>
+<h3 id="method-2-windows-settings">Method 2: Windows Settings</h3>
+<ol type="1">
+<li>Open <strong>Settings</strong> by pressing <strong>Windows Key +
+I</strong>.</li>
+<li>Click on <strong>System</strong> in the left sidebar.</li>
+<li>Select <strong>Troubleshoot</strong> on the right pane.</li>
+<li>Click on <strong>Other troubleshooters</strong>.</li>
+<li>Locate <strong>Network and Internet</strong> and click the
+<strong>Run</strong> button next to it.</li>
+</ol>
+<h2 id="running-the-troubleshooter">Running the Troubleshooter</h2>
+<p>Once launched, the diagnostic tool begins analyzing your system's
+network configuration automatically:</p>
+<ol type="1">
+<li><strong>Follow the On-Screen Prompts:</strong> The tool checks for
+IP configuration errors, disabled adapters, gateway connectivity issues,
+and DNS problems.</li>
+<li><strong>Select the Affected Adapter:</strong> If prompted, choose
+whether you are troubleshooting an <strong>Ethernet</strong> or
+<strong>Wi-Fi</strong> connection.</li>
+<li><strong>Apply Recommended Fixes:</strong> If Windows finds a problem
+(such as a disabled adapter or an outdated IP address lease), click
+<strong>Apply this fix</strong> to allow the system to implement the
+repair automatically.</li>
+</ol>
+<h2 id="interpreting-diagnostic-results">Interpreting Diagnostic
+Results</h2>
+<p>After the scan finishes, Windows Diagnostics displays one of three
+outcomes:</p>
+<ul>
+<li><strong>Issue resolved:</strong> The problem was identified and
+fixed (e.g., the adapter was reset or IP settings were refreshed).</li>
+<li><strong>Issue identified but not fixed:</strong> The tool specifies
+the error (such as a cable issue, hardware fault, or driver failure)
+with recommended manual actions.</li>
+<li><strong>No issues found:</strong> The network adapter is functioning
+properly, indicating the issue may stem from your router, modem, or
+internet service provider (ISP).</li>
+</ul>
+<h2 id="next-steps-if-issues-persist">Next Steps If Issues Persist</h2>
+<p>If the diagnostic tool does not resolve the issue, perform the
+following complementary steps:</p>
+<h3 id="perform-a-network-reset">Perform a Network Reset</h3>
+<ol type="1">
+<li>Open <strong>Settings</strong> and select <strong>Network &amp;
+internet</strong>.</li>
+<li>Click on <strong>Advanced network settings</strong>.</li>
+<li>Under <strong>More settings</strong>, select <strong>Network
+reset</strong>.</li>
+<li>Click <strong>Reset now</strong> and confirm by clicking
+<strong>Yes</strong>. Your PC will restart and reinstall all network
+adapters with factory default settings.</li>
+</ol>
+<h3 id="reinstall-network-adapter-drivers">Reinstall Network Adapter
+Drivers</h3>
+<ol type="1">
+<li>Right-click the <strong>Start menu</strong> and select
+<strong>Device Manager</strong>.</li>
+<li>Expand the <strong>Network adapters</strong> section.</li>
+<li>Right-click your network adapter (Ethernet or Wi-Fi) and select
+<strong>Uninstall device</strong>.</li>
+<li>Restart your computer. Windows will automatically detect the
+hardware and reinstall the default driver.</li>
+</ol></article>
+        <div id="comments-container"></div>
+        <script>
+            const utterancesScript = document.createElement('script');
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+        </div>
+    </div>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,3194 @@
+[
+  [
+    533,
+    "How to Install Windows 11 with Ventoy from Ubuntu?",
+    "Installing Windows 11 on unsupported hardware without linking a Microsoft account can be accomplished smoothly using a bootable USB created in Ubuntu. This walkthrough covers downloading the required files, installing Ventoy on your flash drive, configur",
+    false
+  ],
+  [
+    532,
+    "Best Windows 11 Privacy and Performance Tweaks",
+    "Setting up a new Windows 11 PC provides an ideal opportunity to optimize system responsiveness and protect your personal data before daily usage begins. Out of the box, Windows 11 enables numerous background telemetry services, targeted advertising featu",
+    false
+  ],
+  [
+    531,
+    "Wipe Free Space in Windows 11 with Cipher",
+    "When you delete files in Windows 11, the operating system removes their references but leaves the actual data on the drive until it is overwritten. This guide explains how to use the built-in cipher command-line tool in Windows 11 to securely wipe delete",
+    false
+  ],
+  [
+    530,
+    "How to Wipe Windows 11 for Resale or Recycling",
+    "Preparing a Windows 11 computer for resale or recycling requires completely removing your personal files, de-authorizing licenses, and securely wiping the internal storage drive so your data cannot be recovered by the next user. This guide outlines the e",
+    false
+  ],
+  [
+    529,
+    "Replacing Motherboard on BitLocker Windows 11",
+    "Replacing the motherboard on a BitLocker-encrypted Windows 11 computer triggers BitLocker Recovery mode upon the next boot. Because BitLocker binds its encryption keys to the original motherboard’s Trusted Platform Module (TPM), replacing the board bre",
+    false
+  ],
+  [
+    528,
+    "Back Up BitLocker Key to Microsoft Account in Windows 11",
+    "This guide explains how to back up your BitLocker recovery key directly to your Microsoft cloud account in Windows 11. Storing this 48-digit key in the cloud ensures you maintain access to your encrypted drive if your device encounters hardware changes,",
+    false
+  ],
+  [
+    527,
+    "Check BitLocker Encryption Progress in Windows 11",
+    "Monitoring BitLocker drive encryption or decryption progress via the command line in Windows 11 provides real-time, accurate percentage updates when the graphical user interface fails to show detailed progress. Using the built-in manage-bde (BitLocker Dr",
+    false
+  ],
+  [
+    526,
+    "Enable BitLocker Without TPM in Windows 11",
+    "BitLocker Drive Encryption in Windows 11 standardly requires a Trusted Platform Module (TPM) chip to protect the operating system drive. However, systems lacking a compatible TPM can still utilize BitLocker by adjusting the Windows Local Group Policy. Th",
+    false
+  ],
+  [
+    525,
+    "How to Enable BitLocker Startup PIN on Windows 11",
+    "Setting a pre-boot PIN for BitLocker adds an essential layer of security to Windows 11 by requiring authentication before the operating system boots and unlocks the drive encryption keys. By default, BitLocker relies solely on the Trusted Platform Module",
+    false
+  ],
+  [
+    524,
+    "How to Encrypt USB Drives with BitLocker in Windows 11",
+    "Securing sensitive data on portable storage is essential to prevent unauthorized access in case of loss or theft. BitLocker To Go is a built-in Windows feature that allows you to encrypt removable USB flash drives and external hard drives with strong pas",
+    false
+  ],
+  [
+    523,
+    "How to Install and Boot Windows 11 from VHDX",
+    "Booting Windows 11 directly from a VHDX (Virtual Hard Disk v2) file enables you to run a fully functional secondary operating system on bare-metal hardware without repartitioning your physical drives. This guide covers how to create a dynamic VHDX, apply",
+    false
+  ],
+  [
+    522,
+    "How to Create and Mount a VHDX in Windows 11",
+    "A Virtual Hard Disk (VHDX) acts as a physical hard drive within your Windows operating system, allowing you to store files, install separate operating systems, or isolate environments without partitioning your physical drive. This guide covers how to cre",
+    false
+  ],
+  [
+    521,
+    "How to Merge Partitions in Windows 11",
+    "Merging two separate disk partitions in Windows 11 can be accomplished entirely through built-in system tools without downloading third-party software. To combine partitions natively, you must back up any essential files from the secondary partition, del",
+    false
+  ],
+  [
+    520,
+    "Extend C Drive with Unallocated Space in Windows 11",
+    "Running out of storage on your system drive can slow down your PC and prevent Windows updates from installing. This guide explains how to extend your C: drive partition in Windows 11 using adjacent unallocated space. Using built-in Windows tools like Dis",
+    false
+  ],
+  [
+    519,
+    "How to Delete OEM Recovery Partition in Windows 11",
+    "OEM recovery partitions often remain locked on your drive, consuming valuable storage space that the standard Windows 11 Disk Management tool cannot modify or delete. This guide outlines how to safely bypass these system restrictions using Windows 11's b",
+    false
+  ],
+  [
+    518,
+    "Manage EFI Partition with Diskpart in Windows 11",
+    "Managing the EFI System Partition (ESP) on Windows 11 is essential for troubleshooting boot issues, resizing drive space, or maintaining multi-boot configurations. This guide outlines how to use the Windows built-in Diskpart utility to locate, assign dri",
+    false
+  ],
+  [
+    517,
+    "How to Use Bootrec Fixmbr and Rebuildbcd in Windows 11",
+    "When Windows 11 fails to start due to corrupted boot records, missing configuration files, or blue screen errors during startup, the Bootrec tool provides a reliable way to repair the system. This guide explains how to access the Windows Recovery Environ",
+    false
+  ],
+  [
+    516,
+    "Boot Windows 11 to Command Prompt Without GUI",
+    "Booting Windows 11 directly into the Command Prompt allows users to troubleshoot startup issues, repair corrupted system files, and manage disks without loading the standard graphical desktop. This guide outlines the most effective methods to access a pu",
+    false
+  ],
+  [
+    515,
+    "Analyze Minidump Logs with WinDbg in Windows 11",
+    "When Windows 11 encounters a Blue Screen of Death (BSOD), it creates a minidump (.dmp) file containing critical memory state details from the moment of the crash. This guide outlines how to use Microsoft WinDbg to load these minidump files, execute the a",
+    false
+  ],
+  [
+    514,
+    "Configure Small Memory Dumps in Windows 11",
+    "When Windows 11 experiences a Blue Screen of Death (BSOD), creating a small memory dump file—also known as a minidump—captures the essential technical details of the crash without consuming gigabytes of storage space. This guide provides a step-by-st",
+    false
+  ],
+  [
+    513,
+    "How to Move Windows 11 Pagefile to Another Drive",
+    "Moving the Windows 11 paging file (virtual memory) from your primary drive to a secondary drive helps free up critical storage space on your C: drive and can balance drive wear and data workloads. This guide outlines the straightforward process of access",
+    false
+  ],
+  [
+    512,
+    "How to Analyze pagefile.sys and swapfile.sys in Windows 11",
+    "This article provides a straightforward guide on finding, analyzing, and managing large hidden system files—specifically pagefile.sys and swapfile.sys—in Windows 11. You will learn what these files do, how to make them visible in File Explorer, how t",
+    false
+  ],
+  [
+    511,
+    "How to Disable Hiberfil.sys in Windows 11",
+    "The hiberfil.sys file is a hidden system file created by Windows 11 to support the Hibernation feature, but it often consumes tens of gigabytes of valuable SSD storage space. This guide provides a straightforward method to completely disable the hibernat",
+    false
+  ],
+  [
+    510,
+    "Enable and Configure Hibernate in Windows 11",
+    "This guide provides a straightforward walkthrough on how to enable Hibernate mode and manage the hibernation file (hiberfil.sys) size in Windows 11. You will learn how to activate the hibernation feature using Command Prompt, make it visible in the Power",
+    false
+  ],
+  [
+    509,
+    "Stop USB Mouse and Network Card Waking Windows 11",
+    "Windows 11 computers often wake unexpectedly from sleep mode due to sensitive peripheral hardware or network activity. This guide explains how to disable wake permissions for both USB mice and network adapters using the Windows Device Manager and Command",
+    false
+  ],
+  [
+    508,
+    "How to Check Devices Allowed to Wake Windows 11",
+    "If your Windows 11 computer wakes up unexpectedly from sleep mode, specific connected hardware components are likely responsible. Windows allows certain hardware—such as keyboards, mice, and network adapters—to wake the system. This guide explains ho",
+    false
+  ],
+  [
+    507,
+    "Inspect Sleep Study Logs with Powercfg on Windows 11",
+    "The Windows 11 System Sleep Study tool is an essential diagnostic utility designed to track and troubleshoot battery life and modern standby behavior. By generating a detailed HTML report using the powercfg /sleepstudy command, users can identify backgro",
+    false
+  ],
+  [
+    506,
+    "How to Run Powercfg Energy Report in Windows 11",
+    "The Windows 11 powercfg tool allows you to analyze your system's power management and hardware efficiency by generating a detailed diagnostics report. This article explains how to run the built-in energy analysis command using administrative privileges,",
+    false
+  ],
+  [
+    505,
+    "Diagnose Windows 11 Sleep Battery Drain",
+    "Excessive battery drain during sleep on modern Windows 11 laptops is typically caused by Modern Standby (S0 Low Power Idle) misconfigurations, rogue background processes, aggressive wake timers, or faulty device drivers. This guide outlines how to use na",
+    false
+  ],
+  [
+    504,
+    "How to Limit Battery Charge on Windows 11",
+    "Setting a battery charge threshold caps your laptop's maximum charge level—usually at 80%—to significantly extend the overall lifespan of lithium-ion batteries. While Windows 11 does not feature a single, universal switch to limit charging, you can e",
+    false
+  ],
+  [
+    503,
+    "How to Enable Dynamic Refresh Rate in Windows 11",
+    "Dynamic Refresh Rate (DRR) in Windows 11 automatically adjusts your laptop screen between a lower refresh rate for everyday tasks and a higher refresh rate for inking, scrolling, or gaming. This feature provides a smooth visual experience while conservin",
+    false
+  ],
+  [
+    502,
+    "Enable Dark Mode for Classic Menus in Windows 11",
+    "While Windows 11 features a built-in system-wide dark theme, it does not fully apply to legacy Win32 components such as classic dialog boxes, Control Panel applets, and standard context menus. This guide explains how to enable dark mode for these classic",
+    false
+  ],
+  [
+    501,
+    "How to Scale Text in Windows 11 Without Breaking Apps",
+    "Adjusting text size and display scaling in Windows 11 enhances readability, but improper configuration can cause blurry fonts, misaligned buttons, and clipped UI elements. This guide explains how to properly utilize Windows 11 accessibility tools, global",
+    false
+  ],
+  [
+    500,
+    "Windows 11 Braille Display Support Guide",
+    "Windows 11 delivers deep accessibility enhancements for blind and low-vision users by providing built-in, native support for refreshable Braille displays. Through an overhaul of the native Narrator screen reader, unified driver ecosystems, and support fo",
+    false
+  ],
+  [
+    499,
+    "Custom Commands and Spelling in Windows 11 Voice Access",
+    "Windows 11 Voice Access allows users to control their computers and dictate text entirely hands-free. This guide explains how to enhance this assistive tool by creating custom voice commands for repetitive tasks and adding specialized vocabulary to the s",
+    false
+  ],
+  [
+    498,
+    "Windows 11 Voice Access: Mouse Grid and Navigation",
+    "Windows 11 includes Voice Access, an accessibility feature designed to let users control their entire PC using only spoken commands. This article explains how Voice Access facilitates seamless application navigation, window management, and precise on-scr",
+    false
+  ],
+  [
+    497,
+    "How to Use Live Captions for Microphone in Windows 11",
+    "Windows 11 includes a built-in Live Captions feature that can automatically transcribe spoken audio in real time. While primarily used for system audio like videos and meetings, it can also transcribe live in-person conversations using a connected microp",
+    false
+  ],
+  [
+    496,
+    "Windows 11 Live Captions Real-Time Translation",
+    "Windows 11 Live Captions translates foreign languages into English in real-time by utilizing on-device artificial intelligence models that process audio streams directly on the local machine. By combining local speech recognition algorithms with machine",
+    false
+  ],
+  [
+    495,
+    "How to Use Cocreator in Paint on Windows 11",
+    "Cocreator in Microsoft Paint brings generative AI directly to your canvas on Windows 11, allowing you to combine freehand digital sketching with text prompts to create refined artwork. This guide explains the step-by-step process of accessing the Cocreat",
+    false
+  ],
+  [
+    494,
+    "How Image Creator in Windows 11 Photos Works",
+    "Image Creator in Microsoft Photos enables Windows 11 users to generate high-quality visual artwork directly within their native photo viewer using artificial intelligence. This guide explains the underlying technology behind the tool, detailing how natur",
+    false
+  ],
+  [
+    493,
+    "How Windows 11 Photo Restyle Uses Generative AI",
+    "The Windows 11 Photos app includes a generative AI feature called \"Restyle Image\" that allows users to reimagine their photos into distinct artistic styles using simple text prompts or preset aesthetics. By leveraging advanced image-to-image diffusion mo",
+    false
+  ],
+  [
+    492,
+    "Windows 11 AI and NPU Hardware Requirements",
+    "Microsoft has introduced a dedicated tier of hardware specifications, branded as Copilot+ PCs, designed to power advanced on-device artificial intelligence in Windows 11. This article outlines the exact hardware standards, focusing on the Neural Processi",
+    false
+  ],
+  [
+    491,
+    "Intel vs AMD vs Snapdragon: Windows 11 Battery Life",
+    "Windows 11 laptops have entered a new era of power efficiency, driven by competition among Qualcomm’s ARM-based Snapdragon X series, Intel’s Core Ultra (Series 2 \"Lunar Lake\"), and AMD’s Ryzen AI 300 (\"Strix Point\") processors. This article compare",
+    false
+  ],
+  [
+    490,
+    "Install Qualcomm Snapdragon Drivers on Windows 11 ARM",
+    "Installing Qualcomm Snapdragon hardware-specific drivers on Windows 11 ARM laptops is essential for ensuring optimal system performance, battery management, NPU acceleration, and peripheral stability. Because Windows on ARM relies heavily on integrated s",
+    false
+  ],
+  [
+    489,
+    "Windows 11 ARM Prism Emulator Performance Impact",
+    "Microsoft's Prism dynamic binary translation engine, introduced alongside Windows 11 version 24H2 and Copilot+ PCs, fundamentally alters the performance characteristics of running legacy x86 and x64 software on ARM hardware. By replacing the older transl",
+    false
+  ],
+  [
+    488,
+    "Check if a Process is ARM64 or x64 in Windows 11",
+    "Windows 11 on ARM includes a built-in emulation layer that allows traditional 64-bit (x64) and 32-bit (x86) Intel/AMD applications to run alongside native ARM64 software. You can quickly verify whether an active application is executing natively or runni",
+    false
+  ],
+  [
+    487,
+    "Troubleshoot 32-Bit App Crashes on Windows 11",
+    "Running legacy 32-bit applications on a 64-bit Windows 11 installation relies on the Windows-on-Windows 64-bit (WOW64) emulation layer, which can occasionally encounter compatibility, dependency, or permission errors. This guide outlines the most effecti",
+    false
+  ],
+  [
+    486,
+    "Run Legacy Windows 95 and XP Software on Windows 11",
+    "Windows 11 includes built-in backward compatibility features designed to run vintage software originally built for legacy operating systems like Windows 95 and Windows XP. This guide provides a direct walkthrough on how to use Windows 11 Compatibility Mo",
+    false
+  ],
+  [
+    485,
+    "Automate Windows 11 Disk Cleanup with PowerShell",
+    "Automating routine disk cleaning and maintenance tasks in Windows 11 helps maintain peak system performance, reclaim valuable storage space, and extend the lifespan of your drives. This guide covers how to write a PowerShell maintenance script to clear t",
+    false
+  ],
+  [
+    484,
+    "Automate File Backups with Batch Script in Windows 11",
+    "Automating file backups in Windows 11 ensures your critical data is consistently protected without requiring manual intervention. By writing a simple batch script using the native robocopy command and scheduling it with the Windows Task Scheduler, you ca",
+    false
+  ],
+  [
+    483,
+    "How to Use Netsh WLAN Show WLANReport in Windows 11",
+    "Windows 11 includes a built-in diagnostic tool that creates an exhaustive HTML report of your wireless network history, connection failures, session durations, and adapter details. By running the netsh wlan show wlanreport command in an elevated command",
+    false
+  ],
+  [
+    482,
+    "View Wi-Fi Driver Capabilities via Netsh on Windows 11",
+    "This guide explains how to view detailed wireless network adapter and driver capabilities in Windows 11 using the built-in Network Shell (netsh) command-line utility. By querying your Wi-Fi driver, you can instantly check critical information such as sup",
+    false
+  ],
+  [
+    481,
+    "Fix Wi-Fi Sleep Disconnects in Windows 11",
+    "This guide explains how to configure Wi-Fi adapter power management in Windows 11 to stop network dropouts when your computer enters sleep mode or Modern Standby. By adjusting hardware properties, power plans, and system settings, you can ensure your wir",
+    false
+  ],
+  [
+    480,
+    "Diagnose Intermittent Wi-Fi Drops on Windows 11",
+    "Intermittent Wi-Fi disconnections on Windows 11 can stem from driver conflicts, aggressive power-saving settings, network congestion, or hardware issues. This guide outlines how to isolate and diagnose the root cause of random Wi-Fi drops using built-in",
+    false
+  ],
+  [
+    479,
+    "How to Release and Renew IP Address in Windows 11",
+    "Releasing and renewing your Dynamic Host Configuration Protocol (DHCP) lease in Windows 11 is an effective troubleshooting step for resolving network connectivity issues, IP address conflicts, and internet access errors. By using the Command Prompt with",
+    false
+  ],
+  [
+    478,
+    "How to Reset TCP/IP and Winsock in Windows 11",
+    "Network connectivity issues in Windows 11 can often be resolved by restoring network components to their default state. This guide provides a straightforward method to reset the Winsock catalog and TCP/IP stack protocols using the built-in Network Shell",
+    false
+  ],
+  [
+    477,
+    "Verify DNS over HTTPS in Windows 11 with Packet Tools",
+    "DNS over HTTPS (DoH) enhances online privacy by encrypting standard DNS lookups inside HTTPS traffic. This guide outlines how to use packet inspection tools, specifically Wireshark and the built-in Windows pktmon utility, to capture network traffic in Wi",
+    false
+  ],
+  [
+    476,
+    "How to Set IPv4 and IPv6 DNS in Windows 11",
+    "Configuring custom DNS servers for both IPv4 and IPv6 simultaneously in Windows 11 enhances internet speed, security, and resolution across modern dual-stack networks. This guide walks you through the steps to assign custom Domain Name System addresses f",
+    false
+  ],
+  [
+    475,
+    "Disable Public Wi-Fi Auto-Connect in Windows 11",
+    "Connecting automatically to open public Wi-Fi hotspots exposes your device to serious security and privacy risks, including data interception and malware. This guide provides clear, step-by-step methods to disable automatic open hotspot connections and p",
+    false
+  ],
+  [
+    474,
+    "How to Enable Random MAC Address in Windows 11",
+    "Using random hardware (MAC) addresses in Windows 11 enhances your online privacy by preventing network operators and trackers from monitoring your device's physical location and activity across different Wi-Fi networks. This guide explains how to enable",
+    false
+  ],
+  [
+    473,
+    "Troubleshoot Slow SMB File Transfer in Windows 11",
+    "Slow Server Message Block (SMB) file transfer speeds over local networks in Windows 11 can result from network adapter misconfigurations, aggressive security features, protocol overhead, or outdated drivers. This guide provides actionable troubleshooting",
+    false
+  ],
+  [
+    472,
+    "Map Network Drive Persistently in Windows 11 CMD",
+    "Mapping a shared network folder to a persistent drive letter ensures your system automatically reconnects to the network resource every time Windows 11 reboots. This guide provides the exact command-line instructions using both Command Prompt (net use) a",
+    false
+  ],
+  [
+    471,
+    "Manage Shared Folder and NTFS Permissions in Windows 11",
+    "Managing folder access in Windows 11 requires configuring both network share permissions and NTFS security access control lists (ACLs). This guide outlines the essential steps to configure share permissions for network users and fine-tune NTFS security s",
+    false
+  ],
+  [
+    470,
+    "How to Enable NLA for Remote Desktop in Windows 11",
+    "Network Level Authentication (NLA) is a critical security feature that requires users to authenticate themselves to the network before establishing a Remote Desktop session, protecting the host machine from unauthorized access and denial-of-service attac",
+    false
+  ],
+  [
+    469,
+    "Fix Remote Desktop Licensing Errors in Windows 11",
+    "Remote Desktop Protocol (RDP) licensing errors on Windows 11 typically prevent users from establishing remote sessions due to corrupted license caches, expired temporary client licenses, or misconfigured licensing server settings. This guide outlines the",
+    false
+  ],
+  [
+    468,
+    "Change Remote Desktop Port in Windows 11 Registry",
+    "This guide explains how to change the default listening port for Remote Desktop Protocol (RDP) on Windows 11 using the Windows Registry. By default, Remote Desktop listens on port 3389, but changing this to a custom port helps obscure your system from au",
+    false
+  ],
+  [
+    467,
+    "How to Use Quick Assist in Windows 11",
+    "Quick Assist is a built-in remote assistance tool in Windows 11 that allows users to securely share their screen or grant remote control access to a trusted support technician over the internet. This guide provides a straightforward overview of how to la",
+    false
+  ],
+  [
+    466,
+    "Manage User Groups and Admins with lusrmgr.msc",
+    "Managing local user accounts and group memberships is essential for maintaining system security and access control in Windows 11. The Local Users and Groups console (lusrmgr.msc) provides advanced control over permissions, allowing system administrators",
+    false
+  ],
+  [
+    465,
+    "How to Join a Windows 11 PC to a Domain",
+    "This guide provides a direct, step-by-step walkthrough on how to connect a computer running Windows 11 Pro or Enterprise to a corporate Active Directory domain controller network. Joining a domain allows organizations to centrally manage user accounts, e",
+    false
+  ],
+  [
+    464,
+    "How to Switch to a Local Account in Windows 11",
+    "Switching from a Microsoft account to a local offline account in Windows 11 is a straightforward process that helps improve privacy and eliminates the requirement for an active internet connection to log in. This guide walks you through the exact steps n",
+    false
+  ],
+  [
+    463,
+    "How to Sync Settings and Passwords on Windows 11",
+    "Syncing your personal settings, theme colors, and browser passwords across multiple Windows 11 devices creates a seamless, personalized computing experience. By linking a Microsoft account to your PCs, configuring Windows Backup, and turning on browser s",
+    false
+  ],
+  [
+    462,
+    "How to Backup Credentials in Windows 11",
+    "Backing up stored credentials in Windows 11 ensures you do not lose critical passwords for local network shares, remote desktop connections, and mapped drives. This step-by-step guide explains how to export and protect your Windows credentials using the",
+    false
+  ],
+  [
+    461,
+    "Manage Web and Windows Credentials in Windows 11",
+    "Credential Manager in Windows 11 is a built-in vault that securely stores your saved usernames and passwords for websites, mapped network drives, Remote Desktop connections, and applications. This guide explains how to access Credential Manager, view sto",
+    false
+  ],
+  [
+    460,
+    "How to Configure Automatic Login on Windows 11",
+    "This guide explains how to configure a private Windows 11 PC to sign in automatically to a specific user account upon startup. By disabling the login screen requirement using built-in Windows utilities like netplwiz or the Registry Editor, you can bypass",
+    false
+  ],
+  [
+    459,
+    "Enable Ctrl Alt Delete Secure Sign-In Windows 11",
+    "Requiring users to press Ctrl + Alt + Delete before signing into Windows 11 adds an extra layer of security known as Secure Sign-in. This feature ensures that the authentic Windows login screen appears rather than a spoofed screen designed by malware to",
+    false
+  ],
+  [
+    458,
+    "How to Set Up Fingerprint Sign-In on Windows 11",
+    "Setting up fingerprint sign-in on Windows 11 allows you to unlock your PC quickly and securely using Windows Hello biometrics. This guide explains how to enable and configure a built-in or external biometric fingerprint scanner, register your fingerprint",
+    false
+  ],
+  [
+    457,
+    "Improve Windows Hello Face Recognition in Windows 11",
+    "Windows Hello Facial Recognition allows you to sign in to your Windows 11 device securely and instantly using your face. If you wear glasses, change your appearance, or frequently experience failed recognition attempts, you can train the system to recogn",
+    false
+  ],
+  [
+    456,
+    "Set Up Windows Hello Facial Recognition on Windows 11",
+    "Windows Hello Facial Recognition allows you to sign in to your Windows 11 PC quickly and securely using your face. This guide covers the prerequisites and the step-by-step process to configure facial recognition using a compatible infrared (IR) camera, e",
+    false
+  ],
+  [
+    455,
+    "Change or Remove Windows Hello PIN in Windows 11",
+    "Managing your sign-in options in Windows 11 allows you to customize your device's security and access methods. This guide provides step-by-step instructions on how to change or completely remove your Windows Hello PIN through the Windows 11 Accounts sett",
+    false
+  ],
+  [
+    454,
+    "How to Set Up a Picture Password in Windows 11",
+    "Windows 11 allows you to unlock your computer using a picture password instead of entering a traditional alphanumeric password or PIN. This authentication method lets you choose any personal image and draw a sequence of three gestures—such as circles,",
+    false
+  ],
+  [
+    453,
+    "Restrict Microsoft Store Purchases on Windows 11",
+    "Managing app installations and purchases in the Windows 11 Microsoft Store helps prevent unauthorized spending, accidental downloads, and unapproved software installations. You can restrict access by enabling purchase authentication within the Store sett",
+    false
+  ],
+  [
+    452,
+    "How to View Family Activity Reports on Windows 11",
+    "Monitoring your family’s digital habits is essential for maintaining safe and healthy device usage. This guide provides a straightforward walkthrough on how to enable and view weekly activity reports for your family members in Windows 11 using Microsof",
+    false
+  ],
+  [
+    451,
+    "How to Set Up Parental Controls on Windows 11",
+    "Setting up parental controls on Windows 11 allows you to manage screen time, block inappropriate web content, and monitor your child's digital activity through Microsoft Family Safety. This guide provides a direct, step-by-step walkthrough to create a ch",
+    false
+  ],
+  [
+    450,
+    "How to Adjust Mic Boost and Sample Rate in Windows 11",
+    "Fine-tuning your audio input in Windows 11 can significantly enhance voice clarity, reduce background static, and ensure optimal recording volume for gaming, streaming, or meetings. This guide provides direct, step-by-step instructions on how to access t",
+    false
+  ],
+  [
+    449,
+    "How to Enable Windows Sonic Spatial Audio in Windows 11",
+    "Windows Sonic for Headphones is a built-in spatial sound solution in Windows 11 that creates a virtual 3D surround sound environment, significantly improving your gaming, movie, and music experiences. This guide provides direct, step-by-step instructions",
+    false
+  ],
+  [
+    448,
+    "Route Audio to Different Monitors in Windows 11",
+    "Windows 11 allows users to route independent audio streams to different monitors and speakers simultaneously using built-in settings. By taking advantage of the integrated Volume Mixer, you can assign specific applications—such as a media player, a web",
+    false
+  ],
+  [
+    447,
+    "How to Set Up an External DAC in Windows 11",
+    "Connecting an external Digital-to-Analog Converter (DAC) or soundcard to a Windows 11 PC significantly improves audio quality for headphones and speakers. This guide walks you through the entire process, from making the physical connection and installing",
+    false
+  ],
+  [
+    446,
+    "Switch Bluetooth Hands-Free and Stereo in Windows 11",
+    "Windows 11 automatically manages Bluetooth audio profiles by dynamically switching between high-quality \"Stereo\" (A2DP) for media playback and two-way \"Hands-Free\" (HFP/HSP) for calls and voice chat. While this unified approach simplifies device manageme",
+    false
+  ],
+  [
+    445,
+    "How to Share a USB Printer on Windows 11",
+    "Sharing a locally connected USB printer on a Windows 11 local area network (LAN) allows multiple computers to print through a single host machine. This guide provides a straightforward walkthrough on how to configure your network settings, enable printer",
+    false
+  ],
+  [
+    444,
+    "How to Clear and Restart Print Spooler in Windows 11",
+    "When print jobs become stuck in the queue on Windows 11, the Print Spooler service often becomes unresponsive, preventing any new documents from printing. This guide explains how to resolve the issue by stopping the service, deleting the corrupted tempor",
+    false
+  ],
+  [
+    443,
+    "How to Fix Printer Offline Error in Windows 11",
+    "Network printers frequently display an \"Offline\" status in Windows 11 due to connectivity drops, print spooler glitches, driver conflicts, or incorrect port settings. This guide provides direct, actionable solutions to resolve this error, ranging from ba",
+    false
+  ],
+  [
+    442,
+    "Export and Import Firewall Policies in Windows 11",
+    "Managing Windows Defender Firewall settings is essential for maintaining consistent network security across multiple devices or backing up configurations before making major system changes. This guide explains how to quickly export and import your comple",
+    false
+  ],
+  [
+    441,
+    "Manage Windows 11 Firewall for Game and Web Servers",
+    "Hosting a dedicated game server or a local web application on Windows 11 requires allowing external incoming traffic through the operating system's built-in security layers. This guide provides a direct, step-by-step walkthrough on how to manage, create,",
+    false
+  ],
+  [
+    440,
+    "Configure ASR Rules in Windows 11 Pro and Enterprise",
+    "Attack Surface Reduction (ASR) rules in Windows 11 help prevent common malware infection vectors by restricting risky behaviors, such as launching executable files from Office apps or running obfuscated scripts. This guide details how to configure ASR ru",
+    false
+  ],
+  [
+    439,
+    "Turn Off Real-Time Protection in Windows 11",
+    "Microsoft Defender runs real-time protection in the background to safeguard Windows 11 against viruses, spyware, and other malicious threats. However, certain tasks—such as installing specific trusted software, running developer tools, or troubleshooti",
+    false
+  ],
+  [
+    438,
+    "How to Add Exclusions in Windows 11 Defender",
+    "This guide explains how to add file, folder, file type, and process exclusions to Microsoft Defender Antivirus on Windows 11. Adding exclusions prevents the built-in antivirus from scanning trusted items, which helps prevent false positives and stops Def",
+    false
+  ],
+  [
+    437,
+    "How to Run Windows Defender Offline Scan in Windows 11",
+    "This guide explains how to run a Microsoft Defender Offline scan in Windows 11 to remove highly persistent threats such as rootkits, bootkits, and sophisticated malware. Some malicious programs can bypass active system defenses or lock files while the op",
+    false
+  ],
+  [
+    436,
+    "Configure Windows 11 Storage Sense for Low Disk Space",
+    "Storage Sense is a built-in Windows 11 maintenance tool that automatically frees up drive space by deleting unnecessary files, such as temporary data and items in your Recycle Bin. Configuring Storage Sense to run automatically when your disk space becom",
+    false
+  ],
+  [
+    435,
+    "Use Storage Sense to Clear Cache in Windows 11",
+    "Managing temporary files and download caches in Windows 11 is essential for freeing up drive space and maintaining peak system performance. This guide explains how to enable, configure, and run Storage Sense to automate the deletion of unnecessary system",
+    false
+  ],
+  [
+    434,
+    "How to Safely Delete Windows.old in Windows 11",
+    "When you upgrade to Windows 11, the operating system automatically creates a Windows.old folder to store your previous system files in case you want to roll back. If your system is stable and you need to free up dozens of gigabytes of disk space, you can",
+    false
+  ],
+  [
+    433,
+    "How to Delete Windows 11 Update Files via Disk Cleanup",
+    "Over time, Windows 11 accumulates residual update files, temporary installation packages, and cached components that can take up gigabytes of valuable storage space. While these files allow you to roll back updates if an error occurs, they are no longer",
+    false
+  ],
+  [
+    432,
+    "How to Uninstall Stubborn Apps Using Winget in Windows 11",
+    "When standard Windows 11 uninstall methods fail or software becomes corrupted, the Windows Package Manager (winget) provides a powerful command-line solution to forcibly remove stubborn applications. This guide explains how to identify, target, and clean",
+    false
+  ],
+  [
+    431,
+    "Manage Chrome and Edge PWAs on Windows 11",
+    "Progressive Web Apps (PWAs) allow websites to function like standard desktop applications on Windows 11. This guide covers how to locate, configure permissions for, manage startup behavior, and uninstall web applications installed through both Google Chr",
+    false
+  ],
+  [
+    430,
+    "How to Reset Default Apps in Windows 11",
+    "Resetting application associations in Windows 11 restores all file types, protocols, and standard software configurations back to Microsoft's original factory recommendations. Whether an update altered your preferred software, third-party software caused",
+    false
+  ],
+  [
+    429,
+    "How to Set Default Apps in Windows 11",
+    "Windows 11 allows you to customize your operating system by choosing which programs automatically open specific files and protocols. This guide provides a straightforward walkthrough for configuring your default applications for web browsing, email, musi",
+    false
+  ],
+  [
+    428,
+    "How to Enable Item Check Boxes in Windows 11",
+    "In Windows 11, selecting multiple files and folders can be streamlined by enabling item check boxes in File Explorer. This guide provides a straightforward walkthrough on how to turn on this feature, allowing you to select individual or multiple items ea",
+    false
+  ],
+  [
+    427,
+    "Disable Thumbnail Previews in Windows 11",
+    "By default, Windows 11 generates thumbnail previews for images, videos, and documents to help you identify files quickly. However, turning these previews off can improve File Explorer loading speeds, reduce system resource usage, and protect your privacy",
+    false
+  ],
+  [
+    426,
+    "Clear File Explorer History and Cache in Windows 11",
+    "Windows 11 automatically tracks your search queries, recently opened files, and frequently visited folders in File Explorer to provide quick access to your data. If you share your computer or want to free up space and maintain your privacy, you can easil",
+    false
+  ],
+  [
+    425,
+    "How to Open File Explorer to This PC in Windows 11",
+    "By default, Windows 11 opens File Explorer to the \"Home\" page, displaying recent files, favorites, and pinned folders. If you prefer the traditional view showing your drives, devices, and network locations, you can quickly change the default startup loca",
+    false
+  ],
+  [
+    424,
+    "Password Protect and Compress Folders in Windows 11",
+    "Managing disk space and securing sensitive data are essential tasks when organizing files on your PC. Windows 11 includes built-in tools to quickly compress files and folders into standard ZIP archives directly from File Explorer. However, because native",
+    false
+  ],
+  [
+    423,
+    "How to Extract ZIP RAR 7z and TAR in Windows 11",
+    "Windows 11 natively supports unpacking various compressed archive formats, including ZIP, RAR, 7z, and TAR, without requiring third-party software like WinRAR or 7-Zip. Thanks to the integration of the open-source libarchive project, users can quickly de",
+    false
+  ],
+  [
+    422,
+    "Show or Hide Details and Preview Pane in Windows 11",
+    "Windows 11 File Explorer includes built-in Preview and Details panes that let you quickly view file contents or inspect metadata without opening the actual files. This guide provides the straightforward steps to enable or disable both panes using either",
+    false
+  ],
+  [
+    421,
+    "Customize File Explorer Ribbon in Windows 11",
+    "Windows 11 replaced the traditional multi-tabbed ribbon interface with a simplified command bar designed for quick actions. This guide explains how to customize the Windows 11 File Explorer command bar, adjust folder options, pin frequently used actions,",
+    false
+  ],
+  [
+    420,
+    "Enable Single-Click to Open Files in Windows 11",
+    "By default, Windows 11 requires you to double-click files and folders to open them. However, you can change this behavior to a single click, allowing you to open items just like links on a web page. This guide provides a straightforward, step-by-step wal",
+    false
+  ],
+  [
+    419,
+    "Configure Four-Finger Tap for Windows 11 Notifications",
+    "Customizing touchpad gestures in Windows 11 can significantly improve your workflow and navigation speed. If your laptop is equipped with a precision touchpad, you can remap advanced multi-finger gestures to perform specific system actions. This guide pr",
+    false
+  ],
+  [
+    418,
+    "How to Set 3-Finger Swipe to Switch Apps in Windows 11",
+    "Customizing touchpad gestures in Windows 11 can significantly improve your multitasking workflow. This guide provides a straightforward walkthrough on how to configure three-finger swipe gestures on a precision touchpad to switch between active tasks, cy",
+    false
+  ],
+  [
+    417,
+    "How to Change Touchpad Scroll Direction in Windows 11",
+    "Windows 11 allows users to easily customize their precision touchpad behavior, including changing the scrolling direction to match personal preferences. Whether you prefer the traditional Windows scrolling method or the \"natural\" smartphone-style reverse",
+    false
+  ],
+  [
+    416,
+    "Change Mouse Speed and Disable Acceleration in Windows 11",
+    "Customizing your mouse settings in Windows 11 can significantly improve cursor accuracy and overall navigation, especially for gaming and precision tasks. This guide explains how to adjust your mouse pointer speed using the modern Settings app and how to",
+    false
+  ],
+  [
+    415,
+    "Fix Blurry Text in Older Windows 11 Apps",
+    "High-resolution displays often cause older, DPI-unaware software to render with blurry or fuzzy text due to improper bitmap stretching. This guide outlines the most effective methods to fix blurry text on legacy applications in Windows 11, including conf",
+    false
+  ],
+  [
+    414,
+    "How to Mirror or Extend Display Wirelessly in Windows 11",
+    "Windows 11 allows you to wirelessly stream your screen to external monitors, smart TVs, or projectors using built-in Miracast technology. Whether you want to duplicate your screen for a presentation or extend your desktop space for multitasking, you can",
+    false
+  ],
+  [
+    413,
+    "Calibrate Monitor Brightness and Gamma in Windows 11",
+    "Calibrating your display ensures accurate color representation, clear text readability, and balanced lighting to reduce eye strain. Windows 11 includes a built-in utility called Display Color Calibration that guides you through adjusting your screen's ga",
+    false
+  ],
+  [
+    412,
+    "How to Configure ICC Color Profiles in Windows 11",
+    "Configuring custom ICC (International Color Consortium) display profiles in Windows 11 ensures that your monitor reproduces colors accurately for photo editing, graphic design, and general viewing. This guide walks you through downloading, installing, an",
+    false
+  ],
+  [
+    411,
+    "How to Enable Variable Refresh Rate in Windows 11",
+    "Variable Refresh Rate (VRR) allows a compatible monitor to dynamically match its refresh rate to the frame rate generated by your graphics card. In Windows 11, enabling VRR globally helps eliminate screen tearing, reduce stutter, and lower input lag in g",
+    false
+  ],
+  [
+    410,
+    "How Hardware GPU Scheduling Reduces Windows 11 Latency",
+    "Hardware-Accelerated GPU Scheduling (HAGS) is an integrated Windows 11 feature designed to optimize rendering performance by offloading graphics task coordination directly to the graphics processor. By shifting high-frequency scheduling responsibilities",
+    false
+  ],
+  [
+    409,
+    "Check GPU Hardware Scheduling in Windows 11",
+    "Hardware-accelerated GPU Scheduling (HAGS) is a Windows feature designed to reduce latency and improve gaming and application performance by delegating high-priority graphics memory management directly to the GPU. This guide outlines the exact steps to c",
+    false
+  ],
+  [
+    408,
+    "How to Monitor NVMe SSD Speeds in Windows 11",
+    "Monitoring your NVMe solid-state drive's (SSD) real-time read and write transfer rates in Windows 11 is essential for diagnosing performance bottlenecks, checking drive health, and tracking data-heavy tasks. Windows 11 includes several built-in utilities",
+    false
+  ],
+  [
+    407,
+    "Configure Windows 11 Virtual Memory for Low RAM",
+    "Configuring the virtual memory (paging file) size in Windows 11 allows your system to use storage drive space as temporary RAM when physical memory runs out. This guide provides a straightforward method to manually set the initial and maximum page file s",
+    false
+  ],
+  [
+    406,
+    "Fix High RAM Usage and Memory Leaks in Windows 11",
+    "Excessive RAM consumption and memory leaks in Windows 11 can severely degrade system performance, leading to sluggish behavior, freezing, and unexpected application crashes. This guide provides a straightforward, step-by-step approach to diagnosing memor",
+    false
+  ],
+  [
+    405,
+    "How to Identify High CPU Spikes in Windows 11",
+    "Unexpected CPU spikes in Windows 11 can cause system lag, loud fan noise, and reduced battery life. This guide outlines the most effective built-in tools—including Task Manager, Resource Monitor, and Performance Monitor—to help you track down and ide",
+    false
+  ],
+  [
+    404,
+    "Stop Background Processes Using PowerShell in Windows 11",
+    "Managing system performance in Windows 11 often requires monitoring and terminating background applications that consume excessive resources. Windows PowerShell provides a fast, built-in command-line method to view running processes, filter tasks by reso",
+    false
+  ],
+  [
+    403,
+    "How to Trigger Tasks from System Events in Windows 11",
+    "Automating tasks in Windows 11 based on specific system occurrences is an effective way to maintain system health, run backups, or trigger custom scripts. By combining the diagnostic logging of the Windows Event Viewer with the automation engine of Task",
+    false
+  ],
+  [
+    402,
+    "Automate Windows 11 Maintenance with Task Scheduler",
+    "Automating background maintenance in Windows 11 ensures that your PC runs smoothly, remains secure, and stays free of unnecessary files without requiring manual effort. By utilizing the built-in Windows Task Scheduler, you can configure the operating sys",
+    false
+  ],
+  [
+    401,
+    "Disable Startup Programs to Shorten Windows 11 Boot Time",
+    "Unnecessary applications launching automatically when Windows 11 starts can severely slow down your computer's boot performance. This guide covers how to identify high-impact startup applications and disable them using Windows Settings and Task Manager t",
+    false
+  ],
+  [
+    400,
+    "How to Manage Startup Apps in Windows 11",
+    "Managing startup applications in Windows 11 is an effective way to speed up your computer's boot time and free up valuable system resources. This guide walks you through the straightforward steps to view, enable, and disable startup programs using both t",
+    false
+  ],
+  [
+    399,
+    "Enable Nested Virtualization in Hyper-V on Windows 11",
+    "Nested virtualization allows you to run Hyper-V inside a Hyper-V virtual machine, enabling scenarios like running WSL2, Docker, or nested virtual machines within a guest operating system. This guide provides a concise, step-by-step walkthrough on configu",
+    false
+  ],
+  [
+    398,
+    "How to Pass Through USB in Hyper-V on Windows 11",
+    "Hyper-V does not feature native, direct USB controller passthrough for all hardware, but you can successfully connect physical USB peripherals to a Windows 11 virtual machine using multiple built-in and alternative methods. This guide details how to use",
+    false
+  ],
+  [
+    397,
+    "Enable Hyper-V Enhanced Session Mode in Windows 11",
+    "Enhanced Session Mode in Hyper-V allows you to interact with virtual machines using a Remote Desktop Protocol (RDP) connection over the VMBus, enabling features like clipboard sharing, drive redirection, audio support, and dynamic screen resizing. This g",
+    false
+  ],
+  [
+    396,
+    "Create and Restore Hyper-V Checkpoints in Windows 11",
+    "Hyper-V checkpoints in Windows 11 Pro allow you to capture the exact state, data, and hardware configuration of a virtual machine (VM) at a specific point in time. This guide provides a straightforward walkthrough on how to create, apply (restore), and d",
+    false
+  ],
+  [
+    395,
+    "Configure Hyper-V Virtual Switch in Windows 11",
+    "This guide provides a straightforward walkthrough for creating and configuring Hyper-V Virtual Switches in Windows 11. You will learn the distinct purposes of External, Internal, and Private switch types, followed by step-by-step instructions to create e",
+    false
+  ],
+  [
+    394,
+    "Auto-Run Scripts in Windows 11 Sandbox",
+    "Running automated testing scripts inside Windows Sandbox allows you to safely test software, scripts, and configurations in an isolated, disposable environment. This article provides a step-by-step guide on creating custom Windows Sandbox Configuration (",
+    false
+  ],
+  [
+    393,
+    "Map Host Folders as Read-Only in Windows Sandbox",
+    "Windows Sandbox allows users to safely run untrusted applications in an isolated environment on Windows 11. By using a custom Windows Sandbox configuration file (.wsb), you can map specific folders from your host machine into the sandbox environment with",
+    false
+  ],
+  [
+    392,
+    "Configure Windows Sandbox with WSB Files in Windows 11",
+    "Windows Sandbox provides a lightweight desktop environment to safely run applications in isolation, and it can be customized using Windows Sandbox configuration (.wsb) files. This guide explains the structure of .wsb files, the configuration options avai",
+    false
+  ],
+  [
+    391,
+    "Show Linux Files in Windows 11 File Explorer",
+    "Windows 11 includes built-in integration for the Windows Subsystem for Linux (WSL), allowing you to access and manage your Linux distribution files directly from the File Explorer sidebar. This guide walks you through enabling WSL, accessing the dedicate",
+    false
+  ],
+  [
+    390,
+    "How to Mount ext4 Linux Drives in Windows 11",
+    "Windows 11 allows you to natively attach and read physical Linux-formatted drives—including ext4 file systems—without using third-party commercial software. By leveraging the Windows Subsystem for Linux (WSL 2), you can mount an entire physical disk",
+    false
+  ],
+  [
+    389,
+    "Access Windows 11 Files from WSL Linux Terminal",
+    "Windows Subsystem for Linux (WSL) automatically mounts your local Windows drives into the Linux environment, allowing you to view, edit, and execute Windows 11 files directly from your Linux command line. This guide covers how to navigate to your Windows",
+    false
+  ],
+  [
+    388,
+    "Limit WSL2 Memory and CPU Usage in Windows 11",
+    "Windows Subsystem for Linux 2 (WSL2) can dynamically consume up to 50% of your total system memory or more by default, which can cause performance bottlenecks on your host Windows 11 system. This guide provides a straightforward method to limit WSL2's RA",
+    false
+  ],
+  [
+    387,
+    "How to Set WSL 2 as Default in Windows 11",
+    "Setting WSL 2 as your default architecture ensures that any new Linux distribution installed on Windows 11 automatically utilizes the latest virtualization platform, improved file system performance, and full system call compatibility. This guide outline",
+    false
+  ],
+  [
+    386,
+    "How to Install WSL 2 Kernel Update on Windows 11",
+    "The Windows Subsystem for Linux 2 (WSL 2) kernel update package provides the dedicated Linux kernel required to run native Linux binaries directly on Windows 11 with full system call compatibility. This guide explains how to enable the necessary Windows",
+    false
+  ],
+  [
+    385,
+    "Install Language and Speech Packs in Windows 11",
+    "Windows 11 allows you to customize your operating system by adding optional language features such as speech recognition, text-to-speech voices, handwriting recognition, and typing tools. This guide provides a straightforward, step-by-step walkthrough on",
+    false
+  ],
+  [
+    384,
+    "How an In-Place Upgrade Repairs Windows 11",
+    "An in-place upgrade repairs Windows 11 by reinstalling the core operating system over your existing installation without altering your personal files, settings, or installed applications. This process acts as a comprehensive system restore mechanism, rep",
+    false
+  ],
+  [
+    383,
+    "Repair Windows 11 with an In-Place Upgrade",
+    "An in-place upgrade allows you to reinstall Windows 11 over your existing operating system without deleting your personal files, settings, or installed applications. This process completely replaces damaged or missing system components with fresh, offici",
+    false
+  ],
+  [
+    382,
+    "How to Restart Windows Explorer in Windows 11",
+    "Restarting Windows Explorer is a quick and effective troubleshooting step when your taskbar, Start menu, or desktop becomes unresponsive in Windows 11. Instead of rebooting your entire computer, you can refresh the graphical user interface by restarting",
+    false
+  ],
+  [
+    381,
+    "Fix Windows 11 Start Menu Freezing or Not Opening",
+    "A frozen or unresponsive Start Menu in Windows 11 is a common issue typically caused by minor system glitches, corrupted system files, or stuck background services. This troubleshooting guide provides clear, actionable methods to resolve the problem, sta",
+    false
+  ],
+  [
+    380,
+    "How to Use Search Filter Operators in Windows 11",
+    "Windows 11 File Explorer includes powerful built-in search filter operators that allow you to locate files instantly by specifying parameters like file size, modification date, and file extension. Instead of scrolling through hundreds of documents or wai",
+    false
+  ],
+  [
+    379,
+    "How to Enable Enhanced Search Mode in Windows 11",
+    "Windows 11 includes an Enhanced Search indexing feature that expands file searches beyond default user libraries to scan all connected hard drives, partitions, and folders on your PC. This guide explains how to enable Enhanced Search mode in Windows 11,",
+    false
+  ],
+  [
+    378,
+    "Exclude Folders from Windows 11 Search Indexer",
+    "Windows 11 constantly scans your files to deliver fast search results, but you may want to keep sensitive, confidential, or private directories out of the search results for privacy or performance reasons. This guide outlines how to prevent the Windows 1",
+    false
+  ],
+  [
+    377,
+    "How to Rebuild Search Index in Windows 11",
+    "When the Windows 11 search bar stops working correctly, displays incomplete results, or fails to find existing files, a corrupted search index database is often the root cause. Rebuilding the index wipes the current database and recreates a fresh catalog",
+    false
+  ],
+  [
+    376,
+    "How to Safely Eject Locked Drives in Windows 11",
+    "When attempting to safely remove an external storage device in Windows 11, users often encounter the \"This device is currently in use\" error. This guide provides direct, step-by-step methods to identify the locked files or active processes preventing eje",
+    false
+  ],
+  [
+    375,
+    "Fix \"Drive Is in Use\" Error in Windows 11",
+    "When formatting an internal or external drive in Windows 11, the process may fail with a message stating that the drive is currently in use by another program or process. This error typically occurs when an open file, background service, File Explorer wi",
+    false
+  ],
+  [
+    374,
+    "Schedule CHKDSK on Next Reboot in Windows 11",
+    "The Check Disk (CHKDSK) utility in Windows 11 is an essential built-in tool used to inspect the integrity of your file system and fix logical disk errors or bad sectors. When scanning a drive currently in use by the operating system (such as the primary",
+    false
+  ],
+  [
+    373,
+    "How to Check Disk Health with PowerShell on Windows 11",
+    "Monitoring storage drive health is essential for preventing unexpected hardware failures and data loss. Windows 11 includes native PowerShell cmdlets and WMI/CIM classes that allow you to query the operational status, wear levels, and SMART (Self-Monitor",
+    false
+  ],
+  [
+    372,
+    "Change Drive Letter Using CMD in Windows 11",
+    "Managing drive letters in Windows 11 can be performed quickly using the built-in DiskPart command-line tool within the Command Prompt. This guide provides step-by-step instructions on how to open an elevated Command Prompt, identify your target partition",
+    false
+  ],
+  [
+    371,
+    "How to Format a Flash Drive in Windows 11",
+    "Formatting an external flash drive in Windows 11 allows you to erase all stored data, fix corrupted sectors, and configure the appropriate file system for your needs. This guide explains the differences between exFAT, NTFS, and FAT32, followed by clear,",
+    false
+  ],
+  [
+    370,
+    "How to Use Diskpart to Clean a Drive in Windows 11",
+    "The Diskpart command-line utility in Windows 11 allows users to completely clean or securely wipe internal hard drives, SSDs, and external storage devices. This guide provides a straightforward walkthrough on launching Diskpart, selecting the correct sto",
+    false
+  ],
+  [
+    369,
+    "How to Update PowerShell to PowerShell 7 in Windows 11",
+    "This guide explains how to install and update to PowerShell 7 on Windows 11. Windows 11 comes pre-installed with Windows PowerShell 5.1 by default. PowerShell 7 is a modern, cross-platform upgrade that runs alongside version 5.1 rather than overwriting i",
+    false
+  ],
+  [
+    368,
+    "Run PowerShell Script as Admin Without Restrictions",
+    "Running PowerShell scripts in Windows 11 often results in execution policy errors, especially when administrative privileges are required. This guide explains how to execute PowerShell scripts with full administrator privileges while bypassing execution",
+    false
+  ],
+  [
+    367,
+    "Enable Administrator Account in Windows 11 via CMD",
+    "Windows 11 includes a powerful, built-in Administrator account that remains hidden and disabled by default for system security. This article provides a quick, step-by-step walkthrough on how to enable this elevated account using the Windows Command Promp",
+    false
+  ],
+  [
+    366,
+    "How to Disable Admin and Guest Accounts in Windows 11",
+    "Securing a Windows 11 PC often involves deactivating unused system accounts that could serve as potential entry points for unauthorized access. This guide explains how to quickly and safely disable both the built-in Administrator account and the Guest ac",
+    false
+  ],
+  [
+    365,
+    "Enforce Password Age and Complexity in Windows 11",
+    "Securing local user accounts on Windows 11 involves configuring system policies to enforce password complexity and establish a maximum password age. This guide details how to configure these security policies using the Local Group Policy Editor in Window",
+    false
+  ],
+  [
+    364,
+    "Configure Account Lockout Policy in Windows 11",
+    "Configuring account lockout policies in Windows 11 protects your system against brute-force password attacks by automatically locking an account after a specified number of failed sign-in attempts. This guide explains how to set the account lockout thres",
+    false
+  ],
+  [
+    363,
+    "How to Edit Local Security Policies in Windows 11 Pro",
+    "This guide provides a straightforward walkthrough on how to open, navigate, and modify system policies using the Local Security Policy tool (secpol.msc) in Windows 11 Pro. You will learn the exact steps required to launch the management console, adjust s",
+    false
+  ],
+  [
+    362,
+    "How to Backup and Restore Registry Hives in Windows 11",
+    "Backing up and restoring individual registry hives or keys in Windows 11 is an essential safeguard before making manual modifications to the system configuration. While full system restore points provide broad protection, exporting specific registry bran",
+    false
+  ],
+  [
+    361,
+    "How to Safely Open Registry Editor in Windows 11",
+    "The Windows 11 Registry Editor (regedit) is a powerful administrative tool used to view and modify the hierarchical database of settings that configure your operating system and applications. This guide covers the quickest ways to open the Registry Edito",
+    false
+  ],
+  [
+    360,
+    "Open Windows 11 Admin Tools via Run",
+    "Windows 11 includes a comprehensive suite of administrative utilities used for troubleshooting, monitoring performance, and configuring system settings. This guide provides a quick and direct list of Run dialog commands that allow you to open the primary",
+    false
+  ],
+  [
+    359,
+    "Create Windows 11 Settings Desktop Shortcuts",
+    "Windows 11 allows you to streamline your workflow by creating custom desktop shortcuts to specific Settings pages using ms-settings: Uniform Resource Identifier (URI) commands. Instead of manually navigating through the Settings app every time you need t",
+    false
+  ],
+  [
+    358,
+    "How to Enable God Mode in Windows 11",
+    "God Mode in Windows 11 is a centralized, hidden master control folder that provides quick access to over 200 administrative tools, settings, and Control Panel applets in a single, searchable interface. This guide details the simple, step-by-step process",
+    false
+  ],
+  [
+    357,
+    "Restore Missing Power Plans in Windows 11",
+    "Windows 11 often hides advanced power plans—such as High Performance and Ultimate Performance—by default to optimize battery life and support Modern Standby (S0). This guide provides the exact steps to restore these missing power schemes using simple",
+    false
+  ],
+  [
+    356,
+    "Change What Closing the Lid Does in Windows 11",
+    "This guide explains how to customize your laptop’s behavior when the lid is closed in Windows 11. By adjusting your system's power settings, you can configure your PC to enter Sleep mode, Hibernate, Shut down completely, or Do nothing—which is ideal",
+    false
+  ],
+  [
+    355,
+    "Set Separate Screen Timeouts in Windows 11",
+    "Managing separate screen timeout rules for battery and plugged-in modes in Windows 11 allows you to conserve battery life while on the move without compromising productivity when connected to power. This guide provides clear, step-by-step instructions to",
+    false
+  ],
+  [
+    354,
+    "How to Uninstall or Hide Fonts in Windows 11",
+    "Managing the font library in Windows 11 allows you to declutter design software, speed up font selection menus, and free up drive space. While Windows 11 includes numerous pre-installed typefaces for global language support, you can easily hide system fo",
+    false
+  ],
+  [
+    353,
+    "How to Install TrueType and OpenType Fonts on Windows 11",
+    "Installing new TrueType (.ttf) and OpenType (.otf) fonts on Windows 11 is a straightforward process that allows you to expand your typography choices for design, writing, and system personalization. This guide covers the most efficient methods to install",
+    false
+  ],
+  [
+    352,
+    "How to Change Default System Font in Windows 11",
+    "Windows 11 uses \"Segoe UI Variable\" as its default system font for dialogue boxes, menus, and interface elements. While the Settings app allows you to install and manage fonts, it does not include a direct toggle to alter the system-wide interface font.",
+    false
+  ],
+  [
+    351,
+    "How to Calibrate Stylus Accuracy in Windows 11",
+    "Calibrating your digitized stylus on Windows 11 ensures that your pen strokes, taps, and drawings align precisely with the cursor on your screen. If your digital pen feels misaligned, offset, or unresponsive near the edges of your display, Windows 11 inc",
+    false
+  ],
+  [
+    350,
+    "Configure Palm Rejection on Windows 11 Tablets",
+    "Palm rejection on Windows 11 tablets prevents the touchscreen from registering accidental inputs from your hand while writing or drawing with an active stylus. While Windows 11 does not feature a universal \"sensitivity slider\" for palm detection, you can",
+    false
+  ],
+  [
+    349,
+    "How Windows 11 Converts Handwriting to Text",
+    "The Windows 11 handwriting recognition panel bridges physical writing and digital input by transforming handwritten stylus or touch strokes into standard digital text in real time. This conversion process relies on a multi-stage pipeline that captures lo",
+    false
+  ],
+  [
+    348,
+    "How to Customize Pen Shortcuts in Windows 11",
+    "Customizing your digital pen’s shortcut buttons in Windows 11 allows you to quickly launch applications, capture screenshots, or access the Windows Ink Workspace with a single touch. Windows 11 provides built-in settings that let you assign specific ac",
+    false
+  ],
+  [
+    347,
+    "How to Switch Mouse Buttons in Windows 11",
+    "Swapping the primary left and right mouse buttons in Windows 11 is a simple process that makes your computer more comfortable to use, especially if you are left-handed. This guide covers the quickest ways to change your primary mouse button configuration",
+    false
+  ],
+  [
+    346,
+    "Change Mouse Scroll Wheel Speed in Windows 11",
+    "Adjusting how many lines your mouse wheel jumps per scroll in Windows 11 allows you to customize your browsing and reading experience for better speed and control. You can configure this behavior directly through the modern Windows 11 Settings app or the",
+    false
+  ],
+  [
+    345,
+    "Multiple Audio Outputs in Windows 11 via Stereo Mix",
+    "Windows 11 typically limits audio playback to a single device at a time, but you can route system sound to two separate playback devices simultaneously—such as speakers and headphones—without installing third-party software. By enabling and configuri",
+    false
+  ],
+  [
+    344,
+    "How to Fix HDMI and DisplayPort Audio on Windows 11",
+    "HDMI and DisplayPort cables are designed to transmit both high-definition video and multi-channel audio simultaneously, but Windows 11 may occasionally fail to route sound to your external monitor or TV. This issue typically stems from incorrect default",
+    false
+  ],
+  [
+    343,
+    "How to Test 5.1 and 7.1 Surround Sound in Windows 11",
+    "Testing your 5.1 or 7.1 surround sound system in Windows 11 ensures that all your satellite speakers, center channel, and subwoofer are connected properly and mapped to the correct audio channels. This guide provides a direct, step-by-step walkthrough fo",
+    false
+  ],
+  [
+    342,
+    "Set Audio Sample Rate and Bit Depth in Windows 11",
+    "Adjusting the default audio sample rate and bit depth in Windows 11 ensures your headphones, speakers, or DAC operate at optimal audio quality. This guide provides a straightforward, step-by-step walkthrough to configure your output format settings using",
+    false
+  ],
+  [
+    341,
+    "How to Enable Audio Enhancements in Windows 11",
+    "Windows 11 includes built-in audio enhancement features that allow you to significantly improve your listening experience. This guide provides a straightforward walkthrough on how to access and enable settings such as Bass Boost, Loudness Equalization, a",
+    false
+  ],
+  [
+    340,
+    "How to Fix Stereo Audio Balance in Windows 11",
+    "Audio imbalances between the left and right channels can severely disrupt your listening experience on Windows 11. This guide outlines the essential troubleshooting steps to diagnose and resolve stereo balance and channel volume discrepancies, ranging fr",
+    false
+  ],
+  [
+    339,
+    "Configure Windows 11 Spatial Audio for Headsets",
+    "Spatial audio in Windows 11 enhances your gaming experience by creating a 360-degree, three-dimensional soundscape that allows you to pinpoint directional cues like footsteps and gunfire. This guide explains how to enable and configure built-in and third",
+    false
+  ],
+  [
+    338,
+    "How to Adjust Webcam Settings in Windows 11",
+    "Windows 11 includes native camera management tools that allow you to adjust your webcam’s brightness, contrast, and framing directly from the system settings. This built-in utility lets you optimize your video quality for meetings, streaming, and recor",
+    false
+  ],
+  [
+    337,
+    "How to Take Photos and Scan Barcodes in Windows 11",
+    "The built-in Camera app in Windows 11 is a versatile tool that allows users to quickly capture photos, record videos, and scan barcodes or QR codes without needing third-party software. This guide covers how to set up your camera permissions, take photos",
+    false
+  ],
+  [
+    336,
+    "Set Up a Scanner in Windows Fax and Scan Windows 11",
+    "Configuring Windows Fax and Scan to work with a physical scanner on Windows 11 requires properly connecting your hardware, installing the necessary drivers, and adding the device inside the application. This guide provides a straightforward, step-by-step",
+    false
+  ],
+  [
+    335,
+    "How to Enable XPS Document Writer in Windows 11",
+    "The Microsoft XPS Document Writer is a built-in virtual printer in Windows that allows users to create and save .xps or .oxps files from any application capable of printing. While Windows 11 includes this functionality, the feature is often disabled by d",
+    false
+  ],
+  [
+    334,
+    "How to Use Microsoft Print to PDF in Windows 11",
+    "Windows 11 includes a built-in virtual printer called Microsoft Print to PDF, which allows you to convert any printable document, image, or web page into a high-quality PDF file without installing third-party software. This article outlines the step-by-s",
+    false
+  ],
+  [
+    333,
+    "How to Change Default PDF Reader in Windows 11",
+    "By default, Windows 11 opens PDF files using the built-in Microsoft Edge browser. If you prefer a dedicated application like Adobe Acrobat, Foxit Reader, or SumatraPDF, you can easily change this behavior. This guide explains the two most direct methods",
+    false
+  ],
+  [
+    332,
+    "Using Windows 11 Copilot in Edge for Web Summaries",
+    "Microsoft Edge integrates directly with the Windows 11 Copilot sidebar to deliver instant, AI-driven summaries of web pages, articles, and documents. By sharing active browser context with the Copilot AI engine, users can condense long-form content, pull",
+    false
+  ],
+  [
+    331,
+    "How to Configure Sleeping Tabs in Edge on Windows 11",
+    "Microsoft Edge includes a built-in feature called Sleeping Tabs designed to drastically reduce RAM and CPU consumption by putting inactive background tabs into a low-power state. This guide provides a straightforward walkthrough on how to enable, adjust,",
+    false
+  ],
+  [
+    330,
+    "How to Pin Websites as Apps in Edge on Windows 11",
+    "Microsoft Edge in Windows 11 allows you to install any website as an independent desktop application that runs in its own dedicated window without standard browser toolbars or tabs. This guide provides a straightforward, step-by-step walkthrough for turn",
+    false
+  ],
+  [
+    329,
+    "Windows 11 Voice Recorder: Export MP3, M4A, WAV",
+    "The Sound Recorder app in Windows 11 includes native support for multiple audio formats, allowing users to record and export files directly in M4A, MP3, and WAV. By configuring the app’s internal settings, you can define your preferred file format prio",
+    false
+  ],
+  [
+    328,
+    "Manage Alarms and Chimes in Windows 11 Clock",
+    "The Windows 11 Clock app serves as a central hub for time management, allowing users to configure daily alarms, establish recurring schedules, and customize notification tones to stay on track throughout the day. This guide covers how to create and manag",
+    false
+  ],
+  [
+    327,
+    "Windows 11 Clock: World Clock, Timers, and Stopwatch",
+    "The Windows 11 Clock app is a built-in utility designed to help users track time across global locations, manage workflows with customizable timers, and measure duration with a precision stopwatch. Integrated seamlessly into the operating system, the app",
+    false
+  ],
+  [
+    326,
+    "Windows 11 Weather: Interactive Radar and Alerts",
+    "The Windows 11 Weather app delivers real-time weather tracking by combining MSN Weather data with Microsoft Maps technology to provide dynamic radar imagery and automated alerts. By leveraging cloud-based meteorological feeds and native operating system",
+    false
+  ],
+  [
+    325,
+    "How to Convert Units in Windows 11 Calculator",
+    "The built-in Windows 11 Calculator app includes powerful conversion tools that extend far beyond standard arithmetic. This guide explains how to access these built-in converters to quickly change between different units of currency, volume, and temperatu",
+    false
+  ],
+  [
+    324,
+    "Windows 11 Calculator: Scientific, Programmer & Graphing",
+    "The Windows 11 Calculator is a versatile built-in utility that goes far beyond basic arithmetic to support specialized computational tasks. This article explores how the application accommodates advanced users through its dedicated Scientific, Programmer",
+    false
+  ],
+  [
+    323,
+    "Find Unicode Symbols with Windows 11 Character Map",
+    "The Windows 11 Character Map is a built-in utility that allows you to locate, view, and copy thousands of special characters, foreign letters, and uncommon Unicode symbols that do not appear on standard keyboards. This guide provides a direct walkthrough",
+    false
+  ],
+  [
+    322,
+    "How to Enable Subtitles and Captions in Windows 11",
+    "Windows 11 includes powerful built-in accessibility features that allow you to display system-wide live captions for any audio or video playback, as well as customize the visual appearance of your closed captions. This guide explains how to quickly turn",
+    false
+  ],
+  [
+    321,
+    "Customize Text Cursor Thickness and Color in Windows 11",
+    "Windows 11 includes built-in accessibility features that make the text cursor easier to see and track across various applications. Users can customize the blinking cursor's thickness as well as enable a colored visual indicator with adjustable sizing and",
+    false
+  ],
+  [
+    320,
+    "Change Mouse Pointer Size, Color & Trails in Windows 11",
+    "Customizing your mouse cursor in Windows 11 can significantly improve visibility, reduce eye strain, and add personal flair to your workspace. This guide explains how to adjust your mouse pointer's size and color using the Windows 11 Accessibility settin",
+    false
+  ],
+  [
+    319,
+    "How to Turn On Magnifier in Windows 11",
+    "The Windows 11 Magnifier tool is a built-in accessibility feature that enlarges part or all of your screen to improve visibility. This guide provides the fastest ways to activate and control the Magnifier using keyboard shortcuts, the Windows Settings me",
+    false
+  ],
+  [
+    318,
+    "Configure Sticky, Filter, and Toggle Keys in Windows 11",
+    "Windows 11 includes built-in accessibility features designed to assist users who have difficulty pressing multiple keys simultaneously, holding down keys, or tracking lock states. This guide explains how to access, enable, and customize Sticky Keys, Filt",
+    false
+  ],
+  [
+    317,
+    "How to Disable Windows 11 Lock Screen Tips",
+    "Windows 11 frequently displays trivia, advertisements, tips, and search suggestions on the lock screen. This guide provides a straightforward method to disable these lock screen tips and fun facts using the built-in Windows Settings menu, allowing you to",
+    false
+  ],
+  [
+    316,
+    "Disable Finish Setting Up Your Device in Windows 11",
+    "Windows 11 frequently interrupts the startup experience with a full-screen prompt asking to \"Finish setting up your device.\" This screen typically encourages users to enable Microsoft services like OneDrive, Microsoft 365, Phone Link, or Windows Hello. T",
+    false
+  ],
+  [
+    315,
+    "Disable Promotional App Suggestions in Windows 11",
+    "Windows 11 includes several built-in promotional elements, including recommended apps in the Start menu, suggested content within the Settings app, and periodic tips across the operating system. This guide provides direct, step-by-step instructions to tu",
+    false
+  ],
+  [
+    314,
+    "How to Disable Web Search in Windows 11 Search Bar",
+    "Windows 11 integrates Bing-powered web results directly into the taskbar search menu, which can clutter your search interface and slow down navigation to local files and installed applications. This guide provides step-by-step instructions to completely",
+    false
+  ],
+  [
+    313,
+    "Disable Windows 11 Copilot via GPO or Registry",
+    "Microsoft Copilot is an AI-powered assistant integrated directly into Windows 11. While it provides quick access to AI features, many users and system administrators prefer to remove it to save system resources, reduce interface clutter, or comply with p",
+    false
+  ],
+  [
+    312,
+    "Windows 11 Privacy Indicator Dots Explained",
+    "Windows 11 features built-in visual privacy indicators designed to alert users whenever an application accesses their microphone or camera. This article explains how these indicators function on the taskbar, how to identify which apps are actively using",
+    false
+  ],
+  [
+    311,
+    "Audit Camera and Microphone Access in Windows 11",
+    "Windows 11 includes built-in privacy auditing features that log exactly when desktop programs and Store apps access your microphone or webcam. This guide explains how to check the recent activity history for both devices, identify real-time access throug",
+    false
+  ],
+  [
+    310,
+    "Limit App Diagnostic Permissions in Windows 11",
+    "Windows 11 allows certain applications to access diagnostic information about other running programs to troubleshoot issues and monitor performance. However, sharing this data can raise privacy concerns. This guide explains how to configure Windows 11 pr",
+    false
+  ],
+  [
+    309,
+    "How to Remotely Lock or Wipe a Windows 11 PC",
+    "Losing a Windows 11 laptop or tablet puts your personal data at serious risk, but Microsoft offers built-in tools to secure your system from anywhere. By signing into your Microsoft account on another device, you can track the physical location, remotely",
+    false
+  ],
+  [
+    308,
+    "How to Enable Find My Device on Windows 11",
+    "The \"Find My Device\" feature in Windows 11 allows you to track the physical location of your laptop if it is ever lost or stolen. By connecting your device's location to your Microsoft account, Windows periodically saves your laptop's coordinates so you",
+    false
+  ],
+  [
+    307,
+    "How to Clear Location History on Windows 11",
+    "Windows 11 tracks and stores your physical location to provide relevant features for apps like Maps, Weather, and web browsers. This guide explains how to quickly clear your stored location history directly from your Windows 11 Settings, helping you main",
+    false
+  ],
+  [
+    306,
+    "Windows 11 Location Tracking and Geofencing",
+    "Windows 11 utilizes a multi-layered approach to pinpoint your device's physical position, combining hardware sensors and network data to power location-aware applications. This article provides a comprehensive overview of how Windows 11 determines physic",
+    false
+  ],
+  [
+    305,
+    "How to Configure Windows 11 Remote Assistance",
+    "Windows 11 includes a native Remote Assistance feature (MSRA) that allows a trusted user to take control of or view your PC over the internet or a local network to help troubleshoot technical issues. This guide provides a straightforward walkthrough on h",
+    false
+  ],
+  [
+    304,
+    "Passwordless SSH Authentication on Windows 11",
+    "Setting up SSH keys for passwordless authentication on Windows 11 allows you to securely access remote servers without entering a password on every connection. This guide walks you through generating a secure cryptographic key pair using the native OpenS",
+    false
+  ],
+  [
+    303,
+    "SSH to a Headless Server in Windows 11 Terminal",
+    "This guide explains how to connect to a headless server remotely using the built-in OpenSSH client within Windows 11 Terminal. Windows 11 includes native OpenSSH support, eliminating the need for third-party software like PuTTY. By using standard command",
+    false
+  ],
+  [
+    302,
+    "Install OpenSSH Server and Client on Windows 11",
+    "This guide provides a straightforward walkthrough for installing and configuring both the OpenSSH Client and OpenSSH Server components on Windows 11. Whether you prefer using the graphical Windows Settings interface or fast command-line execution via Pow",
+    false
+  ],
+  [
+    301,
+    "Enable WSL via Optional Features in Windows 11",
+    "The Windows Subsystem for Linux (WSL) allows developers and power users to run a GNU/Linux environment directly on Windows 11 without the overhead of a traditional virtual machine or dual-boot setup. This guide provides a straightforward, step-by-step wa",
+    false
+  ],
+  [
+    300,
+    "How to Enable Telnet and TFTP in Windows 11",
+    "This guide provides straightforward instructions for enabling the built-in Telnet and TFTP (Trivial File Transfer Protocol) client utilities in Windows 11. While both tools are disabled by default for security purposes, you can quickly activate them usin",
+    false
+  ],
+  [
+    299,
+    "How to Edit the Hosts File in Windows 11",
+    "Modifying the Windows 11 hosts file allows you to manually override DNS settings by mapping domain names directly to specific IP addresses on your local machine. This process is essential for web developers testing sites locally, setting up custom local",
+    false
+  ],
+  [
+    298,
+    "Limit Bandwidth for Windows 11 Updates",
+    "Windows 11 automatically downloads system updates in the background and foreground, which can consume significant network bandwidth and slow down your internet connection. Fortunately, the operating system includes built-in Delivery Optimization settings",
+    false
+  ],
+  [
+    297,
+    "Disable Delivery Optimization in Windows 11",
+    "Windows 11 includes a feature called Delivery Optimization that uses peer-to-peer networking to upload update files to other computers over the internet. This article provides straightforward, step-by-step instructions on how to configure your settings t",
+    false
+  ],
+  [
+    296,
+    "How to Diagnose Slow Download Speed on Windows 11",
+    "Slow download speeds on Windows 11 can stem from network congestion, outdated drivers, bandwidth-hogging background applications, or misconfigured system settings. This guide outlines a step-by-step process to diagnose the root cause of your slow interne",
+    false
+  ],
+  [
+    295,
+    "Create Wi-Fi Hotspot via Command Line in Windows 11",
+    "Setting up a command-line Wi-Fi hotspot in Windows 11 allows you to share your internet connection with other devices without navigating through the graphical user interface. This guide provides a clear, step-by-step walkthrough to check your wireless ad",
+    false
+  ],
+  [
+    294,
+    "Check Wi-Fi Speed and Signal Strength in Windows 11",
+    "Windows 11 provides several built-in tools to inspect your wireless network connection without requiring third-party software. This guide demonstrates how to check critical Wi-Fi metrics—including receive and transmit link speeds, signal strength perce",
+    false
+  ],
+  [
+    293,
+    "Windows 11 Wi-Fi 6E and Wi-Fi 7 6 GHz Support",
+    "Windows 11 provides native operating system support for the 6 GHz frequency band, unlocking the full performance potential of Wi-Fi 6E and the newer Wi-Fi 7 standards. By integrating modern network drivers, advanced wireless management protocols, and man",
+    false
+  ],
+  [
+    292,
+    "Configure Thunderbolt and USB4 Security in Windows 11",
+    "PCIe tunneling over Thunderbolt and USB4 allows high-speed external devices like external GPUs, high-performance storage, and docks to communicate directly with your system's memory. While this unlocks peak performance, it also introduces security risks",
+    false
+  ],
+  [
+    291,
+    "Fix USB Device Not Recognized on Windows 11",
+    "When Windows 11 fails to recognize a USB device, the issue typically stems from hardware connection faults, outdated drivers, incorrect power settings, or system glitches. This troubleshooting guide walks you through clear, sequential steps to diagnose a",
+    false
+  ],
+  [
+    290,
+    "Configure USB Selective Suspend on Windows 11",
+    "The USB selective suspend feature in Windows 11 allows the operating system to save power by placing individual USB ports into a low-power state when they are idle. While this helps conserve battery life on laptops, it can sometimes cause connected perip",
+    false
+  ],
+  [
+    289,
+    "Stop Windows 11 From Sleeping External USB Drives",
+    "Windows 11 frequently suspends power to external USB storage devices to conserve energy, which can cause annoying delays, unexpected disconnections, or data transfer interruptions. This guide provides quick, step-by-step instructions to stop Windows 11 f",
+    false
+  ],
+  [
+    288,
+    "How to Change Sleep and Screen Timeout on Windows 11",
+    "This guide explains how to configure screen timeouts, standard sleep intervals, and advanced unattended sleep timeouts in Windows 11. Customizing these settings ensures your system manages power efficiently based on whether you are actively using the dev",
+    false
+  ],
+  [
+    287,
+    "How to Configure Dynamic Lock in Windows 11",
+    "Dynamic Lock is a built-in Windows 11 security feature that uses Bluetooth signal strength to detect when you step away from your PC with your smartphone, automatically locking your computer to prevent unauthorized access. This guide provides clear, step",
+    false
+  ],
+  [
+    286,
+    "How to Set Up Windows 11 Kiosk Mode",
+    "Windows 11 Kiosk Mode, powered by Assigned Access, restricts a computer to a single application or a specific set of applications to create a secure, dedicated environment for public use, such as digital signage, interactive displays, or point-of-sale sy",
+    false
+  ],
+  [
+    285,
+    "Remove Work or School Account on Windows 11",
+    "Connecting a work or school account to a personal Windows 11 PC often applies organization-wide security policies, mobile device management (MDM) profiles, and linked credentials that can interfere with personal use. This guide walks you through the comp",
+    false
+  ],
+  [
+    284,
+    "Manage Microsoft Subscriptions in Windows 11",
+    "Windows 11 allows you to centralize account management directly through its native interface. This guide explains how to view, manage, and modify your linked Microsoft services, cloud storage quotas, and active subscriptions—such as Microsoft 365 and X",
+    false
+  ],
+  [
+    283,
+    "Restore Windows 11 Cloud Backup During Initial Setup",
+    "Restoring your cloud backup during the initial setup of a new Windows 11 computer allows you to seamlessly transfer your desktop preferences, settings, credentials, and pinned applications from an old device. By signing in with your Microsoft account dur",
+    false
+  ],
+  [
+    282,
+    "How Windows 11 Backup Syncs Settings and Apps",
+    "The Windows Backup app in Windows 11 provides a centralized solution for creating a digital snapshot of your personal computing environment and syncing it across devices. By integrating your Microsoft Account (MSA) or Entra ID with OneDrive and Microsoft",
+    false
+  ],
+  [
+    281,
+    "Windows 11 File History Backup Frequency and Retention",
+    "Windows 11 includes the File History utility to continuously safeguard personal files by saving previous versions to an external storage drive or local network location. This guide provides step-by-step instructions on accessing advanced configuration op",
+    false
+  ],
+  [
+    280,
+    "How File History Backs Up Files in Windows 11",
+    "File History in Windows 11 is a built-in backup feature that automatically creates point-in-time copies of your personal files to an external storage drive. By monitoring designated folders for changes, it saves updated versions of your documents, photos",
+    false
+  ],
+  [
+    279,
+    "How to Restore Windows 11 from a System Image",
+    "Restoring Windows 11 from a system image allows you to revert your entire computer—including the operating system, installed programs, drivers, system settings, and personal files—to an exact point in time. This guide outlines the straightforward, st",
+    false
+  ],
+  [
+    278,
+    "Create a System Image Backup in Windows 11",
+    "Creating a full-system image backup in Windows 11 allows you to capture an exact snapshot of your entire operating system, including your settings, installed applications, system files, and personal data. This guide walks you through using the native leg",
+    false
+  ],
+  [
+    277,
+    "Stop Windows 11 from Automatically Updating Drivers",
+    "Windows 11 frequently bundles hardware driver updates with regular system updates, which can occasionally overwrite stable, manufacturer-specific, or custom drivers with generic alternatives. This guide provides clear, step-by-step instructions to preven",
+    false
+  ],
+  [
+    276,
+    "Disable Driver Signature Enforcement in Windows 11",
+    "Driver Signature Enforcement is a Windows 11 security feature that prevents the installation of unsigned or custom drivers that could compromise system integrity. However, developers and advanced users often need to install custom or legacy drivers for s",
+    false
+  ],
+  [
+    275,
+    "How to Roll Back a Driver in Windows 11",
+    "If a recent driver update is causing hardware malfunctions, system instability, or performance issues on your Windows 11 PC, restoring the previous working version is often the quickest fix. This guide provides a straightforward, step-by-step walkthrough",
+    false
+  ],
+  [
+    274,
+    "How to Manage Device Drivers in Windows 11",
+    "Device drivers are essential software components that allow Windows 11 to communicate effectively with hardware components like graphics cards, network adapters, and external peripherals. Managing these drivers ensures your system remains stable, secure,",
+    false
+  ],
+  [
+    273,
+    "How to Clean Install GPU Drivers Using DDU on Windows 11",
+    "Performing a clean installation of your graphics card drivers using Display Driver Uninstaller (DDU) removes corrupted files, legacy registry entries, and conflicting driver profiles that standard uninstallers leave behind. This guide provides a straight",
+    false
+  ],
+  [
+    272,
+    "How to Fix Windows 11 Audio Crackling and Latency",
+    "Audio crackling, popping, and latency on Windows 11 are common issues typically triggered by driver conflicts, improper sample rates, aggressive power-saving settings, or high Deferred Procedure Call (DPC) latency. This troubleshooting guide provides cle",
+    false
+  ],
+  [
+    271,
+    "Run Windows Update Troubleshooter in Windows 11",
+    "Windows 11 updates can occasionally fail, leaving your system stuck with cryptic error codes that block critical security patches and feature releases. This guide explains how to access and run the built-in Windows Update Troubleshooter in Windows 11 to",
+    false
+  ],
+  [
+    270,
+    "How to Clear Windows Update Cache in Windows 11",
+    "When Windows 11 updates become stuck, fail to download, or return error codes, corrupted temporary update files are usually the cause. Clearing the Windows Update cache deletes these damaged installation files and forces Windows to download fresh copies",
+    false
+  ],
+  [
+    269,
+    "How to Adjust Virtual Memory in Windows 11",
+    "Virtual memory acts as a secondary storage mechanism when your computer runs low on physical RAM, temporarily storing paging files on your hard drive or SSD. While Windows 11 manages this allocation automatically by default, setting it manually can help",
+    false
+  ],
+  [
+    268,
+    "What Is Auto Super Resolution on Windows 11 ARM?",
+    "Auto Super Resolution (Auto SR) is an AI-powered feature integrated into Windows 11 for ARM-based Copilot+ PCs that enhances gaming performance by intelligently upscaling graphics in real time. This article explores how Auto SR functions, how it utilizes",
+    false
+  ],
+  [
+    267,
+    "Windows 11 Windowed Game Optimizations Explained",
+    "Windows 11 introduces a dedicated graphics feature called \"Optimizations for windowed games\" that bridges the performance gap between exclusive fullscreen and windowed modes. Traditionally, running games in borderless or standard windowed mode introduced",
+    false
+  ],
+  [
+    266,
+    "How to Enable VRR, G-Sync, and FreeSync in Windows 11",
+    "Variable Refresh Rate (VRR) synchronizes your monitor's refresh rate with your graphics card's frame output to eliminate screen tearing and minimize stuttering. This guide explains how to enable and configure VRR, NVIDIA G-Sync, and AMD FreeSync in Windo",
+    false
+  ],
+  [
+    265,
+    "Map Controller to Mouse and Keyboard in Windows 11",
+    "Mapping a game controller to emulate mouse and keyboard inputs allows you to navigate Windows 11, manage desktop applications, and play non-controller-supported PC games entirely from a gamepad. Windows 11 supports native controller configuration through",
+    false
+  ],
+  [
+    264,
+    "How to Record Clips with Xbox Game Bar on Windows 11",
+    "Windows 11 includes the Xbox Game Bar, a built-in feature that lets you capture active gameplay, take screenshots, and save background footage without third-party software. This guide explains how to enable capture settings, record active gameplay, and u",
+    false
+  ],
+  [
+    263,
+    "How to Record Steps for Bug Reports in Windows 11",
+    "Recording the exact steps to reproduce a software bug provides developers and IT support with the precise context needed to resolve issues quickly. While the classic Steps Recorder (PSR) tool has long been a staple in Windows, Microsoft is phasing it out",
+    false
+  ],
+  [
+    262,
+    "Where Are Screenshots Saved in Windows 11?",
+    "In Windows 11, the default storage location for screenshots depends directly on the method or keyboard shortcut used to capture your screen. While the standard shortcut automatically saves images to a dedicated folder inside your user profile's Pictures",
+    false
+  ],
+  [
+    261,
+    "How to Auto-Save Full Screenshots in Windows 11",
+    "Capturing your entire display and saving it immediately to your computer in Windows 11 can be done in a single step using a built-in keyboard shortcut. This method bypasses the need to open an image editor or manually paste the capture from your clipboar",
+    false
+  ],
+  [
+    260,
+    "How Win + Shift + S Opens Snipping Tool in Windows 11",
+    "Pressing Win + Shift + S in Windows 11 triggers a global system hotkey that launches a dedicated background process called ScreenClippingHost.exe, taking a static snapshot of your display buffer and rendering an interactive screen overlay with the region",
+    false
+  ],
+  [
+    259,
+    "Cast Screen in Windows 11 with Win + K",
+    "The Win + K keyboard shortcut in Windows 11 is a dedicated hotkey designed to initiate the operating system's native wireless display streaming feature. By pressing this combination, Windows instantly launches the \"Cast\" flyout menu from the Quick Settin",
+    false
+  ],
+  [
+    258,
+    "How Win + H Triggers Windows 11 Voice Typing",
+    "The Win + H keyboard shortcut in Windows 11 instantly launches the native Voice Typing dictation bar, allowing users to transcribe speech into text across any input field. This article explains the underlying mechanism of how the operating system detects",
+    false
+  ],
+  [
+    257,
+    "How Win + N Opens Windows 11 Notifications and Calendar",
+    "The Windows Key + N (Win + N) shortcut in Windows 11 is a dedicated global hotkey designed to instantly open the combined Notification Center and calendar flyout. In Windows 11, Microsoft separated quick system toggles from notifications, assigning Win +",
+    false
+  ],
+  [
+    256,
+    "How Win + A Opens Windows 11 Quick Settings",
+    "The Win + A keyboard shortcut in Windows 11 is a global hotkey designed to instantly open the Quick Settings panel from anywhere in the operating system. This article explains the mechanism behind this shortcut, detailing how the operating system detects",
+    false
+  ],
+  [
+    255,
+    "Windows 11 Win + W Shortcut: Open and Navigate Widgets",
+    "The Win + W keyboard shortcut in Windows 11 provides instant access to the Widgets board, a dedicated flyout panel featuring personalized news, weather, calendar events, traffic updates, and system metrics. This guide explains how to trigger the Widgets",
+    false
+  ],
+  [
+    254,
+    "How to Use Win + Z for Snap Layouts in Windows 11",
+    "The Win + Z keyboard shortcut in Windows 11 provides a fast, mouse-free method to organize open application windows on your screen. By pressing this key combination, Windows triggers the Snap Layouts menu, overlaying numbered zones directly onto the scre",
+    false
+  ],
+  [
+    253,
+    "Essential Windows 11 Global Keyboard Shortcuts",
+    "Windows 11 includes numerous built-in global keyboard shortcuts designed to accelerate navigation, simplify window management, and streamline multitasking from anywhere in the operating system. Mastering these essential commands allows you to perform com",
+    false
+  ],
+  [
+    252,
+    "Create Custom App Shortcuts in Windows 11",
+    "Assigning custom keyboard shortcuts to your favorite applications in Windows 11 is an efficient way to streamline your workflow and launch software instantly without using a mouse. This built-in feature uses traditional desktop shortcuts to bind global h",
+    false
+  ],
+  [
+    251,
+    "How to Flash Screen for Audio Alerts in Windows 11",
+    "Windows 11 includes built-in accessibility features designed to provide visual alternatives to standard audio notifications. This guide explains how to enable and customize the screen flashing feature, allowing you to flash the title bar, the active wind",
+    false
+  ],
+  [
+    250,
+    "How to Enable Mono Audio in Windows 11",
+    "This guide explains how to enable mono audio in Windows 11 to improve listening accessibility. By default, Windows outputs stereo sound, which separates audio into distinct left and right channels. Turning on mono audio combines both channels into a sing",
+    false
+  ],
+  [
+    249,
+    "How to Calibrate ClearType in Windows 11",
+    "ClearType is a built-in Windows utility designed to make on-screen text appear sharper, smoother, and easier to read on flat-panel monitors. This guide provides a straightforward, step-by-step walkthrough on how to open the ClearType Text Tuner in Window",
+    false
+  ],
+  [
+    248,
+    "Override High DPI Scaling for Apps in Windows 11",
+    "Legacy Win32 desktop applications often suffer from blurry text, tiny interface elements, or improper sizing on modern high-resolution displays in Windows 11. This issue occurs when older software cannot natively interpret modern high-DPI display scaling",
+    false
+  ],
+  [
+    247,
+    "Windows 11 DPI Scaling on Mixed Monitors",
+    "Windows 11 manages mixed-resolution and varying-density multi-monitor setups by utilizing independent display scaling, modernized Per-Monitor DPI awareness, and dynamic Desktop Window Manager (DWM) rendering. This allows the operating system to automatic",
+    false
+  ],
+  [
+    246,
+    "How to Clear and Pin Clipboard in Windows 11",
+    "The Windows 11 Clipboard History tool allows you to store multiple copied items, including text, links, and images, for easy access. This guide explains how to enable and open the clipboard interface, pin frequently used snippets so they stay saved even",
+    false
+  ],
+  [
+    245,
+    "How to Sync Clipboard Across Windows 11 PCs",
+    "Windows 11 includes a built-in cloud clipboard feature that allows you to copy text and images on one computer and seamlessly paste them onto another. By enabling this setting on all your devices connected to the same Microsoft account, you can streamlin",
+    false
+  ],
+  [
+    244,
+    "How Windows 11 Clipboard History Stores Copied Items",
+    "Windows 11 includes a built-in Clipboard History tool that allows users to copy, store, and access multiple items—such as text, rich formatting, and images—rather than only keeping the most recently copied item. This article explains how the feature",
+    false
+  ],
+  [
+    243,
+    "How to Insert Symbols and GIFs in Windows 11",
+    "The Windows 11 Emoji Panel is a built-in tool that allows you to quickly insert standard emojis, animated GIFs, kaomoji, and special characters into any text field. By using a simple keyboard shortcut, you can access an extensive library of symbols and m",
+    false
+  ],
+  [
+    242,
+    "Windows 11 Touch Keyboard CJK IME Support Guide",
+    "The Windows 11 touch keyboard provides integrated Input Method Editor (IME) support for East Asian languages, enabling seamless typing in Japanese, Simplified and Traditional Chinese, and Korean. This article explains how Windows 11 adapts its on-screen",
+    false
+  ],
+  [
+    241,
+    "How to Switch Keyboard Language in Windows 11",
+    "Switching keyboard input languages in Windows 11 allows you to seamlessly change typing layouts without interrupting your workflow. Windows 11 provides several built-in shortcuts to toggle between languages on the fly, including the Windows Key + Spaceba",
+    false
+  ],
+  [
+    240,
+    "Install Language Packs and Keyboards in Windows 11",
+    "This guide explains how to install and configure multiple display language packs and keyboard layouts in Windows 11. You will learn the exact steps required to download new system languages, change the user interface display language, assign different ke",
+    false
+  ],
+  [
+    239,
+    "Voice Recorder vs Sound Recorder in Windows 11",
+    "In Windows 11, Microsoft replaced the legacy Voice Recorder app with a redesigned and modernized Sound Recorder. While both applications serve the primary function of capturing audio from your microphone, Sound Recorder introduces a substantial overhaul",
+    false
+  ],
+  [
+    238,
+    "Rip CDs and Convert Audio in Windows 11 Media Player",
+    "The modern Windows 11 Media Player includes built-in tools to digitize physical audio CDs and save tracks directly to your PC. This guide explains how to rip audio discs into digital formats such as MP3 and FLAC, adjust audio quality settings, and unders",
+    false
+  ],
+  [
+    237,
+    "Windows 11 Media Player vs Legacy Windows Media Player",
+    "Windows 11 introduced a completely redesigned Media Player app built to unify music and video playback with the modern design language of the operating system. While it replaces the older Groove Music and Movies & TV apps, the legacy Windows Media Player",
+    false
+  ],
+  [
+    236,
+    "Change Default PDF and Media Player in Windows 11",
+    "Configuring your default applications in Windows 11 ensures that your preferred software automatically opens specific document and media formats. This guide provides a direct, step-by-step walkthrough for setting your default PDF reader and media player",
+    false
+  ],
+  [
+    235,
+    "How to Remove Bloatware from Windows 11",
+    "New Windows 11 installations often come pre-loaded with unnecessary third-party applications, trial software, and sponsored shortcuts commonly known as bloatware. This guide covers the most effective methods to identify and completely remove these unwant",
+    false
+  ],
+  [
+    234,
+    "How to Disable Bing Search in Windows 11",
+    "Windows 11 integrates Bing search results directly into the Start menu by default, which can slow down local file queries and clutter your search interface with unwanted web suggestions. This guide provides clear, step-by-step instructions to turn off Bi",
+    false
+  ],
+  [
+    233,
+    "Disable Windows 11 Telemetry via Group Policy",
+    "Windows 11 collects diagnostic and usage telemetry by default to help Microsoft monitor performance, troubleshoot bugs, and deliver targeted updates. For users concerned with privacy and network bandwidth, the Local Group Policy Editor provides a central",
+    false
+  ],
+  [
+    232,
+    "Windows 11 Hypervisor-Protected Code Integrity",
+    "Windows 11 protects its core operating system through Hypervisor-Protected Code Integrity (HVCI), also known as Memory Integrity. By leveraging hardware virtualization, Windows creates an isolated, highly secure environment that restricts the OS kernel f",
+    false
+  ],
+  [
+    231,
+    "How Windows 11 Credential Guard Prevents Theft",
+    "Windows 11 protects system secrets by using Credential Guard, a security feature that isolates sensitive authentication data using hardware virtualization. By separating credentials such as NTLM hashes, Kerberos tickets, and domain credentials from the s",
+    false
+  ],
+  [
+    230,
+    "Microsoft Pluton Security Processor in Windows 11",
+    "The Microsoft Pluton security processor is a chip-to-cloud security technology built directly into the central processing unit (CPU) of modern Windows 11 devices. Designed by Microsoft in collaboration with major silicon partners like AMD, Intel, and Qua",
+    false
+  ],
+  [
+    229,
+    "How to Update Motherboard BIOS for Windows 11",
+    "Updating your motherboard’s UEFI/BIOS firmware is a critical step to ensure optimal stability, security, and hardware compatibility on Windows 11. Newer BIOS versions address system crashes, improve memory compatibility, and pre-configure essential Win",
+    false
+  ],
+  [
+    228,
+    "How to Check if BIOS is in UEFI Mode for Windows 11",
+    "Windows 11 requires a modern Unified Extensible Firmware Interface (UEFI) rather than a legacy BIOS to meet security baselines such as Secure Boot. This guide explains how to quickly verify if your current motherboard configuration is running in UEFI mod",
+    false
+  ],
+  [
+    227,
+    "How to Convert MBR to GPT Without Data Loss for Windows 11",
+    "Upgrading to Windows 11 requires a modern UEFI boot environment, which relies on the GUID Partition Table (GPT) rather than the older Master Boot Record (MBR) partition scheme. This guide explains how to use Microsoft's built-in MBR2GPT command-line tool",
+    false
+  ],
+  [
+    226,
+    "How to Clone Windows 11 to a Faster NVMe SSD",
+    "Upgrading your storage to a high-speed NVMe solid-state drive is one of the most effective ways to boost overall PC responsiveness, boot times, and file transfer speeds. This guide provides a direct, step-by-step walkthrough for cloning an existing Windo",
+    false
+  ],
+  [
+    225,
+    "Repair Windows 11 Bootloader with Command Prompt",
+    "A corrupted Windows 11 bootloader prevents your operating system from starting, frequently causing blue screen errors, infinite boot loops, or \"No bootable device found\" messages. This step-by-step guide explains how to access the Windows Recovery Enviro",
+    false
+  ],
+  [
+    224,
+    "How Windows 11 BCD Manages Multiple OS Entries",
+    "The Windows 11 Boot Configuration Data (BCD) is a firmware-independent database that manages the boot environment and controls how the computer starts. When configuring a multi-boot system—such as dual-booting multiple versions of Windows or combining",
+    false
+  ],
+  [
+    223,
+    "How to Dual Boot Windows 11 and Linux",
+    "Configuring a dual-boot system allows you to run Windows 11 and a Linux distribution on the same machine, giving you the flexibility to choose your operating system at startup. This guide covers the essential steps to prepare your hardware, partition you",
+    false
+  ],
+  [
+    222,
+    "Why Windows 11 Fast Startup Breaks Linux Dual-Boot",
+    "Fast Startup in Windows 11 is designed to reduce boot times, but it frequently causes drive-mounting failures, data corruption, and bootloader conflicts on dual-boot systems running Linux. This issue occurs because Fast Startup does not perform a complet",
+    false
+  ],
+  [
+    221,
+    "How to Enable or Disable Fast Startup in Windows 11",
+    "Fast Startup in Windows 11 is a built-in power feature designed to reduce boot times by saving the operating system state to a hibernation file during shutdown. This article provides a straightforward, step-by-step guide on how to enable or disable Fast",
+    false
+  ],
+  [
+    220,
+    "How Windows 11 Uses TRIM to Optimize SSDs",
+    "Solid-state drives (SSDs) require proactive management to prevent write-performance degradation over time, which Windows 11 achieves by automatically sending TRIM commands to the drive controller. Through a combination of real-time file system notificati",
+    false
+  ],
+  [
+    219,
+    "How to Optimize and Defrag Drives in Windows 11",
+    "Maintaining storage drives in Windows 11 improves system performance, speeds up file access, and extends hardware lifespan. While mechanical hard disk drives (HDDs) require traditional defragmentation to consolidate split files, solid-state drives (SSDs)",
+    false
+  ],
+  [
+    218,
+    "How to Use Windows Memory Diagnostic in Windows 11",
+    "Faulty or failing RAM can lead to frequent crashes, unexpected system freezes, and Blue Screen of Death (BSOD) errors on your PC. Windows 11 includes a built-in utility called Windows Memory Diagnostic that allows you to easily scan your physical memory",
+    false
+  ],
+  [
+    217,
+    "How to View System Errors in Windows 11 Event Viewer",
+    "This guide provides a straightforward walkthrough on how to find, filter, and inspect system error events using the built-in Windows 11 Event Viewer. Learning to navigate this tool allows you to identify underlying hardware faults, driver crashes, and op",
+    false
+  ],
+  [
+    216,
+    "View Windows 11 Crash Logs Using Reliability Monitor",
+    "This guide explains how to use the built-in Windows 11 Reliability Monitor to identify, view, and analyze detailed application crash logs. Windows 11 automatically tracks hardware and software stability events, presenting them in a user-friendly timeline",
+    false
+  ],
+  [
+    215,
+    "How to Open and Use Windows 11 Resource Monitor",
+    "This guide covers how to quickly launch and effectively interpret the built-in Resource Monitor utility in Windows 11. Resource Monitor provides real-time, in-depth telemetry on your system’s hardware usage—specifically tracking CPU, Memory, Disk, an",
+    false
+  ],
+  [
+    214,
+    "How to Track Hardware Bottlenecks in Windows 11",
+    "Windows 11 includes a powerful built-in tool called Performance Monitor (PerfMon) that allows you to capture and analyze system resource usage over extended periods. This guide explains how to set up custom Data Collector Sets in Performance Monitor to l",
+    false
+  ],
+  [
+    213,
+    "How to Encrypt Folders Using EFS in Windows 11",
+    "The Encrypting File System (EFS) is a built-in Windows feature that allows you to encrypt individual files and folders on NTFS drives to protect sensitive data from unauthorized access. This guide walks you through the step-by-step process of enabling EF",
+    false
+  ],
+  [
+    212,
+    "Change File and Folder Ownership in Windows 11 NTFS",
+    "This guide explains how to take ownership and assign access permissions for files and folders formatted with the NTFS file system in Windows 11. Managing NTFS ownership allows administrators and users to regain control over locked, inaccessible, or legac",
+    false
+  ],
+  [
+    211,
+    "How to Adjust UAC Settings in Windows 11",
+    "User Account Control (UAC) in Windows 11 is an essential security feature designed to prevent unauthorized system modifications by software and standard users. This guide explains how to access the User Account Control settings window, adjust the slider",
+    false
+  ],
+  [
+    210,
+    "How UAC Protects System Configurations in Windows 11",
+    "User Account Control (UAC) is a foundational security component in Windows 11 designed to prevent unauthorized changes to the operating system. By ensuring that applications and users run in standard privilege modes by default, UAC acts as a gatekeeper t",
+    false
+  ],
+  [
+    209,
+    "How to Change User Account Type in Windows 11",
+    "Managing user permissions in Windows 11 ensures that users have the appropriate level of access to system files, settings, and installed applications. A Standard account prevents unauthorized system-level changes and malware execution, while an Administr",
+    false
+  ],
+  [
+    208,
+    "How to Set Up a Guest Account on Windows 11",
+    "Setting up guest access on a shared Windows 11 computer allows temporary visitors to browse the web and run basic applications without gaining access to your private files, installed software settings, or system configurations. While Windows 11 no longer",
+    false
+  ],
+  [
+    207,
+    "Manage Family Safety and Screen Time on Windows 11",
+    "Managing screen time and content restrictions on Windows 11 is essential for maintaining healthy digital habits and ensuring online safety for children. Microsoft Family Safety provides a centralized dashboard where parents can connect family accounts, e",
+    false
+  ],
+  [
+    206,
+    "Switch Microsoft Account to Local Account Windows 11",
+    "Switching from a Microsoft account to a local user account in Windows 11 allows you to log in offline, avoid cloud synchronization, and enhance your privacy. This guide outlines the exact steps needed to convert your existing profile into an offline loca",
+    false
+  ],
+  [
+    205,
+    "How to Set Up Windows 11 with a Local Account",
+    "Setting up Windows 11 typically requires signing in with an active Microsoft account, but you can bypass this requirement to create a traditional, offline local user account instead. This guide provides the exact steps needed to bypass the mandatory inte",
+    false
+  ],
+  [
+    204,
+    "Disable Windows 11 Lock Screen Ads and Tips",
+    "Windows 11 displays dynamic tips, fun facts, and promotional content on your lock screen by default. This guide provides step-by-step instructions to turn off these unwanted lock screen advertisements and recommendations using the built-in Windows Settin",
+    false
+  ],
+  [
+    203,
+    "How to Enable Windows Spotlight in Windows 11",
+    "Windows Spotlight automatically refreshes your desktop background with high-quality global photography curated by Microsoft every day. This guide provides a straightforward, step-by-step walkthrough to turn on the Windows Spotlight feature on your Window",
+    false
+  ],
+  [
+    202,
+    "How to Customize Lock Screen in Windows 11",
+    "Customizing the Windows 11 lock screen allows you to personalize your PC's appearance and view essential information at a glance before logging in. This guide explains how to change your lock screen wallpaper using personal pictures, slideshows, or dynam",
+    false
+  ],
+  [
+    201,
+    "Troubleshoot Network Adapter in Windows 11",
+    "Network adapter issues can disrupt your internet connection, preventing access to local networks and online services. This guide explains how to use the built-in Windows 11 Network Diagnostics tool to identify and resolve adapter connectivity problems. B",
+    false
+  ],
+  [
+    200,
+    "How to View and Clear DNS Cache in Windows 11",
+    "The DNS resolver cache in Windows 11 temporarily stores IP addresses of recently visited websites to speed up future connections. Over time, outdated or corrupted records can cause connection errors or display old website content. This guide explains how",
+    false
+  ],
+  [
+    199,
+    "Reset Network Adapters to Default in Windows 11",
+    "If you are experiencing persistent internet connectivity problems, slow speeds, or configuration errors, performing a full network reset in Windows 11 can resolve these issues. A network reset removes and reinstalls all of your physical and virtual netwo",
+    false
+  ],
+  [
+    198,
+    "Configure Static DNS with DoH on Windows 11",
+    "Setting up static DNS servers with DNS-over-HTTPS (DoH) in Windows 11 enhances your privacy and security by encrypting standard DNS queries. This guide provides clear, step-by-step instructions to manually assign static IPv4 or IPv6 DNS addresses and ena",
+    false
+  ],
+  [
+    197,
+    "How to Configure Ports in Windows 11 Firewall",
+    "Configuring Windows Defender Firewall rules allows you to manage network traffic by opening or blocking specific incoming (inbound) and outgoing (outbound) ports on Windows 11. This guide walks you through the step-by-step process of accessing the Advanc",
+    false
+  ],
+  [
+    196,
+    "How to Enable Remote Desktop in Windows 11 Pro",
+    "Enabling Remote Desktop host functionality on Windows 11 Pro allows you to access your computer, files, and applications remotely from another device on the same local network or over the internet. This guide provides a straightforward walkthrough on how",
+    false
+  ],
+  [
+    195,
+    "How Windows 11 Handles Remote Desktop Connections",
+    "Windows 11 uses the proprietary Remote Desktop Protocol (RDP) to enable seamless remote control of a computer over a local network or the internet. Through its native Remote Desktop client, the operating system transmits display output, user inputs, audi",
+    false
+  ],
+  [
+    194,
+    "How to Manage Mapped Network Drives in Windows 11",
+    "Managing mapped network drives in Windows 11 File Explorer allows you to quickly access shared network folders as if they were local drives. This guide covers the essential steps to map a new network drive, modify existing connections, and disconnect or",
+    false
+  ],
+  [
+    193,
+    "How to Set Up an SMB Shared Folder in Windows 11",
+    "Setting up a Server Message Block (SMB) network share on Windows 11 allows you to seamlessly share files and folders with other computers, mobile devices, or media servers on your local network. This guide covers how to prepare your network settings, con",
+    false
+  ],
+  [
+    192,
+    "Windows Protected Print Mode Security in Windows 11",
+    "Windows Protected Print Mode (WPP) is an advanced security framework in Windows 11 designed to protect the Print Spooler from high-severity vulnerabilities by transitioning the operating system to a modern, driverless print architecture. This article det",
+    false
+  ],
+  [
+    191,
+    "Install Network Printers & Manage Print Queues Windows 11",
+    "This guide provides a comprehensive overview of configuring network printers and controlling print jobs in Windows 11. You will learn step-by-step methods to discover and install network printers automatically or via IP address, access and manage active",
+    false
+  ],
+  [
+    189,
+    "How to Cast Windows 11 to a Smart TV Wirelessly",
+    "Screen casting from Windows 11 to a Miracast-compatible smart TV or wireless monitor allows you to duplicate or extend your desktop without physical cables. Windows 11 includes native Miracast support, meaning you can connect in seconds using built-in ke",
+    false
+  ],
+  [
+    188,
+    "How Windows 11 Nearby Sharing Uses Wi-Fi and Bluetooth",
+    "Windows 11 Nearby Sharing allows users to transfer files, photos, and links wirelessly between compatible PCs in close physical proximity. This feature integrates Bluetooth and Wi-Fi Direct into a hybrid system where Bluetooth handles background discover",
+    false
+  ],
+  [
+    187,
+    "How to Use Nearby Sharing in Windows 11",
+    "Nearby Sharing in Windows 11 allows you to wirelessly transfer documents, photos, and web links to other nearby Windows computers using Bluetooth and Wi-Fi. This guide explains how to enable the feature, configure permissions, and send both local files a",
+    false
+  ],
+  [
+    186,
+    "Enable or Disable Windows 11 Microsoft Store Updates",
+    "By default, Windows 11 automatically downloads and installs updates for all apps acquired through the Microsoft Store. While this ensures you always have the latest features and security patches, you may want to turn this feature off to conserve bandwidt",
+    false
+  ],
+  [
+    185,
+    "How Windows 11 Store Supports Win32, .NET, and PWAs",
+    "The Microsoft Store in Windows 11 represents an open ecosystem designed to accommodate nearly any type of desktop application. By removing previous architectural constraints, Microsoft enables developers to publish traditional Win32, modern .NET, and Pro",
+    false
+  ],
+  [
+    184,
+    "Update All Apps in Windows 11 Using Winget",
+    "Updating software manually in Windows 11 can be tedious and time-consuming. This guide explains how to use the Windows Package Manager (winget), a native command-line utility, to check for outdated software and automatically update all installed applicat",
+    false
+  ],
+  [
+    183,
+    "How to Use Winget to Manage Apps in Windows 11",
+    "The Windows Package Manager, commonly known as winget, is a built-in command-line tool in Windows 11 designed to streamline software management. This guide covers the essential commands and steps required to search for, install, update, and uninstall sof",
+    false
+  ],
+  [
+    182,
+    "Customize Colors, Fonts, and Profiles in Windows Terminal",
+    "Customizing Windows 11 Terminal allows you to optimize your command-line environment for better readability and productivity. This guide walks you through accessing the built-in settings interface to create and manage custom shell profiles, adjust font t",
+    false
+  ],
+  [
+    181,
+    "How Windows Terminal Works as Default CLI in Windows 11",
+    "In Windows 11, Microsoft replaced the legacy Windows Console Host with Windows Terminal as the operating system's default command-line experience. This article explains how Windows Terminal functions as the central terminal emulator, how it interacts wit",
+    false
+  ],
+  [
+    180,
+    "How to Configure a Dev Drive in Windows 11",
+    "A Dev Drive is a specialized storage volume in Windows 11 designed to improve performance for developer workloads, such as source code repository operations, builds, and package management. Built on the Resilient File System (ReFS) and integrated with Mi",
+    false
+  ],
+  [
+    179,
+    "Dev Home in Windows 11: Developer Setup Guide",
+    "Dev Home is a centralized control center built into Windows 11 designed to streamline the developer workflow and eliminate the friction of setting up a new development environment. By offering unattended machine configuration, seamless repository cloning",
+    false
+  ],
+  [
+    178,
+    "How to Format, Partition, and Shrink Disks in Windows 11",
+    "Windows 11 includes a powerful built-in utility called Disk Management that allows you to configure hard drives, SSDs, and external storage devices without third-party software. This guide provides step-by-step instructions on how to access the Disk Mana",
+    false
+  ],
+  [
+    177,
+    "How to Create and Manage Storage Spaces in Windows 11",
+    "Storage Spaces in Windows 11 allows you to combine multiple physical drives into a single virtual storage pool to protect your data from drive failures or expand your overall storage capacity. This guide provides a direct, step-by-step walkthrough on how",
+    false
+  ],
+  [
+    176,
+    "How to Check Disk Space Usage in Windows 11",
+    "Windows 11 includes a built-in Storage tool that allows you to analyze hard drive usage, identify large files, and clean up unnecessary data without installing third-party software. This guide covers how to access Windows 11 Storage settings, interpret t",
+    false
+  ],
+  [
+    175,
+    "How Windows 11 Storage Sense Cleans Temp Files",
+    "Windows 11 includes a built-in maintenance feature called Storage Sense that automatically frees up drive space by deleting unnecessary temporary system files, clearing app caches, and purging old items from the Recycle Bin and Downloads folder. This art",
+    false
+  ],
+  [
+    174,
+    "Manage Background Apps in Windows 11 to Save Battery",
+    "Running applications in the background can significantly drain your laptop’s battery life and consume system resources. Windows 11 allows you to control which apps have permission to run silently in the background, receive push notifications, and fetch",
+    false
+  ],
+  [
+    173,
+    "Stop Windows 11 Laptop Waking Up in Backpack",
+    "A laptop turning on inside a closed backpack can lead to severe overheating, rapid battery drain, and potential hardware damage. This issue is primarily caused by Modern Standby (S0 Low Power Idle), automated wake timers, external peripheral movement, or",
+    false
+  ],
+  [
+    172,
+    "Modern Standby S0 Low Power Idle in Windows 11",
+    "Modern Standby, technically known as S0 Low Power Idle, is a power management model in Windows 11 designed to mimic the instant-on, always-connected behavior of smartphones. This article explains the mechanics of Modern Standby, how it fundamentally repl",
+    false
+  ],
+  [
+    171,
+    "Customize Power Button and Sleep in Windows 11",
+    "Customizing your power button behaviors and sleep timers in Windows 11 allows you to optimize energy usage, prolong laptop battery life, and prevent accidental shutdowns. This guide walks you through the straightforward steps to adjust display and sleep",
+    false
+  ],
+  [
+    170,
+    "How to Generate a Battery Report in Windows 11",
+    "Windows 11 features a built-in diagnostic tool that creates an in-depth battery health and discharge report. This article provides a step-by-step guide on how to generate the report using the Command Prompt, locate the generated HTML file, and interpret",
+    false
+  ],
+  [
+    169,
+    "Configure Windows 11 Energy Saver for Battery Life",
+    "Windows 11 includes an enhanced Energy Saver feature designed to reduce system power consumption, dim display brightness, and curtail background activity to extend battery life. This guide provides a straightforward walkthrough on accessing power setting",
+    false
+  ],
+  [
+    168,
+    "Windows 11 Battery Life: ARM vs x86 Laptops",
+    "The transition of Windows 11 to ARM-based processors marks a significant shift in mobile computing efficiency. While traditional x86 processors from Intel and AMD prioritize high sustained throughput, ARM-based silicon, such as Qualcomm's Snapdragon X se",
+    false
+  ],
+  [
+    167,
+    "Windows 11 ARM Prism Emulation Engine Explained",
+    "The Prism emulation engine is Microsoft’s advanced translation layer designed for Windows 11 on ARM, enabling modern ARM-powered devices to run traditional x86 and x64 applications seamlessly. Introduced alongside Windows 11 version 24H2 and Copilot+ P",
+    false
+  ],
+  [
+    166,
+    "How Windows 11 Runs Natively on ARM64 Processors",
+    "Windows 11 runs natively on ARM64 processors, such as the Qualcomm Snapdragon X Elite, by compiling its operating system core, drivers, and native applications directly into the ARM instruction set architecture (ISA). Instead of translating code designed",
+    false
+  ],
+  [
+    165,
+    "Windows 11 Recall Privacy and Security Safeguards",
+    "Windows 11 Recall is an AI-powered feature that captures snapshots of your active screen to help you search and retrieve past activities, documents, and conversations. Following initial security concerns, Microsoft redesigned the architecture with robust",
+    false
+  ],
+  [
+    164,
+    "How Windows 11 Recall Captures and Indexes Snapshots",
+    "Windows 11 Recall is an AI-powered capability designed for Copilot+ PCs that acts as a searchable visual timeline of your digital activity. This article explains the technical workflow behind Recall, detailing how the system periodically captures encrypt",
+    false
+  ],
+  [
+    163,
+    "Windows 11 Copilot+ PCs: Features and Hardware Specs",
+    "Windows 11 Copilot+ PCs represent a new class of personal computers engineered specifically for advanced artificial intelligence workloads. This article breaks down what Copilot+ PCs are, the native AI capabilities they bring to Windows 11, and the stric",
+    false
+  ],
+  [
+    162,
+    "How Voice Focus Filters Noise on Windows 11",
+    "Voice Focus in Windows Studio Effects uses on-device artificial intelligence and dedicated hardware acceleration to eliminate background noise during calls and recordings. By leveraging machine learning models executed directly on a Neural Processing Uni",
+    false
+  ],
+  [
+    161,
+    "Windows 11 Studio Effects: Framing and Blur",
+    "Windows Studio Effects is a suite of AI-powered video and audio enhancement tools integrated directly into Windows 11. Among its most useful camera features are Automatic Framing and Background Blur, both designed to improve video conferencing quality wi",
+    false
+  ],
+  [
+    160,
+    "How Windows Studio Effects Uses NPUs on Windows 11",
+    "Windows Studio Effects is a collection of AI-powered audio and video features integrated directly into Windows 11 to improve video calls and live streaming. By offloading complex machine learning workloads to a dedicated Neural Processing Unit (NPU), the",
+    false
+  ],
+  [
+    159,
+    "Toggle Copilot Side-by-Side and Overlay in Windows 11",
+    "Microsoft Copilot in Windows 11 can be customized to fit your workflow by switching between side-by-side (docked) mode and overlay (floating) mode. This guide explains the differences between these two display modes and provides simple, step-by-step inst",
+    false
+  ],
+  [
+    158,
+    "Microsoft Copilot in Windows 11 System Commands",
+    "Microsoft Copilot in Windows 11 is an integrated, AI-powered digital assistant designed to boost productivity by combining generative AI with deep operating system controls. Unlike standard web-based AI chatbots, Windows 11 Copilot can directly interact",
+    false
+  ],
+  [
+    157,
+    "How to Stream Android Apps to Windows 11",
+    "Streaming Android applications directly to a Windows 11 desktop allows you to interact with your mobile apps, notifications, and media on a larger screen without installing dedicated PC clients. This guide covers the most efficient and direct methods to",
+    false
+  ],
+  [
+    156,
+    "How to Call and Text with Phone Link in Windows 11",
+    "Microsoft Phone Link in Windows 11 allows you to connect your Android or iOS smartphone to your PC to send SMS text messages and make voice calls directly from your desktop. By syncing your device over Wi-Fi and Bluetooth, you can manage your mobile comm",
+    false
+  ],
+  [
+    155,
+    "How Phone Link Connects Android and iOS to Windows 11",
+    "Microsoft Phone Link bridges mobile devices with Windows 11 computers to allow users to manage notifications, send text messages, handle voice calls, and access media directly from their desktops. While the tool supports both Android and iOS platforms, t",
+    false
+  ],
+  [
+    154,
+    "How to Sync iCloud Photos with Windows 11 Photos",
+    "The Windows 11 Photos app features direct integration with Apple iCloud Photos, allowing users to view, manage, and organize their entire iCloud photo library natively alongside local and OneDrive files. By connecting the Photos app with the iCloud for W",
+    false
+  ],
+  [
+    153,
+    "How to Blur and Remove Background in Windows 11 Photos",
+    "The Microsoft Photos app in Windows 11 includes built-in, AI-powered editing tools that allow users to easily isolate, blur, remove, or replace the background of any image without requiring third-party software. This guide details the specific background",
+    false
+  ],
+  [
+    152,
+    "How to Edit Videos with Clipchamp in Windows 11",
+    "Clipchamp is the built-in video editor in Windows 11, designed to make video creation accessible for both beginners and experienced users. This guide provides a direct, step-by-step walkthrough on how to start a new video project, import media, trim foot",
+    false
+  ],
+  [
+    151,
+    "Clipchamp as the Windows 11 Default Video Editor",
+    "Microsoft Clipchamp serves as the official, pre-installed default video editor in Windows 11, filling the void left by legacy tools like Windows Movie Maker. Designed to handle both basic trims and multi-track creative projects, Clipchamp is built direct",
+    false
+  ],
+  [
+    150,
+    "Does Windows 11 Notepad Auto Save Unsaved Work?",
+    "Windows 11 Notepad automatically saves and restores unsaved work and open tabs upon restarting the application or the computer. Microsoft introduced an automatic session restore feature in the redesigned Windows 11 Notepad app, allowing users to pick up",
+    false
+  ],
+  [
+    149,
+    "Windows 11 Notepad Multi-Tab Sessions Guide",
+    "The redesigned Notepad application in Windows 11 modernizes the classic text editor by introducing native tab support and intelligent session management. This update allows users to work on multiple text files within a single window, organize their workf",
+    false
+  ],
+  [
+    148,
+    "Paint Cocreator: AI Image Generator in Windows 11",
+    "Paint Cocreator is an AI-powered image generation feature integrated directly into the classic Microsoft Paint application for Windows 11. Powered by OpenAI's DALL-E model, the tool enables users to create original artwork, illustrations, and photorealis",
+    false
+  ],
+  [
+    147,
+    "How to Use Layers and Transparency in Windows 11 Paint",
+    "Microsoft Paint in Windows 11 includes native support for layers and image transparency, transforming the classic graphics tool into a capable editor for multi-layered digital projects. This guide covers how layers work, how to manage and organize stacke",
+    false
+  ],
+  [
+    146,
+    "New Microsoft Paint Features in Windows 11",
+    "The redesigned Microsoft Paint in Windows 11 transforms the classic lightweight graphics editor into a capable modern tool. This update introduces a completely refreshed user interface with dark mode, native support for layers and transparency, advanced",
+    false
+  ],
+  [
+    145,
+    "How Windows 11 Snipping Tool OCR Works",
+    "The Windows 11 Snipping Tool includes a built-in Optical Character Recognition (OCR) feature called \"Text Actions.\" This tool allows users to automatically detect, select, copy, and redact text directly from screenshots and image files without requiring",
+    false
+  ],
+  [
+    144,
+    "Record Screen and Audio with Windows 11 Snipping Tool",
+    "The Windows 11 Snipping Tool allows users to capture both video and internal system audio natively without requiring third-party software. This article explains how the tool captures system sound, the underlying mechanisms that enable audio recording, an",
+    false
+  ],
+  [
+    143,
+    "Windows 11 Touch Keyboard New Features and Upgrades",
+    "Windows 11 introduced a comprehensive overhaul to the on-screen touch keyboard, transforming it from a basic accessibility tool into a modern, customizable, and intuitive input interface. This article explores the primary upgrades made to the touch keybo",
+    false
+  ],
+  [
+    142,
+    "Windows 11 Voice Typing and Auto-Punctuation",
+    "Windows 11 includes an integrated Voice Typing tool that converts speech to text across any active text field using speech recognition technology. When enabled, the auto-punctuation feature automatically analyzes pauses, pitch, and grammatical context to",
+    false
+  ],
+  [
+    141,
+    "How to Customize Touchpad Gestures on Windows 11",
+    "Windows 11 allows laptops equipped with precision touchpads to utilize advanced multi-finger inputs for faster navigation and multitasking. This guide provides a straightforward walkthrough on how to customize default three-finger and four-finger swipes",
+    false
+  ],
+  [
+    140,
+    "How Haptic Styluses Work with Windows 11 Inking",
+    "Haptic feedback stylus pens integrate with Windows 11 by combining specialized hardware actuators with native operating system APIs to simulate the tactile feel of writing on physical surfaces. Through the Microsoft Pen Protocol (MPP) and the Windows Ink",
+    false
+  ],
+  [
+    139,
+    "How Windows 11 Adapts UI When Detaching Keyboards",
+    "When you detach a physical keyboard from a 2-in-1 device running Windows 11, the operating system instantly switches into a touch-optimized posture. Unlike older versions of Windows that required a distinct \"Tablet Mode,\" Windows 11 relies on background",
+    false
+  ],
+  [
+    138,
+    "Configure Touch Gestures on Windows 11",
+    "Customizing touch gestures on Windows 11 allows users of tablets and 2-in-1 convertible devices to navigate the operating system faster and more intuitively. This guide provides a straightforward overview of accessing your device's touch settings, adjust",
+    false
+  ],
+  [
+    137,
+    "Windows 11 Eye Tracking Accessibility Guide",
+    "Windows 11 natively integrates eye-tracking hardware through its built-in Eye Control feature, allowing users to navigate the operating system, control the mouse cursor, type with an on-screen keyboard, and utilize text-to-speech functionality purely thr",
+    false
+  ],
+  [
+    136,
+    "How to Enable Windows 11 Contrast Themes",
+    "Windows 11 includes built-in contrast themes designed to assist users with visual impairments, low vision, or light sensitivity by increasing the color distinctiveness of text and user interface elements. This guide provides step-by-step instructions on",
+    false
+  ],
+  [
+    135,
+    "Natural Voices in Windows 11 Narrator Explained",
+    "Windows 11 introduces a modernized Narrator screen reader equipped with \"Natural Voices\" that significantly improve speech synthesis over older, robotic-sounding models. By utilizing advanced on-device neural text-to-speech technology, the operating syst",
+    false
+  ],
+  [
+    134,
+    "How Live Captions Work in Windows 11",
+    "Windows 11 includes a native Live Captions feature designed to automatically transcribe spoken content in real time from any audio or video playing across the operating system. By processing audio locally on your device, Live Captions functions across al",
+    false
+  ],
+  [
+    133,
+    "Voice Access Accessibility Features in Windows 11",
+    "Windows 11 introduces Voice Access as a modern, deeply integrated assistive technology designed to help people with mobility impairments and other accessibility needs navigate their PCs and author text entirely through speech. By leveraging on-device spe",
+    false
+  ],
+  [
+    132,
+    "How Windows 11 Monitors Metered Data Usage",
+    "This article explains how Windows 11 monitors and manages internet data consumption across metered network connections. You will learn how the operating system tracks data packets, how marking a connection as metered curbs bandwidth usage, and how to set",
+    false
+  ],
+  [
+    131,
+    "How to Enable Mobile Hotspot in Windows 11",
+    "Windows 11 includes a built-in Mobile Hotspot feature that allows you to share your PC’s internet connection—whether from Wi-Fi, Ethernet, or cellular data—with up to eight other devices wirelessly. This guide provides step-by-step instructions on",
+    false
+  ],
+  [
+    130,
+    "How to Set Up a VPN in Windows 11",
+    "Setting up a Virtual Private Network (VPN) in Windows 11 allows you to secure your internet connection, protect sensitive data, and access private network resources remotely. This guide provides a straightforward, step-by-step walkthrough for configuring",
+    false
+  ],
+  [
+    129,
+    "How to Configure Static IP and DoH in Windows 11",
+    "Configuring a static IP address ensures your Windows 11 PC maintains a fixed address on your local network, while enabling DNS over HTTPS (DoH) encrypts your domain lookup requests for enhanced privacy and security. This guide provides a straightforward",
+    false
+  ],
+  [
+    128,
+    "How to Manage Wi-Fi and View Passwords in Windows 11",
+    "Managing your saved Wi-Fi connections and retrieving forgotten passwords in Windows 11 is a straightforward process. This guide provides clear, step-by-step instructions on how to view saved Wi-Fi network security keys, remove old networks, and adjust co",
+    false
+  ],
+  [
+    127,
+    "How to Use Swift Pair in Windows 11",
+    "Swift Pair is a built-in Windows 11 feature designed to streamline the Bluetooth pairing process by reducing the number of steps required to connect compatible peripherals. Instead of navigating deeply into the Windows settings menu, Swift Pair generates",
+    false
+  ],
+  [
+    126,
+    "Windows 11 Bluetooth LE Audio and LC3 Support",
+    "Windows 11 natively supports Bluetooth Low Energy (LE) Audio and the Low Complexity Communication Codec (LC3), delivering enhanced wireless sound quality, lower power consumption, and reduced latency. This article explains how Windows 11 integrates these",
+    false
+  ],
+  [
+    125,
+    "Fix Microphone Not Detected in Windows 11 Apps",
+    "When desktop applications fail to detect your microphone in Windows 11, the issue usually stems from misconfigured privacy permissions, incorrect default audio devices, outdated drivers, or hardware misconnections. This guide outlines clear, step-by-step",
+    false
+  ],
+  [
+    124,
+    "Windows 11 Volume Mixer in Quick Settings Explained",
+    "Windows 11 features a modernized Volume Mixer integrated directly into the Quick Settings flyout, offering a streamlined way to manage system audio. This guide explains how to access the redesigned Volume Mixer, how its per-application audio controls fun",
+    false
+  ],
+  [
+    123,
+    "Assign Audio Devices to Specific Apps in Windows 11",
+    "Windows 11 allows you to route audio for individual applications to different input and output devices, making it easy to separate game audio, music, and voice calls. This guide provides step-by-step instructions on using the built-in Windows 11 Volume M",
+    false
+  ],
+  [
+    122,
+    "Enable Dolby Atmos and DTS Sound in Windows 11",
+    "Spatial audio enhances your gaming, movie, and music experience on Windows 11 by creating a virtual three-dimensional sound environment using standard headphones or home theater setups. This guide provides a straightforward walkthrough on how to install,",
+    false
+  ],
+  [
+    121,
+    "How Windows 11 Manages Color Profiles and ACM",
+    "Windows 11 modernizes display color handling by combining traditional International Color Consortium (ICC) profiles with Automatic Color Management (ACM). While legacy Windows versions relied on individual applications to interpret color spaces, Windows",
+    false
+  ],
+  [
+    120,
+    "How to Enable Night Light in Windows 11",
+    "Windows 11 includes a built-in feature called Night Light that reduces the amount of blue light emitted by your screen. Blue light can cause eye fatigue and disrupt your natural sleep patterns, especially when using your computer late in the evening. Thi",
+    false
+  ],
+  [
+    119,
+    "Adjust Display Scaling and Orientation in Windows 11",
+    "Windows 11 allows users to independently customize the scaling factor and screen orientation for each connected monitor in a multi-display setup. This guide explains how to access your display settings, identify individual monitors, and adjust display sc",
+    false
+  ],
+  [
+    118,
+    "Windows 11 Multi-Monitor Dock Memory Features",
+    "Windows 11 includes advanced multi-monitor support designed specifically to improve the docking and undocking experience for laptop users. With native dock memory functionality, the operating system tracks your display arrangements and automatically rest",
+    false
+  ],
+  [
+    117,
+    "How Windows 11 Handles Entra ID Joined Devices",
+    "Windows 11 integrates natively with Microsoft Entra ID (formerly Azure Active Directory) to deliver a modern, cloud-first management and identity framework. This article explores how Windows 11 handles Entra ID joined devices, covering enrollment methods",
+    false
+  ],
+  [
+    116,
+    "Windows 11 IoT Enterprise: Features and Use Cases",
+    "Windows 11 IoT Enterprise is a specialized operating system designed specifically for dedicated, fixed-purpose devices that require high reliability, enterprise-grade security, and long-term support. This article provides a comprehensive overview of Wind",
+    false
+  ],
+  [
+    115,
+    "Windows 11 Enterprise Universal Print Support",
+    "Windows 11 Enterprise provides built-in, native integration with Microsoft Universal Print, a multi-tenant, cloud-based print infrastructure. By shifting print management from traditional on-premises print servers to Microsoft 365 and Microsoft Entra ID",
+    false
+  ],
+  [
+    114,
+    "Manage Windows 11 Group Policies Using GPMC",
+    "Managing Windows 11 devices in an enterprise environment requires centralized configuration, security enforcement, and administrative control. IT administrators achieve this using the Group Policy Management Console (GPMC) within an Active Directory Doma",
+    false
+  ],
+  [
+    113,
+    "Windows Autopilot: Automating Windows 11 Deployment",
+    "Windows Autopilot is a cloud-based provisioning technology from Microsoft that simplifies how IT departments deploy, configure, and manage new Windows 11 devices. This article explains what Windows Autopilot is, how it enables a true zero-touch deploymen",
+    false
+  ],
+  [
+    112,
+    "Windows 11 Integration with Microsoft Intune",
+    "This article provides an overview of how Windows 11 natively integrates with Microsoft Intune to enable modern, cloud-based endpoint management. By pairing Windows 11 with Intune, organizations can transition away from traditional on-premises infrastruct",
+    false
+  ],
+  [
+    111,
+    "Windows 11 Pro vs Enterprise for IT Admins",
+    "While Windows 11 Pro and Windows 11 Enterprise share a core operating system framework, Windows 11 Enterprise provides advanced administrative controls, centralized management tools, and enhanced endpoint security designed specifically for large-scale IT",
+    false
+  ],
+  [
+    110,
+    "Windows 11 Enterprise Data Protection Setup Guide",
+    "This guide outlines the critical steps to configure Windows 11 for enterprise-grade data protection, covering hardware security enforcement, data encryption, credential isolation, and endpoint management. By implementing these configurations using native",
+    false
+  ],
+  [
+    109,
+    "How to Disable Advertising ID and Tracking in Windows 11",
+    "Windows 11 utilizes a unique advertising ID and background activity history to deliver targeted advertisements and personalized app recommendations. Disabling these built-in data collection features reduces telemetry and significantly enhances your priva",
+    false
+  ],
+  [
+    108,
+    "Windows 11 Telemetry and Diagnostic Data Settings",
+    "Windows 11 collects various levels of diagnostic and telemetry data to monitor system stability, provide security updates, and troubleshoot errors. This article outlines the specific telemetry and diagnostic settings available in Windows 11, explaining w",
+    false
+  ],
+  [
+    107,
+    "How to Manage Windows 11 App Permissions",
+    "Managing privacy settings in Windows 11 allows you to control which applications have access to sensitive hardware and data, including your camera, microphone, and location. By configuring these permissions, you can protect your personal privacy, optimiz",
+    false
+  ],
+  [
+    106,
+    "How to Configure Controlled Folder Access in Windows 11",
+    "Controlled Folder Access is a built-in Windows 11 security feature that shields your critical files from unauthorized changes and ransomware attacks. By monitoring the applications that attempt to modify files in protected directories, it blocks unrecogn",
+    false
+  ],
+  [
+    105,
+    "Microsoft Defender Real-Time Protection in Windows 11",
+    "Microsoft Defender Antivirus is the built-in security solution in Windows 11 designed to protect your device against viruses, malware, ransomware, and spyware. This article explains what Microsoft Defender is, how its real-time protection engine operates",
+    false
+  ],
+  [
+    104,
+    "How to Backup and Retrieve BitLocker Key Windows 11",
+    "This guide explains how to back up and retrieve your BitLocker recovery key in Windows 11. BitLocker drive encryption safeguards your data, but accessing your system during hardware changes or startup errors requires a 48-digit recovery key. Following th",
+    false
+  ],
+  [
+    103,
+    "How BitLocker Protects Windows 11 System Drives",
+    "BitLocker device encryption in Windows 11 safeguards system drives by scrambling data into unreadable ciphertext using advanced encryption standards, anchoring encryption keys to dedicated hardware security modules, and verifying system integrity during",
+    false
+  ],
+  [
+    102,
+    "How to Set Up a FIDO2 Security Key in Windows 11",
+    "Configuring a FIDO2 security key with Windows Hello provides a secure, phishing-resistant, and passwordless way to sign in to your Windows 11 PC and associated Microsoft accounts. This guide walks you through the exact steps required to set up, manage, a",
+    false
+  ],
+  [
+    101,
+    "Windows Hello Passwordless Authentication in Windows 11",
+    "Windows Hello in Windows 11 replaces traditional passwords with biometric authentication, allowing users to unlock devices and sign into applications using facial recognition or fingerprint scans. This system relies on asymmetric public-key cryptography,",
+    false
+  ],
+  [
+    100,
+    "Why Smart App Control Needs a Clean Windows Install",
+    "Smart App Control (SAC) is an advanced security feature in Windows 11 designed to automatically block malicious, untrusted, and unsigned applications using cloud-powered intelligence. However, enabling this feature often requires a completely clean insta",
+    false
+  ],
+  [
+    99,
+    "What Is Smart App Control in Windows 11?",
+    "Smart App Control is an advanced security feature in Windows 11 designed to block malicious, untrusted, and potentially unwanted software before it can run. By combining cloud-based artificial intelligence with strict digital signature checks, it provide",
+    false
+  ],
+  [
+    98,
+    "Fix Memory Integrity Incompatible Drivers in Windows 11",
+    "Memory Integrity is a Core Isolation security feature in Windows 11 that protects critical system processes from malicious code injection, but outdated or unsigned hardware drivers often block it from turning on. This guide provides a straightforward wal",
+    false
+  ],
+  [
+    97,
+    "What Is Memory Integrity (HVCI) in Windows 11?",
+    "Hypervisor-Protected Code Integrity (HVCI), known as Memory Integrity in the Windows user interface, is a vital hardware-assisted security feature in Windows 11 designed to protect the operating system's core kernel from sophisticated malware and cyberat",
+    false
+  ],
+  [
+    96,
+    "How Windows 11 Uses VBS to Protect System Processes",
+    "Windows 11 utilizes Virtualization-Based Security (VBS) to create a hardware-isolated environment that separates sensitive operating system processes from standard memory space. By leveraging hardware virtualization features, VBS ensures that even if mal",
+    false
+  ],
+  [
+    95,
+    "Set Up Hyper-V Virtual Machines in Windows 11",
+    "This guide walks you through enabling and configuring Microsoft Hyper-V to run virtual machines on Windows 11 Pro and Enterprise editions. You will learn how to verify your hardware virtualization settings, enable the Hyper-V feature, configure virtual n",
+    false
+  ],
+  [
+    94,
+    "How to Enable and Use Windows Sandbox in Windows 11",
+    "Windows Sandbox provides a lightweight, isolated desktop environment where you can safely run untrusted applications without risking your main operating system. Every time the sandbox is closed, all software, files, and state changes are permanently dele",
+    false
+  ],
+  [
+    93,
+    "What Happened to Windows Subsystem for Android?",
+    "The Windows Subsystem for Android (WSA) was one of Windows 11's marquee launch features, designed to bridge the gap between mobile and desktop computing by running Android applications natively on PC hardware. However, despite high initial enthusiasm, Mi",
+    false
+  ],
+  [
+    92,
+    "Understanding WSL Architecture in Windows 11",
+    "Windows Subsystem for Linux (WSL) in Windows 11 operates primarily on the WSL 2 architecture, which replaces the legacy translation layer of WSL 1 with a fully virtualized, highly optimized environment. This architecture relies on a lightweight Hyper-V u",
+    false
+  ],
+  [
+    91,
+    "How to Install Linux with WSL on Windows 11",
+    "Installing Linux on Windows 11 has become a seamless process thanks to the Windows Subsystem for Linux (WSL). This guide provides a straightforward walkthrough on enabling WSL 2, installing the default Ubuntu distribution or choosing alternatives such as",
+    false
+  ],
+  [
+    90,
+    "How WSL2 Runs Linux GUI Apps on Windows 11",
+    "Windows 11 runs Linux graphical user interface (GUI) applications seamlessly alongside standard Windows software through an integrated architectural extension for WSL2 called WSLg (Windows Subsystem for Linux GUI). This technology enables Linux desktop a",
+    false
+  ],
+  [
+    89,
+    "What Is Windows 11 Controller Bar and How It Works",
+    "The Windows 11 Controller Bar is a dedicated gaming interface designed to provide seamless access to recently played games and game launchers using a connected controller. This guide explains what the Controller Bar is, how it functions when paired with",
+    false
+  ],
+  [
+    88,
+    "How to Enable Game Mode in Windows 11",
+    "Windows 11 includes a built-in Game Mode feature designed to optimize your system's performance while playing games. When enabled, Game Mode automatically prioritizes CPU and GPU resource allocation toward your game while reducing the system resources av",
+    false
+  ],
+  [
+    87,
+    "How Windows 11 Dynamic Refresh Rate Works",
+    "Dynamic Refresh Rate (DRR) is a Windows 11 feature designed to automatically switch between standard and high display refresh rates based on active screen tasks. By dynamically adjusting the refresh rate between lower frequencies like 60Hz and higher spe",
+    false
+  ],
+  [
+    86,
+    "Windows 11 Xbox Game Bar Performance Widget Guide",
+    "This guide covers everything you need to know about the Xbox Game Bar in Windows 11, focusing specifically on its real-time performance monitoring features. You will learn what this built-in gaming overlay is, how to launch it, and the exact steps requir",
+    false
+  ],
+  [
+    85,
+    "How to Calibrate HDR in Windows 11 for Best Output",
+    "The Windows 11 HDR Calibration tool allows you to optimize your display for High Dynamic Range (HDR) content by fine-tuning luminance levels and color accuracy. Calibrating your monitor eliminates washed-out colors, recovers clipped highlights, and ensur",
+    false
+  ],
+  [
+    84,
+    "How Windows 11 Auto HDR Enhances Older DirectX Games",
+    "Windows 11 features an integrated technology called Auto HDR that automatically upgrades legacy Standard Dynamic Range (SDR) titles to High Dynamic Range (HDR). By leveraging advanced algorithms at the operating system level, this feature analyzes Direct",
+    false
+  ],
+  [
+    83,
+    "What Is DirectStorage in Windows 11 and How It Works",
+    "DirectStorage is an advanced I/O storage API integrated into Windows 11 that significantly reduces game loading times and eliminates asset streaming bottlenecks. By allowing the graphics card (GPU) to directly access and decompress game data from fast NV",
+    false
+  ],
+  [
+    82,
+    "Leave Windows 11 Insider Program Without Losing Data",
+    "Leaving the Windows 11 Insider Program without losing personal files, applications, or settings is entirely possible if you follow the correct unenrollment path. Depending on your current Insider channel—Beta, Release Preview, Dev, or Canary—you can",
+    false
+  ],
+  [
+    81,
+    "Windows 11 Canary vs Dev vs Beta vs Release Preview",
+    "The Windows Insider Program allows users to test preview builds of Windows 11 before they are released to the general public through four distinct rings: Canary, Dev, Beta, and Release Preview. Each channel represents a different stage in the software de",
+    false
+  ],
+  [
+    80,
+    "How to Join Windows 11 Insider Preview Program",
+    "The Windows Insider Program allows PC enthusiasts, developers, and everyday users to test pre-release versions of Windows 11 before they are rolled out to the general public. This guide provides a straightforward, step-by-step walkthrough on how to enrol",
+    false
+  ],
+  [
+    79,
+    "Windows 11 Servicing Timeline Consumer vs Enterprise",
+    "Windows 11 follows an annual update lifecycle paired with monthly quality updates, but the total duration of support varies significantly depending on whether you use a consumer or enterprise edition. While consumer versions—including Windows 11 Home a",
+    false
+  ],
+  [
+    78,
+    "Windows 11 Feature Updates vs Moment Updates",
+    "Microsoft utilizes a dual-track servicing strategy to introduce new capabilities to Windows 11: major Annual Feature Updates and smaller, more frequent \"Moment\" updates. This article outlines the key differences between these two release methods, coverin",
+    false
+  ],
+  [
+    77,
+    "How to Uninstall Windows 11 Quality Updates",
+    "Windows 11 quality updates provide critical security patches and bug fixes, but they can occasionally cause system instability, driver conflicts, or software crashes. This guide provides step-by-step instructions to safely remove a problematic quality up",
+    false
+  ],
+  [
+    76,
+    "How to Pause or Schedule Windows 11 Updates",
+    "Windows 11 automatically downloads and installs cumulative updates to keep your system secure, but these updates can sometimes disrupt your workflow or cause unexpected restarts. Fortunately, Windows 11 provides built-in options to pause updates for up t",
+    false
+  ],
+  [
+    75,
+    "Windows 11 Driver Updates: How Automatic Install Works",
+    "Windows 11 automates driver installation through Windows Update by identifying system hardware, fetching compatible, certified drivers from Microsoft's catalog, and categorizing them into critical automatic updates or manual optional updates. This proces",
+    false
+  ],
+  [
+    74,
+    "Fix Blue Screen of Death (BSOD) in Windows 11",
+    "A Blue Screen of Death (BSOD) in Windows 11 typically indicates a critical system crash caused by faulty hardware, corrupted drivers, or damaged system files. This guide provides a straightforward, step-by-step approach to identifying the root cause of t",
+    false
+  ],
+  [
+    73,
+    "How to Run SFC and DISM in Windows 11",
+    "This guide explains how to use the built-in Deployment Image Servicing and Management (DISM) and System File Checker (SFC) command-line tools in Windows 11. Running these utilities allows you to scan for, identify, and automatically repair corrupted or m",
+    false
+  ],
+  [
+    72,
+    "How to Access Windows 11 Advanced Startup Options",
+    "The Advanced Startup options menu in Windows 11 is a built-in recovery environment that lets you troubleshoot system issues, access Safe Mode, perform a System Restore, or reset your PC. This guide covers the fastest and most reliable methods to open the",
+    false
+  ],
+  [
+    71,
+    "How to Boot Windows 11 into Safe Mode",
+    "Safe Mode starts Windows 11 in a basic state using a limited set of files and drivers, making it essential for isolating and troubleshooting hardware and driver conflicts. This guide details the most effective methods to boot Windows 11 into Safe Mode, w",
+    false
+  ],
+  [
+    70,
+    "Windows 11 Reset: Cloud Download vs Local Reinstall",
+    "When resetting a Windows 11 PC, you are prompted to choose between two recovery methods: Cloud Download and Local Reinstall. This article explains the core differences between these two options, detailing how each process works, their respective advantag",
+    false
+  ],
+  [
+    69,
+    "How Windows 11 Reset This PC Feature Works",
+    "This article explains how the \"Reset this PC\" feature operates in Windows 11 to repair or restore a computer to its factory default state. It details the distinctions between keeping and removing personal files, examines the technical differences between",
+    false
+  ],
+  [
+    68,
+    "How to Restore Windows 11 Using a Restore Point",
+    "System Restore is a built-in Windows 11 recovery tool that allows you to revert your computer's system files, settings, and installed applications to an earlier state without affecting your personal files. This guide provides straightforward instructions",
+    false
+  ],
+  [
+    67,
+    "How to Create a System Restore Point in Windows 11",
+    "Creating a system restore point in Windows 11 is an essential troubleshooting safeguard that captures a snapshot of your current operating system files, settings, and registry. This guide provides a step-by-step walkthrough on how to enable system protec",
+    false
+  ],
+  [
+    66,
+    "How to Manage Services in Windows 11 Task Manager",
+    "Managing background system services is essential for troubleshooting system instability, freeing up system resources, and controlling how applications run on your PC. Windows 11 features a streamlined Task Manager that includes a dedicated Services secti",
+    false
+  ],
+  [
+    65,
+    "Check GPU Temp and VRAM in Windows 11 Task Manager",
+    "Monitoring your graphics card's performance and thermal status is essential for maintaining optimal PC gaming and workflow performance. Windows 11 includes native monitoring tools inside the Task Manager that allow you to check your GPU temperature and d",
+    false
+  ],
+  [
+    64,
+    "Windows 11 Task Manager Efficiency Mode Explained",
+    "Efficiency Mode is a built-in power management feature in the Windows 11 Task Manager designed to minimize the impact of resource-heavy background processes. By throttling system-hungry applications, it reduces CPU stress, lowers energy consumption, and",
+    false
+  ],
+  [
+    63,
+    "Windows 11 Task Manager Organization Guide",
+    "The redesigned Task Manager in Windows 11 introduces a modernized interface aligned with the Fluent Design system, replacing legacy horizontal tabs with an intuitive vertical sidebar. This update streamlines system monitoring by categorizing running appl",
+    false
+  ],
+  [
+    62,
+    "Manage Startup Apps to Speed Up Windows 11 Boot",
+    "Windows 11 boot times often degrade as newly installed software configures itself to launch automatically in the background upon system startup. This guide provides clear, step-by-step methods to identify high-impact applications, disable unnecessary sta",
+    false
+  ],
+  [
+    61,
+    "Change Default Browser and Files in Windows 11",
+    "Managing your default web browser and file associations in Windows 11 allows you to control which applications automatically open specific files, links, and media types. This guide explains how to set your preferred web browser, configure file types indi",
+    false
+  ],
+  [
+    60,
+    "How to Find the Classic Control Panel in Windows 11",
+    "Yes, the classic Control Panel is still accessible within Windows 11, even though Microsoft continues to migrate legacy options to the modern Settings app. While it is tucked away behind modern interfaces, the classic tool remains fully functional for us",
+    false
+  ],
+  [
+    59,
+    "Windows 11 Settings vs Windows 10 Control Panel",
+    "Windows 11 marks a significant shift in Microsoft’s transition from the legacy Control Panel to a unified, modern Settings app. While Windows 10 maintained a fragmented ecosystem where users frequently had to jump between the modern interface and the c",
+    false
+  ],
+  [
+    58,
+    "Windows 11 Clock Spotify & Microsoft To Do Setup",
+    "Windows 11 transforms the standard Clock app into a productivity hub through its Focus Sessions feature, which seamlessly integrates Spotify and Microsoft To Do. This integration allows you to manage daily tasks and stream curated focus audio directly fr",
+    false
+  ],
+  [
+    57,
+    "How to Use Focus Sessions and Do Not Disturb in Windows 11",
+    "Windows 11 includes integrated productivity tools designed to minimize distractions and improve workflow management: Focus sessions and Do Not Disturb. This guide explains how to enable, configure, and customize these features to help you manage your tim",
+    false
+  ],
+  [
+    56,
+    "How to Customize Windows 11 Quick Settings",
+    "Windows 11 allows you to tailor the Quick Settings flyout menu so that only the toggles and shortcuts you use most frequently are visible. Whether you want to add controls like Mobile Hotspot and Night Light, remove features you rarely touch, or rearrang",
+    false
+  ],
+  [
+    55,
+    "Windows 11 Notifications and Quick Settings Guide",
+    "Windows 11 redesigns how users interact with system alerts and everyday controls by separating them into two dedicated interface elements on the taskbar. Instead of the unified Action Center found in Windows 10, Windows 11 features an independent Notific",
+    false
+  ],
+  [
+    54,
+    "How to Disable News Feed in Windows 11 Widgets",
+    "The Windows 11 Widgets panel is a convenient tool for checking the weather, calendar events, and system performance, but its default inclusion of the Microsoft Start news feed often creates unwanted clutter and distractions. Microsoft allows users to com",
+    false
+  ],
+  [
+    53,
+    "How to Use Third-Party Widgets on Windows 11",
+    "Windows 11 fully supports third-party widgets on the Widgets board, allowing you to customize your dashboard with tools beyond Microsoft’s default offerings. While the feature initially launched with only first-party services like MSN Weather and Micro",
+    false
+  ],
+  [
+    52,
+    "How to Add, Remove, and Resize Windows 11 Widgets",
+    "Windows 11 includes a dedicated Widgets board that provides quick access to weather, calendar events, news, and system utilities. You can personalize this board to fit your daily routine by adding new tools, eliminating clutter, and adjusting layout size",
+    false
+  ],
+  [
+    51,
+    "Windows 11 Widgets Board: Features and Content",
+    "The Windows 11 Widgets board is an integrated, customizable dashboard that delivers at-a-glance information, productivity tools, and personalized news directly to your desktop. Accessible via the taskbar or keyboard shortcuts, this flyout panel keeps use",
+    false
+  ],
+  [
+    50,
+    "Windows 11 File Explorer Compact View Spacing",
+    "Windows 11 introduced a redesigned File Explorer featuring larger padding between files and folders to improve usability on touch-screen devices. However, this added spacing decreases the number of items visible on standard desktop screens. To address th",
+    false
+  ],
+  [
+    49,
+    "Manage OneDrive Sync in Windows 11 File Explorer",
+    "Managing OneDrive synchronization directly within Windows 11 File Explorer allows you to control local storage, resolve sync issues, and adjust settings without navigating through separate system tray menus. Windows 11 integrates OneDrive controls straig",
+    false
+  ],
+  [
+    48,
+    "How Windows 11 File Explorer Cloud Status Works",
+    "The integrated cloud status indicator in Windows 11 File Explorer provides real-time visual feedback on the synchronization state of files and folders stored in cloud services like Microsoft OneDrive. By leveraging the Windows Cloud Files API and the \"Fi",
+    false
+  ],
+  [
+    47,
+    "Show Hidden Files and Extensions in Windows 11",
+    "By default, Windows 11 conceals specific file name extensions and system files to maintain a cleaner interface and prevent accidental modifications. This guide explains how to quickly configure File Explorer to display both hidden items and file extensio",
+    false
+  ],
+  [
+    46,
+    "Windows 11 Compact Context Menu Features",
+    "Windows 11 introduced a streamlined, modern context menu designed to replace the cluttered right-click menus of previous operating system versions. This article breaks down the primary features of the redesigned compact context menu, explaining how its u",
+    false
+  ],
+  [
+    45,
+    "Restore Classic Right-Click Menu in Windows 11",
+    "Windows 11 introduced a redesigned, simplified context menu that hides many traditional options behind a secondary \"Show more options\" click. This guide explains how to permanently restore the full, classic Windows 10-style right-click context menu by de",
+    false
+  ],
+  [
+    44,
+    "Customize Quick Access and Home in Windows 11",
+    "This guide covers how to personalize the Home and Quick Access sections in Windows 11 File Explorer. You will learn how to pin or unpin folders and files, hide recent and frequent items, clear your activity history, and choose the default folder that ope",
+    false
+  ],
+  [
+    43,
+    "How to Use Tabs in Windows 11 File Explorer",
+    "Windows 11 integrates browser-style tabs into File Explorer, fundamentally modernizing how users browse and manage files on their systems. Instead of opening multiple separate windows to view different folders, users can consolidate their file navigation",
+    false
+  ],
+  [
+    42,
+    "How to Switch Virtual Desktops in Windows 11",
+    "Managing multiple workspaces in Windows 11 allows you to organize your tasks, separate work from personal projects, and reduce clutter on a single screen. This guide explains how to quickly switch between Virtual Desktops using built-in keyboard shortcut",
+    false
+  ],
+  [
+    41,
+    "Set Different Wallpapers on Virtual Desktops in Windows 11",
+    "Windows 11 allows you to customize each virtual desktop with its own unique background, making it easier to visually separate different projects, workflows, or personal tasks. This guide outlines the exact steps to assign distinct wallpapers to individua",
+    false
+  ],
+  [
+    40,
+    "Virtual Desktops in Windows 11 vs Windows 10",
+    "Windows 11 significantly enhances the Virtual Desktops feature introduced in Windows 10, transforming it into a more intuitive, customizable, and visually distinct multitasking tool. While Windows 10 established the baseline functionality by allowing use",
+    false
+  ],
+  [
+    39,
+    "How to Configure Snap Assist in Windows 11",
+    "Windows 11 includes advanced multitasking tools, most notably Snap Assist, which allows you to quickly arrange open windows into organized layouts on your screen. This article provides a straightforward guide on how to enable, disable, and customize indi",
+    false
+  ],
+  [
+    38,
+    "Windows 11 Snap Groups Multitasking Guide",
+    "Windows 11 introduces Snap Groups, a productivity feature designed to eliminate the friction of organizing multiple open applications. This article explains what Snap Groups are, how they work alongside Snap Layouts, how to set them up, and the specific",
+    false
+  ],
+  [
+    37,
+    "How to Use Snap Layouts in Windows 11",
+    "Snap Layouts in Windows 11 allows you to organize multiple open application windows into clean, predefined grid layouts on your screen. This feature streamlines multitasking by eliminating the need to manually resize and reposition individual windows. Th",
+    false
+  ],
+  [
+    36,
+    "How to Customize Accent Colors and Themes in Windows 11",
+    "Personalizing your Windows 11 desktop allows you to create a workspace that matches your aesthetic preferences and improves visual comfort. This guide provides a straightforward walkthrough on how to change your system's accent colors, enable dark or lig",
+    false
+  ],
+  [
+    35,
+    "How to Enable Dark Mode in Windows 11",
+    "Windows 11 includes a built-in Dark Mode that transforms the appearance of the user interface, including the taskbar, Start menu, File Explorer, and supported applications. Switching to Dark Mode can reduce eye fatigue in low-light environments and impro",
+    false
+  ],
+  [
+    34,
+    "Windows 11 Fluent Design and Mica Material Changes",
+    "Windows 11 introduced a major visual evolution to Microsoft’s operating system by advancing the Fluent Design System and introducing the proprietary Mica material. This article details the core design changes brought by these updates, highlighting how",
+    false
+  ],
+  [
+    33,
+    "How to Customize Windows 11 Start Menu Quick Folders",
+    "Windows 11 allows users to personalize the Start menu by placing convenient shortcut icons directly next to the Power button at the bottom of the menu. This guide provides a straightforward walkthrough on how to access the personalization settings and ch",
+    false
+  ],
+  [
+    32,
+    "Disable Recommended in Windows 11 Start Menu",
+    "Windows 11 displays recently opened files, frequently used applications, and new installations in the \"Recommended\" section of the Start Menu. While designed for quick access, this feature can clutter your interface and present privacy concerns if you sh",
+    false
+  ],
+  [
+    31,
+    "How to Change Windows 11 Start Menu Layout",
+    "Windows 11 allows you to customize the Start Menu layout to better fit your workflow by adjusting the balance between pinned applications and recommended files. This guide walks you through the simple steps to switch between showing more pinned apps, mor",
+    false
+  ],
+  [
+    30,
+    "How to Create Folders in Windows 11 Start Menu",
+    "Organizing your applications in the Windows 11 Start Menu helps declutter your workspace and makes your favorite programs easier to find. Starting with the Windows 11 22H2 update, Microsoft introduced native support for Start Menu folders in the Pinned s",
+    false
+  ],
+  [
+    29,
+    "Windows 11 Start Menu: Pinned Apps & Recommended Files",
+    "The Windows 11 Start Menu replaces the legacy live-tile interface with a simplified, two-tier layout focused on fast navigation and recent activity. Positioned by default in the center of the taskbar, the menu separates your content into an upper \"Pinned",
+    false
+  ],
+  [
+    28,
+    "How to Never Combine Taskbar Buttons in Windows 11",
+    "Windows 11 allows you to customize your taskbar by showing individual labels for open application windows instead of grouping them under a single icon. This guide provides a clear, step-by-step walkthrough on how to enable or disable the \"never combine t",
+    false
+  ],
+  [
+    27,
+    "How to Hide or Customize Windows 11 Taskbar Widgets",
+    "Windows 11 includes a default Widgets button on the taskbar that delivers real-time weather updates, news feeds, sports scores, and quick-glance information. While this feature can be helpful, it can also clutter your workspace or cause distractions. Thi",
+    false
+  ],
+  [
+    26,
+    "How to Turn Off Task View on Windows 11 Taskbar",
+    "Windows 11 includes a default Task View button on the taskbar to help manage open windows and virtual desktops, but it can easily be removed for a cleaner, more minimalist workspace. This guide provides quick, step-by-step instructions to disable the Tas",
+    false
+  ],
+  [
+    25,
+    "How to Hide or Show Copilot on Windows 11 Taskbar",
+    "Windows 11 includes an integrated Microsoft Copilot button directly on the taskbar, offering quick access to AI-powered assistance. However, if you prefer a cleaner workspace or need to restore an icon that has disappeared, you can easily toggle this fea",
+    false
+  ],
+  [
+    24,
+    "How to Disable Search Box on Windows 11 Taskbar",
+    "Windows 11 includes a prominent search box on the taskbar by default, which can occupy valuable screen real estate. This guide provides a straightforward, step-by-step walkthrough on how to disable or hide the search box using your system's built-in sett",
+    false
+  ],
+  [
+    23,
+    "Customize Windows 11 System Tray and Overflow Menu",
+    "Windows 11 allows users to tailor the taskbar's system tray and hidden icon overflow menu to maintain a clean and efficient workspace. This guide explains how to manage which application icons remain visible on the taskbar, hide background apps inside th",
+    false
+  ],
+  [
+    22,
+    "Move Windows 11 Taskbar to Top or Sides",
+    "In Windows 11, you cannot natively move the taskbar to the top, left, or right side of the screen using built-in settings or registry edits. While previous versions of Windows allowed free placement along any screen edge, Microsoft redesigned the Windows",
+    false
+  ],
+  [
+    21,
+    "How to Move Windows 11 Taskbar Icons to the Left",
+    "Windows 11 features a centered Taskbar by default, which is a major visual departure from previous versions of the operating system. If you prefer the classic layout found in Windows 10 and earlier versions, you can easily change the icon alignment back",
+    false
+  ],
+  [
+    20,
+    "Windows 11 Taskbar vs Windows 10 Taskbar",
+    "The Windows 11 taskbar introduces a streamlined, modern aesthetic that significantly alters the user experience established in Windows 10. While Windows 10 focused on extensive customization and functional density, Windows 11 prioritizes a cleaner, cente",
+    false
+  ],
+  [
+    19,
+    "How to Extend Windows 11 Rollback Period to Windows 10",
+    "When you upgrade from Windows 10 to Windows 11, Microsoft grants a default 10-day grace period to revert to the previous operating system without losing your files or installed applications. If you need more time to test the new interface and ensure hard",
+    false
+  ],
+  [
+    18,
+    "How to Roll Back from Windows 11 to Windows 10",
+    "If you upgraded to Windows 11 and find that it does not suit your needs, Microsoft allows you to return to Windows 10 seamlessly using a built-in recovery feature. This rollback option is available for 10 days following the upgrade and restores your prev",
+    false
+  ],
+  [
+    17,
+    "Windows 11 Licensing vs Windows 10 Explained",
+    "The Windows 11 licensing model builds upon the foundation established by Windows 10, maintaining familiar retail and OEM structures while introducing critical shifts in hardware gating, legacy key upgrades, and enterprise cloud integration. While standar",
+    false
+  ],
+  [
+    16,
+    "Upgrade Windows 11 Home to Pro via Microsoft Store",
+    "Upgrading from Windows 11 Home to Windows 11 Pro unlocks advanced business and security features, including BitLocker device encryption, Windows Sandbox, Remote Desktop, and Hyper-V virtualization. This guide provides a straightforward walkthrough on how",
+    false
+  ],
+  [
+    15,
+    "Risks of Windows 11 on Unsupported Hardware",
+    "Installing Windows 11 on unsupported hardware allows users to run Microsoft's latest operating system on older devices, but it introduces significant operational, security, and stability risks. While workarounds make it possible to bypass the requirement",
+    false
+  ],
+  [
+    14,
+    "Install Windows 11 on Unsupported PC via Registry",
+    "Installing Windows 11 on unsupported hardware is possible by modifying the Windows Registry to bypass strict requirements for TPM 2.0, Secure Boot, and compatible processors. This guide outlines the exact registry keys and values needed to circumvent the",
+    false
+  ],
+  [
+    13,
+    "Bypass Windows 11 OOBE Internet Requirement",
+    "Microsoft requires an active internet connection and a Microsoft account to complete the initial setup on Windows 11 Home and Pro editions. However, you can bypass this requirement during the Out-of-Box Experience (OOBE) using a simple command-line worka",
+    false
+  ],
+  [
+    12,
+    "Windows 11 Home Microsoft Account Requirements",
+    "Windows 11 Home requires an active internet connection and a Microsoft account to complete the initial Out-of-Box Experience (OOBE) setup. Unlike older operating system versions, Microsoft removed the native option to create a standalone offline or local",
+    false
+  ],
+  [
+    11,
+    "How to Download Windows 11 ISO from Microsoft",
+    "Downloading an official Windows 11 ISO directly from Microsoft ensures you receive a clean, secure, and unaltered disk image for creating bootable media, upgrading an existing system, or setting up a virtual machine. This guide provides a direct, step-by",
+    false
+  ],
+  [
+    10,
+    "Create Windows 11 USB with Media Creation Tool",
+    "This guide provides a straightforward walkthrough on creating a bootable Windows 11 USB flash drive or ISO file using Microsoft's official Media Creation Tool. By following these steps, you will prepare the necessary installation media to perform a clean",
+    false
+  ],
+  [
+    9,
+    "How to Clean Install Windows 11 with a Bootable USB",
+    "A clean installation of Windows 11 removes all existing files, settings, and bloatware from your system, providing a fresh, stable operating environment. This guide outlines the entire process, from creating a bootable USB installation drive with at leas",
+    false
+  ],
+  [
+    8,
+    "Upgrade Windows 10 to Windows 11 via Windows Update",
+    "Upgrading an eligible Windows 10 computer to Windows 11 is a free and seamless process through Microsoft's built-in Windows Update service. This guide covers the essential preparation steps and provides a straightforward walkthrough to help you check you",
+    false
+  ],
+  [
+    7,
+    "Windows 11 Home vs Pro: Key Differences Explained",
+    "Windows 11 comes in two primary editions for personal computers: Windows 11 Home and Windows 11 Pro. While both editions share the same core user interface, gaming capabilities, and performance optimizations, they diverge significantly in their security",
+    false
+  ],
+  [
+    6,
+    "How to Check Windows 11 Compatibility",
+    "Upgrading to Windows 11 requires meeting specific hardware criteria set by Microsoft, including requirements for the processor, RAM, storage, Secure Boot, and TPM 2.0. This guide provides a straightforward, step-by-step walkthrough on how to use Microsof",
+    false
+  ],
+  [
+    5,
+    "AMD Ryzen Processors Compatible with Windows 11",
+    "Microsoft established strict hardware requirements for Windows 11 to enhance platform security, stability, and performance. For AMD systems, official support generally begins with the Zen+ and Zen 2 microarchitectures, excluding most first-generation Zen",
+    false
+  ],
+  [
+    4,
+    "Intel Processors Supported by Windows 11",
+    "Microsoft introduced strict hardware requirements for Windows 11 to enhance system security, stability, and performance. As a general rule, Windows 11 officially supports Intel 8th Generation processors and newer. This article outlines the specific Intel",
+    false
+  ],
+  [
+    3,
+    "Why Windows 11 Requires Secure Boot",
+    "Microsoft made Secure Boot a mandatory requirement for Windows 11 to establish a robust hardware-level security standard against modern cyber threats, particularly bootkits and rootkits. By ensuring that a PC boots only using software trusted by the Orig",
+    false
+  ],
+  [
+    2,
+    "How TPM 2.0 Enhances Windows 11 Security",
+    "This article examines how the Trusted Platform Module (TPM) 2.0 serves as a fundamental pillar of Windows 11 security. It explores how this dedicated cryptographic microchip shifts the operating system from software-only protections to hardware-enforced",
+    false
+  ],
+  [
+    1,
+    "Windows 11 Minimum Hardware Requirements",
+    "Upgrading to or installing Windows 11 requires a PC that meets Microsoft's official baseline system specifications. Compared to previous versions, Windows 11 introduces stricter security and architecture standards—most notably requiring a compatible 64",
+    false
+  ]
+]

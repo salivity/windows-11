@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Windows 11 Clipboard History Stores Copied Items - windows-11</title>
+    <meta name="description" content="Windows 11 includes a built-in Clipboard History tool that allows users to copy, store, and access multiple items—such as text, rich formatting, and images—rather than only keeping the most recently copied item. This article explains how the feature">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/how-windows-11-clipboard-history-stores-copied-items">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="How Windows 11 Clipboard History Stores Copied Items - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/how-windows-11-clipboard-history-stores-copied-items" />
+    <meta property="og:image" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Windows 11 includes a built-in Clipboard History tool that allows users to copy, store, and access multiple items—such as text, rich formatting, and images—rather than only keeping the most recently copied item. This article explains how the feature" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        
+    <div class="article-layout">
+        <aside id="profile-sidebar" class="profile-column" aria-label="Author Profile"></aside>
+        <div class="article-main-column">
+            <article><h1 id="how-windows-11-clipboard-history-stores-copied-items">How
+Windows 11 Clipboard History Stores Copied Items</h1>
+<p>Windows 11 includes a built-in Clipboard History tool that allows
+users to copy, store, and access multiple items—such as text, rich
+formatting, and images—rather than only keeping the most recently copied
+item. This article explains how the feature captures data, where that
+data is stored in the system, and how to view and paste your saved
+history into any application.</p>
+<h2 id="how-to-enable-and-open-clipboard-history">How to Enable and Open
+Clipboard History</h2>
+<p>By default, the standard clipboard only holds one item at a time. To
+activate the multi-item storage feature:</p>
+<ol type="1">
+<li>Open <strong>Settings</strong> on your Windows 11 PC.</li>
+<li>Navigate to <strong>System</strong> and select
+<strong>Clipboard</strong>.</li>
+<li>Toggle the <strong>Clipboard history</strong> switch to
+<strong>On</strong>.</li>
+</ol>
+<p>Alternatively, press the keyboard shortcut <strong>Windows Key +
+V</strong>. If the feature is currently disabled, a small window will
+appear with a button allowing you to turn it on immediately.</p>
+<h2 id="how-windows-11-stores-copied-data">How Windows 11 Stores Copied
+Data</h2>
+<p>Once enabled, every time you copy something using <strong>Ctrl +
+C</strong>, right-click <strong>Copy</strong>, or a cut command, Windows
+automatically adds the entry to a dedicated clipboard queue.</p>
+<ul>
+<li><strong>Capacity and Types:</strong> The clipboard history can hold
+up to 25 items. It supports plain text, formatted rich text (HTML), and
+images smaller than 4 MB.</li>
+<li><strong>FIFO Management:</strong> The storage operates on a "First
+In, First Out" (FIFO) basis. When the 25-item limit is reached, the
+oldest unpinned item is automatically deleted to make room for the new
+entry.</li>
+<li><strong>Temporary RAM Storage:</strong> Items are stored in
+temporary system memory (RAM). When you shut down or restart your
+computer, the unpinned clipboard history is cleared automatically.</li>
+<li><strong>Cloud Synchronization (Optional):</strong> In the
+<strong>Clipboard</strong> settings menu, you can enable <strong>Sync
+across your devices</strong>. When active, copied text is encrypted and
+synced via your Microsoft account to other Windows devices signed in to
+the same account.</li>
+</ul>
+<h2 id="how-to-paste-multiple-items-from-history">How to Paste Multiple
+Items from History</h2>
+<p>To paste items from your stored history into a document, browser, or
+message field:</p>
+<ol type="1">
+<li>Click to place your text cursor where you want the item to
+appear.</li>
+<li>Press <strong>Windows Key + V</strong> to bring up the Clipboard
+History pop-up menu.</li>
+<li>Scroll through the list of recent clips.</li>
+<li>Click on the specific text block or image you want to insert. The
+selected item will immediately paste into your active application.</li>
+</ol>
+<p>To paste another item from your history, simply move your cursor to
+the next location, press <strong>Windows Key + V</strong> again, and
+select the next item.</p>
+<h2 id="managing-saved-items">Managing Saved Items</h2>
+<p>The clipboard interface provides additional controls for managing
+your stored content:</p>
+<ul>
+<li><strong>Pinning Items:</strong> Click the three dots
+(<code>...</code>) next to an entry (or the pin icon directly) and
+select <strong>Pin</strong>. Pinned items remain in your history
+permanently, even after restarting the computer or clearing your
+history.</li>
+<li><strong>Deleting Individual Items:</strong> Click the three dots
+next to a specific item and choose the <strong>Delete</strong> (trash
+can) icon.</li>
+<li><strong>Clearing the History:</strong> Click the <strong>Clear
+all</strong> button at the top of the Clipboard History menu to wipe out
+all unpinned entries instantly.</li>
+</ul></article>
+        <div id="comments-container"></div>
+        <script>
+            const utterancesScript = document.createElement('script');
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+        </div>
+    </div>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

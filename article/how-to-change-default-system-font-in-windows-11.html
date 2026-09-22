@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Change Default System Font in Windows 11 - windows-11</title>
+    <meta name="description" content="Windows 11 uses "Segoe UI Variable" as its default system font for dialogue boxes, menus, and interface elements. While the Settings app allows you to install and manage fonts, it does not include a direct toggle to alter the system-wide interface font.">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/how-to-change-default-system-font-in-windows-11">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="How to Change Default System Font in Windows 11 - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/how-to-change-default-system-font-in-windows-11" />
+    <meta property="og:image" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Windows 11 uses "Segoe UI Variable" as its default system font for dialogue boxes, menus, and interface elements. While the Settings app allows you to install and manage fonts, it does not include a direct toggle to alter the system-wide interface font." />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        
+    <div class="article-layout">
+        <aside id="profile-sidebar" class="profile-column" aria-label="Author Profile"></aside>
+        <div class="article-main-column">
+            <article><h1 id="how-to-change-default-system-font-in-windows-11">How to Change
+Default System Font in Windows 11</h1>
+<p>Windows 11 uses "Segoe UI Variable" as its default system font for
+dialogue boxes, menus, and interface elements. While the Settings app
+allows you to install and manage fonts, it does not include a direct
+toggle to alter the system-wide interface font. This guide explains how
+to safely replace the default system dialogue font across Windows 11 by
+creating and applying a simple Windows Registry modification file, as
+well as how to restore the original font if needed.</p>
+<h2 id="step-1-find-the-exact-name-of-your-new-font">Step 1: Find the
+Exact Name of Your New Font</h2>
+<p>Before modifying the registry, determine the exact system name of the
+font you wish to use.</p>
+<ol type="1">
+<li>Open <strong>Settings</strong> by pressing
+<code>Windows + I</code>.</li>
+<li>Navigate to <strong>Personalization</strong> &gt;
+<strong>Fonts</strong>.</li>
+<li>Browse the list and click on the font you want to set as the
+default.</li>
+<li>Note down the exact name listed under <strong>Font name</strong>
+(for example: <em>Arial</em>, <em>Calibri</em>, or
+<em>Tahoma</em>).</li>
+</ol>
+<h2 id="step-2-create-the-registry-modification-file">Step 2: Create the
+Registry Modification File</h2>
+<p>Windows 11 requires a registry script to remap default font
+substitutions.</p>
+<ol type="1">
+<li>Open <strong>Notepad</strong> from the Start Menu.</li>
+<li>Paste the following text into the blank document:</li>
+</ol>
+<pre class="reg"><code>Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts]
+&quot;Segoe UI (TrueType)&quot;=&quot;&quot;
+&quot;Segoe UI Bold (TrueType)&quot;=&quot;&quot;
+&quot;Segoe UI Bold Italic (TrueType)&quot;=&quot;&quot;
+&quot;Segoe UI Custom-delayed (TrueType)&quot;=&quot;&quot;
+&quot;Segoe UI Italic (TrueType)&quot;=&quot;&quot;
+&quot;Segoe UI Light (TrueType)&quot;=&quot;&quot;
+&quot;Segoe UI Semibold (TrueType)&quot;=&quot;&quot;
+&quot;Segoe UI Symbol (TrueType)&quot;=&quot;&quot;
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\FontSubstitutes]
+&quot;Segoe UI&quot;=&quot;NEW_FONT_NAME&quot;</code></pre>
+<ol start="3" type="1">
+<li>Replace <code>NEW_FONT_NAME</code> in the last line with the exact
+font name you identified in Step 1 (e.g.,
+<code>"Segoe UI"="Tahoma"</code>).</li>
+<li>Click <strong>File</strong> &gt; <strong>Save As</strong>.</li>
+<li>Set <strong>Save as type</strong> to <strong>All Files
+(<em>.</em>)</strong>.</li>
+<li>Name the file <code>change-font.reg</code> and save it to your
+Desktop.</li>
+</ol>
+<h2 id="step-3-apply-the-registry-change">Step 3: Apply the Registry
+Change</h2>
+<ol type="1">
+<li>Double-click the <code>change-font.reg</code> file on your
+Desktop.</li>
+<li>Click <strong>Yes</strong> when prompted by User Account Control
+(UAC).</li>
+<li>Click <strong>Yes</strong> when the Registry Editor prompts you to
+confirm adding the information, then click <strong>OK</strong>.</li>
+<li>Restart your computer to apply the changes across all system
+dialogue windows and menus.</li>
+</ol>
+<h2 id="how-to-restore-the-default-windows-11-font">How to Restore the
+Default Windows 11 Font</h2>
+<p>To revert back to the original Segoe UI system font at any time:</p>
+<ol type="1">
+<li>Open <strong>Notepad</strong>.</li>
+<li>Paste the following code:</li>
+</ol>
+<pre class="reg"><code>Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts]
+&quot;Segoe UI (TrueType)&quot;=&quot;segoeui.ttf&quot;
+&quot;Segoe UI Black (TrueType)&quot;=&quot;seguibl.ttf&quot;
+&quot;Segoe UI Black Italic (TrueType)&quot;=&quot;seguibli.ttf&quot;
+&quot;Segoe UI Bold (TrueType)&quot;=&quot;segoeuib.ttf&quot;
+&quot;Segoe UI Bold Italic (TrueType)&quot;=&quot;segoeuiz.ttf&quot;
+&quot;Segoe UI Emoji (TrueType)&quot;=&quot;seguiemj.ttf&quot;
+&quot;Segoe UI Historic (TrueType)&quot;=&quot;seguihis.ttf&quot;
+&quot;Segoe UI Italic (TrueType)&quot;=&quot;segoeuii.ttf&quot;
+&quot;Segoe UI Light (TrueType)&quot;=&quot;segoeuil.ttf&quot;
+&quot;Segoe UI Light Italic (TrueType)&quot;=&quot;seguili.ttf&quot;
+&quot;Segoe UI Semibold (TrueType)&quot;=&quot;seguisb.ttf&quot;
+&quot;Segoe UI Semibold Italic (TrueType)&quot;=&quot;seguisbi.ttf&quot;
+&quot;Segoe UI Semilight (TrueType)&quot;=&quot;segoeuisl.ttf&quot;
+&quot;Segoe UI Semilight Italic (TrueType)&quot;=&quot;seguisli.ttf&quot;
+&quot;Segoe UI Symbol (TrueType)&quot;=&quot;seguisym.ttf&quot;
+&quot;Segoe MDL2 Assets (TrueType)&quot;=&quot;segmdl2.ttf&quot;
+&quot;Segoe UI Variable (TrueType)&quot;=&quot;SegUIVar.ttf&quot;
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\FontSubstitutes]
+&quot;Segoe UI&quot;=-</code></pre>
+<ol start="3" type="1">
+<li>Save the file as <code>restore-font.reg</code> with <strong>Save as
+type</strong> set to <strong>All Files (<em>.</em>)</strong>.</li>
+<li>Run the file, confirm the prompts, and restart your computer.</li>
+</ol></article>
+        <div id="comments-container"></div>
+        <script>
+            const utterancesScript = document.createElement('script');
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+        </div>
+    </div>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

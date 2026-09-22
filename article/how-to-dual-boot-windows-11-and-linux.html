@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Dual Boot Windows 11 and Linux - windows-11</title>
+    <meta name="description" content="Configuring a dual-boot system allows you to run Windows 11 and a Linux distribution on the same machine, giving you the flexibility to choose your operating system at startup. This guide covers the essential steps to prepare your hardware, partition you">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/how-to-dual-boot-windows-11-and-linux">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="How to Dual Boot Windows 11 and Linux - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/how-to-dual-boot-windows-11-and-linux" />
+    <meta property="og:image" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Configuring a dual-boot system allows you to run Windows 11 and a Linux distribution on the same machine, giving you the flexibility to choose your operating system at startup. This guide covers the essential steps to prepare your hardware, partition you" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        
+    <div class="article-layout">
+        <aside id="profile-sidebar" class="profile-column" aria-label="Author Profile"></aside>
+        <div class="article-main-column">
+            <article><h1 id="how-to-dual-boot-windows-11-and-linux">How to Dual Boot Windows
+11 and Linux</h1>
+<p>Configuring a dual-boot system allows you to run Windows 11 and a
+Linux distribution on the same machine, giving you the flexibility to
+choose your operating system at startup. This guide covers the essential
+steps to prepare your hardware, partition your storage drive safely
+within Windows, install your chosen Linux distribution, and manage the
+bootloader to ensure seamless switching between systems.</p>
+<h3 id="step-1-prepare-windows-11-and-backup-data">Step 1: Prepare
+Windows 11 and Backup Data</h3>
+<ol type="1">
+<li><strong>Back Up Important Files:</strong> Modifying disk partitions
+carries a risk of data loss. Back up your essential files to an external
+drive or cloud storage before proceeding.</li>
+<li><strong>Disable BitLocker:</strong> If BitLocker Drive Encryption is
+enabled on Windows 11, suspend or turn it off to prevent
+partition-locking issues during the Linux installation.</li>
+<li><strong>Disable Fast Startup:</strong>
+<ul>
+<li>Open the <strong>Control Panel</strong> and navigate to
+<strong>Power Options</strong>.</li>
+<li>Click <strong>Choose what the power buttons do</strong>.</li>
+<li>Click <strong>Change settings that are currently
+unavailable</strong>.</li>
+<li>Uncheck <strong>Turn on fast startup (recommended)</strong> and save
+changes.</li>
+</ul></li>
+</ol>
+<h3 id="step-2-create-unallocated-disk-space">Step 2: Create Unallocated
+Disk Space</h3>
+<ol type="1">
+<li>Press <code>Win + X</code> and select <strong>Disk
+Management</strong>.</li>
+<li>Locate your primary Windows partition (usually the <code>C:</code>
+drive).</li>
+<li>Right-click the partition and select <strong>Shrink
+Volume</strong>.</li>
+<li>Enter the amount of space you want to allocate for Linux (a minimum
+of 50 GB / 51200 MB is recommended).</li>
+<li>Click <strong>Shrink</strong>. Leave the newly created space as
+<strong>Unallocated</strong>; do not format it.</li>
+</ol>
+<h3 id="step-3-create-bootable-linux-media">Step 3: Create Bootable
+Linux Media</h3>
+<ol type="1">
+<li>Download the ISO image of your chosen Linux distribution (e.g.,
+Ubuntu, Fedora, or Linux Mint).</li>
+<li>Download a USB flashing tool such as Rufus or BalenaEtcher.</li>
+<li>Insert a USB flash drive (at least 8 GB) and write the ISO to the
+drive using the flashing tool in UEFI/GPT mode.</li>
+</ol>
+<h3 id="step-4-adjust-uefibios-settings">Step 4: Adjust UEFI/BIOS
+Settings</h3>
+<ol type="1">
+<li>Restart your PC and press the manufacturer's BIOS/UEFI key (commonly
+<code>F2</code>, <code>F12</code>, <code>Del</code>, or
+<code>Esc</code>).</li>
+<li>Verify that <strong>UEFI Mode</strong> is enabled.</li>
+<li>Disable <strong>Secure Boot</strong> if your chosen distribution
+does not officially support it (most modern distributions like Ubuntu
+and Fedora support Secure Boot, but disabling it prevents driver
+conflicts).</li>
+<li>Change the boot order to place your USB flash drive as the primary
+boot device, then save and exit.</li>
+</ol>
+<h3 id="step-5-install-linux-alongside-windows-11">Step 5: Install Linux
+Alongside Windows 11</h3>
+<ol type="1">
+<li>Boot into the Linux live environment from the USB drive.</li>
+<li>Launch the installer from the desktop.</li>
+<li>Proceed through language, keyboard, and network settings.</li>
+<li>When prompted for the installation type:
+<ul>
+<li><strong>Automatic Method:</strong> Select <strong>Install alongside
+Windows Boot Manager</strong>. The installer will automatically use the
+unallocated space created in Step 2.</li>
+<li><strong>Manual Method (Something Else / Custom):</strong> Create an
+EFI partition (or select the existing Windows EFI system partition), an
+<code>ext4</code> root partition (<code>/</code>), and optionally a swap
+partition within the unallocated space.</li>
+</ul></li>
+<li>Set your username, computer name, and password.</li>
+<li>Complete the installation and restart your computer when prompted,
+removing the USB drive.</li>
+</ol>
+<h3 id="step-6-configure-and-test-the-bootloader">Step 6: Configure and
+Test the Bootloader</h3>
+<p>Upon restarting, the GRUB bootloader menu should appear
+automatically, offering options to boot into either your Linux
+distribution or the <strong>Windows Boot Manager</strong>.</p>
+<p>If the system boots directly into Windows 11 without displaying the
+GRUB menu:</p>
+<ol type="1">
+<li>Restart and enter the UEFI/BIOS settings.</li>
+<li>Navigate to the <strong>Boot</strong> tab and set the Linux
+bootloader (e.g., <code>ubuntu</code> or <code>grub</code>) as the first
+boot priority.</li>
+<li>Save changes and reboot.</li>
+</ol></article>
+        <div id="comments-container"></div>
+        <script>
+            const utterancesScript = document.createElement('script');
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+        </div>
+    </div>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

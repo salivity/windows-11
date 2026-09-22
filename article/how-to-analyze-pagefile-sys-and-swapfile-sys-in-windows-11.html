@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Analyze pagefile.sys and swapfile.sys in Windows 11 - windows-11</title>
+    <meta name="description" content="This article provides a straightforward guide on finding, analyzing, and managing large hidden system files—specifically pagefile.sys and swapfile.sys—in Windows 11. You will learn what these files do, how to make them visible in File Explorer, how t">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/how-to-analyze-pagefile-sys-and-swapfile-sys-in-windows-11">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="How to Analyze pagefile.sys and swapfile.sys in Windows 11 - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/how-to-analyze-pagefile-sys-and-swapfile-sys-in-windows-11" />
+    <meta property="og:image" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="This article provides a straightforward guide on finding, analyzing, and managing large hidden system files—specifically pagefile.sys and swapfile.sys—in Windows 11. You will learn what these files do, how to make them visible in File Explorer, how t" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        
+    <div class="article-layout">
+        <aside id="profile-sidebar" class="profile-column" aria-label="Author Profile"></aside>
+        <div class="article-main-column">
+            <article><h1 id="how-to-analyze-pagefilesys-and-swapfilesys-in-windows-11">How to
+Analyze pagefile.sys and swapfile.sys in Windows 11</h1>
+<p>This article provides a straightforward guide on finding, analyzing,
+and managing large hidden system files—specifically
+<code>pagefile.sys</code> and <code>swapfile.sys</code>—in Windows 11.
+You will learn what these files do, how to make them visible in File
+Explorer, how to use built-in and third-party tools to inspect their
+disk footprint, and how to safely adjust or move them if they consume
+too much storage.</p>
+<hr />
+<h3 id="what-are-pagefilesys-and-swapfilesys">What Are pagefile.sys and
+swapfile.sys?</h3>
+<ul>
+<li><strong><code>pagefile.sys</code> (Page File):</strong> Windows uses
+this file as secondary virtual memory. When physical RAM fills up or
+programs remain idle, Windows offloads memory pages to
+<code>pagefile.sys</code> on your drive.</li>
+<li><strong><code>swapfile.sys</code> (Swap File):</strong> Introduced
+for Universal Windows Platform (UWP) apps, this file acts like a
+specialized paging file optimized for suspending and resuming modern
+Windows apps without cluttering the primary pagefile.</li>
+</ul>
+<p>Both files are located at the root of your system drive (usually
+<code>C:\</code>) and are locked by the operating system while
+running.</p>
+<hr />
+<h3 id="step-1-make-hidden-system-files-visible">Step 1: Make Hidden
+System Files Visible</h3>
+<p>By default, Windows 11 conceals protected operating system files.</p>
+<ol type="1">
+<li>Open <strong>File Explorer</strong>.</li>
+<li>Click the <strong>three dots (...)</strong> on the top menu and
+select <strong>Options</strong>.</li>
+<li>Go to the <strong>View</strong> tab.</li>
+<li>Select <strong>Show hidden files, folders, and drives</strong>.</li>
+<li>Uncheck <strong>Hide protected operating system files
+(Recommended)</strong>.</li>
+<li>Click <strong>Yes</strong> on the warning prompt, then click
+<strong>Apply</strong> and <strong>OK</strong>.</li>
+</ol>
+<p>You can now view <code>pagefile.sys</code> and
+<code>swapfile.sys</code> in the root of <code>C:\</code>.</p>
+<hr />
+<h3 id="step-2-analyze-file-size-and-storage-impact">Step 2: Analyze
+File Size and Storage Impact</h3>
+<p>Because these files are actively locked by Windows, standard file
+readers cannot open them directly. Use these methods to analyze their
+space and resource usage:</p>
+<h4 id="method-a-windows-storage-settings">Method A: Windows Storage
+Settings</h4>
+<ol type="1">
+<li>Open <strong>Settings</strong> (<code>Win + I</code>) and navigate
+to <strong>System &gt; Storage</strong>.</li>
+<li>Click on <strong>System &amp; reserved</strong>.</li>
+<li>Review the <strong>Virtual memory</strong> entry, which displays the
+combined active size of <code>pagefile.sys</code> and
+<code>swapfile.sys</code>.</li>
+</ol>
+<h4 id="method-b-disk-analysis-tools-admin-mode">Method B: Disk Analysis
+Tools (Admin Mode)</h4>
+<p>Standard disk tools may fail to scan locked system files unless
+elevated:</p>
+<ul>
+<li><strong>WizTree</strong> or <strong>TreeSize Free</strong>: Run
+these tools as Administrator to inspect the exact allocation, cluster
+size, and drive percentage taken up by <code>pagefile.sys</code> and
+<code>swapfile.sys</code> instantly via the NTFS Master File Table
+(MFT).</li>
+</ul>
+<h4 id="method-c-memory-allocation-with-sysinternals-rammap">Method C:
+Memory Allocation with Sysinternals RAMMap</h4>
+<p>To see how much memory Windows actually offloads to these files:</p>
+<ol type="1">
+<li>Download and run <strong>RAMMap</strong> (from Microsoft
+Sysinternals) as Administrator.</li>
+<li>Select the <strong>File Summary</strong> tab.</li>
+<li>Sort by size or path to see how much active data is mapped directly
+into <code>pagefile.sys</code>.</li>
+</ol>
+<hr />
+<h3 id="step-3-manage-and-resize-pagefilesys">Step 3: Manage and Resize
+pagefile.sys</h3>
+<p>If <code>pagefile.sys</code> grows excessively large, you can
+configure its size or move it to a secondary drive:</p>
+<ol type="1">
+<li>Press <code>Win + R</code>, type <code>sysdm.cpl</code>, and press
+<strong>Enter</strong> to open System Properties.</li>
+<li>Select the <strong>Advanced</strong> tab.</li>
+<li>Under <strong>Performance</strong>, click
+<strong>Settings</strong>.</li>
+<li>In the Performance Options window, go to the
+<strong>Advanced</strong> tab and click <strong>Change...</strong> under
+Virtual memory.</li>
+<li>Uncheck <strong>Automatically manage paging file size for all
+drives</strong>.</li>
+<li>Select your drive (usually <code>C:</code>):
+<ul>
+<li><strong>To set a static size:</strong> Select <strong>Custom
+size</strong>, enter identical values for <em>Initial size (MB)</em> and
+<em>Maximum size (MB)</em> (e.g., <code>4096</code> to <code>8192</code>
+MB depending on your RAM), and click <strong>Set</strong>.</li>
+<li><strong>To move it:</strong> Select <code>C:</code>, choose
+<strong>No paging file</strong>, click <strong>Set</strong>, then select
+a secondary drive (e.g., <code>D:</code>), choose <strong>System managed
+size</strong>, and click <strong>Set</strong>.</li>
+</ul></li>
+<li>Click <strong>OK</strong> and restart your PC to apply the
+changes.</li>
+</ol>
+<p><em>Note: Disabling <code>pagefile.sys</code> entirely is not
+recommended, as some programs and Windows crash dumps require
+it.</em></p></article>
+        <div id="comments-container"></div>
+        <script>
+            const utterancesScript = document.createElement('script');
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+        </div>
+    </div>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

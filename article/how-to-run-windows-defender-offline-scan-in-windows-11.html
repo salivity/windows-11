@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Run Windows Defender Offline Scan in Windows 11 - windows-11</title>
+    <meta name="description" content="This guide explains how to run a Microsoft Defender Offline scan in Windows 11 to remove highly persistent threats such as rootkits, bootkits, and sophisticated malware. Some malicious programs can bypass active system defenses or lock files while the op">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/how-to-run-windows-defender-offline-scan-in-windows-11">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="How to Run Windows Defender Offline Scan in Windows 11 - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/how-to-run-windows-defender-offline-scan-in-windows-11" />
+    <meta property="og:image" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="This guide explains how to run a Microsoft Defender Offline scan in Windows 11 to remove highly persistent threats such as rootkits, bootkits, and sophisticated malware. Some malicious programs can bypass active system defenses or lock files while the op" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        
+    <div class="article-layout">
+        <aside id="profile-sidebar" class="profile-column" aria-label="Author Profile"></aside>
+        <div class="article-main-column">
+            <article><h1 id="how-to-run-windows-defender-offline-scan-in-windows-11">How to
+Run Windows Defender Offline Scan in Windows 11</h1>
+<p>This guide explains how to run a Microsoft Defender Offline scan in
+Windows 11 to remove highly persistent threats such as rootkits,
+bootkits, and sophisticated malware. Some malicious programs can bypass
+active system defenses or lock files while the operating system is
+running. Microsoft Defender Offline solves this by restarting your PC
+into a dedicated, isolated recovery environment, allowing the antivirus
+engine to scan and clean your drives before any malware can load into
+memory.</p>
+<h3 id="why-use-microsoft-defender-offline">Why Use Microsoft Defender
+Offline?</h3>
+<p>Standard antivirus scans operate within the live Windows environment.
+Advanced malware can mask its processes, inject code into system
+drivers, or block security software from functioning correctly. Running
+an offline scan loads a clean Windows Preinstallation Environment
+(WinPE) equipped with the latest security definitions, ensuring that
+malware remains inactive and undetectable defenses are neutralized.</p>
+<h3 id="what-to-know-before-starting">What to Know Before Starting</h3>
+<ul>
+<li><strong>Save your work:</strong> The process requires an immediate
+system restart.</li>
+<li><strong>Duration:</strong> The scan typically takes between 10 to 20
+minutes to complete.</li>
+<li><strong>Automatic process:</strong> Once the scan finishes, Windows
+11 will automatically reboot back to your standard desktop.</li>
+</ul>
+<hr />
+<h3 id="method-1-run-the-scan-via-windows-security-settings">Method 1:
+Run the Scan via Windows Security (Settings)</h3>
+<ol type="1">
+<li>Click the <strong>Start</strong> button and open
+<strong>Settings</strong> (or press <code>Win + I</code>).</li>
+<li>In the left sidebar, select <strong>Privacy &amp;
+security</strong>.</li>
+<li>Click on <strong>Windows Security</strong> in the right pane.</li>
+<li>Click the <strong>Open Windows Security</strong> button.</li>
+<li>Select <strong>Virus &amp; threat protection</strong>.</li>
+<li>Under the <em>Current threats</em> section, click on <strong>Scan
+options</strong>.</li>
+<li>Scroll down, select <strong>Microsoft Defender Antivirus (offline
+scan)</strong>, and click <strong>Scan now</strong>.</li>
+<li>A prompt will appear asking to save your work; click
+<strong>Scan</strong> to confirm.</li>
+<li>Click <strong>Yes</strong> on the User Account Control (UAC)
+prompt.</li>
+</ol>
+<p>Your PC will restart automatically and initiate the offline scan
+interface.</p>
+<hr />
+<h3 id="method-2-run-the-scan-via-powershell">Method 2: Run the Scan via
+PowerShell</h3>
+<p>For advanced users or administrators, you can trigger the scan using
+an elevated PowerShell command:</p>
+<ol type="1">
+<li>Right-click the <strong>Start</strong> button and select
+<strong>Terminal (Admin)</strong> or search for
+<strong>PowerShell</strong>, right-click it, and select <strong>Run as
+administrator</strong>.</li>
+<li>Type the following command and press <strong>Enter</strong>:
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Start-MpWDOScan</span></code></pre></div></li>
+<li>Your computer will automatically reboot and start the offline
+scan.</li>
+</ol>
+<hr />
+<h3 id="how-to-view-offline-scan-results">How to View Offline Scan
+Results</h3>
+<p>After the scan completes and your computer boots back into Windows
+11:</p>
+<ol type="1">
+<li>Open <strong>Windows Security</strong> (search for it in the Start
+menu).</li>
+<li>Click <strong>Virus &amp; threat protection</strong>.</li>
+<li>Click <strong>Protection history</strong>.</li>
+<li>Review the log to see any threats detected, quarantined, or removed
+during the offline scan.</li>
+</ol></article>
+        <div id="comments-container"></div>
+        <script>
+            const utterancesScript = document.createElement('script');
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+        </div>
+    </div>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

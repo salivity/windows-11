@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Merge Partitions in Windows 11 - windows-11</title>
+    <meta name="description" content="Merging two separate disk partitions in Windows 11 can be accomplished entirely through built-in system tools without downloading third-party software. To combine partitions natively, you must back up any essential files from the secondary partition, del">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/how-to-merge-partitions-in-windows-11">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="How to Merge Partitions in Windows 11 - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/how-to-merge-partitions-in-windows-11" />
+    <meta property="og:image" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Merging two separate disk partitions in Windows 11 can be accomplished entirely through built-in system tools without downloading third-party software. To combine partitions natively, you must back up any essential files from the secondary partition, del" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        
+    <div class="article-layout">
+        <aside id="profile-sidebar" class="profile-column" aria-label="Author Profile"></aside>
+        <div class="article-main-column">
+            <article><h1 id="how-to-merge-partitions-in-windows-11">How to Merge Partitions
+in Windows 11</h1>
+<p>Merging two separate disk partitions in Windows 11 can be
+accomplished entirely through built-in system tools without downloading
+third-party software. To combine partitions natively, you must back up
+any essential files from the secondary partition, delete it to turn its
+space into unallocated storage, and then extend the primary partition
+into that newly freed space.</p>
+<h3 id="important-prerequisites">Important Prerequisites</h3>
+<ul>
+<li><strong>Data Backup:</strong> Native Windows tools cannot merge
+partitions while preserving data on both drives simultaneously. You must
+delete the adjacent partition, which erases all data on it. Back up any
+important files from that volume to an external drive or cloud storage
+before starting.</li>
+<li><strong>Partition Layout:</strong> The partition you plan to delete
+must be located immediately to the right of the partition you want to
+expand within the same physical disk.</li>
+</ul>
+<hr />
+<h3
+id="step-by-step-guide-merging-partitions-using-disk-management">Step-by-Step
+Guide: Merging Partitions Using Disk Management</h3>
+<ol type="1">
+<li><p><strong>Open Disk Management</strong></p>
+<ul>
+<li>Press <strong>Windows Key + X</strong> on your keyboard.</li>
+<li>Select <strong>Disk Management</strong> from the Power User
+menu.</li>
+</ul></li>
+<li><p><strong>Back Up the Target Partition</strong></p>
+<ul>
+<li>Open File Explorer and copy all necessary files from the partition
+you intend to delete (e.g., <code>D:</code> drive) to another safe
+location.</li>
+</ul></li>
+<li><p><strong>Delete the Adjacent Partition</strong></p>
+<ul>
+<li>In Disk Management, locate the disk containing the two
+partitions.</li>
+<li>Right-click the partition directly to the right of the partition you
+want to expand.</li>
+<li>Select <strong>Delete Volume...</strong></li>
+<li>Click <strong>Yes</strong> when prompted to confirm that all data on
+the volume will be erased. The space will now be labeled as
+<strong>Unallocated</strong>.</li>
+</ul></li>
+<li><p><strong>Extend the Main Partition</strong></p>
+<ul>
+<li>Right-click the partition you want to expand (e.g., <code>C:</code>
+drive).</li>
+<li>Click <strong>Extend Volume...</strong> to launch the Extend Volume
+Wizard.</li>
+<li>Click <strong>Next</strong>.</li>
+<li>By default, Windows selects all available unallocated space. Verify
+the disk selection and amount of space, then click
+<strong>Next</strong>.</li>
+<li>Click <strong>Finish</strong>.</li>
+</ul></li>
+</ol>
+<p>Your primary partition will now occupy the combined storage space of
+both original partitions.</p>
+<hr />
+<h3
+id="alternative-method-merging-partitions-using-diskpart">Alternative
+Method: Merging Partitions Using Diskpart</h3>
+<p>For users who prefer using the Command Prompt:</p>
+<ol type="1">
+<li>Press <strong>Windows Key + S</strong>, type <code>cmd</code>,
+right-click <strong>Command Prompt</strong>, and select <strong>Run as
+administrator</strong>.</li>
+<li>Type <code>diskpart</code> and press <strong>Enter</strong>.</li>
+<li>Type <code>list volume</code> and press <strong>Enter</strong> to
+see all available partitions.</li>
+<li>Select the volume you want to remove by typing
+<code>select volume X</code> (replace <code>X</code> with the number of
+the partition to delete) and press <strong>Enter</strong>.</li>
+<li>Type <code>delete volume</code> and press
+<strong>Enter</strong>.</li>
+<li>Select the volume you want to expand by typing
+<code>select volume Y</code> (replace <code>Y</code> with the number of
+the partition you are keeping) and press <strong>Enter</strong>.</li>
+<li>Type <code>extend</code> and press <strong>Enter</strong>.</li>
+<li>Type <code>exit</code> and press <strong>Enter</strong> to close
+Diskpart.</li>
+</ol></article>
+        <div id="comments-container"></div>
+        <script>
+            const utterancesScript = document.createElement('script');
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+        </div>
+    </div>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule CHKDSK on Next Reboot in Windows 11 - windows-11</title>
+    <meta name="description" content="The Check Disk (CHKDSK) utility in Windows 11 is an essential built-in tool used to inspect the integrity of your file system and fix logical disk errors or bad sectors. When scanning a drive currently in use by the operating system (such as the primary">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/schedule-chkdsk-on-next-reboot-in-windows-11">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Schedule CHKDSK on Next Reboot in Windows 11 - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/schedule-chkdsk-on-next-reboot-in-windows-11" />
+    <meta property="og:image" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="The Check Disk (CHKDSK) utility in Windows 11 is an essential built-in tool used to inspect the integrity of your file system and fix logical disk errors or bad sectors. When scanning a drive currently in use by the operating system (such as the primary" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        
+    <div class="article-layout">
+        <aside id="profile-sidebar" class="profile-column" aria-label="Author Profile"></aside>
+        <div class="article-main-column">
+            <article><h1 id="schedule-chkdsk-on-next-reboot-in-windows-11">Schedule CHKDSK on
+Next Reboot in Windows 11</h1>
+<p>The Check Disk (CHKDSK) utility in Windows 11 is an essential
+built-in tool used to inspect the integrity of your file system and fix
+logical disk errors or bad sectors. When scanning a drive currently in
+use by the operating system (such as the primary <code>C:</code> drive),
+Windows cannot lock the volume immediately and must perform the scan
+during the system boot sequence. This guide demonstrates how to schedule
+a CHKDSK volume scan to run automatically upon your next Windows 11
+restart using the Command Prompt, Windows PowerShell, and File
+Explorer.</p>
+<hr />
+<h3 id="method-1-schedule-chkdsk-using-command-prompt">Method 1:
+Schedule CHKDSK Using Command Prompt</h3>
+<p>Using the Command Prompt with administrative privileges is the
+fastest and most reliable method to schedule a disk check.</p>
+<ol type="1">
+<li>Click the <strong>Start</strong> button or press the <strong>Windows
+Key</strong>.</li>
+<li>Type <strong>cmd</strong> in the search bar.</li>
+<li>Right-click on <strong>Command Prompt</strong> and select
+<strong>Run as administrator</strong> (or click <em>Run as
+administrator</em> in the right pane).</li>
+<li>In the elevated Command Prompt window, type the following command
+and press <strong>Enter</strong>:
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">chkdsk</span> C: <span class="at">/f</span> <span class="at">/r</span></span></code></pre></div>
+<em>(Note: Replace <code>C:</code> with your target drive letter if
+scanning a different partition.)</em></li>
+<li>The system will display a prompt:
+<code>Chkdsk cannot run because the volume is in use by another process. Would you like to schedule this volume to be checked the next time the system restarts? (Y/N)</code></li>
+<li>Type <strong>Y</strong> and press <strong>Enter</strong>.</li>
+<li>Restart your computer. The CHKDSK utility will automatically execute
+before Windows 11 loads to scan and repair the drive.</li>
+</ol>
+<h4 id="key-chkdsk-parameters">Key CHKDSK Parameters:</h4>
+<ul>
+<li><strong>/f</strong>: Fixes errors detected on the disk.</li>
+<li><strong>/r</strong>: Locates bad sectors and recovers readable
+information (implies <code>/f</code>).</li>
+<li><strong>/x</strong>: Forces the volume to dismount first if
+necessary.</li>
+</ul>
+<hr />
+<h3 id="method-2-schedule-chkdsk-using-windows-powershell">Method 2:
+Schedule CHKDSK Using Windows PowerShell</h3>
+<p>You can also use PowerShell to schedule a scan with administrative
+rights.</p>
+<ol type="1">
+<li>Press <strong>Windows Key + X</strong> to open the Quick Link
+menu.</li>
+<li>Select <strong>Terminal (Admin)</strong> or <strong>Windows
+PowerShell (Admin)</strong>.</li>
+<li>Enter the scan command:
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>chkdsk C<span class="op">:</span> <span class="op">/</span>f</span></code></pre></div></li>
+<li>When prompted with <code>(Y/N)</code>, type <strong>Y</strong> and
+press <strong>Enter</strong>.</li>
+<li>Restart your PC to begin the scheduled scan.</li>
+</ol>
+<hr />
+<h3 id="method-3-schedule-chkdsk-via-file-explorer">Method 3: Schedule
+CHKDSK via File Explorer</h3>
+<p>Windows 11 also provides a graphical interface to check drives and
+schedule repairs.</p>
+<ol type="1">
+<li>Open <strong>File Explorer</strong> (press <strong>Windows Key +
+E</strong>).</li>
+<li>Click on <strong>This PC</strong> in the left sidebar.</li>
+<li>Under <strong>Devices and drives</strong>, right-click the drive you
+want to scan (e.g., <code>Local Disk (C:)</code>) and select
+<strong>Properties</strong>.</li>
+<li>Switch to the <strong>Tools</strong> tab.</li>
+<li>In the <strong>Error checking</strong> section, click the
+<strong>Check</strong> button.</li>
+<li>If the drive is in use, click <strong>Scan drive</strong> or
+<strong>Repair drive</strong>.</li>
+<li>If errors are found or the drive needs exclusive access, choose the
+option to restart immediately or schedule the repair on the next
+restart.</li>
+</ol>
+<hr />
+<h3 id="how-to-cancel-a-scheduled-chkdsk-scan">How to Cancel a Scheduled
+CHKDSK Scan</h3>
+<p>If you decide not to run the scheduled disk check on the next
+restart, you can cancel it via the Command Prompt:</p>
+<ol type="1">
+<li>Open <strong>Command Prompt</strong> as an administrator.</li>
+<li>Type the following command and press <strong>Enter</strong>:
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">chkntfs</span> <span class="at">/x</span> C:</span></code></pre></div>
+<em>(Replace <code>C:</code> with the appropriate drive
+letter.)</em></li>
+<li>This command modifies the boot settings to exclude the specified
+drive from the automatic boot-time check.</li>
+</ol></article>
+        <div id="comments-container"></div>
+        <script>
+            const utterancesScript = document.createElement('script');
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+        </div>
+    </div>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

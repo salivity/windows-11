@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSH to a Headless Server in Windows 11 Terminal - windows-11</title>
+    <meta name="description" content="This guide explains how to connect to a headless server remotely using the built-in OpenSSH client within Windows 11 Terminal. Windows 11 includes native OpenSSH support, eliminating the need for third-party software like PuTTY. By using standard command">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/ssh-to-a-headless-server-in-windows-11-terminal">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="SSH to a Headless Server in Windows 11 Terminal - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/ssh-to-a-headless-server-in-windows-11-terminal" />
+    <meta property="og:image" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="This guide explains how to connect to a headless server remotely using the built-in OpenSSH client within Windows 11 Terminal. Windows 11 includes native OpenSSH support, eliminating the need for third-party software like PuTTY. By using standard command" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        
+    <div class="article-layout">
+        <aside id="profile-sidebar" class="profile-column" aria-label="Author Profile"></aside>
+        <div class="article-main-column">
+            <article><h1 id="ssh-to-a-headless-server-in-windows-11-terminal">SSH to a
+Headless Server in Windows 11 Terminal</h1>
+<p>This guide explains how to connect to a headless server remotely
+using the built-in OpenSSH client within Windows 11 Terminal. Windows 11
+includes native OpenSSH support, eliminating the need for third-party
+software like PuTTY. By using standard command-line tools, you can
+establish a secure, encrypted shell session to manage Linux or Windows
+servers directly from your desktop.</p>
+<h3 id="1-verify-openssh-client-on-windows-11">1. Verify OpenSSH Client
+on Windows 11</h3>
+<p>The OpenSSH Client is installed by default on Windows 11. To verify
+it is ready:</p>
+<ol type="1">
+<li>Right-click the <strong>Start</strong> button and select
+<strong>Terminal</strong> (or search for "Terminal" in the Start
+menu).</li>
+<li>Type <code>ssh</code> and press <strong>Enter</strong>.</li>
+<li>If installed, the terminal displays the OpenSSH usage syntax and
+available options.</li>
+</ol>
+<p>If the command is not recognized, install it via Windows
+Settings:</p>
+<ul>
+<li>Go to <strong>Settings &gt; System &gt; Optional
+features</strong>.</li>
+<li>Search for <strong>OpenSSH Client</strong> and click
+<strong>Install</strong>.</li>
+</ul>
+<hr />
+<h3 id="2-gather-server-connection-details">2. Gather Server Connection
+Details</h3>
+<p>Before initiating the connection, ensure you have the following
+information for your headless server:</p>
+<ul>
+<li><strong>Server IP Address or Hostname:</strong> e.g.,
+<code>192.168.1.150</code> or <code>server.local</code></li>
+<li><strong>Username:</strong> The user account on the remote machine
+(e.g., <code>ubuntu</code>, <code>root</code>, or
+<code>admin</code>)</li>
+<li><strong>Port Number:</strong> Default is <code>22</code> (unless
+custom-configured on the server)</li>
+<li><strong>Authentication Credentials:</strong> A user password or an
+SSH private key</li>
+</ul>
+<hr />
+<h3 id="3-connect-using-password-authentication">3. Connect Using
+Password Authentication</h3>
+<p>To establish a standard password-authenticated session:</p>
+<ol type="1">
+<li>Open <strong>Windows Terminal</strong>.</li>
+<li>Run the SSH command using the following syntax:</li>
+</ol>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> username@server_ip_address</span></code></pre></div>
+<p><em>Example:</em></p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> ubuntu@192.168.1.150</span></code></pre></div>
+<ol start="3" type="1">
+<li>If the server uses a non-standard SSH port, specify it with the
+<code>-p</code> flag:</li>
+</ol>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> <span class="at">-p</span> 2222 ubuntu@192.168.1.150</span></code></pre></div>
+<ol start="4" type="1">
+<li><p><strong>Host Authenticity Prompt:</strong> If this is your first
+time connecting, you will see a fingerprint verification prompt:</p>
+<pre class="text"><code>Are you sure you want to continue connecting (yes/no/[fingerprint])?</code></pre>
+<p>Type <code>yes</code> and press <strong>Enter</strong>. This saves
+the server's fingerprint to your local <code>known_hosts</code>
+file.</p></li>
+<li><p>Enter the user's password when prompted (the cursor will not move
+while typing) and press <strong>Enter</strong>.</p></li>
+</ol>
+<p>Once authenticated, your terminal prompt changes to reflect the
+remote server's environment.</p>
+<hr />
+<h3 id="4-connect-using-ssh-key-authentication-recommended">4. Connect
+Using SSH Key Authentication (Recommended)</h3>
+<p>SSH keys provide a more secure, passwordless authentication
+method.</p>
+<h4 id="step-1-generate-an-ssh-key-pair-if-you-dont-have-one">Step 1:
+Generate an SSH Key Pair (if you don't have one)</h4>
+<p>In Windows Terminal, run:</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh-keygen</span> <span class="at">-t</span> ed25519</span></code></pre></div>
+<p>Press <strong>Enter</strong> to accept the default file location
+(<code>C:\Users\&lt;YourUser&gt;\.ssh\id_ed25519</code>), and optionally
+set a passphrase.</p>
+<h4 id="step-2-copy-the-public-key-to-the-headless-server">Step 2: Copy
+the Public Key to the Headless Server</h4>
+<p>View and copy your public key:</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Get-Content</span> <span class="op">~</span>\<span class="op">.</span><span class="fu">ssh</span>\id_ed25519<span class="op">.</span><span class="fu">pub</span></span></code></pre></div>
+<p>Append this public key string to the
+<code>~/.ssh/authorized_keys</code> file on your remote server.</p>
+<h4 id="step-3-connect-with-key-authentication">Step 3: Connect with Key
+Authentication</h4>
+<p>Once the key is added, connect normally:</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> <span class="at">-i</span> ~/.ssh/id_ed25519 username@server_ip_address</span></code></pre></div>
+<hr />
+<h3 id="5-create-an-ssh-config-file-for-fast-access">5. Create an SSH
+Config File for Fast Access</h3>
+<p>To avoid typing the full IP and username each time, configure an SSH
+alias:</p>
+<ol type="1">
+<li>Open or create the config file in Windows Terminal:
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>notepad <span class="op">~</span>\<span class="op">.</span><span class="fu">ssh</span>\config</span></code></pre></div></li>
+<li>Add the host configuration block:
+<pre class="text"><code>Host myserver
+    HostName 192.168.1.150
+    User ubuntu
+    Port 22
+    IdentityFile ~/.ssh/id_ed25519</code></pre></li>
+<li>Save and close the file.</li>
+<li>Connect instantly using only the alias:
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> myserver</span></code></pre></div></li>
+</ol>
+<hr />
+<h3 id="6-terminate-the-session">6. Terminate the Session</h3>
+<p>When you are finished administering your headless server, type:</p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">exit</span></span></code></pre></div>
+<p>Press <strong>Enter</strong> to close the remote session and return
+to your local Windows Terminal prompt.</p></article>
+        <div id="comments-container"></div>
+        <script>
+            const utterancesScript = document.createElement('script');
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+        </div>
+    </div>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

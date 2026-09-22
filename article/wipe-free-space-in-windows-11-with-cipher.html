@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wipe Free Space in Windows 11 with Cipher - windows-11</title>
+    <meta name="description" content="When you delete files in Windows 11, the operating system removes their references but leaves the actual data on the drive until it is overwritten. This guide explains how to use the built-in cipher command-line tool in Windows 11 to securely wipe delete">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/wipe-free-space-in-windows-11-with-cipher">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Wipe Free Space in Windows 11 with Cipher - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/wipe-free-space-in-windows-11-with-cipher" />
+    <meta property="og:image" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="When you delete files in Windows 11, the operating system removes their references but leaves the actual data on the drive until it is overwritten. This guide explains how to use the built-in cipher command-line tool in Windows 11 to securely wipe delete" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        
+    <div class="article-layout">
+        <aside id="profile-sidebar" class="profile-column" aria-label="Author Profile"></aside>
+        <div class="article-main-column">
+            <article><h1 id="wipe-free-space-in-windows-11-with-cipher">Wipe Free Space in
+Windows 11 with Cipher</h1>
+<p>When you delete files in Windows 11, the operating system removes
+their references but leaves the actual data on the drive until it is
+overwritten. This guide explains how to use the built-in
+<code>cipher</code> command-line tool in Windows 11 to securely wipe
+deleted data from your free storage space, preventing unauthorized file
+recovery without affecting your existing files.</p>
+<hr />
+<h3 id="what-the-cipher-command-does">What the Cipher Command Does</h3>
+<p>The <code>cipher</code> tool includes a <code>/w</code> (wipe) switch
+designed to remove residual data from unused disk space. When executed,
+it performs three consecutive overwrites on the free space:</p>
+<ol type="1">
+<li><strong>First Pass:</strong> Overwrites free space with zeroes
+(<code>0x00</code>).</li>
+<li><strong>Second Pass:</strong> Overwrites free space with ones
+(<code>0xFF</code>).</li>
+<li><strong>Third Pass:</strong> Overwrites free space with random
+numbers.</li>
+</ol>
+<p>This process ensures that previously deleted files cannot be
+recovered using standard data recovery software.</p>
+<hr />
+<h3 id="step-by-step-instructions">Step-by-Step Instructions</h3>
+<h4 id="1-empty-the-recycle-bin">1. Empty the Recycle Bin</h4>
+<p>Before wiping free space, ensure that the files you want gone are
+actually deleted:</p>
+<ul>
+<li>Right-click the <strong>Recycle Bin</strong> on your desktop.</li>
+<li>Select <strong>Empty Recycle Bin</strong>.</li>
+</ul>
+<h4 id="2-open-command-prompt-as-administrator">2. Open Command Prompt
+as Administrator</h4>
+<ul>
+<li>Press the <strong>Windows Key</strong>.</li>
+<li>Type <code>cmd</code> or <code>Command Prompt</code>.</li>
+<li>Right-click <strong>Command Prompt</strong> and select <strong>Run
+as administrator</strong> (or click <em>Run as administrator</em> in the
+search panel).</li>
+</ul>
+<h4 id="3-run-the-cipher-command">3. Run the Cipher Command</h4>
+<p>To wipe the free space of a specific drive or folder, use the
+following syntax:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>cipher <span class="at">/w:</span>DRIVE_LETTER:<span class="sc">\</span></span></code></pre></div>
+<ul>
+<li><p><strong>To wipe the entire C: drive's free space:</strong></p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>cipher <span class="at">/w:</span>C:\</span></code></pre></div></li>
+<li><p><strong>To wipe the free space of a secondary drive (e.g.,
+D:):</strong></p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>cipher <span class="at">/w:</span>D:\</span></code></pre></div></li>
+<li><p><strong>To wipe free space in a specific folder:</strong></p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>cipher <span class="at">/w:</span>C:\Users\YourUsername\Documents</span></code></pre></div></li>
+</ul>
+<hr />
+<h3 id="important-considerations">Important Considerations</h3>
+<ul>
+<li><strong>Active Files Are Safe:</strong> The <code>cipher /w</code>
+command only targets unallocated (free) disk space. It will not delete,
+modify, or corrupt your existing files or installed applications.</li>
+<li><strong>Duration:</strong> The wiping process can take several hours
+depending on the size of the drive, the amount of free space, and the
+disk's write speeds.</li>
+<li><strong>System Performance:</strong> Because this operation involves
+heavy disk writing, your computer may run slower while the command is
+running. It is best to run it when you do not need intensive system
+performance.</li>
+<li><strong>Interrupting the Process:</strong> If you need to stop the
+operation before it finishes, press <code>Ctrl + C</code> in the Command
+Prompt window.</li>
+</ul></article>
+        <div id="comments-container"></div>
+        <script>
+            const utterancesScript = document.createElement('script');
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+        </div>
+    </div>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Install WSL 2 Kernel Update on Windows 11 - windows-11</title>
+    <meta name="description" content="The Windows Subsystem for Linux 2 (WSL 2) kernel update package provides the dedicated Linux kernel required to run native Linux binaries directly on Windows 11 with full system call compatibility. This guide explains how to enable the necessary Windows">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/how-to-install-wsl-2-kernel-update-on-windows-11">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="How to Install WSL 2 Kernel Update on Windows 11 - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/how-to-install-wsl-2-kernel-update-on-windows-11" />
+    <meta property="og:image" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="The Windows Subsystem for Linux 2 (WSL 2) kernel update package provides the dedicated Linux kernel required to run native Linux binaries directly on Windows 11 with full system call compatibility. This guide explains how to enable the necessary Windows" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        
+    <div class="article-layout">
+        <aside id="profile-sidebar" class="profile-column" aria-label="Author Profile"></aside>
+        <div class="article-main-column">
+            <article><h1 id="how-to-install-wsl-2-kernel-update-on-windows-11">How to Install
+WSL 2 Kernel Update on Windows 11</h1>
+<p>The Windows Subsystem for Linux 2 (WSL 2) kernel update package
+provides the dedicated Linux kernel required to run native Linux
+binaries directly on Windows 11 with full system call compatibility.
+This guide explains how to enable the necessary Windows features,
+download and install the official WSL 2 Linux kernel update package, set
+WSL 2 as your default architecture, and verify the installation.</p>
+<h2 id="step-1-enable-required-windows-features">Step 1: Enable Required
+Windows Features</h2>
+<p>Before applying the kernel update, you must ensure that both the
+Windows Subsystem for Linux and the Virtual Machine Platform optional
+features are enabled on your system.</p>
+<ol type="1">
+<li>Right-click the <strong>Start</strong> button and select
+<strong>Terminal (Admin)</strong> or <strong>PowerShell
+(Admin)</strong>.</li>
+<li>Run the following command to enable the Windows Subsystem for Linux
+feature:
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>dism<span class="op">.</span><span class="fu">exe</span> <span class="op">/</span>online <span class="op">/</span>enable-feature <span class="op">/</span>featurename<span class="op">:</span>Microsoft-Windows-Subsystem-Linux <span class="op">/</span>all <span class="op">/</span>norestart</span></code></pre></div></li>
+<li>Run the following command to enable the Virtual Machine Platform
+feature:
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>dism<span class="op">.</span><span class="fu">exe</span> <span class="op">/</span>online <span class="op">/</span>enable-feature <span class="op">/</span>featurename<span class="op">:</span>VirtualMachinePlatform <span class="op">/</span>all <span class="op">/</span>norestart</span></code></pre></div></li>
+<li>Restart your computer when prompted or after both commands complete
+successfully.</li>
+</ol>
+<h2
+id="step-2-download-and-install-the-wsl-2-kernel-update-package">Step 2:
+Download and Install the WSL 2 Kernel Update Package</h2>
+<p>On modern Windows 11 installations, you can update the kernel
+directly using the command line or via the standalone installer
+package.</p>
+<h3 id="option-a-using-the-command-line-recommended">Option A: Using the
+Command Line (Recommended)</h3>
+<ol type="1">
+<li>Open <strong>Command Prompt</strong> or <strong>PowerShell</strong>
+as an administrator.</li>
+<li>Execute the update command:
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>wsl <span class="op">--</span>update</span></code></pre></div>
+Windows will automatically download and install the latest Linux kernel
+package for WSL 2.</li>
+</ol>
+<h3 id="option-b-using-the-standalone-msi-package">Option B: Using the
+Standalone MSI Package</h3>
+<p>If your system is offline or the automated command fails:</p>
+<ol type="1">
+<li>Download the official <strong>WSL 2 Linux kernel update package for
+x64 machines</strong> (<code>wsl_update_x64.msi</code>) from
+Microsoft.</li>
+<li>Double-click the downloaded <code>.msi</code> file to launch the
+setup wizard.</li>
+<li>Grant administrative permissions when prompted and click
+<strong>Next</strong> to complete the installation.</li>
+</ol>
+<h2 id="step-3-set-wsl-2-as-the-default-version">Step 3: Set WSL 2 as
+the Default Version</h2>
+<p>Configure Windows to use WSL 2 by default whenever new Linux
+distributions are installed:</p>
+<ol type="1">
+<li>Open <strong>PowerShell</strong> or <strong>Command
+Prompt</strong>.</li>
+<li>Run the following command:
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>wsl <span class="op">--</span>set-default-version <span class="dv">2</span></span></code></pre></div></li>
+</ol>
+<h2 id="step-4-verify-the-installation">Step 4: Verify the
+Installation</h2>
+<p>To confirm that the WSL 2 kernel is properly installed and
+active:</p>
+<ol type="1">
+<li>In PowerShell, run:
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>wsl <span class="op">--</span>status</span></code></pre></div></li>
+<li>Check the output to ensure the <strong>Default Version</strong> is
+set to <code>2</code> and that the <strong>Kernel version</strong>
+details are displayed without errors.</li>
+</ol></article>
+        <div id="comments-container"></div>
+        <script>
+            const utterancesScript = document.createElement('script');
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+        </div>
+    </div>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

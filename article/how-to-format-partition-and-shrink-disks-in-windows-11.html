@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Format, Partition, and Shrink Disks in Windows 11 - windows-11</title>
+    <meta name="description" content="Windows 11 includes a powerful built-in utility called Disk Management that allows you to configure hard drives, SSDs, and external storage devices without third-party software. This guide provides step-by-step instructions on how to access the Disk Mana">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/how-to-format-partition-and-shrink-disks-in-windows-11">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="How to Format, Partition, and Shrink Disks in Windows 11 - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/how-to-format-partition-and-shrink-disks-in-windows-11" />
+    <meta property="og:image" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Windows 11 includes a powerful built-in utility called Disk Management that allows you to configure hard drives, SSDs, and external storage devices without third-party software. This guide provides step-by-step instructions on how to access the Disk Mana" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        
+    <div class="article-layout">
+        <aside id="profile-sidebar" class="profile-column" aria-label="Author Profile"></aside>
+        <div class="article-main-column">
+            <article><h1 id="how-to-format-partition-and-shrink-disks-in-windows-11">How to
+Format, Partition, and Shrink Disks in Windows 11</h1>
+<p>Windows 11 includes a powerful built-in utility called Disk
+Management that allows you to configure hard drives, SSDs, and external
+storage devices without third-party software. This guide provides
+step-by-step instructions on how to access the Disk Management tool,
+shrink an existing drive to reclaim space, create a new partition from
+unallocated space, and properly format disk volumes for use.</p>
+<h2 id="how-to-open-disk-management">How to Open Disk Management</h2>
+<ol type="1">
+<li>Right-click the <strong>Start</strong> button on the taskbar or
+press <strong>Windows Key + X</strong>.</li>
+<li>Select <strong>Disk Management</strong> from the Power User menu.
+<em>(Alternatively, press <strong>Windows Key + R</strong>, type
+<code>diskmgmt.msc</code>, and press <strong>Enter</strong>.)</em></li>
+</ol>
+<hr />
+<h2 id="how-to-shrink-a-disk-volume">How to Shrink a Disk Volume</h2>
+<p>Shrinking a volume decreases the space used by an existing partition,
+converting the freed-up capacity into unallocated space.</p>
+<ol type="1">
+<li>In the Disk Management window, locate the drive and partition you
+want to resize.</li>
+<li>Right-click the partition (e.g., your <code>C:</code> drive) and
+select <strong>Shrink Volume</strong>.</li>
+<li>Wait for the tool to query the volume for available shrink
+space.</li>
+<li>In the <strong>Enter the amount of space to shrink in MB</strong>
+field, enter the desired size you want to free up (1,024 MB = 1
+GB).</li>
+<li>Click <strong>Shrink</strong>. The freed capacity will now appear as
+a black bar labeled <strong>Unallocated</strong>.</li>
+</ol>
+<hr />
+<h2 id="how-to-create-and-partition-a-new-volume">How to Create and
+Partition a New Volume</h2>
+<p>Once you have unallocated space available on a disk, you can turn it
+into a usable partition.</p>
+<ol type="1">
+<li>Right-click the black-labeled <strong>Unallocated</strong>
+space.</li>
+<li>Select <strong>New Simple Volume</strong> to launch the setup
+wizard, then click <strong>Next</strong>.</li>
+<li>Specify the volume size in megabytes (leave the default value if you
+want to use all available space) and click <strong>Next</strong>.</li>
+<li>Choose an available drive letter from the dropdown menu (e.g.,
+<code>D:</code>, <code>E:</code>) and click <strong>Next</strong>.</li>
+<li>Proceed to the formatting step directly within the wizard.</li>
+</ol>
+<hr />
+<h2 id="how-to-format-a-volume">How to Format a Volume</h2>
+<p>Formatting erases all existing data on a partition and prepares it
+with a file system suitable for Windows.</p>
+<ol type="1">
+<li>If you are continuing from the <strong>New Simple Volume
+Wizard</strong>, or if you right-click an existing drive and select
+<strong>Format</strong>:</li>
+<li>Set the following options:
+<ul>
+<li><strong>File system:</strong> Choose <strong>NTFS</strong> (standard
+for internal Windows drives) or <strong>exFAT</strong> (recommended for
+cross-platform external drives).</li>
+<li><strong>Allocation unit size:</strong> Leave as
+<strong>Default</strong>.</li>
+<li><strong>Volume label:</strong> Enter a custom name for the
+drive.</li>
+</ul></li>
+<li>Check the box for <strong>Perform a quick format</strong> to speed
+up the process.</li>
+<li>Click <strong>Next</strong> and then <strong>Finish</strong> (or
+<strong>OK</strong> if formatting an existing drive).</li>
+</ol>
+<p><em>Note: Formatting an existing drive permanently deletes all files
+stored on that partition. Ensure critical data is backed up before
+confirming.</em></p></article>
+        <div id="comments-container"></div>
+        <script>
+            const utterancesScript = document.createElement('script');
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+        </div>
+    </div>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

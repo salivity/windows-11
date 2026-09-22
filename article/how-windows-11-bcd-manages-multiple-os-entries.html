@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Windows 11 BCD Manages Multiple OS Entries - windows-11</title>
+    <meta name="description" content="The Windows 11 Boot Configuration Data (BCD) is a firmware-independent database that manages the boot environment and controls how the computer starts. When configuring a multi-boot system—such as dual-booting multiple versions of Windows or combining">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/how-windows-11-bcd-manages-multiple-os-entries">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="How Windows 11 BCD Manages Multiple OS Entries - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/how-windows-11-bcd-manages-multiple-os-entries" />
+    <meta property="og:image" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="The Windows 11 Boot Configuration Data (BCD) is a firmware-independent database that manages the boot environment and controls how the computer starts. When configuring a multi-boot system—such as dual-booting multiple versions of Windows or combining" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        
+    <div class="article-layout">
+        <aside id="profile-sidebar" class="profile-column" aria-label="Author Profile"></aside>
+        <div class="article-main-column">
+            <article><h1 id="how-windows-11-bcd-manages-multiple-os-entries">How Windows 11
+BCD Manages Multiple OS Entries</h1>
+<p>The Windows 11 Boot Configuration Data (BCD) is a
+firmware-independent database that manages the boot environment and
+controls how the computer starts. When configuring a multi-boot
+system—such as dual-booting multiple versions of Windows or combining
+Windows with Linux—the BCD acts as a centralized registry containing
+specific parameters, device paths, and execution instructions for each
+operating system. Through the Windows Boot Manager, the BCD evaluates
+these entries, determines startup priority, and renders the boot
+selection menu to hand off control to the selected OS loader.</p>
+<h2 id="the-architecture-of-the-bcd-store">The Architecture of the BCD
+Store</h2>
+<p>The BCD replaces the legacy <code>boot.ini</code> file used in older
+Windows versions and is structured similarly to a Windows Registry hive.
+On modern UEFI-based Windows 11 installations, the BCD file resides on
+the hidden EFI System Partition (ESP) at
+<code>\EFI\Microsoft\Boot\BCD</code>.</p>
+<p>The BCD organizes boot data into distinct objects identified by
+Globally Unique Identifiers (GUIDs). Each object contains elements
+specifying the exact settings required to load a specific
+environment:</p>
+<ul>
+<li><strong>Windows Boot Manager (<code>{bootmgr}</code>):</strong> The
+master object controlling the initial boot phase, timeout settings, and
+the list of available operating systems.</li>
+<li><strong>Operating System Loaders:</strong> Individual objects
+representing each installed OS, storing critical parameters such as the
+partition location, kernel file paths, and hardware detection
+settings.</li>
+<li><strong>Resume Objects:</strong> Dedicated entries managing
+power-state restoration from hibernation
+(<code>winresume.efi</code>).</li>
+</ul>
+<h2 id="how-the-bcd-handles-multi-boot-configurations">How the BCD
+Handles Multi-Boot Configurations</h2>
+<p>When multiple operating systems are installed, the BCD manages them
+using a structured hierarchy:</p>
+<h3 id="1-guid-assignment-and-os-identification">1. GUID Assignment and
+OS Identification</h3>
+<p>Every operating system entry added to the BCD is assigned a unique
+GUID. The currently running Windows system is often referenced aliased
+as <code>{current}</code>, while the pre-selected primary system is
+referenced as <code>{default}</code>. Other installations receive
+distinct 128-bit identifiers (e.g.,
+<code>{466f5a88-0af2-4376-a021-0be6e050205b}</code>).</p>
+<h3 id="2-the-display-order-list">2. The Display Order List</h3>
+<p>Within the <code>{bootmgr}</code> object, an element named
+<code>displayorder</code> holds an ordered array of OS GUIDs. When the
+system initializes, the Windows Boot Manager reads this list. If more
+than one valid loader object is present in the
+<code>displayorder</code>, the boot manager interrupts the automatic
+startup and displays the graphical or text-based boot menu.</p>
+<h3 id="3-execution-handoff">3. Execution Handoff</h3>
+<p>Each entry points to a specific boot loader executable:</p>
+<ul>
+<li><strong>For Windows installations:</strong> The BCD entry specifies
+the drive volume and path to the Windows OS loader
+(<code>\Windows\system32\winload.efi</code>).</li>
+<li><strong>For Virtual Hard Disks (VHD/VHDX):</strong> The entry points
+to the virtual disk file, allowing native VHD boot without dedicated
+disk partitioning.</li>
+<li><strong>For Non-Windows Systems (e.g., Linux):</strong> The BCD can
+chainload alternative EFI binaries (such as GRUB via
+<code>shimx64.efi</code> or <code>grubx64.efi</code>), though modern
+systems often use UEFI NVRAM variables alongside BCD to switch between
+different OS boot managers directly.</li>
+</ul>
+<h2 id="managing-bcd-entries-in-windows-11">Managing BCD Entries in
+Windows 11</h2>
+<p>Windows 11 provides several utilities to view and modify the BCD
+store:</p>
+<ul>
+<li><strong>BCDEdit (<code>bcdedit.exe</code>):</strong> The primary
+command-line tool. Running <code>bcdedit /enum</code> lists all current
+entries. Administrators can modify parameters, change the display order
+(<code>bcdedit /displayorder</code>), add new entries
+(<code>bcdedit /create</code> or <code>/copy</code>), and set the
+default OS (<code>bcdedit /default</code>).</li>
+<li><strong>System Configuration (<code>msconfig</code>):</strong> A
+graphical utility that allows users to view available OS entries, set
+the default OS, and adjust the boot menu timeout.</li>
+<li><strong>Startup and Recovery Settings:</strong> Located in the
+Windows 11 Settings app under System Properties, providing basic GUI
+controls over default boot selection and timer behavior.</li>
+</ul></article>
+        <div id="comments-container"></div>
+        <script>
+            const utterancesScript = document.createElement('script');
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+        </div>
+    </div>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

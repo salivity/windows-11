@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Run SFC and DISM in Windows 11 - windows-11</title>
+    <meta name="description" content="This guide explains how to use the built-in Deployment Image Servicing and Management (DISM) and System File Checker (SFC) command-line tools in Windows 11. Running these utilities allows you to scan for, identify, and automatically repair corrupted or m">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/how-to-run-sfc-and-dism-in-windows-11">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="How to Run SFC and DISM in Windows 11 - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/how-to-run-sfc-and-dism-in-windows-11" />
+    <meta property="og:image" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="This guide explains how to use the built-in Deployment Image Servicing and Management (DISM) and System File Checker (SFC) command-line tools in Windows 11. Running these utilities allows you to scan for, identify, and automatically repair corrupted or m" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        
+    <div class="article-layout">
+        <aside id="profile-sidebar" class="profile-column" aria-label="Author Profile"></aside>
+        <div class="article-main-column">
+            <article><h1 id="how-to-run-sfc-and-dism-in-windows-11">How to Run SFC and DISM
+in Windows 11</h1>
+<p>This guide explains how to use the built-in Deployment Image
+Servicing and Management (DISM) and System File Checker (SFC)
+command-line tools in Windows 11. Running these utilities allows you to
+scan for, identify, and automatically repair corrupted or missing system
+files to resolve operating system crashes, performance drops, and
+instability.</p>
+<h3 id="step-1-open-command-prompt-as-administrator">Step 1: Open
+Command Prompt as Administrator</h3>
+<p>To execute system repairs, you must run the command line with
+elevated administrative privileges.</p>
+<ol type="1">
+<li>Press the <strong>Windows Key + S</strong> to open the search
+bar.</li>
+<li>Type <strong>cmd</strong> or <strong>Command Prompt</strong>.</li>
+<li>Right-click on <strong>Command Prompt</strong> in the search results
+and select <strong>Run as administrator</strong> (or click <strong>Run
+as administrator</strong> in the right pane).</li>
+<li>Click <strong>Yes</strong> when prompted by User Account Control
+(UAC).</li>
+</ol>
+<hr />
+<h3 id="step-2-run-the-dism-tool">Step 2: Run the DISM Tool</h3>
+<p>It is recommended to run DISM before SFC. DISM checks and repairs the
+Windows Component Store image, ensuring that SFC has a healthy source to
+pull replacement files from.</p>
+<p>In the elevated Command Prompt, type the following command and press
+<strong>Enter</strong>:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>DISM <span class="at">/Online</span> <span class="at">/Cleanup-Image</span> <span class="at">/RestoreHealth</span></span></code></pre></div>
+<ul>
+<li><strong>What it does:</strong> Connects to Windows Update to
+download and replace damaged system components.</li>
+<li><strong>Duration:</strong> The process typically takes between 5 to
+20 minutes depending on your system and network speed. It may
+temporarily appear stuck at certain percentages (such as 20% or 62%); do
+not close the window until the scan reaches 100% and displays a
+completion message.</li>
+</ul>
+<hr />
+<h3 id="step-3-run-the-system-file-checker-sfc">Step 3: Run the System
+File Checker (SFC)</h3>
+<p>Once the DISM scan finishes successfully, proceed with the SFC scan
+to repair protected Windows system files.</p>
+<p>In the same Command Prompt window, type the following command and
+press <strong>Enter</strong>:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>sfc <span class="at">/scannow</span></span></code></pre></div>
+<ul>
+<li><strong>What it does:</strong> Scans all protected system files and
+replaces corrupted files with a cached copy located in a compressed
+folder at <code>C:\Windows\System32\dllcache</code>.</li>
+</ul>
+<hr />
+<h3 id="step-4-review-the-sfc-results">Step 4: Review the SFC
+Results</h3>
+<p>When the verification phase reaches 100%, you will see one of the
+following output messages:</p>
+<ul>
+<li><strong>"Windows Resource Protection did not find any integrity
+violations."</strong><br />
+No missing or corrupted system files were found on your device.</li>
+<li><strong>"Windows Resource Protection found corrupt files and
+successfully repaired them."</strong><br />
+Corrupted files were detected and replaced automatically.</li>
+<li><strong>"Windows Resource Protection found corrupt files but was
+unable to fix some of them."</strong><br />
+Some files could not be repaired. In this case, restart your computer,
+boot into Safe Mode, and run the command again.</li>
+<li><strong>"Windows Resource Protection could not perform the requested
+operation."</strong><br />
+Run the scan while booted into Windows Safe Mode, or verify that the
+<code>PendingDeletes</code> and <code>PendingRenames</code> folders
+exist under <code>C:\Windows\WinSxS\Temp</code>.</li>
+</ul>
+<hr />
+<h3 id="step-5-restart-your-computer">Step 5: Restart Your Computer</h3>
+<p>After both the DISM and SFC operations have completed, close the
+Command Prompt window and restart your Windows 11 PC to ensure all
+repaired files and updates take effect properly.</p></article>
+        <div id="comments-container"></div>
+        <script>
+            const utterancesScript = document.createElement('script');
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+        </div>
+    </div>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

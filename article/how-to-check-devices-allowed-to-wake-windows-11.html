@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Check Devices Allowed to Wake Windows 11 - windows-11</title>
+    <meta name="description" content="If your Windows 11 computer wakes up unexpectedly from sleep mode, specific connected hardware components are likely responsible. Windows allows certain hardware—such as keyboards, mice, and network adapters—to wake the system. This guide explains ho">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/how-to-check-devices-allowed-to-wake-windows-11">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="How to Check Devices Allowed to Wake Windows 11 - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/how-to-check-devices-allowed-to-wake-windows-11" />
+    <meta property="og:image" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="If your Windows 11 computer wakes up unexpectedly from sleep mode, specific connected hardware components are likely responsible. Windows allows certain hardware—such as keyboards, mice, and network adapters—to wake the system. This guide explains ho" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        
+    <div class="article-layout">
+        <aside id="profile-sidebar" class="profile-column" aria-label="Author Profile"></aside>
+        <div class="article-main-column">
+            <article><h1 id="how-to-check-devices-allowed-to-wake-windows-11">How to Check
+Devices Allowed to Wake Windows 11</h1>
+<p>If your Windows 11 computer wakes up unexpectedly from sleep mode,
+specific connected hardware components are likely responsible. Windows
+allows certain hardware—such as keyboards, mice, and network adapters—to
+wake the system. This guide explains how to quickly identify which
+devices currently have permission to wake your PC using the Command
+Prompt and how to verify these settings in Device Manager.</p>
+<h2 id="method-1-using-command-prompt-fastest">Method 1: Using Command
+Prompt (Fastest)</h2>
+<p>The Command Prompt provides the quickest way to generate a complete
+list of all devices configured to wake your PC.</p>
+<ol type="1">
+<li>Right-click the <strong>Start</strong> button on your taskbar or
+press <strong>Windows Key + X</strong>.</li>
+<li>Select <strong>Terminal (Admin)</strong> or <strong>Command Prompt
+(Admin)</strong>.</li>
+<li>In the command window, type the following command and press
+<strong>Enter</strong>:
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>powercfg <span class="at">-devicequery</span> wake_armed</span></code></pre></div></li>
+<li>Windows will display a list of all connected devices that currently
+have permission to wake the computer. If the list is empty, no hardware
+devices are permitted to wake the system.</li>
+</ol>
+<h3 id="check-what-last-woke-your-pc">Check What Last Woke Your PC</h3>
+<p>To see the specific device or event that triggered the most recent
+wake-up, run this command:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>powercfg <span class="at">-lastwake</span></span></code></pre></div>
+<hr />
+<h2 id="method-2-using-device-manager">Method 2: Using Device
+Manager</h2>
+<p>Device Manager allows you to check permissions for individual devices
+through a graphical interface and modify them if necessary.</p>
+<ol type="1">
+<li>Press <strong>Windows Key + X</strong> and select <strong>Device
+Manager</strong>.</li>
+<li>Locate the category of the hardware you want to check (common
+categories include <strong>Keyboards</strong>, <strong>Mice and other
+pointing devices</strong>, and <strong>Network adapters</strong>).</li>
+<li>Double-click the category to expand it.</li>
+<li>Right-click the specific device and select
+<strong>Properties</strong>.</li>
+<li>Click on the <strong>Power Management</strong> tab. If this tab is
+missing, the device does not support wake functionality.</li>
+<li>Look at the option labeled <strong>Allow this device to wake the
+computer</strong>:
+<ul>
+<li>If the box is <strong>checked</strong>, the device has permission to
+wake your PC.</li>
+<li>If the box is <strong>unchecked</strong>, the device cannot wake
+your PC.</li>
+</ul></li>
+</ol>
+<hr />
+<h2 id="how-to-prevent-a-device-from-waking-windows-11">How to Prevent a
+Device from Waking Windows 11</h2>
+<p>If you identify a device that is causing unwanted wake-ups, you can
+revoke its wake permissions:</p>
+<ul>
+<li><strong>Via Device Manager:</strong> Uncheck the <strong>Allow this
+device to wake the computer</strong> box in the device's Power
+Management tab and click <strong>OK</strong>.</li>
+<li><strong>Via Command Prompt:</strong> Run the following command,
+replacing <code>"Device Name"</code> with the exact name returned from
+the <code>wake_armed</code> query:
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>powercfg <span class="at">-devicedisablewake</span> <span class="st">&quot;Device Name&quot;</span></span></code></pre></div></li>
+</ul></article>
+        <div id="comments-container"></div>
+        <script>
+            const utterancesScript = document.createElement('script');
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+        </div>
+    </div>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

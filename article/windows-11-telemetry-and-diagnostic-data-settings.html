@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windows 11 Telemetry and Diagnostic Data Settings - windows-11</title>
+    <meta name="description" content="Windows 11 collects various levels of diagnostic and telemetry data to monitor system stability, provide security updates, and troubleshoot errors. This article outlines the specific telemetry and diagnostic settings available in Windows 11, explaining w">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/windows-11-telemetry-and-diagnostic-data-settings">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Windows 11 Telemetry and Diagnostic Data Settings - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/windows-11-telemetry-and-diagnostic-data-settings" />
+    <meta property="og:image" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Windows 11 collects various levels of diagnostic and telemetry data to monitor system stability, provide security updates, and troubleshoot errors. This article outlines the specific telemetry and diagnostic settings available in Windows 11, explaining w" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        
+    <div class="article-layout">
+        <aside id="profile-sidebar" class="profile-column" aria-label="Author Profile"></aside>
+        <div class="article-main-column">
+            <article><h1 id="windows-11-telemetry-and-diagnostic-data-settings">Windows 11
+Telemetry and Diagnostic Data Settings</h1>
+<p>Windows 11 collects various levels of diagnostic and telemetry data
+to monitor system stability, provide security updates, and troubleshoot
+errors. This article outlines the specific telemetry and diagnostic
+settings available in Windows 11, explaining what data each level
+gathers and how users and administrators can configure them via the
+Settings app, Group Policy, and the Windows Registry.</p>
+<h3 id="standard-diagnostic-data-levels">Standard Diagnostic Data
+Levels</h3>
+<p>In the Windows 11 Settings app (under <strong>Settings &gt; Privacy
+&amp; security &gt; Diagnostics &amp; feedback</strong>), users can
+choose between two main diagnostic data collection tiers:</p>
+<ul>
+<li><strong>Required Diagnostic Data:</strong> This is the baseline
+setting necessary to keep the device secure, up to date, and operating
+properly. It collects hardware specifications, installed software, basic
+device info, crash/error event logs, and update status. It cannot be
+disabled via standard consumer settings.</li>
+<li><strong>Optional Diagnostic Data:</strong> This level sends
+supplementary information to Microsoft. It includes detailed crash
+memory dumps, application and browser usage patterns, device
+connectivity states, and advanced troubleshooting logs.</li>
+</ul>
+<h3 id="auxiliary-diagnostic-and-privacy-toggles">Auxiliary Diagnostic
+and Privacy Toggles</h3>
+<p>Within the same settings menu, several secondary options govern
+related telemetry features:</p>
+<ul>
+<li><strong>Improve inking and typing data:</strong> Toggles whether
+Windows sends samples of handwriting and keystroke patterns to improve
+Microsoft’s text recognition and auto-complete models.</li>
+<li><strong>Tailored experiences:</strong> Determines whether Microsoft
+can use collected diagnostic data to provide personalized
+recommendations, ads, and product suggestions.</li>
+<li><strong>View diagnostic data:</strong> Allows users to enable the
+Diagnostic Data Viewer, an application that displays the exact raw data
+packets transmitted to Microsoft.</li>
+<li><strong>Delete diagnostic data:</strong> Provides a direct button to
+request the deletion of all diagnostic information associated with the
+specific device stored on Microsoft servers.</li>
+<li><strong>Feedback frequency:</strong> Configures how often Windows
+asks for user feedback, ranging from "Automatically" to "Never."</li>
+</ul>
+<h3 id="advanced-enterprise-controls-group-policy-and-registry">Advanced
+Enterprise Controls (Group Policy and Registry)</h3>
+<p>Organizations running Windows 11 Pro, Enterprise, or Education
+editions can use the Group Policy Editor (<code>gpedit.msc</code>) or
+Mobile Device Management (MDM) policies located at
+<code>Computer Configuration &gt; Administrative Templates &gt; Windows Components &gt; Data Collection and Preview Builds</code>
+to enforce stricter controls:</p>
+<ul>
+<li><strong>Diagnostic Data Off (Security level):</strong> Available
+exclusively on Enterprise, Education, and IoT editions. This setting
+reduces telemetry to minimal data required for Windows Defender and core
+activation mechanisms.</li>
+<li><strong>Allow Diagnostic Data (Policy):</strong> Explicitly locks
+the diagnostic tier to <code>0</code> (Security/Off), <code>1</code>
+(Required), or <code>3</code> (Optional).</li>
+<li><strong>Limit Dump Collection:</strong> Restricts crash dumps to
+standard headers, preventing full memory dumps from being included in
+diagnostic payloads.</li>
+<li><strong>Disable Diagnostic Data Viewer:</strong> Prevents local
+caching of telemetry data for user inspection.</li>
+</ul>
+<h3 id="service-level-configuration">Service-Level Configuration</h3>
+<p>For strict environment control, administrators often manage the
+underlying Windows services responsible for gathering and transmitting
+telemetry:</p>
+<ul>
+<li><strong>Connected User Experiences and Telemetry
+(<code>DiagTrack</code>):</strong> The primary service that handles data
+collection and transmission. Disabling this service stops general
+telemetry communication with Microsoft servers.</li>
+<li><strong>Device Management Wireless Application Protocol (WAP) Push
+Message Routing Service (<code>dmwappushservice</code>):</strong> A
+secondary service involved in routing telemetry and enterprise
+management reports.</li>
+</ul></article>
+        <div id="comments-container"></div>
+        <script>
+            const utterancesScript = document.createElement('script');
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+        </div>
+    </div>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

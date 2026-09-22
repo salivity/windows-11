@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Check Disk Health with PowerShell on Windows 11 - windows-11</title>
+    <meta name="description" content="Monitoring storage drive health is essential for preventing unexpected hardware failures and data loss. Windows 11 includes native PowerShell cmdlets and WMI/CIM classes that allow you to query the operational status, wear levels, and SMART (Self-Monitor">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/how-to-check-disk-health-with-power-shell-on-windows-11">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="How to Check Disk Health with PowerShell on Windows 11 - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/how-to-check-disk-health-with-power-shell-on-windows-11" />
+    <meta property="og:image" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Monitoring storage drive health is essential for preventing unexpected hardware failures and data loss. Windows 11 includes native PowerShell cmdlets and WMI/CIM classes that allow you to query the operational status, wear levels, and SMART (Self-Monitor" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        
+    <div class="article-layout">
+        <aside id="profile-sidebar" class="profile-column" aria-label="Author Profile"></aside>
+        <div class="article-main-column">
+            <article><h1 id="how-to-check-disk-health-with-powershell-on-windows-11">How to
+Check Disk Health with PowerShell on Windows 11</h1>
+<p>Monitoring storage drive health is essential for preventing
+unexpected hardware failures and data loss. Windows 11 includes native
+PowerShell cmdlets and WMI/CIM classes that allow you to query the
+operational status, wear levels, and SMART (Self-Monitoring, Analysis,
+and Reporting Technology) metrics of your Solid-State Drives (SSDs) and
+Hard Disk Drives (HDDs) without third-party software.</p>
+<h3 id="step-1-open-powershell-as-administrator">Step 1: Open PowerShell
+as Administrator</h3>
+<p>To query hardware-level storage diagnostics, PowerShell requires
+elevated privileges.</p>
+<ol type="1">
+<li>Right-click the <strong>Start</strong> button on Windows 11.</li>
+<li>Select <strong>Terminal (Admin)</strong> or <strong>Windows
+PowerShell (Admin)</strong>.</li>
+</ol>
+<hr />
+<h3 id="method-1-check-basic-health-status">Method 1: Check Basic Health
+Status</h3>
+<p>The <code>Get-PhysicalDisk</code> cmdlet provides a fast overview of
+all physical drives connected to your system, showing their operational
+state and overall health.</p>
+<p>Run the following command:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Get-PhysicalDisk <span class="op">|</span> <span class="fu">Select-Object</span> DeviceId<span class="op">,</span> FriendlyName<span class="op">,</span> MediaType<span class="op">,</span> OperationalStatus<span class="op">,</span> HealthStatus</span></code></pre></div>
+<ul>
+<li><strong>HealthStatus:</strong> A status of <strong>Healthy</strong>
+indicates the drive is functioning normally. Values like
+<strong>Warning</strong> or <strong>Unhealthy</strong> indicate hardware
+issues.</li>
+<li><strong>OperationalStatus:</strong> Should display
+<strong>OK</strong>. Any other value suggests connectivity or partition
+degradation.</li>
+</ul>
+<hr />
+<h3 id="method-2-inspect-detailed-smart-metrics-and-wear-levels">Method
+2: Inspect Detailed SMART Metrics and Wear Levels</h3>
+<p>For internal NVMe and SATA drives, you can retrieve advanced
+reliability metrics, including temperature, wear percentage (for SSDs),
+and read/write error counts using
+<code>Get-StorageReliabilityCounter</code>.</p>
+<p>Run the following command:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Get-PhysicalDisk <span class="op">|</span> Get-StorageReliabilityCounter <span class="op">|</span> <span class="fu">Select-Object</span> DeviceId<span class="op">,</span> Temperature<span class="op">,</span> Wear<span class="op">,</span> ReadErrorsTotal<span class="op">,</span> WriteErrorsTotal<span class="op">,</span> PowerOnHours</span></code></pre></div>
+<ul>
+<li><strong>Wear:</strong> Displays the percentage of estimated SSD wear
+(0% means a new drive, 100% means the drive has reached its rated
+endurance threshold).</li>
+<li><strong>Temperature:</strong> Displays current operating temperature
+in Celsius.</li>
+<li><strong>ReadErrorsTotal / WriteErrorsTotal:</strong> Any rapidly
+climbing non-zero value may indicate impending drive failure.</li>
+<li><strong>PowerOnHours:</strong> The total lifetime operating hours of
+the drive.</li>
+</ul>
+<hr />
+<h3 id="method-3-check-smart-failure-prediction">Method 3: Check SMART
+Failure Prediction</h3>
+<p>Windows provides a direct query via the Windows Management
+Instrumentation (WMI) framework to see if the drive firmware has flagged
+an imminent hardware failure.</p>
+<p>Run the following command:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Get-CimInstance</span> <span class="op">-</span>Namespace root\wmi <span class="op">-</span>ClassName MSStorageDriver_FailurePredictStatus</span></code></pre></div>
+<ul>
+<li><strong>PredictFailure:</strong> If this returns
+<strong>False</strong>, the drive's built-in SMART diagnostics have not
+detected critical hardware thresholds being breached.</li>
+<li><strong>PredictFailure = True:</strong> The drive's internal
+diagnostics have detected critical hardware degradation. Back up your
+data immediately and replace the drive.</li>
+</ul></article>
+        <div id="comments-container"></div>
+        <script>
+            const utterancesScript = document.createElement('script');
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+        </div>
+    </div>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

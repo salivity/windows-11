@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Identify High CPU Spikes in Windows 11 - windows-11</title>
+    <meta name="description" content="Unexpected CPU spikes in Windows 11 can cause system lag, loud fan noise, and reduced battery life. This guide outlines the most effective built-in tools—including Task Manager, Resource Monitor, and Performance Monitor—to help you track down and ide">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/how-to-identify-high-cpu-spikes-in-windows-11">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="How to Identify High CPU Spikes in Windows 11 - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/how-to-identify-high-cpu-spikes-in-windows-11" />
+    <meta property="og:image" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Unexpected CPU spikes in Windows 11 can cause system lag, loud fan noise, and reduced battery life. This guide outlines the most effective built-in tools—including Task Manager, Resource Monitor, and Performance Monitor—to help you track down and ide" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        
+    <div class="article-layout">
+        <aside id="profile-sidebar" class="profile-column" aria-label="Author Profile"></aside>
+        <div class="article-main-column">
+            <article><h1 id="how-to-identify-high-cpu-spikes-in-windows-11">How to Identify
+High CPU Spikes in Windows 11</h1>
+<p>Unexpected CPU spikes in Windows 11 can cause system lag, loud fan
+noise, and reduced battery life. This guide outlines the most effective
+built-in tools—including Task Manager, Resource Monitor, and Performance
+Monitor—to help you track down and identify the exact background
+processes, software, or system services causing sudden spikes in
+processor usage.</p>
+<hr />
+<h3 id="method-1-check-real-time-usage-with-task-manager">Method 1:
+Check Real-Time Usage with Task Manager</h3>
+<p>Task Manager is the quickest way to spot active programs consuming
+excessive processor power.</p>
+<ol type="1">
+<li>Press <strong>Ctrl + Shift + Esc</strong> to open Task Manager.</li>
+<li>If opened in compact view, click <strong>More details</strong> at
+the bottom.</li>
+<li>In the <strong>Processes</strong> tab, click the
+<strong>CPU</strong> column header to sort all active applications and
+background services from highest to lowest usage.</li>
+<li>Watch the list for a few moments to identify applications that
+repeatedly spike toward high percentages (e.g., 80%–100%).</li>
+<li>To see historical app behavior, switch to the <strong>App
+history</strong> tab from the left sidebar to view which programs have
+used the most CPU time over a longer period.</li>
+</ol>
+<hr />
+<h3 id="method-2-use-resource-monitor-for-granular-analysis">Method 2:
+Use Resource Monitor for Granular Analysis</h3>
+<p>Resource Monitor provides deeper insights than Task Manager, showing
+detailed thread activity and associated services.</p>
+<ol type="1">
+<li>Press <strong>Windows Key + R</strong>, type <code>resmon</code>,
+and press <strong>Enter</strong>.</li>
+<li>Navigate to the <strong>CPU</strong> tab.</li>
+<li>In the <strong>Processes</strong> window, click the <strong>Average
+CPU</strong> or <strong>CPU</strong> column to sort active tasks.</li>
+<li>Check the box next to any suspicious process to filter the lower
+panels (<strong>Services</strong>, <strong>Associated Handles</strong>,
+and <strong>Associated Modules</strong>). This helps determine whether a
+third-party application or a specific Windows service host
+(<code>svchost.exe</code>) is triggering the spike.</li>
+</ol>
+<hr />
+<h3
+id="method-3-track-intermittent-spikes-with-performance-monitor">Method
+3: Track Intermittent Spikes with Performance Monitor</h3>
+<p>If CPU spikes occur intermittently when you are away from the
+computer, Performance Monitor can log CPU activity over time.</p>
+<ol type="1">
+<li>Press <strong>Windows Key + R</strong>, type <code>perfmon</code>,
+and press <strong>Enter</strong>.</li>
+<li>Expand <strong>Data Collector Sets</strong>, right-click
+<strong>User Defined</strong>, select <strong>New</strong>, and choose
+<strong>Data Collector Set</strong>.</li>
+<li>Name your log, choose <strong>Create manually (Advanced)</strong>,
+and click <strong>Next</strong>.</li>
+<li>Select <strong>Performance counter</strong>, click
+<strong>Next</strong>, then click <strong>Add</strong>.</li>
+<li>Select <strong>Processor Information</strong> &gt; <strong>%
+Processor Utility</strong>, select your primary core or
+<code>&lt;All instances&gt;</code>, and click <strong>Add</strong>.</li>
+<li>Set the sample interval (e.g., every 1 to 5 seconds) and save the
+set.</li>
+<li>Right-click your newly created collector set and choose
+<strong>Start</strong> to begin logging background activity.</li>
+</ol>
+<hr />
+<h3 id="method-4-inspect-event-viewer-for-service-failures">Method 4:
+Inspect Event Viewer for Service Failures</h3>
+<p>Repeated background spikes are often caused by services crashing and
+restarting in an endless loop.</p>
+<ol type="1">
+<li>Right-click the <strong>Start menu</strong> and select <strong>Event
+Viewer</strong>.</li>
+<li>Expand <strong>Windows Logs</strong> and click on
+<strong>System</strong> or <strong>Application</strong>.</li>
+<li>Look for <strong>Error</strong> or <strong>Warning</strong> events
+that correspond to the exact timestamps when your CPU spiked.</li>
+<li>Review the event details to find the executable or service name
+responsible for the failure.</li>
+</ol>
+<hr />
+<h3 id="what-to-do-after-finding-the-culprit">What to Do After Finding
+the Culprit</h3>
+<ul>
+<li><strong>High Usage by Third-Party Apps:</strong> Update the software
+to the latest version, run a clean reinstall, or disable unnecessary
+background launch settings in <strong>Task Manager &gt; Startup
+apps</strong>.</li>
+<li><strong>High Usage by System Processes (e.g., Windows Update,
+Antimalware Service Executable):</strong> Allow Windows to complete
+pending updates or scans. If persistent, check for corrupted system
+files by running <code>sfc /scannow</code> in an elevated Command
+Prompt.</li>
+<li><strong>Unrecognized Executables:</strong> Right-click the process
+in Task Manager, select <strong>Open file location</strong>, and run a
+malware scan on the file using Windows Security.</li>
+</ul></article>
+        <div id="comments-container"></div>
+        <script>
+            const utterancesScript = document.createElement('script');
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+        </div>
+    </div>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

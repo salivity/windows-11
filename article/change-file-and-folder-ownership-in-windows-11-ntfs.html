@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change File and Folder Ownership in Windows 11 NTFS - windows-11</title>
+    <meta name="description" content="This guide explains how to take ownership and assign access permissions for files and folders formatted with the NTFS file system in Windows 11. Managing NTFS ownership allows administrators and users to regain control over locked, inaccessible, or legac">
+    <link rel="canonical" href="https://salivity.github.io/windows-11/article/change-file-and-folder-ownership-in-windows-11-ntfs">
+    <link rel="search" type="application/opensearchdescription+xml" title="windows-11" href="/windows-11/opensearch.xml">
+    <link rel="icon" href="/windows-11/favicon.ico">
+    <link rel="stylesheet" href="/windows-11/css/style.css">
+    <link media="print" rel="stylesheet" href="/windows-11/css/print.css">
+    <script src="/windows-11/js/fuse.min.js"></script>
+    <script src="/windows-11/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <script src="/monetize/monetize.js"></script>
+    <script src="/social/social.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Change File and Folder Ownership in Windows 11 NTFS - windows-11" />
+    <meta property="og:url" content="https://salivity.github.io/windows-11/article/change-file-and-folder-ownership-in-windows-11-ntfs" />
+    <meta property="og:image" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/windows-11/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="This guide explains how to take ownership and assign access permissions for files and folders formatted with the NTFS file system in Windows 11. Managing NTFS ownership allows administrators and users to regain control over locked, inaccessible, or legac" />
+    <link rel="manifest" href="/windows-11/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/windows-11/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>windows-11</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="/windows-11/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        
+    <div class="article-layout">
+        <aside id="profile-sidebar" class="profile-column" aria-label="Author Profile"></aside>
+        <div class="article-main-column">
+            <article><h1 id="change-file-and-folder-ownership-in-windows-11-ntfs">Change File
+and Folder Ownership in Windows 11 NTFS</h1>
+<p>This guide explains how to take ownership and assign access
+permissions for files and folders formatted with the NTFS file system in
+Windows 11. Managing NTFS ownership allows administrators and users to
+regain control over locked, inaccessible, or legacy files and configure
+specific Read, Write, or Full Control permissions for designated user
+accounts using either the graphical interface or the command line.</p>
+<hr />
+<h3 id="method-1-using-windows-11-file-explorer-gui">Method 1: Using
+Windows 11 File Explorer (GUI)</h3>
+<h4 id="step-1-take-ownership">Step 1: Take Ownership</h4>
+<ol type="1">
+<li>Open <strong>File Explorer</strong> and navigate to the file or
+folder you want to manage.</li>
+<li>Right-click the item and select <strong>Properties</strong>.</li>
+<li>Go to the <strong>Security</strong> tab and click the
+<strong>Advanced</strong> button near the bottom.</li>
+<li>Next to the <strong>Owner</strong> label at the top, click
+<strong>Change</strong>.</li>
+<li>In the <em>Enter the object name to select</em> box, type your
+Windows username (or <code>Administrators</code> for administrator-wide
+ownership).</li>
+<li>Click <strong>Check Names</strong> to validate the account, then
+click <strong>OK</strong>.</li>
+<li><em>(Optional for folders)</em> Check the box for <strong>Replace
+owner on subcontainers and objects</strong> to apply ownership to all
+files and subfolders within.</li>
+<li>Click <strong>Apply</strong>, then click <strong>OK</strong>.</li>
+</ol>
+<h4 id="step-2-assign-access-permissions">Step 2: Assign Access
+Permissions</h4>
+<ol type="1">
+<li>In the <strong>Properties</strong> window, stay on the
+<strong>Security</strong> tab and click <strong>Edit</strong> (or
+<strong>Advanced</strong> &gt; <strong>Add</strong> for advanced
+permission rules).</li>
+<li>Click <strong>Add</strong> to include a new user or select an
+existing user/group from the list.</li>
+<li>In the lower pane under <strong>Permissions for [User]</strong>,
+check the <strong>Allow</strong> box for <strong>Full control</strong>
+(or select specific permissions such as Modify, Read &amp; execute, or
+Write).</li>
+<li>Click <strong>Apply</strong>, then click <strong>OK</strong> to
+close all dialogue windows.</li>
+</ol>
+<hr />
+<h3 id="method-2-using-command-prompt-cli">Method 2: Using Command
+Prompt (CLI)</h3>
+<p>For faster execution or batch processing, you can use built-in
+Windows command-line utilities.</p>
+<ol type="1">
+<li>Press the <strong>Windows Key</strong>, type <code>cmd</code>,
+right-click <strong>Command Prompt</strong>, and select <strong>Run as
+administrator</strong>.</li>
+<li><strong>Take Ownership:</strong>
+<ul>
+<li>For a single file:
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>takeown <span class="at">/F</span> <span class="st">&quot;C:\Path\To\File.ext&quot;</span></span></code></pre></div></li>
+<li>For a folder and all its contents:
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>takeown <span class="at">/F</span> <span class="st">&quot;C:\Path\To\Folder&quot;</span> <span class="at">/R</span> <span class="at">/D</span> Y</span></code></pre></div></li>
+</ul></li>
+<li><strong>Assign Full Control Permissions:</strong>
+<ul>
+<li>For a single file:
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>icacls <span class="st">&quot;C:\Path\To\File.ext&quot;</span> <span class="at">/grant</span> username:F</span></code></pre></div></li>
+<li>For a folder and all its contents:
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>icacls <span class="st">&quot;C:\Path\To\Folder&quot;</span> <span class="at">/grant</span> username:F <span class="at">/T</span></span></code></pre></div></li>
+</ul></li>
+</ol>
+<p><em>(Replace <code>C:\Path\To\...</code> with the actual file or
+folder path and <code>username</code> with your specific Windows account
+name.)</em></p></article>
+        <div id="comments-container"></div>
+        <script>
+            const utterancesScript = document.createElement('script');
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/windows-11'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+        </div>
+    </div>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="social-links">
+            </ul>
+        </nav>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/windows-11/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/windows-11/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>
